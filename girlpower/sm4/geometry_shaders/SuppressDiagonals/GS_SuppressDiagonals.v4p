@@ -1,0 +1,225 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\SuppressDiagonals\GS_SuppressDiagonals.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+   <BOUNDS height="8835" left="1920" top="1350" type="Window" width="7935">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R10G10B10A2_UNorm">
+   </PIN>
+   <BOUNDS height="100" left="1845" top="7590" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="4500" left="1845" top="7590" type="Box" width="6000">
+   </BOUNDS>
+   <BOUNDS height="4710" left="9900" top="1395" type="Window" width="6225">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="196" dstpinname="g_samLinear" srcnodeid="215" srcpinname="Sampler">
+   </LINK>
+   <LINK dstnodeid="198" dstpinname="Go To Position" srcnodeid="196" srcpinname="Render Time">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="945" top="5010" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="BOX (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="3000" top="2430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution X">
+   </PIN>
+   <PIN pinname="Resolution Y">
+   </PIN>
+   <PIN pinname="SizeXYZ" slicecount="3" values="0.62,0.62,0.62">
+   </PIN>
+   </NODE>
+   <NODE systemname="SPHERE (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="3390" top="3270" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Cycles Y" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="3105" top="6885" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="400">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="254" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="105" top="45" width="3480" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="105" top="45" width="4815" height="1965">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Converts geometry into lines, also suppress diagonals.&cr;&lf;&cr;&lf;This is a simple technique that works quite fine for basic geometry, when we have full triangles we just discard the longest edge, which fits well for box/sphere/grid, for other models we would need another calculation.&cr;&lf;By vux|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="255" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="4905" top="2640" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4905" top="2640" width="1680" height="930">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="RenderNoDiagonals">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   </NODE>
+   <NODE systemname="GS_SuppressDiagonals (DX11.Effect)" filename="GS_SuppressDiagonals.fx" nodename="GS_SuppressDiagonals (DX11.Effect)" componentmode="Hidden" id="233">
+   <BOUNDS type="Node" left="1830" top="6270" width="4155" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="rayposXYZ" visible="1">
+   </PIN>
+   <PIN pinname="raydirXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="cHit" visible="1">
+   </PIN>
+   <PIN pinname="cNoHit" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Technique">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="233" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="255" srcpinname="Output Enum" dstnodeid="233" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="245" srcpinname="Render State" dstnodeid="233" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="1005" y="5768">
+   </LINKPOINT>
+   <LINKPOINT x="1830" y="5768">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="256">
+   <BOUNDS type="Node" left="1575" top="2700" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1575" top="2700" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Next Model|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Counter (Animation)" nodename="Counter (Animation)" componentmode="Hidden" id="257">
+   <BOUNDS type="Node" left="1575" top="3510" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Unlimited">
+   </PIN>
+   <PIN pinname="Up" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="258">
+   <BOUNDS type="Node" left="2835" top="4875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   <PIN pinname="Input 4" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="257" srcpinname="Output" dstnodeid="258" dstpinname="Switch" linkstyle="VHV">
+   <LINKPOINT x="1635" y="4313">
+   </LINKPOINT>
+   <LINKPOINT x="2820" y="4313">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Geometry Out" dstnodeid="258" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Grid (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Grid (DX11.Geometry)" componentmode="Hidden" id="253">
+   <BOUNDS type="Node" left="3180" top="2895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="16">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="16">
+   </PIN>
+   <PIN pinname="Radius">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="253" srcpinname="Geometry Out" dstnodeid="258" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="258" srcpinname="Output" dstnodeid="233" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="256" srcpinname="Y Output Value" dstnodeid="257" dstpinname="Up">
+   </LINK>
+   <LINK srcnodeid="250" srcpinname="Geometry Out" dstnodeid="258" dstpinname="Input 3">
+   </LINK>
+   </PATCH>
