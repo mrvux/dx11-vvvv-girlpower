@@ -1,0 +1,211 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\PerFaceNormals\GS_PerFaceNormals.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+   <BOUNDS height="8835" left="1920" top="1350" type="Window" width="7935">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R10G10B10A2_UNorm">
+   </PIN>
+   <BOUNDS height="100" left="2085" top="8100" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="4500" left="2085" top="8100" type="Box" width="6000">
+   </BOUNDS>
+   <BOUNDS height="6660" left="11040" top="1185" type="Window" width="8235">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="196" dstpinname="g_samLinear" srcnodeid="215" srcpinname="Sampler">
+   </LINK>
+   <LINK dstnodeid="198" dstpinname="Go To Position" srcnodeid="196" srcpinname="Render Time">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="1185" top="5070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="BackCullSimple">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="246">
+   <BOUNDS type="Node" left="4350" top="4590" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" slicecount="1" values="600">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="3.46">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="247">
+   <BOUNDS type="Node" left="4140" top="5280" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Translate XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Scale XYZ" slicecount="3" values="0.3,0.3,0.3">
+   </PIN>
+   <PIN pinname="Rotate XYZ" slicecount="3" values="-0.7,-0.7,-0.7">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Output" dstnodeid="247" dstpinname="Translate XYZ">
+   </LINK>
+   <NODE systemname="BOX (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="3105" top="2265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution X">
+   </PIN>
+   <PIN pinname="Resolution Y">
+   </PIN>
+   <PIN pinname="SizeXYZ" slicecount="3" values="0.62,0.62,0.62">
+   </PIN>
+   </NODE>
+   <NODE systemname="SPHERE (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="3315" top="2790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Cycles Y" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cons (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Geometry)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="3090" top="3915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Geometry Out" dstnodeid="251" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="250" srcpinname="Geometry Out" dstnodeid="251" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="GS_PerFaceNormals (DX11.Effect)" filename="GS_PerFaceNormals.fx" nodename="GS_PerFaceNormals (DX11.Effect)" componentmode="Hidden" id="233">
+   <BOUNDS type="Node" left="2070" top="6330" width="4155" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="rayposXYZ" visible="1">
+   </PIN>
+   <PIN pinname="raydirXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="cHit" visible="1">
+   </PIN>
+   <PIN pinname="cNoHit" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Render">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="247" srcpinname="Transform Out" dstnodeid="233" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="251" srcpinname="Output" dstnodeid="233" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="233" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Isocahedron (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Isocahedron (DX11.Geometry)" componentmode="Hidden" id="253">
+   <BOUNDS type="Node" left="3540" top="3330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution X">
+   </PIN>
+   <PIN pinname="Resolution Y">
+   </PIN>
+   <PIN pinname="Radius">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="253" srcpinname="Geometry Out" dstnodeid="251" dstpinname="Input 3">
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="3345" top="7395" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="400">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="254" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="90" top="120" width="3480" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="90" top="120" width="4815" height="1425">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Demonstrates how to use Geometry Shaders to compute per face (or flat) normals on any geometry&cr;&lf;&cr;&lf;&cr;&lf;By vux|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="255" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="5145" top="2700" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5145" top="2700" width="1680" height="930">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="RenderVertexNormals">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="255" srcpinname="Output Enum" dstnodeid="233" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="245" srcpinname="Render State" dstnodeid="233" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="1245" y="5828">
+   </LINKPOINT>
+   <LINKPOINT x="2070" y="5828">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
