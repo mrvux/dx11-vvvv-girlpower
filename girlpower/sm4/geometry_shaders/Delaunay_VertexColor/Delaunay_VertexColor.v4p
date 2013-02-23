@@ -1,0 +1,343 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\Delaunay_VertexColor\Delaunay_VertexColor.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+   <BOUNDS height="7890" left="1500" top="780" type="Window" width="9615">
+   </BOUNDS>
+   <LINK dstnodeid="196" dstpinname="g_samLinear" srcnodeid="215" srcpinname="Sampler">
+   </LINK>
+   <LINK dstnodeid="198" dstpinname="Go To Position" srcnodeid="196" srcpinname="Render Time">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="222">
+   <BOUNDS type="Node" left="5025" top="5730" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Path" slicecount="1" encoded="0" visible="1" values="assets\Desert.jpg">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" visible="1" values="assets\Desert.jpg">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="225">
+   <BOUNDS type="Node" left="3915" top="6870" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3915" top="6870" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11160" top="810" width="6690" height="4695">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="229">
+   <BOUNDS type="Node" left="3195" top="5550" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
+   </PIN>
+   </NODE>
+   <NODE systemname="Delaunay (2d)" nodename="Delaunay (2d)" componentmode="Hidden" id="231">
+   <BOUNDS type="Node" left="5535" top="2775" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Border X" slicecount="1" values="No">
+   </PIN>
+   <PIN pinname="Border Y" slicecount="1" values="No">
+   </PIN>
+   <PIN pinname="Rebuild" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="232">
+   <BOUNDS type="Node" left="4185" top="1740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="232" srcpinname="X" dstnodeid="231" dstpinname="X" linkstyle="Bezier">
+   <LINKPOINT x="4245" y="2378">
+   </LINKPOINT>
+   <LINKPOINT x="5535" y="2378">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="232" srcpinname="Y" dstnodeid="231" dstpinname="Y" linkstyle="Bezier">
+   <LINKPOINT x="4815" y="2378">
+   </LINKPOINT>
+   <LINKPOINT x="5685" y="2378">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="234">
+   <BOUNDS type="Node" left="2985" top="2715" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="232" srcpinname="X" dstnodeid="234" dstpinname="X" linkstyle="Bezier">
+   <LINKPOINT x="4185" y="2348">
+   </LINKPOINT>
+   <LINKPOINT x="3045" y="2348">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="232" srcpinname="Y" dstnodeid="234" dstpinname="Y" linkstyle="Bezier">
+   <LINKPOINT x="4755" y="2348">
+   </LINKPOINT>
+   <LINKPOINT x="3240" y="2348">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="235">
+   <BOUNDS type="Node" left="6015" top="3525" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="231" srcpinname="Indices" dstnodeid="235" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="5595" y="3278">
+   </LINKPOINT>
+   <LINKPOINT x="6015" y="3278">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="236">
+   <BOUNDS type="Node" left="4380" top="2715" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="232" srcpinname="Y" dstnodeid="236" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="4755" y="2363">
+   </LINKPOINT>
+   <LINKPOINT x="4425" y="2363">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="GaussianSpread (Spreads)" nodename="GaussianSpread (Spreads)" componentmode="Hidden" id="233">
+   <BOUNDS type="Node" left="4185" top="1215" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Width">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="28">
+   </PIN>
+   <PIN pinname="Standard Deviation" slicecount="1" values="1.04">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="239" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="6900" top="2940" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6900" top="2940" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="240" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="8010" top="1845" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8010" top="1845" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Update Every Frame|">
+   </PIN>
+   </NODE>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="241">
+   <BOUNDS type="Node" left="7260" top="3645" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="239" srcpinname="Y Output Value" dstnodeid="241" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="6960" y="3518">
+   </LINKPOINT>
+   <LINKPOINT x="7245" y="3518">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="240" srcpinname="Y Output Value" dstnodeid="241" dstpinname="Input 2" linkstyle="Bezier">
+   <LINKPOINT x="7985" y="2788">
+   </LINKPOINT>
+   <LINKPOINT x="7705" y="3153">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="242" systemname="IOBox (Value Advanced)" debug="0">
+   <BOUNDS type="Node" left="5370" top="660" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5370" top="660" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1500">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Spread Count|">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="10000">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="242" srcpinname="Y Output Value" dstnodeid="233" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="233" srcpinname="Output" dstnodeid="232" dstpinname="XY">
+   </LINK>
+   <NODE systemname="IndexedGeometryBuffer (DX11.Geometry Join)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedGeometryBuffer (DX11.Geometry Join)" componentmode="Hidden" id="228">
+   <BOUNDS type="Node" left="4185" top="4680" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Vertices" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Indices Count" visible="1">
+   </PIN>
+   <PIN pinname="Vertices Count" visible="1">
+   </PIN>
+   <PIN pinname="Topology" slicecount="1" values="TriangleList">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Apply" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="234" srcpinname="XYZW" dstnodeid="228" dstpinname="Vertices" linkstyle="Bezier">
+   <LINKPOINT x="3045" y="3825">
+   </LINKPOINT>
+   <LINKPOINT x="4185" y="3825">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="231" srcpinname="Indices" dstnodeid="228" dstpinname="Indices" linkstyle="Bezier">
+   <LINKPOINT x="5535" y="3863">
+   </LINKPOINT>
+   <LINKPOINT x="4755" y="3863">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="235" srcpinname="Count" dstnodeid="228" dstpinname="Indices Count" linkstyle="Bezier">
+   <LINKPOINT x="6015" y="4223">
+   </LINKPOINT>
+   <LINKPOINT x="5055" y="4223">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="236" srcpinname="Count" dstnodeid="228" dstpinname="Vertices Count" linkstyle="Bezier">
+   <LINKPOINT x="4410" y="3833">
+   </LINKPOINT>
+   <LINKPOINT x="4470" y="3833">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="241" srcpinname="Output" dstnodeid="228" dstpinname="Apply" linkstyle="Bezier">
+   <LINKPOINT x="7445" y="4310">
+   </LINKPOINT>
+   <LINKPOINT x="5410" y="4255">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Delaunay_VertexColor (DX11.Effect)" filename="dx11\Delaunay_VertexColor.fx" nodename="Delaunay_VertexColor (DX11.Effect)" componentmode="Hidden" id="226">
+   <BOUNDS type="Node" left="3900" top="6255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Render">
+   </PIN>
+   <PIN pinname="tex" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="lthr" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="229" srcpinname="Render State" dstnodeid="226" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="3255" y="6023">
+   </LINKPOINT>
+   <LINKPOINT x="3885" y="6023">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="226" srcpinname="Layer" dstnodeid="225" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="222" srcpinname="Texture Out" dstnodeid="226" dstpinname="tex">
+   </LINK>
+   <LINK srcnodeid="228" srcpinname="Geometry Out" dstnodeid="226" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="222" srcpinname="Texture Out" dstnodeid="226" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="243" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5850" top="4695" width="2655" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5850" top="4695" width="2655" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|here we build delaunay as 2d model|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="244" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="75" width="5010" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="75" width="3780" height="1275">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This sample shows how to use texture sampling on geometry shader to simulate per verte color.&cr;&lf;&cr;&lf;By vux|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
