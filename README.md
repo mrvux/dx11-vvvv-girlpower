@@ -18,41 +18,54 @@ Help patches and samples for vvvv and DirectX11 nodes
 
 # How to contribute
 
-Hi, I'm fibo. The following instructions are write to let you, creative people, use the power of git. So if something is wrong please let me know.
+Hi, I'm fibo. The following instructions will let you, creative people, use the power of git. So if something is wrong or you think can be improved please let me know, or even better modify this file your file.
 
-First of all, you need a github account. It should be great that the login you get is similar to your vvvv nick.
+First of all, *you need* a github account! It should be great that the login you get is similar to your vvvv nick.
 
-Then install [GitHub for Windows](http://windows.github.com/) and log in from client.
+Then install [GitHub for Windows](http://windows.github.com/) and log in from client as well as on github site.
 
 You will now create your own copy of this repository, just fork it!
 
-![fork-it!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/ForkIt.png)
+![fork-it!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/ForkIt.png)
 
-It' s time to download your local copy, use the client and clone your repo.
+It' s time to download your own local copy, use the client and clone your repo.
 
-![clone-it!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/CloneIt.png)
+![clone-it!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/CloneIt.png)
 
-You can browse the file easily using explorer.
+After you open the repo with the client, you can browse the file easily using the explorer.
 
-![open-in-explorer!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/OpenInExplorer.png)
+![open-in-explorer!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/OpenInExplorer.png)
 
-Add your stuff, do some modifications and then commit your work. Everything will be saved to your own fork.
+Add your stuff, do some modifications and then commit your work and then click the sync button. Everything will be saved to your own fork.
 
-To let vux add your modifications, you can do a pull request.
+![commit-and-sync!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/CommitAndSync.png)
 
-![pull-request!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/PullRequest.png)
+To let vux know about your modifications, you can do a pull request.
 
-Here is the tricky part, unfortunately I' ve found no way by now to do it with the client.
+![pull-request!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/PullRequest.png)
+
+It will arrive a notification to vux that will merge your modifications to its master repo.
+
+Let me add some advice, that can seem trivial but could save a lot of time:
+
+    * do small modifications, commit often
+    * put some short explicative comment about your commit
+    * comunicate with other contributors, you could discuss about your modification before doing it
+    * please respect conventions, if any :)
+
+So, suppose your contribution was received and it is now part of the official dx11 girlpower or you just want to update your local repo with the last version of the original vux repo.
+
+This is the tricky part, unfortunately I' ve found no way by now to do it with the client.
 
 Don' t panic it will be really easy, just follow my indications and open a shell.
 
-![open-shell!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/OpenShell.png)
+![open-shell!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/OpenShell.png)
 
 Only once, you should set the vux master repository as the upstream. In fact if you do
 
     git remote -v
 
-you will something like
+you will see some output like
 
     origin  https://github.com/fibo/dx11-vvvv-girlpower.git (fetch)
     origin  https://github.com/fibo/dx11-vvvv-girlpower.git (push)
@@ -63,7 +76,7 @@ Add the vux repo as your `upstream`, so you will get the modifications of all th
 
 Remember, this is done only once. Now you have your upstream set properly
 
-![git-remote-v!](https://raw.github.com/fibo/dx11-vvvv-girlpower/master/images/GitRemote.png)
+![git-remote-v!](https://raw.github.com/mrvux/dx11-vvvv-girlpower/master/images/GitRemote.png)
 
 So, now you can refresh your local repo with the latest goodies from the vux repo (the upstream) just typing
 
@@ -71,9 +84,5 @@ So, now you can refresh your local repo with the latest goodies from the vux rep
 
 pretty easy, just use the `ghost in the shell` :)
 
-
-
-
-
-
+I will look for some git hook or transparent user solution to avoid the upstream step.
 
