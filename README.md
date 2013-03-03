@@ -7,14 +7,14 @@ Help patches and samples for vvvv and DirectX11 nodes
 
 # Directories
 
-* girlpower : Various examples to demonstrate features
-    * sm4 : Examples that can run on DirectX10+ hardware
+* [girlpower](https://github.com/mrvux/dx11-vvvv-girlpower/tree/master/girlpower) : Various examples to demonstrate features
+    * [sm4](https://github.com/mrvux/dx11-vvvv-girlpower/tree/master/girlpower/sm4) : Examples that can run on DirectX10+ hardware
     * sm5 : Examples that run only on DirectX11 hardware
 
-* help : Help files
-    * Nodes : Help files for standard nodes
+* [help](https://github.com/mrvux/dx11-vvvv-girlpower/tree/master/help) : Help files
+    * [nodes](https://github.com/mrvux/dx11-vvvv-girlpower/tree/master/help/nodes) : Help files for standard nodes
 
-* dx11 : Basic material shaders with their help files
+* [dx11](https://github.com/mrvux/dx11-vvvv-girlpower/tree/master/dx11) : Basic material shaders with their help files
 
 # How to contribute
 
