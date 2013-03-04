@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Geometry (DX11 Assimp) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p">
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\GeometryFile (DX11.Geometry Assimp) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -79,24 +79,16 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Initial Yaw" visible="1">
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Inital Distance" slicecount="1" values="50">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
    </LINK>
    <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
-   </LINK>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="28">
-   <BOUNDS type="Node" left="6645" top="6330" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Period" slicecount="1" values="20">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
    </LINK>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="46">
    <BOUNDS type="Node" left="3969" top="1215" width="100" height="100">
