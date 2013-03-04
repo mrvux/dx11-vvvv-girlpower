@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
    <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\GouraudDirectional (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
@@ -165,6 +165,8 @@
    </PIN>
    <PIN pinname="Resolution Y" slicecount="1" values="50">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="%VVVV%\directx11\dx11\GouraudDirectional.fx" id="196" nodename="GouraudDirectional (DX11.Effect)" systemname="GouraudDirectional (DX11.Effect)">
    <BOUNDS height="100" left="2520" top="5475" type="Node" width="100">
@@ -224,16 +226,16 @@
    </LINK>
    <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light DirectionXYZ">
    </LINK>
-   <LINK srcnodeid="234" srcpinname="Output" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="930" y="4935">
-   </LINKPOINT>
-   <LINKPOINT x="2670" y="4935">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
    <LINKPOINT x="1035" y="3870">
    </LINKPOINT>
    <LINKPOINT x="2865" y="3870">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="930" y="4935">
+   </LINKPOINT>
+   <LINKPOINT x="2670" y="4935">
    </LINKPOINT>
    </LINK>
    </PATCH>

@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
    <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\PhongPoint (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
@@ -113,9 +113,9 @@
    <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2994" top="2490" width="0" height="0">
+   <BOUNDS type="Node" left="3054" top="2490" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2994" top="2490" width="795" height="720">
+   <BOUNDS type="Box" left="3054" top="2490" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" values="1.23,-0.92,0">
    </PIN>
@@ -141,11 +141,13 @@
    </PIN>
    <PIN pinname="Resolution Y" slicecount="1" values="50">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="236" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3159" top="3570" width="0" height="0">
+   <BOUNDS type="Node" left="3264" top="3570" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3159" top="3570" width="795" height="240">
+   <BOUNDS type="Box" left="3264" top="3570" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.24">
    </PIN>
@@ -155,11 +157,13 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Light Attenuation 0|">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="237" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3309" top="4086" width="0" height="0">
+   <BOUNDS type="Node" left="3459" top="4146" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3309" top="4086" width="795" height="240">
+   <BOUNDS type="Box" left="3459" top="4146" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.31">
    </PIN>
@@ -168,6 +172,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Light Attenuation 1|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="%VVVV%\directx11\dx11\PhongPoint.fx" id="196" nodename="PhongPoint (DX11.Effect)" systemname="PhongPoint (DX11.Effect)">
@@ -211,9 +217,9 @@
    </PIN>
    <PIN pinname="Light PositionXYZ" slicecount="3" visible="1" values="0,5,-2">
    </PIN>
-   <PIN pinname="Light Attenuation 0" slicecount="1" values="0">
+   <PIN pinname="Light Attenuation 0" slicecount="1" values="0" visible="1">
    </PIN>
-   <PIN pinname="Light Attenuation 1" slicecount="1" values="0.300000011920929">
+   <PIN pinname="Light Attenuation 1" slicecount="1" values="0.300000011920929" visible="1">
    </PIN>
    <PIN pinname="Light Range" slicecount="1" values="10">
    </PIN>
@@ -222,16 +228,22 @@
    </NODE>
    <LINK dstnodeid="195" dstpinname="Layers" srcnodeid="196" srcpinname="Layer">
    </LINK>
-   <LINK srcnodeid="234" srcpinname="Output" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="930" y="4935">
-   </LINKPOINT>
-   <LINKPOINT x="2670" y="4935">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
    <LINKPOINT x="1035" y="3870">
    </LINKPOINT>
    <LINKPOINT x="2865" y="3870">
    </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="930" y="4935">
+   </LINKPOINT>
+   <LINKPOINT x="2700" y="4935">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="237" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light Attenuation 1">
+   </LINK>
+   <LINK srcnodeid="236" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light Attenuation 0">
+   </LINK>
+   <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light PositionXYZ">
    </LINK>
    </PATCH>
