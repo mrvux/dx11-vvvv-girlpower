@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\LineStrip (DX11.Geometry) help.v4p" systemname="LineStrip (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\LineStrip (DX11.Geometry) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\LineStrip (DX11.Geometry) help.v4p" systemname="LineStrip (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\LineStrip (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -79,13 +79,9 @@
    </PIN>
    <PIN pinname="Vertices Bin Size" slicecount="1" values="8">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="2340" y="5483">
-   </LINKPOINT>
-   <LINKPOINT x="3765" y="5483">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="4266" top="1845" width="0" height="0">
    </BOUNDS>
@@ -119,7 +115,7 @@
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="48">
    <BOUNDS type="Node" left="1740" top="3360" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Spread Count" slicecount="1" values="16" visible="1">
+   <PIN pinname="Spread Count" slicecount="1" visible="1" values="16">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -270,6 +266,12 @@
    <LINKPOINT x="2835" y="2055">
    </LINKPOINT>
    <LINKPOINT x="3300" y="2055">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="2340" y="5483">
+   </LINKPOINT>
+   <LINKPOINT x="3765" y="5483">
    </LINKPOINT>
    </LINK>
    </PATCH>

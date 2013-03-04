@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\WithinProjection (DX11 Layer) help.v4p" systemname="Box (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Box (DX11.Geometry) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\RenderState (DX11 Layer) help.v4p" systemname="Box (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Box (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Indicates to the layer that view and projection from the renderer needs to be ignored.|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Allows to modify render state at layer level.&cr;&lf;Any upwards layer node without a state connected will inherit this state|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -25,7 +25,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|WithinProjection DX11 Layer|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|RenderState DX11.Layer|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -119,13 +119,9 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="615" y="3188">
-   </LINKPOINT>
-   <LINKPOINT x="2025" y="3188">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="570" top="1380" width="0" height="0">
    </BOUNDS>
@@ -146,14 +142,104 @@
    </NODE>
    <LINK srcnodeid="36" srcpinname="Y Output Value" dstnodeid="20" dstpinname="SizeXYZ">
    </LINK>
-   <NODE systemname="Group (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11)" componentmode="Hidden" id="38">
+   <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\directx11\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="5895" top="3480" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="46">
+   <BOUNDS type="Node" left="6945" top="1905" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" slicecount="1" values="60">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="5.34">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="6765" top="2580" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Translate XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Output" dstnodeid="45" dstpinname="Translate XYZ">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Transform Out" dstnodeid="47" dstpinname="Transform In" linkstyle="VHV">
+   <LINKPOINT x="7220" y="3123">
+   </LINKPOINT>
+   <LINKPOINT x="5815" y="3178">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="6045" top="1500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Radius" slicecount="1" values="1.41">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="47" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="4230" top="4215" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="Add">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="50">
+   <BOUNDS type="Node" left="4248" top="3615" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Render State" dstnodeid="49" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="RenderState (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="RenderState (DX11.Layer)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="4245" top="4890" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Layer" dstnodeid="37" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="5895" y="4305">
+   </LINKPOINT>
+   <LINKPOINT x="4740" y="4305">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Render State" dstnodeid="37" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="615" y="3188">
+   </LINKPOINT>
+   <LINKPOINT x="2025" y="3188">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="38">
    <BOUNDS type="Node" left="2595" top="5805" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer 1" visible="1">
    </PIN>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
-   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   <PIN pinname="Layer 2" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="38" dstpinname="Layer 1" linkstyle="Bezier">
@@ -164,56 +250,10 @@
    </LINK>
    <LINK srcnodeid="38" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\directx11\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="47">
-   <BOUNDS type="Node" left="5325" top="4155" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="52">
-   <BOUNDS type="Node" left="5475" top="3330" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Inner Radius" slicecount="1" values="0.86">
-   </PIN>
-   <PIN pinname="Resolution" slicecount="1" values="58">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="52" srcpinname="Output" dstnodeid="47" dstpinname="Geometry">
-   </LINK>
-   <NODE id="51" systemname="WithinProjection (DX11 Layer)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="WithinProjection (DX11 Layer)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <PIN pinname="Layer In" visible="1" pintype="Input">
-   </PIN>
-   <BOUNDS type="Node" left="5325" top="4755" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer Out" visible="1" pintype="Output">
-   </PIN>
-   <BOUNDS type="Box" left="0" top="0" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Enabled" pintype="Input" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Window Handle" pintype="Output">
-   </PIN>
-   <PIN pinname="ID" pintype="Output" visible="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="51" srcpinname="Layer Out" dstnodeid="38" dstpinname="Layer 2" linkstyle="Bezier">
-   <LINKPOINT x="5325" y="5400">
+   <LINK srcnodeid="37" srcpinname="Layer Out" dstnodeid="38" dstpinname="Layer 2" linkstyle="Bezier">
+   <LINKPOINT x="4245" y="5468">
    </LINKPOINT>
-   <LINKPOINT x="3015" y="5400">
+   <LINKPOINT x="3015" y="5468">
    </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="47" srcpinname="Layer" dstnodeid="51" dstpinname="Layer In">
    </LINK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Quad (DX11.Geometry) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Quad (DX11.Geometry) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -97,15 +97,17 @@
    <LINK srcnodeid="29" srcpinname="Output" dstnodeid="30" dstpinname="Translate XYZ">
    </LINK>
    <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="2280" top="2760" width="2025" height="270">
+   <BOUNDS type="Node" left="3210" top="2355" width="2025" height="270">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2295" top="1770" width="0" height="0">
+   <BOUNDS type="Node" left="3225" top="1365" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2295" top="1770" width="795" height="480">
+   <BOUNDS type="Box" left="3225" top="1365" width="795" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="2" values="1,1">
    </PIN>
@@ -146,10 +148,24 @@
    <LINKPOINT x="3975" y="3428">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="2340" y="3338">
+   <LINK srcnodeid="20" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="2960" y="3068">
    </LINKPOINT>
-   <LINKPOINT x="3750" y="3338">
+   <LINKPOINT x="4075" y="3203">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="46">
+   <BOUNDS type="Node" left="1845" top="2895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Render State" dstnodeid="19" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="1905" y="3405">
+   </LINKPOINT>
+   <LINKPOINT x="3600" y="3405">
    </LINKPOINT>
    </LINK>
    </PATCH>
