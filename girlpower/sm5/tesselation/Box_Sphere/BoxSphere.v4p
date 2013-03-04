@@ -1,0 +1,347 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm5\tesselation\Box_Sphere\BoxSphere.v4p" filename="C:\Users\utente\Desktop\CubicBézierSpline\CubicBézierSpline_ROOT.v4p" systemname="CubicBézierSpline_ROOT">
+   <BOUNDS height="10665" left="1260" top="165" type="Window" width="8685">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="0" nodename="Renderer (DX11)" stayontop="0" systemname="RENDERER (DX11)">
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <BOUNDS height="100" left="1890" top="9120" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="2760" left="1890" top="9120" type="Box" width="3570">
+   </BOUNDS>
+   <BOUNDS height="5085" left="9945" top="150" type="Window" width="6405">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Actual BackBuffer SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R10G10B10A2_UNorm">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="136">
+   <BOUNDS type="Node" left="3135" top="8445" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="-0.09">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="0.42">
+   </PIN>
+   <PIN pinname="Distortion" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="147" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="6195" top="6345" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6195" top="6345" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0.177145381435514">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Morph">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="BoxSphere.fx" id="126" nodename="BoxSphere (DX11.Effect)" systemname="BoxSphere (DX11.Effect)">
+   <BOUNDS height="270" left="1875" top="7650" type="Node" width="4980">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="tessFactor">
+   </PIN>
+   <PIN pinname="Error Messages" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="edgesXYZW" visible="1">
+   </PIN>
+   <PIN pinname="insideXY" visible="1">
+   </PIN>
+   <PIN pinname="Technique" visible="1" slicecount="1" values="Tess">
+   </PIN>
+   <PIN pinname="lrp" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="str">
+   </PIN>
+   <PIN pinname="freq">
+   </PIN>
+   <PIN pinname="offsetXYZ">
+   </PIN>
+   <PIN pinname="disp">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="texnorm" visible="1">
+   </PIN>
+   <PIN pinname="ns">
+   </PIN>
+   <PIN pinname="tex" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="thr">
+   </PIN>
+   <PIN pinname="fmul">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Morph" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="147" srcpinname="Y Output Value" dstnodeid="126" dstpinname="lrp">
+   </LINK>
+   <LINK srcnodeid="148" srcpinname="Y Output Value" dstnodeid="126" dstpinname="str">
+   </LINK>
+   <LINK srcnodeid="149" srcpinname="Y Output Value" dstnodeid="126" dstpinname="freq">
+   </LINK>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="126" dstpinname="offsetXYZ">
+   </LINK>
+   <LINK srcnodeid="160" srcpinname="Y Output Value" dstnodeid="126" dstpinname="disp">
+   </LINK>
+   <LINK srcnodeid="165" srcpinname="Texture" dstnodeid="126" dstpinname="texnorm">
+   </LINK>
+   <LINK srcnodeid="168" srcpinname="Y Output Value" dstnodeid="126" dstpinname="ns">
+   </LINK>
+   <LINK srcnodeid="126" srcpinname="Layer" dstnodeid="0" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="170">
+   <BOUNDS type="Node" left="6165" top="5085" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Period" slicecount="1" values="20">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="WaveShaper (Value)" nodename="WaveShaper (Value)" componentmode="Hidden" id="171">
+   <BOUNDS type="Node" left="6180" top="5580" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Shape" slicecount="1" values="Sine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="170" srcpinname="Output" dstnodeid="171" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="136" srcpinname="View" dstnodeid="0" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="136" srcpinname="Projection" dstnodeid="0" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Topology (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Topology (DX11.Geometry)" componentmode="Hidden" id="134">
+   <BOUNDS type="Node" left="1455" top="4440" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Topology" slicecount="1" values="PatchListWith3ControlPoints">
+   </PIN>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="134" srcpinname="Geometry Out" dstnodeid="126" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="1500" y="6180">
+   </LINKPOINT>
+   <LINKPOINT x="2715" y="6180">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="181" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="1785" top="2460" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1785" top="2460" width="3825" height="390">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="PatchListWith3ControlPoints">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="13">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="181" srcpinname="Output Enum" dstnodeid="134" dstpinname="Topology">
+   </LINK>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="183">
+   <BOUNDS type="Node" left="885" top="3720" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="183" srcpinname="Geometry Out" dstnodeid="134" dstpinname="Geometry In" linkstyle="VHV">
+   <LINKPOINT x="945" y="4200">
+   </LINKPOINT>
+   <LINKPOINT x="1440" y="4200">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="147" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Morph" linkstyle="VHV">
+   <LINKPOINT x="6210" y="7370">
+   </LINKPOINT>
+   <LINKPOINT x="5175" y="6865">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="147" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="184" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4335" top="5730" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4335" top="5730" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Tesselation Factor|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Tesselation Factor">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="185">
+   <BOUNDS type="Node" left="2730" top="3330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="5">
+   </PIN>
+   </NODE>
+   <NODE systemname="WaveShaper (Value)" nodename="WaveShaper (Value)" componentmode="Hidden" id="186">
+   <BOUNDS type="Node" left="2730" top="3945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Shape" slicecount="1" values="Triangle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="185" srcpinname="Output" dstnodeid="186" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Map (Value)" nodename="Map (Value)" componentmode="Hidden" id="187">
+   <BOUNDS type="Node" left="3555" top="4860" width="1785" height="270">
+   </BOUNDS>
+   <PIN pinname="Destination Minimum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Destination Maximum" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="186" srcpinname="Output" dstnodeid="187" dstpinname="Input" linkstyle="VHV">
+   <LINKPOINT x="2790" y="4523">
+   </LINKPOINT>
+   <LINKPOINT x="3540" y="4523">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="187" srcpinname="Output" dstnodeid="184" dstpinname="Y Input Value" linkstyle="VHV">
+   <LINKPOINT x="3615" y="5415">
+   </LINKPOINT>
+   <LINKPOINT x="4320" y="5415">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="188" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4935" top="3570" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4935" top="3570" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Destination Maximum|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="188" srcpinname="Y Output Value" dstnodeid="187" dstpinname="Destination Maximum">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="189" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4575" top="3120" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4575" top="3120" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Destination Minimum|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="189" srcpinname="Y Output Value" dstnodeid="187" dstpinname="Destination Minimum">
+   </LINK>
+   <NODE id="128" componentmode="Hidden" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" systemname="Rasterizer (DX11.RenderState)">
+   <BOUNDS type="Node" height="100" left="1035" top="6900" width="100">
+   </BOUNDS>
+   <PIN pinname="Render State" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="BackCullWireframe">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Render State" dstnodeid="126" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="1100" y="7418">
+   </LINKPOINT>
+   <LINKPOINT x="1855" y="7373">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="190" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="330" top="0" width="3795" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="330" top="0" width="3990" height="1695">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This sample shows how to morph a box to a sphere.&cr;&lf;&cr;&lf;Using tesselation we dynamically increase box resolution.&cr;&lf;&cr;&lf;by vux&cr;&lf;julien@mrvux.com|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="191" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1395" top="1815" width="7455" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1395" top="1815" width="4485" height="585">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|To tesselate we need to set geometry as patchlist, since we send triangles we also have 3 control points|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="192" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5745" top="3225" width="4800" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5745" top="3225" width="2775" height="1200">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Tesselation goes from 0 (discard patch), to 64 elements per patch|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
