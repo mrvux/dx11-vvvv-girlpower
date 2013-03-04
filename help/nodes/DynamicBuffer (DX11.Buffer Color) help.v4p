@@ -1,0 +1,211 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\DynamicBuffer (DX11.Buffer Color) help.v4p" systemname="Box (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Box (DX11.Geometry) help.v4p">
+   <BOUNDS height="5985" left="1515" top="2835" type="Window" width="14610">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="15" top="390" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="1095" left="15" top="390" type="Box" width="4470">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Builds a dynamic buffer from Color data&cr;&lf;&cr;&lf;This buffer can then be used in shaders from:&cr;&lf;StructuredBuffer&lt;float4&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="0" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="15" top="15" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="360" left="15" top="15" type="Box" width="4410">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|DynamicBuffer (DX11.buffer Color)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="39" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2820" top="2445" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2820" top="2445" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Keep In Memory|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4095" top="2970" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4095" top="2970" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Apply">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="41" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2415" top="1860" width="1695" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2415" top="1860" width="1695" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Data to send to buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="42" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3345" top="2385" width="5850" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3345" top="2385" width="3270" height="465">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|If unlinked (from patch or from a switch, keeps the buffer in gpu memory anyway)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="43" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4740" top="2985" width="1680" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4740" top="2985" width="1680" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Update buffer content|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="7680" top="2445" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7680" top="2445" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Element Count|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="49" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10350" top="3750" width="405" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10350" top="3750" width="4230" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- With &quot;Fixed Spread Count&quot; Configuration Pin Enabled|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="50" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8655" top="2400" width="6195" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8655" top="2400" width="3930" height="480">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- In that case, buffer will either be truncated or filled to this specific element count|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="1545" top="3765" width="2610" height="270">
+   </BOUNDS>
+   <PIN pinname="DataXYZ" visible="1">
+   </PIN>
+   <PIN pinname="DataXYZW" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Keep In Memory">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Apply">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="51" systemname="IOBox (Color)">
+   <BOUNDS type="Node" left="1545" top="1620" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1545" top="1620" width="900" height="510">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|0.00000,1.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Data">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Color Output" dstnodeid="37" dstpinname="Data">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="7680" top="3750" width="2535" height="270">
+   </BOUNDS>
+   <PIN pinname="Fixed Spread Count" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="DataXY" visible="1">
+   </PIN>
+   <PIN pinname="Keep In Memory" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="DataXYZ" visible="1">
+   </PIN>
+   <PIN pinname="DataXYZW" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="44" dstpinname="Element Count">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="52" systemname="IOBox (Color)">
+   <BOUNDS type="Node" left="8520" top="1560" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8520" top="1560" width="1260" height="375">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|0.00000,1.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Data">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Color Output" dstnodeid="44" dstpinname="Data">
+   </LINK>
+   </PATCH>
