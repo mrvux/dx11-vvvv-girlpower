@@ -1,0 +1,255 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\PointSprites\GS_PointSprites.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+   <BOUNDS height="8820" left="480" top="315" type="Window" width="9975">
+   </BOUNDS>
+   <NODE componentmode="Hidden" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="133" nodename="FileTexture (DX11 2d)" systemname="FileTexture (DX11 2d)">
+   <BOUNDS height="100" left="4140" top="4740" type="Node" width="100">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Path" slicecount="1" values="|halo dot.bmp|">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" values="|halo dot.bmp|">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="183" nodename="Renderer (DX11)" systemname="Renderer (DX11)">
+   <PIN pinname="Depth Buffer Format">
+   </PIN>
+   <BOUNDS height="100" left="1050" top="7635" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Target Format">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Texture SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Generate Mip Maps">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Texture Input Mode">
+   </PIN>
+   <BOUNDS type="Window" left="10695" top="345" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="GS_PointSprites.fx" id="127" nodename="GS_PointSprites (DX11.Effect)" systemname="GS_PointSprites (DX11.Effect)">
+   <BOUNDS height="270" left="1080" top="5835" type="Node" width="4320">
+   </BOUNDS>
+   <PIN pinname="Technique" slicecount="1" values="RenderParticles">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="g_txDiffuse" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="g_mInvView" visible="1">
+   </PIN>
+   <PIN pinname="scale" visible="1">
+   </PIN>
+   <PIN pinname="Render State" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="time" visible="1">
+   </PIN>
+   <PIN pinname="radius" slicecount="1" values="2.09">
+   </PIN>
+   <PIN pinname="cntsqr" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="f1" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="f2" visible="1">
+   </PIN>
+   <PIN pinname="fade" visible="1">
+   </PIN>
+   <PIN pinname="RipplesAmp" visible="1">
+   </PIN>
+   <PIN pinname="RipplesTime" visible="1">
+   </PIN>
+   <PIN pinname="RipplesFreq" visible="1">
+   </PIN>
+   <PIN pinname="col" visible="1">
+   </PIN>
+   <PIN pinname="CyclesU" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="CyclesV" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Path" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Do Save" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Sprite Color" visible="1" slicecount="1" values="|0.28288,0.27200,0.40800,1.00000|">
+   </PIN>
+   <PIN pinname="Sprite Size" slicecount="1" values="0.06">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="127" srcpinname="Layer" dstnodeid="183" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="133" srcpinname="Texture Out" dstnodeid="127" dstpinname="g_txDiffuse">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="218">
+   <BOUNDS type="Node" left="2325" top="6825" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="218" srcpinname="View" dstnodeid="183" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="218" srcpinname="Projection" dstnodeid="183" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="133" srcpinname="Texture Out" dstnodeid="127" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="HSV (Color Join)" id="221" systemname="HSV (Color Join)">
+   <PIN pinname="Hue" slicecount="1" values="0.68">
+   </PIN>
+   <PIN pinname="Saturation" slicecount="1" values="0.333333333333333">
+   </PIN>
+   <PIN pinname="Value" slicecount="1" values="0.408">
+   </PIN>
+   <PIN pinname="Alpha" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Node" left="3525" top="5235" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="221" srcpinname="Output" dstnodeid="127" dstpinname="Sprite Color">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2895" top="4635" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2895" top="4635" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.25">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Sprite Size|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="127" dstpinname="Sprite Size">
+   </LINK>
+   <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="223">
+   <BOUNDS type="Node" left="1695" top="2265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Radius" slicecount="1" values="2.9">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="30">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="30">
+   </PIN>
+   </NODE>
+   <NODE systemname="PerVertexDrawer (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PerVertexDrawer (DX11.Drawer)" componentmode="Hidden" id="224">
+   <BOUNDS type="Node" left="1680" top="2850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="223" srcpinname="Geometry Out" dstnodeid="224" dstpinname="Geometry In">
+   </LINK>
+   <NODE systemname="Topology (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Topology (DX11.Geometry)" componentmode="Hidden" id="225">
+   <BOUNDS type="Node" left="1680" top="3900" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Topology" slicecount="1" values="PointList">
+   </PIN>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="224" srcpinname="Geometry Out" dstnodeid="225" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="225" srcpinname="Geometry Out" dstnodeid="127" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="226">
+   <BOUNDS type="Node" left="600" top="5175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Add">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="226" srcpinname="Render State" dstnodeid="127" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="660" y="5625">
+   </LINKPOINT>
+   <LINKPOINT x="1065" y="5625">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="227" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="180" top="105" width="4935" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="180" top="105" width="4095" height="1890">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This samples shows how to do point sprites using geometry shader.&cr;&lf;&cr;&lf;Model data is sent as point list, and every vertex is then expanded as a quad.&cr;&lf;&cr;&lf;by vux&cr;&lf;julien@mrvux.com|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="228" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="2010" top="3540" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2010" top="3540" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="PointList">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Topology">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="228" srcpinname="Output Enum" dstnodeid="225" dstpinname="Topology">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="229" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3015" top="2805" width="6045" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3015" top="2805" width="4575" height="720">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Here we specify we want to ignore index buffer, and draw each vertex only once|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="230" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3675" top="3540" width="7950" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3675" top="3540" width="5400" height="675">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- We also need to tell that we want to draw geometry as points, not triangles, since GS will handle extrusion|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
