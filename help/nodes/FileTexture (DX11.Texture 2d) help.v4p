@@ -1,0 +1,239 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\FileTexture (DX11.Texture 2d) help.v4p" systemname="Renderer (DX11) help" filename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Renderer (DX11) help.v4p">
+   <BOUNDS type="Window" left="1755" top="480" width="11850" height="9810">
+   </BOUNDS>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="0">
+   <BOUNDS type="Node" left="1470" top="6270" width="1950" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1470" top="6270" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13635" top="480" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Touch Data" visible="1">
+   </PIN>
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Clear" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Clear Depth" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Background Color" visible="1" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Fullscreen" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Aspect Ratio" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="ViewPort" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="2" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="45" top="15" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="345" left="45" top="15" type="Box" width="4410">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|FileTexture (DX11 2d)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="2610" top="4110" width="4530" height="270">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="1" values="..\..\..\dx11-vvvv\Deploy\Release\x86\build\lib\assets\images\wimp.jpg">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="1110" top="1650" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="1095" top="2430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="lib\assets\images\wimp.jpg">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Output" dstnodeid="34" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\DX11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="1485" top="5415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Layer" dstnodeid="0" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Texture Out" dstnodeid="35" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="1095" top="4695" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="35" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="1155" y="5175">
+   </LINKPOINT>
+   <LINKPOINT x="1635" y="5175">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="37" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3750" top="1815" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3750" top="1815" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Load In Background|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Load In Background">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4830" top="2535" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4830" top="2535" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Reload">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Reload">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="32" dstpinname="Filename" linkstyle="VHV">
+   <LINKPOINT x="1155" y="3390">
+   </LINKPOINT>
+   <LINKPOINT x="2595" y="3390">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="5940" top="3225" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5940" top="3225" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Keep In Memory|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Keep In Memory">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="41" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="120" top="435" width="1665" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="120" top="435" width="1665" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Loads image from file|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="42" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4275" top="1905" width="3435" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4275" top="1905" width="3435" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Load in background thread instead of blocking|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="43" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5400" top="2655" width="1260" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5400" top="2655" width="1260" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Reloads texture|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="44" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6525" top="3180" width="10695" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6525" top="3180" width="3960" height="780">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|If output is disconnected on not in use (switch for example), we still keep the texture in memory, so it doesn&apos;t need to load it again we we switch back|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>

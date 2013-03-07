@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
    <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\ConstantInstanced (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
@@ -121,13 +121,15 @@
    </PIN>
    <PIN pinname="Resolution Y" slicecount="1" values="50">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="%VVVV%\directx11\dx11\ConstantInstanced.fx" id="196" nodename="ConstantInstanced (DX11.Effect)" systemname="ConstantInstanced (DX11.Effect)">
    <BOUNDS height="270" left="2640" top="6405" type="Node" width="2865">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -171,48 +173,14 @@
    </PIN>
    <PIN pinname="Light Attenuation 2">
    </PIN>
-   <PIN pinname="sbColor" visible="1">
+   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="colorcount" slicecount="1" visible="1" values="1">
    </PIN>
-   <PIN pinname="sbWorld" visible="1">
+   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK dstnodeid="195" dstpinname="Layers" srcnodeid="196" srcpinname="Layer">
-   </LINK>
-   <NODE systemname="DynamicBuffer (DX11 Color)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11 Color)" componentmode="Hidden" id="238">
-   <BOUNDS type="Node" left="6480" top="4665" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Data" slicecount="1" visible="1" values="|1.00000,0.00879,0.00000,1.00000|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="238" srcpinname="Buffer" dstnodeid="196" dstpinname="sbColor" linkstyle="Bezier">
-   <LINKPOINT x="6480" y="5655">
-   </LINKPOINT>
-   <LINKPOINT x="4800" y="5655">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="DynamicBuffer (DX11 Transform)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11 Transform)" componentmode="Hidden" id="239">
-   <BOUNDS type="Node" left="3240" top="3885" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Data" visible="1">
-   </PIN>
-   <PIN pinname="Buffer" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="239" dstpinname="Data" linkstyle="Bezier">
-   <LINKPOINT x="2680" y="3735">
-   </LINKPOINT>
-   <LINKPOINT x="3215" y="3570">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="239" srcpinname="Buffer" dstnodeid="196" dstpinname="sbWorld" linkstyle="Bezier">
-   <LINKPOINT x="3300" y="5280">
-   </LINKPOINT>
-   <LINKPOINT x="4395" y="5280">
-   </LINKPOINT>
    </LINK>
    <NODE systemname="Count (Node)" nodename="Count (Node)" componentmode="Hidden" id="240">
    <BOUNDS type="Node" left="1884" top="4740" width="100" height="100">
@@ -226,32 +194,6 @@
    <LINKPOINT x="2620" y="4163">
    </LINKPOINT>
    <LINKPOINT x="1895" y="3998">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="IndexedInstancer (DX11 Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedInstancer (DX11 Geometry)" componentmode="Hidden" id="241">
-   <BOUNDS type="Node" left="1335" top="5430" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="234" srcpinname="Output" dstnodeid="241" dstpinname="Geometry In" linkstyle="Bezier">
-   <LINKPOINT x="885" y="5228">
-   </LINKPOINT>
-   <LINKPOINT x="1320" y="5228">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="240" srcpinname="Count" dstnodeid="241" dstpinname="Instance Count">
-   </LINK>
-   <LINK srcnodeid="241" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="1395" y="6038">
-   </LINKPOINT>
-   <LINKPOINT x="2985" y="6038">
    </LINKPOINT>
    </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="242">
@@ -273,8 +215,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="242" srcpinname="Output" dstnodeid="244" dstpinname="Hue">
-   </LINK>
-   <LINK srcnodeid="244" srcpinname="Output" dstnodeid="238" dstpinname="Data">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="245" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="5820" top="2160" width="0" height="0">
@@ -338,4 +278,66 @@
    <PIN pinname="Size" slicecount="1" values="12">
    </PIN>
    </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="239">
+   <BOUNDS type="Node" left="3240" top="3885" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="239" dstpinname="Data" linkstyle="Bezier">
+   <LINKPOINT x="2680" y="3735">
+   </LINKPOINT>
+   <LINKPOINT x="3215" y="3570">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="239" srcpinname="Buffer" dstnodeid="196" dstpinname="sbWorld" linkstyle="Bezier">
+   <LINKPOINT x="3300" y="5280">
+   </LINKPOINT>
+   <LINKPOINT x="4395" y="5280">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IndexedInstancer (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedInstancer (DX11.Drawer)" componentmode="Hidden" id="241">
+   <BOUNDS type="Node" left="1335" top="5430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="240" srcpinname="Count" dstnodeid="241" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="241" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="1395" y="6038">
+   </LINKPOINT>
+   <LINKPOINT x="2985" y="6038">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="241" dstpinname="Geometry In" linkstyle="Bezier">
+   <LINKPOINT x="885" y="5228">
+   </LINKPOINT>
+   <LINKPOINT x="1320" y="5228">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="238">
+   <BOUNDS type="Node" left="6480" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="238" srcpinname="Buffer" dstnodeid="196" dstpinname="sbColor" linkstyle="Bezier">
+   <LINKPOINT x="6480" y="5655">
+   </LINKPOINT>
+   <LINKPOINT x="4800" y="5655">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="244" srcpinname="Output" dstnodeid="238" dstpinname="Data">
+   </LINK>
    </PATCH>

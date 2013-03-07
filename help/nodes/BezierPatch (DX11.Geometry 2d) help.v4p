@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\BezierPatch (DX11.Geometry 2d) help.v4p" systemname="BezierPatch (DX11.Geometry 2d) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\BezierPatch (DX11.Geometry 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\BezierPatch (DX11.Geometry 2d) help.v4p" systemname="BezierPatch (DX11.Geometry 2d) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\BezierPatch (DX11.Geometry 2d) help.v4p">
    <BOUNDS height="9645" left="1470" top="540" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -63,6 +63,8 @@
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Alpha" visible="1" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE systemname="BezierPatch (DX11.Geometry 2d)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="BezierPatch (DX11.Geometry 2d)" componentmode="Hidden" id="57">
    <BOUNDS type="Node" left="3240" top="4890" width="100" height="100">
@@ -83,27 +85,13 @@
    </PIN>
    <PIN pinname="Patch Id" visible="1">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="19" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="4125" y="5955">
-   </LINKPOINT>
-   <LINKPOINT x="4560" y="5955">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="59">
-   <BOUNDS type="Node" left="2835" top="5970" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   <PIN pinname="Grid ResolutionXY" slicecount="2" values="4,4" visible="1">
    </PIN>
-   <PIN pinname="Mode" slicecount="1" values="FrontCullWireframe">
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Control Point ResolutionXY" slicecount="2" values="3,3">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Render State" dstnodeid="19" dstpinname="Render State" linkstyle="VHV">
-   <LINKPOINT x="2895" y="6480">
-   </LINKPOINT>
-   <LINKPOINT x="4380" y="6480">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="60" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="3894" top="3915" width="0" height="0">
    </BOUNDS>
@@ -123,6 +111,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="ResXY">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="57" dstpinname="ResXY">
    </LINK>
@@ -139,25 +129,11 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="18" values="-0.32,0.17,0,0,0,0,0,0,0,0,0,0,0,0,0.06,-0.1,0.27,0">
+   <PIN pinname="Y Input Value" slicecount="18" values="0.1,0.17,0,0,0,0,0,0,0,0,0,0,0,0,0.06,-0.1,0.27,0">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Control PointsXY|">
    </PIN>
    </NODE>
-   <NODE systemname="Group (DX11)" nodename="Group (DX11)" componentmode="Hidden" id="65" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="4200" top="7425" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer Out" visible="1">
-   </PIN>
-   <PIN pinname="Layer 1" visible="1">
-   </PIN>
-   <PIN pinname="Layer 2" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="65" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
-   </LINK>
-   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 1">
-   </LINK>
    <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\directx11\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="66">
    <BOUNDS type="Node" left="6645" top="6780" width="100" height="100">
    </BOUNDS>
@@ -172,26 +148,6 @@
    <PIN pinname="Color" visible="1" slicecount="18" values="|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="66" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 2" linkstyle="VHV">
-   <LINKPOINT x="6645" y="7223">
-   </LINKPOINT>
-   <LINKPOINT x="4620" y="7223">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="6060" top="5850" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="SizeXY" slicecount="2" values="1,1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="66" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="6120" y="6435">
-   </LINKPOINT>
-   <LINKPOINT x="6795" y="6435">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="69">
    <BOUNDS type="Node" left="6936" top="5835" width="100" height="100">
    </BOUNDS>
@@ -257,5 +213,51 @@
    </LINKPOINT>
    <LINKPOINT x="4155" y="4665">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="65" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="4200" top="7425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="65" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="66" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 2" linkstyle="VHV">
+   <LINKPOINT x="6645" y="7223">
+   </LINKPOINT>
+   <LINKPOINT x="4620" y="7223">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="3255" top="5790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="BackCullWireframe">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="76" srcpinname="Render State" dstnodeid="19" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="77">
+   <BOUNDS type="Node" left="6000" top="5850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="77" srcpinname="Geometry Out" dstnodeid="66" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="6060" y="6435">
+   </LINKPOINT>
+   <LINKPOINT x="6795" y="6435">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Grid ResolutionXY">
    </LINK>
    </PATCH>

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Box (DX11.Geometry) help.v4p" systemname="Box (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Box (DX11.Geometry) help.v4p">
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Octahedron (DX11.Geometry) help.v4p" systemname="Box (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Box (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Box geometric primitive|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Octahedron geometric primitive|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -25,7 +25,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Box DX11.Geometry|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Octahedron (DX11.Geometry)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -61,7 +61,7 @@
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="18" dstpinname="Layers" linkstyle="VHV">
@@ -77,7 +77,9 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Initial Yaw" visible="1">
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
@@ -92,8 +94,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
-   </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="29">
    <BOUNDS type="Node" left="6015" top="2265" width="100" height="100">
    </BOUNDS>
@@ -114,44 +114,36 @@
    </NODE>
    <LINK srcnodeid="29" srcpinname="Output" dstnodeid="30" dstpinname="Translate XYZ">
    </LINK>
-   <LINK srcnodeid="30" srcpinname="Transform Out" dstnodeid="19" dstpinname="Transform In" linkstyle="VHV">
-   <LINKPOINT x="5835" y="3428">
-   </LINKPOINT>
-   <LINKPOINT x="3975" y="3428">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="2280" top="2760" width="2025" height="270">
+   <NODE systemname="Octahedron (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Octahedron (DX11.Geometry)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="2280" top="2760" width="915" height="270">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2295" top="1530" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2295" top="1530" width="795" height="720">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" values="1,1,1">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="SizeXYZ">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="Y Output Value" dstnodeid="20" dstpinname="SizeXYZ">
-   </LINK>
    <LINK srcnodeid="20" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
    <LINKPOINT x="2340" y="3338">
    </LINKPOINT>
    <LINKPOINT x="3750" y="3338">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="3585" top="2460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="BackCullSimple">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Render State" dstnodeid="19" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Transform Out" dstnodeid="19" dstpinname="Transform In" linkstyle="VHV">
+   <LINKPOINT x="5835" y="3428">
+   </LINKPOINT>
+   <LINKPOINT x="3975" y="3428">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
    </LINK>
    </PATCH>

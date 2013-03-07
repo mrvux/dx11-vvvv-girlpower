@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Validator (DX11 Layer) help.v4p" systemname="Validator (DX11 Layer) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Validator (DX11 Layer) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Validator (DX11.Layer) help.v4p" systemname="Validator (DX11 Layer) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Validator (DX11 Layer) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -107,13 +107,9 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="615" y="3188">
-   </LINKPOINT>
-   <LINKPOINT x="2025" y="3188">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="570" top="1380" width="0" height="0">
    </BOUNDS>
@@ -134,28 +130,6 @@
    </NODE>
    <LINK srcnodeid="36" srcpinname="Y Output Value" dstnodeid="20" dstpinname="SizeXYZ">
    </LINK>
-   <NODE systemname="Group (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11)" componentmode="Hidden" id="38">
-   <BOUNDS type="Node" left="2595" top="5805" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer 1" visible="1">
-   </PIN>
-   <PIN pinname="Layer Out" visible="1">
-   </PIN>
-   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="38" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
-   </LINK>
-   <NODE systemname="Validator (DX11 Layer)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Validator (DX11 Layer)" componentmode="Hidden" id="53">
-   <BOUNDS type="Node" left="2760" top="5130" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer In" visible="1">
-   </PIN>
-   <PIN pinname="Layer Out" visible="1">
-   </PIN>
-   <PIN pinname="Validators" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="54">
    <BOUNDS type="Node" left="4566" top="1155" width="100" height="100">
    </BOUNDS>
@@ -220,28 +194,6 @@
    </LINK>
    <LINK srcnodeid="56" srcpinname="XYZ" dstnodeid="30" dstpinname="Translate XYZ">
    </LINK>
-   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="53" dstpinname="Layer In" linkstyle="Bezier">
-   <LINKPOINT x="1935" y="4463">
-   </LINKPOINT>
-   <LINKPOINT x="2760" y="4463">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="53" srcpinname="Layer Out" dstnodeid="38" dstpinname="Layer 1">
-   </LINK>
-   <NODE systemname="SelectObject (DX11 Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="SelectObject (DX11 Validator)" componentmode="Hidden" id="57">
-   <BOUNDS type="Node" left="5379" top="4230" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="53" dstpinname="Validators" linkstyle="Bezier">
-   <LINKPOINT x="5385" y="4800">
-   </LINKPOINT>
-   <LINKPOINT x="3135" y="4800">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="58" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="5385" top="2385" width="0" height="0">
    </BOUNDS>
@@ -264,8 +216,6 @@
    <PIN pinname="X Input Value" slicecount="3" values="1,1,1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="58" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Enable Slice">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="59" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="2340" top="1860" width="0" height="0">
    </BOUNDS>
@@ -300,4 +250,56 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Select (DX11.Validator)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Select (DX11.Validator)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="5379" top="4230" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="58" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Enable Slice">
+   </LINK>
+   <NODE systemname="Validator (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Validator (DX11.Layer)" componentmode="Hidden" id="53">
+   <BOUNDS type="Node" left="2760" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Validators" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="53" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="1935" y="4463">
+   </LINKPOINT>
+   <LINKPOINT x="2760" y="4463">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="53" dstpinname="Validators" linkstyle="Bezier">
+   <LINKPOINT x="5385" y="4800">
+   </LINKPOINT>
+   <LINKPOINT x="3135" y="4800">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="2595" top="5805" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="53" srcpinname="Layer Out" dstnodeid="38" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="615" y="3188">
+   </LINKPOINT>
+   <LINKPOINT x="2025" y="3188">
+   </LINKPOINT>
+   </LINK>
    </PATCH>
