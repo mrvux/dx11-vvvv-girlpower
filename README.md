@@ -80,7 +80,7 @@ Remember, this is done only once. Now you have your upstream set properly
 
 So, now you can refresh your local repo with the latest goodies from the vux repo (the upstream) just typing
 
-    git remote pull upstream
+    git pull upstream master
 
 pretty easy, just use the `ghost in the shell` :)
 
