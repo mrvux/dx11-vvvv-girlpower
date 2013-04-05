@@ -1,15 +1,17 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
-   <PATCH nodename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Quad (DX11.Layer).v4p" systemname="Quad (DX11.Layer)" filename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Quad (DX11.Layer).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="C:\Users\gregsn\Documents\GitHub\dx11-vvvv-girlpower\lib\nodes\modules\Quad (DX11.Layer).v4p" systemname="Quad (DX11.Layer)" filename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Quad (DX11.Layer).v4p">
    <BOUNDS type="Window" left="2370" top="9465" width="10035" height="5010">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="1155" top="1260" width="0" height="0">
+   <BOUNDS type="Node" left="1170" top="510" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="1155" top="1260" width="795" height="240">
+   <BOUNDS type="Box" left="1170" top="510" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="2">
@@ -126,8 +128,6 @@
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="0" dstpinname="Render State">
-   </LINK>
    <LINK srcnodeid="2" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="3" srcpinname="Output Node" dstnodeid="0" dstpinname="Transform">
@@ -143,5 +143,17 @@
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="9" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Instanced Drawing" dstnodeid="10" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="1185" top="1365" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Blend">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="11" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Render State" dstnodeid="0" dstpinname="Render State">
    </LINK>
    </PATCH>
