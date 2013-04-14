@@ -18,7 +18,7 @@ cbuffer cbPerDraw : register( b0 )
 	float4x4 tVP : VIEWPROJECTION;
 	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
 	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
-	float4x4 tTex <string uiname="Texture Transform";>;
+	float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
 	float4x4 tColor <string uiname="Color Transform";>;
 };
 
