@@ -1,0 +1,98 @@
+struct vs2ps { float4 pos: SV_POSITION; float2 uv: TEXCOORD0; };
+
+Texture2D InputTexture : INITIAL;
+Texture2D DepthTexture;
+
+//Camera from scene
+float4x4 tIV;
+float4x4 tP;
+
+//Camera From Light
+float4x4 tLV;
+float4x4 tLVP;
+
+Texture2D<float> ShadowTexture;
+float bias = 0.0001f;
+float ShadowStrength = 0.2;
+
+SamplerState PointSampler : IMMUTABLE { Filter = MIN_MAG_MIP_POINT;AddressU = Clamp;AddressV = Clamp;};
+SamplerState LinearSampler : IMMUTABLE { Filter = MIN_MAG_MIP_LINEAR;AddressU = Clamp;AddressV = Clamp;};
+
+float3 ShadowPos(float4 shadowpos)
+{
+	float3 ligthspace  = shadowpos.xyz / shadowpos.w;
+    float2 shadowtex = 0.5 * ligthspace.xy + float2( 0.5, 0.5 );
+    shadowtex.y = 1.0f - shadowtex.y;
+    return float3( shadowtex, ligthspace.z - 0.005f );
+}
+
+float3 DepthToView(float2 positionScreen,float viewSpaceZ)
+{
+    float2 screenSpaceRay = float2(positionScreen.x / tP._11,positionScreen.y / tP._22); 
+    float3 positionView;
+    positionView.z = viewSpaceZ;
+    positionView.xy = screenSpaceRay.xy * positionView.z;
+    
+    return positionView;
+}
+
+float4 PS_RenderScene( vs2ps input ) : SV_Target0
+{
+    float4 col = InputTexture.Load(int3(input.pos.xy,0));
+	float d = DepthTexture.Load(int3(input.pos.xy,0)).r;
+	
+	float2 ScreenPos = input.uv;
+	ScreenPos *= 2.0f;
+	ScreenPos -= 1.0f;
+	ScreenPos.y *= -1.0f;
+	
+	//Not needed id D32_Float, but in many cases i use stencil
+	float LinearDepth = tP._43 / (d - tP._33);
+	
+	//Just return black if far plane, can be changed
+	if (d > 0.99f) { return 0; }
+	
+	float3 posv = DepthToView(ScreenPos,LinearDepth);
+	
+	//I add a few extra steps here, easy to remove if you want to ,
+	//(by combining transforms before shader), but at least you can see what's up
+	
+	//Retrieve World Position
+	float3 posw = mul(float4(posv,1),tIV).xyz;
+	
+	//Project World position into ShadowMap Screen Space
+	float4 projshadow = mul(float4(posw,1),tLVP);
+
+	//Convert shadow space into UV space (to sample shadow map)
+	float2 projectTexCoord; 
+    projectTexCoord.x =  projshadow.x / projshadow.w / 2.0f + 0.5f;
+    projectTexCoord.y = -projshadow.y / projshadow.w / 2.0f + 0.5f;
+	
+	//This checks if you in shadow bounds
+	if((saturate(projectTexCoord.x) == projectTexCoord.x) && (saturate(projectTexCoord.y) == projectTexCoord.y))
+    {
+    	float depthValue = ShadowTexture.Sample(LinearSampler, projectTexCoord).r;
+		float lightDepthValue = (projshadow.z / projshadow.w) - bias;
+    	
+    	if(lightDepthValue < depthValue)
+		{
+			return col;
+		}
+    	else
+    	{
+    		return col * ShadowStrength;
+    	}
+    }
+	else
+	{
+		return col;
+	}
+}
+
+technique10 Render
+{
+	pass P0
+	{
+		SetPixelShader( CompileShader( ps_4_0, PS_RenderScene() ) );
+	}
+}
