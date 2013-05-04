@@ -1,0 +1,49 @@
+
+struct VS_IN
+{
+	float3 pos : POSITION;
+	float3 normal : NORMAL;
+	uint iv : SV_VertexID;
+};
+
+struct VS_OUT
+{
+	float3 pos : POSITION;
+	float3 normal : NORMAL;
+};
+
+float extrudeadius;
+float timer;
+
+Texture1D randomtexture;
+float randomtexturesize;
+
+SamplerState g_samLinear : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+VS_OUT VS(VS_IN input)
+{
+	VS_OUT o;
+	o.pos = input.pos;
+	o.normal = input.pos; //Keep original position
+	o.pos +=  input.normal * extrudeadius * randomtexture.SampleLevel(g_samLinear, (input.iv / 256.0f) + timer,0).r;
+
+    return o;
+}
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyz;NORMAL.xyz" );
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_4_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}
+
