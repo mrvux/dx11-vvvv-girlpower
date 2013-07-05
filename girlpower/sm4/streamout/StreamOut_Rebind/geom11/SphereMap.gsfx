@@ -36,7 +36,7 @@ VS_OUT VS(VS_IN input)
 }
 
 
-GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyz;NORMAL.xyz" );
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyz;NORMAL.xyz",NULL,NULL,NULL,-1 );
 
 technique10 PassMesh
 {

@@ -13,7 +13,7 @@ struct GSIn
 GSIn VS(vsIn input)
 {
 	GSIn o;
-	o.pos = input.pos;
+	o.pos = input.pos.xyz;
 	o.normal = input.norm.xyz;
 
     return o;
@@ -51,7 +51,7 @@ void GS(triangle GSIn input[3], inout TriangleStream<GSIn> gsout)
 	gsout.RestartStrip();
 }
 
-GeometryShader gsStreamOut = ConstructGSWithSO( CompileShader( gs_4_0, GS() ), "POSITION.xyz;NORMAL.xyz" );
+GeometryShader gsStreamOut = ConstructGSWithSO( CompileShader( gs_4_0, GS() ), "POSITION.xyz;NORMAL.xyz",NULL,NULL,NULL,-1 );
 technique11 PassMesh
 {
     pass PP2
