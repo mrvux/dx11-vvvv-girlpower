@@ -1,0 +1,495 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\stencil_basic\Stencil_Basic.v4p" systemname="MeshTest" filename="C:\Users\vux\Desktop\MeshTest.v4p">
+   <BOUNDS type="Window" left="1050" top="615" width="11085" height="10155">
+   </BOUNDS>
+   <NODE systemname="GouraudBatch (DX11.Effect)" filename="GouraudBatch.fx" nodename="GouraudBatch (DX11.Effect)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="4290" top="5820" width="4110" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="world" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="IntanceStartIndex" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="3810" top="3840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="5325" top="4065" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="34">
+   <BOUNDS type="Node" left="7440" top="1575" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7440" top="1575" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Apply">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="8130" top="2610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="38">
+   <BOUNDS type="Node" left="8865" top="1710" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8865" top="1710" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="7645" y="2318">
+   </LINKPOINT>
+   <LINKPOINT x="7970" y="2348">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Input 2" linkstyle="Bezier">
+   <LINKPOINT x="8850" y="2393">
+   </LINKPOINT>
+   <LINKPOINT x="8490" y="2393">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Output" dstnodeid="31" dstpinname="Set" linkstyle="Bezier">
+   <LINKPOINT x="8130" y="3465">
+   </LINKPOINT>
+   <LINKPOINT x="5730" y="3465">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="6240" top="1875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Translate XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="6690" top="90" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="11.02">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cross (3d)" nodename="Cross (3d)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="6435" top="705" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X In" visible="1">
+   </PIN>
+   <PIN pinname="Y In" visible="1">
+   </PIN>
+   <PIN pinname="Z In" visible="1">
+   </PIN>
+   <PIN pinname="X Out" visible="1">
+   </PIN>
+   <PIN pinname="Y Out" visible="1">
+   </PIN>
+   <PIN pinname="Z Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Output" dstnodeid="41" dstpinname="X In" linkstyle="Bezier">
+   <LINKPOINT x="6690" y="533">
+   </LINKPOINT>
+   <LINKPOINT x="6480" y="533">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output" dstnodeid="41" dstpinname="Y In" linkstyle="Bezier">
+   <LINKPOINT x="6705" y="533">
+   </LINKPOINT>
+   <LINKPOINT x="6705" y="533">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output" dstnodeid="41" dstpinname="Z In" linkstyle="Bezier">
+   <LINKPOINT x="6735" y="533">
+   </LINKPOINT>
+   <LINKPOINT x="6915" y="533">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Vector (3d Join)" nodename="Vector (3d Join)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="6420" top="1125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="X Out" dstnodeid="42" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Y Out" dstnodeid="42" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Z Out" dstnodeid="42" dstpinname="Z">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="XYZ" dstnodeid="39" dstpinname="Translate XYZ">
+   </LINK>
+   <NODE systemname="IndexedInstancer (DX11.Drawer)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedInstancer (DX11.Drawer)" componentmode="Hidden" id="55">
+   <BOUNDS type="Node" left="3825" top="4545" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="55" srcpinname="Geometry Out" dstnodeid="22" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="3885" y="5310">
+   </LINKPOINT>
+   <LINKPOINT x="4800" y="5310">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="6360" top="4155" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Element Count" visible="1">
+   </PIN>
+   <PIN pinname="Apply" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Buffer" dstnodeid="22" dstpinname="world" linkstyle="Bezier">
+   <LINKPOINT x="6420" y="5115">
+   </LINKPOINT>
+   <LINKPOINT x="7335" y="5115">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Output" dstnodeid="27" dstpinname="Apply" linkstyle="Bezier">
+   <LINKPOINT x="8130" y="3518">
+   </LINKPOINT>
+   <LINKPOINT x="7425" y="3518">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="55" dstpinname="Geometry In">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="5835" top="6255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="60" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="240" top="150" width="4275" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="240" top="150" width="3045" height="2625">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This demo shows how to use stencil to view how many times pixels got written at the same place (eg: measure amount of overdraw)&cr;&lf;&cr;&lf;by vux&cr;&lf;julien@mrvux.com|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Count (Node)" nodename="Count (Node)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="5160" top="3480" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Transform Out" dstnodeid="65" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="6225" y="2805">
+   </LINKPOINT>
+   <LINKPOINT x="5220" y="2805">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Count" dstnodeid="31" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="5195" y="3985">
+   </LINKPOINT>
+   <LINKPOINT x="5335" y="3830">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="31" srcpinname="Output" dstnodeid="55" dstpinname="Instance Count" linkstyle="Bezier">
+   <LINKPOINT x="5325" y="4425">
+   </LINKPOINT>
+   <LINKPOINT x="4440" y="4425">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Transform Out" dstnodeid="27" dstpinname="Data" linkstyle="Bezier">
+   <LINKPOINT x="6270" y="3150">
+   </LINKPOINT>
+   <LINKPOINT x="6375" y="3150">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="67" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3750" top="3135" width="1485" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3750" top="3135" width="1485" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Simple Box Batcher|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="InAWindow" id="1" stayontop="1">
+   <BOUNDS type="Node" left="4125" top="6900" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4125" top="6900" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12090" top="615" width="5520" height="4800">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D24_UNorm_S8_UInt">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="View" dstnodeid="1" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="1" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Layer" dstnodeid="1" dstpinname="Layer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="68" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4905" top="6135" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4905" top="6135" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" values="1024,768">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="68" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Texture SizeXY" linkstyle="VHV">
+   <LINKPOINT x="4965" y="6743">
+   </LINKPOINT>
+   <LINKPOINT x="5355" y="6743">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="69">
+   <BOUNDS type="Node" left="2175" top="7845" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2175" top="7845" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12120" top="600" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Buffers" dstnodeid="69" dstpinname="Texture In" linkstyle="VHV">
+   <LINKPOINT x="4905" y="7493">
+   </LINKPOINT>
+   <LINKPOINT x="2235" y="7493">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="70" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6570" top="6930" width="2805" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6570" top="6930" width="3975" height="285">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Make sure depth is set to D24_Unorm_S8_Uint|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="DepthStencil (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DepthStencil (DX11.RenderState)" componentmode="Hidden" id="71">
+   <BOUNDS type="Node" left="1815" top="4035" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="LessReadStencilIncrement">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Render State" dstnodeid="22" dstpinname="Render State" linkstyle="Bezier">
+   <LINKPOINT x="1880" y="4973">
+   </LINKPOINT>
+   <LINKPOINT x="4285" y="5123">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="72" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="225" top="2580" width="2040" height="330">
+   </BOUNDS>
+   <BOUNDS type="Node" left="225" top="2580" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="LessReadStencilIncrement">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="72" srcpinname="Output Enum" dstnodeid="71" dstpinname="Mode" linkstyle="VHV">
+   <LINKPOINT x="255" y="3845">
+   </LINKPOINT>
+   <LINKPOINT x="2730" y="3880">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="73" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="300" top="3000" width="3855" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="300" top="3000" width="3225" height="885">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This enables depth buffer by setting compare to less, but also instructs the pipeline to increment stencil every time pixel shader gets accessed|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="75">
+   <BOUNDS type="Node" left="5685" top="9090" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5685" top="9090" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12150" top="5475" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="StencilView (DX11.TextureFX)" filename="StencilView.tfx" nodename="StencilView (DX11.TextureFX)" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="5700" top="8475" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="scale" slicecount="1" values="0.22">
+   </PIN>
+   </NODE>
+   <NODE systemname="StencilView (DX11.Texture 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="StencilView (DX11.Texture 2d)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="5685" top="7500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Depth Stencil In" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Depth Buffer" dstnodeid="76" dstpinname="Depth Stencil In">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Texture Out" dstnodeid="74" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="74" srcpinname="Texture Out" dstnodeid="75" dstpinname="Texture In">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="77" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6585" top="7500" width="3855" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6585" top="7500" width="3855" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Tells that we want to see stencil view, not depth view|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="78" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6045" top="7875" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6045" top="7875" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.22">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="scale">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="78" srcpinname="Y Output Value" dstnodeid="74" dstpinname="scale">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="79" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6900" top="7860" width="4110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6900" top="7860" width="3330" height="1575">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The brighter the pixel, the more times it&apos;s been written, so a bright image will mean a lot of overdraw, which means it can potentially be a performance penalty in case your forward shader is pixel intensive. Sorting objects front to back will decrease overdraw.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>

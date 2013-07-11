@@ -1,0 +1,34 @@
+//@author: vux
+//@help: simple viewer for stencil
+//@tags: texture
+//@credits: 
+
+Texture2D<uint4> texture2d : PREVIOUS;
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+float scale = 1.0f;
+
+float4 PS(psInput input) : SV_Target
+{
+	//Stencil value is green channel
+	float stencilvalue = texture2d.Load(int3(input.p.xy,0)).g;	
+	
+	//Downscale since stencil value is 0->255
+	return stencilvalue *scale;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+

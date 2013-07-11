@@ -1,0 +1,31 @@
+//@author: vux
+//@help: simple viewer for stencil
+//@tags: texture
+//@credits: 
+
+Texture2D<uint4> texture2d : PREVIOUS;
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+float4 PS(psInput input) : SV_Target
+{
+	//Stencil value is green channel
+	float stencilvalue = texture2d.Load(int3(input.p.xy,0)).g;	
+	//Just set to white if pixel has been written or not
+	return stencilvalue > 0;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
