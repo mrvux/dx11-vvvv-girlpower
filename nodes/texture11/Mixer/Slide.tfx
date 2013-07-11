@@ -1,0 +1,46 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+};
+
+float4 pSlideHorizontal(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	uv.x += Fader;
+	if(any(saturate(uv)-uv))
+	{	
+		uv = frac(uv);
+		return tex1.SampleLevel(s0, uv, 0);
+	}
+	else
+	{
+		return tex0.SampleLevel(s0, uv, 0);
+	}
+}
+
+float4 pSlideVertical(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	uv.y += Fader;
+	if(any(saturate(uv)-uv))
+	{	
+		uv = frac(uv);
+		return tex1.SampleLevel(s0, uv, 0);
+	}
+	else
+	{
+		return tex0.SampleLevel(s0, uv, 0);
+	}
+}
+
+technique10 SlideHorizontal{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pSlideHorizontal()));}
+}
+technique10 SlideVertical{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pSlideVertical()));}
+}

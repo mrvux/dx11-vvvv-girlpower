@@ -1,0 +1,411 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\vvvv\vvvv_dx11_node\directx11\texture11\Source\Electricity (DX11.TextureFX) help.v4p" systemname="Blur help" filename="D:\projects\_dx11\modules\Blur help.v4p">
+   <BOUNDS type="Window" left="3645" top="2280" width="6570" height="5820">
+   </BOUNDS>
+   <NODE systemname="RENDERER (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="59">
+   <BOUNDS type="Node" left="165" top="3687" width="1845" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="165" top="3687" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10200" top="2310" width="6900" height="5820">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CONSTANT (DX11.EFFECT)" filename="%VVVV%\myplugins\lib\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="165" top="3222" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Box" left="165" top="3222">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="330" top="2700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   <BOUNDS type="Box" left="330" top="2700">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layers">
+   </LINK>
+   <NODE componentmode="InABox" id="69" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="30" top="30" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="375" left="30" top="30" type="Box" width="3840">
+   </BOUNDS>
+   <BOUNDS height="160" left="10290" top="35940" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|Electricity - DX11.TextureFX|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <INFO author="" description="" tags="">
+   </INFO>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="113" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="300" top="2082" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="300" top="2082" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1.57">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Time">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="114">
+   <BOUNDS type="Node" left="285" top="840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Cycles" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="7">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="115">
+   <BOUNDS type="Node" left="285" top="1398" width="330" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="114" srcpinname="Output" dstnodeid="115" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Cycles" dstnodeid="115" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="115" srcpinname="Output" dstnodeid="113" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="118" systemname="IOBox (Color)">
+   <BOUNDS type="Node" left="1665" top="840" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1665" top="840" width="1035" height="240">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,0.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Electricity Color|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="119" systemname="IOBox (Color)">
+   <BOUNDS type="Node" left="3180" top="840" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3180" top="840" width="960" height="240">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Background Color|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Electricity (DX11.TextureFX)" filename="%VVVV%\userfolder\lecloneur\Source\Electricity.tfx" nodename="Electricity (DX11.TextureFX)" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="1290" top="2691" width="2400" height="270">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture In 2" visible="1">
+   </PIN>
+   <PIN pinname="Fader" visible="1">
+   </PIN>
+   <PIN pinname="deform Amount" visible="1">
+   </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
+   <PIN pinname="Frequency" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Electricity">
+   </PIN>
+   <PIN pinname="ColorB" visible="1">
+   </PIN>
+   <PIN pinname="ColorC" visible="1">
+   </PIN>
+   <PIN pinname="ColorA">
+   </PIN>
+   <PIN pinname="Control" visible="1">
+   </PIN>
+   <PIN pinname="AmountXYXY">
+   </PIN>
+   <BOUNDS type="Box" left="1290" top="2691">
+   </BOUNDS>
+   <PIN pinname="lum_threshold_1" visible="1">
+   </PIN>
+   <PIN pinname="lum_threshold_2" visible="1">
+   </PIN>
+   <PIN pinname="lum_threshold_3" visible="1">
+   </PIN>
+   <PIN pinname="lum_threshold_4" visible="1">
+   </PIN>
+   <PIN pinname="Density">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" visible="1" values="|0.00000,0.00000,0.00000,0.00000|">
+   </PIN>
+   <PIN pinname="threshold" visible="1">
+   </PIN>
+   <PIN pinname="outer_radius" visible="1">
+   </PIN>
+   <PIN pinname="magnification" visible="1">
+   </PIN>
+   <PIN pinname="inner_radius" visible="1">
+   </PIN>
+   <PIN pinname="CenterXY" visible="1">
+   </PIN>
+   <PIN pinname="Radius" visible="1">
+   </PIN>
+   <PIN pinname="Dist">
+   </PIN>
+   <PIN pinname="Rotate">
+   </PIN>
+   <PIN pinname="time">
+   </PIN>
+   <PIN pinname="FogDistance">
+   </PIN>
+   <PIN pinname="Contrast">
+   </PIN>
+   <PIN pinname="Bubble Color" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
+   </PIN>
+   <PIN pinname="Noise Texture" visible="1">
+   </PIN>
+   <PIN pinname="speed" slicecount="1" values="0.150000005960464">
+   </PIN>
+   <PIN pinname="glowStrength" slicecount="1" values="40">
+   </PIN>
+   <PIN pinname="ambientGlow" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="ambientGlowHeightScale" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="height" slicecount="1" values="0.25">
+   </PIN>
+   <PIN pinname="glowFallOff" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="vertexNoise" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Glow Strength" visible="1">
+   </PIN>
+   <PIN pinname="Ambient Glow" visible="1">
+   </PIN>
+   <PIN pinname="Ambient Glow height Scale" visible="1">
+   </PIN>
+   <PIN pinname="Height" visible="1">
+   </PIN>
+   <PIN pinname="Glow Fall Offset" visible="1">
+   </PIN>
+   <PIN pinname="Vertex Noise" visible="1">
+   </PIN>
+   <PIN pinname="Electricity Color" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Time">
+   </LINK>
+   <LINK srcnodeid="119" srcpinname="Color Output" dstnodeid="112" dstpinname="Bubble Color">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 3d)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 3d)" componentmode="Hidden" id="121">
+   <BOUNDS type="Node" left="4380" top="840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" values="NoiseVolume.dds">
+   </PIN>
+   <BOUNDS type="Box" left="4380" top="840">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="121" srcpinname="Texture Out" dstnodeid="112" dstpinname="Noise Texture">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="125" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3210" top="1398" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3210" top="1398" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="40">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Glow Strength|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="125" srcpinname="Y Output Value" dstnodeid="112" dstpinname="glowStrength">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="126" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4620" top="1398" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4620" top="1398" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Glow|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="126" srcpinname="Y Output Value" dstnodeid="112" dstpinname="ambientGlow">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="127" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="5130" top="2082" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5130" top="2082" width="810" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Glow Height Scale|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="127" srcpinname="Y Output Value" dstnodeid="112" dstpinname="ambientGlowHeightScale">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="128" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="5115" top="2970" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5115" top="2970" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.25">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Height">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Y Output Value" dstnodeid="112" dstpinname="height">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="129" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4605" top="3795" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4605" top="3795" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Glow Fall Offset|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="112" dstpinname="glowFallOff">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="130" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3630" top="4440" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3630" top="4440" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Vertex Noise|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="130" srcpinname="Y Output Value" dstnodeid="112" dstpinname="vertexNoise">
+   </LINK>
+   <LINK srcnodeid="125" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Glow Strength">
+   </LINK>
+   <LINK srcnodeid="126" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Ambient Glow">
+   </LINK>
+   <LINK srcnodeid="127" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Ambient Glow height Scale">
+   </LINK>
+   <LINK srcnodeid="128" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Height">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Glow Fall Offset">
+   </LINK>
+   <LINK srcnodeid="130" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Vertex Noise">
+   </LINK>
+   <LINK srcnodeid="119" srcpinname="Color Output" dstnodeid="112" dstpinname="Background Color">
+   </LINK>
+   <LINK srcnodeid="118" srcpinname="Color Output" dstnodeid="112" dstpinname="Electricity Color">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="131" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4380" top="390" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4380" top="390" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="NoiseVolume.dds">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="131" srcpinname="Output String" dstnodeid="121" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
+   </LINK>
+   </PATCH>

@@ -1,0 +1,47 @@
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4x4 tTex <bool uvspace=true;string uiname="Transform";>;
+	
+	float4 Color1 <bool color=true;> =float4(0,0,0,1);
+	float4 Color2 <bool color=true;> =1;
+	
+	int Iterations <float uimin=0;> =16;
+	
+	float2 Control=.35;
+	float Zoom=-.5;
+	float Morph <float uimin=0;float uimax=1;>;
+	//float Rotate;
+	bool Aspect <bool visible=false;string uiname="Keep Aspect Ratio";> =1;
+};
+
+#include "ColorSpace.fxh"
+float2 r2d(float2 x,float a){return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
+
+float4 p0(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float2 asp=lerp(1,R/R.x,Aspect);
+    float4 c=1;
+	float2 xy=((x.xy-.5)/pow(2,Zoom*16))+.5;
+	xy=mul(float4(xy,0,1),tTex).xy;
+    //float2 xy=r2d((x-.5),Rotate);
+    float2 u,z=xy;
+    float ss=length(z);
+    ss=1;
+    //z=normalize(z);
+    u=z;
+
+    bool stop=false;
+    float g=0;
+    for (int i=0;i<min(2000,Iterations)&&!stop;i++){
+        z=((float2((z.x*ss)*(z.x*ss)-(z.y*ss)*(z.y*ss),2*(z.x*ss)*(z.y*ss))+ss*lerp(u,Control,Morph)))/ss;
+        stop=length(z*ss>2);
+        g=lerp(g,g+1,smoothstep(2,0,length(z*ss)));
+    }
+	c=lerp(Color1,Color2,g/Iterations);
+    c.a=1;
+    return c;
+}
+technique10 Mandelbrot{pass P1{SetPixelShader(CompileShader(ps_4_0,p0()));}}
+
+
+

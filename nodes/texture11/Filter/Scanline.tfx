@@ -1,0 +1,77 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=MIRROR;AddressV=MIRROR;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+
+	float Brightness;
+	float2 Amount;
+	
+	float2 RedPos;
+	float2 GreenPos;
+	float2 BluePos;
+};
+
+float4 pMuffy(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{	
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	
+	
+	float RedH;
+	float GreenH;
+	float BlueH;
+	
+	float RedV;
+	float GreenV;
+	float BlueV;
+
+	RedH = 	(sin(RedPos.x+uv.y*Amount.x*100));
+	GreenH = (sin(GreenPos.x+uv.y*Amount.x*100));
+	BlueH = (sin(BluePos.x+uv.y*Amount.x*100));
+	
+	RedV = (sin(RedPos.y+uv.x*Amount.y*100));
+	GreenV = (sin(GreenPos.y+uv.x*Amount.y*100));
+	BlueV = (sin(BluePos.y+uv.x*Amount.y*100));
+
+	float color;
+	
+	return float4(col.r*RedH*RedV*Brightness, col.g*GreenH*GreenV*Brightness,col.b*BlueH*BlueV*Brightness, 1.0);
+}
+
+float4 pMuffy2(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{	
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	
+	
+	float RedH;
+	float GreenH;
+	float BlueH;
+	
+	float RedV;
+	float GreenV;
+	float BlueV;
+
+	RedH = 	(sin(RedPos.x+uv.y*Amount.x*100));
+	GreenH = (sin(GreenPos.x+uv.y*Amount.x*100));
+	BlueH = (sin(BluePos.x+uv.y*Amount.x*100));
+	
+	RedV = (sin(RedPos.y+uv.x*Amount.y*100));
+	GreenV = (sin(GreenPos.y+uv.x*Amount.y*100));
+	BlueV = (sin(BluePos.y+uv.x*Amount.y*100));
+
+	float color;
+	
+	return float4(col.r*RedH*RedV*Brightness, col.g*GreenH*GreenV*Brightness,col.b*BlueH*BlueV*Brightness, 1.0);
+}
+
+technique10 Muffy{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pMuffy()));}
+}
+
+technique10 Muffy2{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pMuffy2()));}
+}

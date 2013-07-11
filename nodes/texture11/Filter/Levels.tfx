@@ -1,0 +1,62 @@
+Texture2D tex0: PREVIOUS;
+float2 R:TARGETSIZE;
+SamplerState s0 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+cbuffer controls:register(b0){
+	float4 fromBlack <bool color=true;string uiname="Input Black";> =0;
+	float4 fromWhite <bool color=true;string uiname="Input White";> =1;
+	float4 toBlack <bool color=true;string uiname="Output Black";> =0;
+	float4 toWhite <bool color=true;string uiname="Output White";> =1;
+	float4 Gamma =1;
+};
+
+float4 pLEVELS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c=((c-fromBlack)/(fromWhite-fromBlack));
+    c=sign(c)*pow(abs(c),Gamma);
+	c=c*(toWhite-toBlack)+toBlack;
+	
+    return c;
+}
+float4 pCLIP_BLACK(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c=((c-fromBlack)/(fromWhite-fromBlack));
+    c=sign(c)*pow(abs(c),Gamma);
+	c=min(c,1);
+	c=c*(toWhite-toBlack)+toBlack;
+	
+    return c;
+}
+float4 pCLIP_WHITE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c=((c-fromBlack)/(fromWhite-fromBlack));
+    c=sign(c)*pow(abs(c),Gamma);
+	c=max(c,0);
+	c=c*(toWhite-toBlack)+toBlack;
+    return c;
+}
+float4 pCLIP_BOTH(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c=((c-fromBlack)/(fromWhite-fromBlack));
+    c=sign(c)*pow(abs(c),Gamma);
+	c=saturate(c);
+	c=c*(toWhite-toBlack)+toBlack;
+    return c;
+}
+
+technique10 Levels{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pLEVELS()));}
+}
+technique10 Clip_Black{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pCLIP_BLACK()));}
+}
+technique10 Clip_White{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pCLIP_WHITE()));}
+}
+technique10 Clip_Both{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pCLIP_BOTH()));}
+}

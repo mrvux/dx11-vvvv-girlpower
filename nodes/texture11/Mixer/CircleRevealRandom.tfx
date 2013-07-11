@@ -1,0 +1,33 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float randomSeed <string uiname = "Random Seed";> = 0.5;
+	float fuzzyAmount <float uimin=0.0; string uiname = "Fuzzy Amount";> = 0.5;
+};
+
+float4 pCircleRevealRandom(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float radius = -fuzzyAmount + Fader * (0.70710678 + 2.0 * fuzzyAmount);
+	float len = length(uv - float2(0.5,0.5));
+	float2 toUV = normalize(uv - float2(0.5,0.5));
+	float angle = (atan2(toUV.y, toUV.x) + 3.141592) / (2.0 * 3.141592);
+	
+	radius += Fader * tex1.SampleLevel(s0, float2(angle, frac(randomSeed + Fader / 5.0)), 0).r;
+	
+	float distFromCircle = len - radius;
+	float4 c1 = tex0.SampleLevel(s0, uv, 0);
+    float4 c2 = tex1.SampleLevel(s0, uv, 0);
+	float p = saturate((distFromCircle + fuzzyAmount) / (2.0 * fuzzyAmount));
+	
+	return lerp (c2, c1, p);
+}
+
+technique10 CircleRevealRandom{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pCircleRevealRandom()));}
+}

@@ -1,0 +1,57 @@
+Texture3D tex0 <string uiname="Noise Texture";>;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float time <string uiname = "Time";>;
+	float4 ColorA <bool color=true; string uiname="Electricity Color";>;
+	float4 ColorB <bool color=true; string uiname="Background Color";>;
+	float glowStrength <string uiname = "Glow Strength";> = 40;
+	float ambientGlow <string uiname = "Ambient Glow";> = 0.5;
+	float ambientGlowHeightScale <string uiname = "Ambient Glow height Scale";> = 1.0;
+	float height <string uiname = "Height";> = 0.25;
+	float glowFallOff <string uiname = "Glow Fall Offset";> = 2.0;
+	float vertexNoise <string uiname = "Vertex Noise";> = 0.5;
+};
+
+float4 pElectricity(float4 PosWVP:SV_POSITION,float2 vp:TEXCOORD0):SV_Target{
+
+	float2 uv = vp - 0.5;
+	float2 t = float2(time- vertexNoise * abs(uv.y), time);
+
+	// Sample at three positions for some horizontal blur
+	// The shader should blur fine by itself in vertical direction
+	float xs0 = uv.x;
+	float xs1 = uv.x;
+	float xs2 = uv.y + uv.x ;
+
+	// Noise for the three samples
+	float noise0 = tex0.SampleLevel(s0, float3(xs0, t), 0).x;
+	float noise1 = tex0.SampleLevel(s0, float3(xs1, t), 0).x;
+	float noise2 = tex0.SampleLevel(s0, float3(xs2, t), 0).x;
+	
+	// The position of the flash
+	float mid0 = height * (noise0 * 2 - 1) * (1 - xs0 * xs0);
+	float mid1 = height * (noise1 * 2 - 1) * (1 - xs1 * xs1);
+	float mid2 = height * (noise2 * 2 - 1) * (1 - xs2 * xs2);
+
+	// Distance to flash
+	float dist0 = abs(uv.y - mid0);
+	float dist1 = abs(uv.y - mid1);
+	float dist2 = abs(uv.y - mid2);
+
+	// Glow according to distance to flash
+	float glow = 1.0 - pow(0.25 * (dist0 + 2 * dist1 + dist2), glowFallOff/100.0);
+
+	// Add some ambient glow to get some power in the air feeling
+	float ambGlow = ambientGlow * (1 - xs1 * xs1) * (1 - abs(ambientGlowHeightScale * uv.y));
+
+	return lerp(ColorB, ColorA, (glowStrength * glow * glow + ambGlow));
+}
+
+technique10 Electricity{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pElectricity()));}
+}

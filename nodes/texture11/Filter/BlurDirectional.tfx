@@ -1,0 +1,46 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float2 Direction={.25,0};
+	float SampleCenter <float uimin=-1.0;float uimax=1.0;> =0.5;
+	bool Aspect <bool visible=false;string uiname="Keep Aspect Ratio";> =1;
+};
+
+SamplerState s0 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+SamplerState s1:IMMUTABLE{Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float4 pBLURDIR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float2 asp=lerp(1,R.x/R,Aspect);
+    float4 c=0;
+	int iter=16;
+    float wd=tex1.SampleLevel(s1,x,0).x;
+    for (float i=0;i<1;i+=1./iter){
+        c+=tex0.SampleLevel(s0,((x-.5)/asp+Direction*float2(1,-1)*wd*(i-.5-SampleCenter/2))*asp+.5,0);
+    }
+    c=c/iter;
+    return c;
+}
+float4 pBLURDIR2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float2 asp=lerp(1,R.x/R,Aspect);
+    float4 c=0;
+	int iter=16;
+    float wd=tex1.SampleLevel(s1,x,0).x/iter;
+    for (float i=0;i<1;i+=1./iter){
+        c+=tex0.SampleLevel(s0,((x-.5)/asp+Direction*float2(1,-1)*wd*(i-.5-SampleCenter/2))*asp+.5,0);
+    }
+    c=c/iter;
+    return c;
+}
+technique10 BlurDirectional{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pBLURDIR()));}
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pBLURDIR2()));}
+
+
+}
+
+
+

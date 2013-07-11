@@ -1,0 +1,54 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	//float Width <float uimin=0.0;float uimax=1.0;> =0.8;
+	float2 Center=0;
+float Zoom <float uimin=0.0; float uimax=1.0;> = 0.0;
+float Rotate <float uimin=-1.0; float uimax=1.0;> = 0.0;
+
+	float SampleCenter <float uimin=-1.0;float uimax=1.0;> =0.0;
+	bool Aspect <bool visible=false;string uiname="Keep Aspect Ratio";> =1;
+};
+
+SamplerState s0 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+SamplerState s1:IMMUTABLE{Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 r2d(float2 x,float a){a*=acos(-1)*2;return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
+float4 pBLURRAD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float2 asp=lerp(1,R.x/R,Aspect);
+	int iter=16;
+    float4 c=0;
+    float2 piv=.5+Center*float2(.5,-.5);
+    float wd=tex1.SampleLevel(s1,x,0).x;
+    for (float i=0;i<1;i+=1./iter){
+        c+=tex0.SampleLevel(s0,r2d((x-piv)/asp,(i-.5-SampleCenter/2)*Rotate*wd)/pow(2,(Zoom*wd)*6*(i-.5-SampleCenter/2))*asp+piv,0);
+
+    }
+    c=c/iter;
+    return c;
+}
+float4 pBLURRAD2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float2 asp=lerp(1,R.x/R,Aspect);
+	int iter=16;
+    float4 c=0;
+    float2 piv=.5+Center*float2(.5,-.5);
+    float wd=tex1.SampleLevel(s1,x,0).x/iter;
+    for (float i=0;i<1;i+=1./iter){
+        c+=tex0.SampleLevel(s0,r2d((x-piv)/asp,(i-.5-SampleCenter/2)*Rotate*wd)/pow(2,(Zoom*wd)*6*(i-.5-SampleCenter/2))*asp+piv,0);
+
+    }
+    c=c/iter;
+    return c;
+}
+technique10 BlurRadial{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pBLURRAD()));}
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pBLURRAD2()));}
+
+}
+
+
+

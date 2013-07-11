@@ -1,0 +1,34 @@
+Texture2D InputTexture: PREVIOUS;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Bright <float uimin=0.0;> = 1.0;
+	float Radius <float uimin=0.0;> = 1.0;
+};
+SamplerState s0  <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float4 q(float2 x,float2 off,float v){return InputTexture.SampleLevel(s0,x+off/R,v);}
+
+float4 pEDGE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+    float rad=max(Radius,0);
+    float3 e=float3(1,-1,0)*rad;
+    float v=log2(rad);
+    float4 cx=q(x,e.xy,v)+q(x,e.xz,v)+q(x,e.xx,v)-q(x,e.yy,v)-q(x,e.yz,v)-q(x,e.yx,v);
+    float4 cy=q(x,e.yy,v)+q(x,e.zy,v)+q(x,e.xy,v)-q(x,e.yx,v)-q(x,e.zx,v)-q(x,e.xx,v);
+    float4 c=sqrt(cx*cx+cy*cy)*Bright*pow(2,rad/max(R.x,R.y))/sqrt(saturate(rad)+.001);
+	c.a=InputTexture.SampleLevel(s0,x,0).a;
+    return c;
+}
+
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return InputTexture.SampleLevel(s0,x,0);
+}
+technique10 FastEdge{
+	pass P0 <bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pEDGE()));}
+}
+
+
+

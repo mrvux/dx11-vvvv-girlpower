@@ -1,0 +1,37 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float frequency <string uiname = "Frequency";> = 20.0;
+	float speed <string uiname = "Speed";> = 10.0;
+	float amplitude <string uiname = "Amplitude";> = 0.05;
+	float2 center <string uiname = "center";> = 0.5;
+};
+
+float4 pRipple(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 toUV = uv - center;
+	float distanceFromCenter = length(toUV);
+	float2 normToUV = toUV / distanceFromCenter;
+
+	float wave = cos(frequency * distanceFromCenter - speed * Fader);
+	float offset1 = Fader * wave * amplitude;
+	float offset2 = (1.0 - Fader) * wave * amplitude;
+	
+	float2 newUV1 = center + normToUV * (distanceFromCenter + offset1);
+	float2 newUV2 = center + normToUV * (distanceFromCenter + offset2);
+	
+	float4 c1 = tex0.SampleLevel(s0, newUV1, 0); 
+    float4 c2 = tex1.SampleLevel(s0, newUV2, 0);
+
+	return lerp(c1, c2, Fader);
+}
+
+technique10 Ripple{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pRipple()));}
+}

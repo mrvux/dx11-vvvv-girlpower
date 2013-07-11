@@ -1,0 +1,65 @@
+// Textureless classic 3D noise "cnoise",
+// with an RSL-style periodic variant "pnoise".
+// Author:  Stefan Gustavson (stefan.gustavson@liu.se)
+// Version: 2011-10-11
+// Copyright (c) 2011 Stefan Gustavson. All rights reserved.
+// Distributed under the MIT license. See LICENSE file.
+// https://github.com/ashima/webgl-noise
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float time <string uiname = "Time";>;
+	float N;
+	float2 scale;
+	float4 ColorA <bool color=true; string uiname="Color";>;
+};
+
+#define M_PI 3.1415926535897932384626433832795
+//#define N 7.0
+
+
+float post_process(float color) {
+	float m = color% 2.0;
+	if (m >= 1.0)
+		color = 2.0 - m;
+	else
+		color = m;
+	return color;
+}
+
+float4 pQuasicrystal(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+
+	// This is a reimplementation of this thing:
+	// http://mainisusuallyafunction.blogspot.no/2011/10/quasicrystals-as-sums-of-waves-in-plane.html
+	
+	float2 p = (uv.xy-0.5)*scale*100 ;
+
+	float color = 0.0;
+	
+	//float r = ColorA.r;
+	//float g = ColorA.g;
+	//float b = ColorA.b;
+	
+	float r = 0.0;
+	float g = 0.0;
+	float b = 0.0;
+
+	for (float i = 0.0; i < N; ++i) {
+		float a = i * (2.0 * M_PI / N);
+		float t = cos((p.x * cos(a) + p.y * sin(a)) + time ) / 2.0;
+		r += t + i;
+		g += t + i;
+		b += t + i;
+	}
+	r = post_process(r);
+	g = post_process(g);
+	b = post_process(b);
+
+	return float4( r * ColorA.r, g * ColorA.g, b * ColorA.b, 1.0 );
+}
+
+technique10 Quasicrystal{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pQuasicrystal()));}
+}

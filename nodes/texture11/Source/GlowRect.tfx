@@ -1,0 +1,40 @@
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4x4 tTex <bool uvspace=true;string uiname="Transform";>;
+	float4 Color1 <bool color=true;> =float4(0,0,0,1);
+	float4 Color2 <bool color=true;> =1;
+	bool ClipColor=1;
+	float2 Size=0.5;
+	float Round <float uimin=0.0; float uimax=1.0;> =0.1;
+	float EdgeWidth <float uimin=0.0;> =0.5;
+	float Gamma=0;
+	
+};
+
+float4 pGLOWRECT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex)*0.5*float2(1,-1)+0.5;
+	
+	float2 grad=mul(float4(x.xy,0,1),tTex).xy;
+	float2 sz=max(0,Size/2);
+	float rd=Round;
+    float fade=length(max(0,abs(grad.xy-.5)-(sz-rd)));
+	fade=1-(fade-rd)*8/max(fwidth(fade)*8*1+.0000001,EdgeWidth);
+	if(ClipColor)fade=saturate(fade);
+
+	fade=sign(fade)*pow(abs(fade),pow(2,Gamma));
+	if(ClipColor)fade=saturate(fade);
+	c=lerp(Color1,Color2,fade);
+    return c;
+}
+
+technique10 GlowRect{
+	pass P1 <bool initial=true;>
+	{
+		SetPixelShader(CompileShader(ps_4_0,pGLOWRECT()));
+	}
+}
+
+
+

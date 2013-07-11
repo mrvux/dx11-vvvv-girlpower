@@ -1,0 +1,79 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+SamplerState s1 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float2 Center=0.0;
+	float2 Direction=0.5;
+	float MapSmooth <float uimin=0.0; float uimax=1.0;> = 0.0;
+};
+
+#include "ColorSpace.fxh"
+
+float4 Ramp(float2 f){
+	float lod=log2(max(R.x,R.y))*MapSmooth;
+	return tex1.SampleLevel(s1,Center*.5+.5+Direction*f,lod);
+}
+
+float4 pLUMA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float f=dot(c.rgb,float3(.33,.59,.11));
+    return Ramp(f);
+}
+float4 pHUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float f=RGBtoHSV(c.rgb).x;
+    return Ramp(f);
+}
+float4 pHUE_SAT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float2 f=RGBtoHSV(c.rgb).xy;
+    return Ramp(f);
+}
+float4 pVAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float f=RGBtoHSV(c.rgb).z;
+    return Ramp(f);
+}
+float4 pSAT_VAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float2 f=RGBtoHSV(c.rgb).yz;
+    return Ramp(f);
+}
+float4 pHUE_VAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float2 f=RGBtoHSV(c.rgb).xz;
+    return Ramp(f);
+}
+float4 pRG_GB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float2 f=c.rb-c.g;
+    return Ramp(f);
+}
+float4 pTONE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=log2(max(R.x,R.y))*MapSmooth;
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float3 h=RGBtoHSV(c.rgb);
+	c.rg=sin((h.x+float2(.25,0))*acos(-1)*2);
+	float2 f=c.rg;
+    return Ramp(f);
+}
+float4 pRGBA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    c.r=Ramp(c.r).r;
+	c.g=Ramp(c.g).g;
+	c.b=Ramp(c.b).b;
+	c.a=Ramp(c.a).a;
+    return c;
+}
+
+//technique10 Hue{pass P1{SetPixelShader(CompileShader(ps_4_0,pHUE()));}}
+technique10 Hue_Saturation{pass P1{SetPixelShader(CompileShader(ps_4_0,pHUE_SAT()));}}
+technique10 Saturation_Value{pass P1{SetPixelShader(CompileShader(ps_4_0,pSAT_VAL()));}}
+technique10 Hue_Value{pass P1{SetPixelShader(CompileShader(ps_4_0,pHUE_VAL()));}}
+technique10 Red_Blue{pass P1{SetPixelShader(CompileShader(ps_4_0,pRG_GB()));}}
+technique10 Luma{pass P1{SetPixelShader(CompileShader(ps_4_0,pLUMA()));}}
+technique10 Tone{pass P1{SetPixelShader(CompileShader(ps_4_0,pTONE()));}}
+technique10 RGBA{pass P1{SetPixelShader(CompileShader(ps_4_0,pRGBA()));}}

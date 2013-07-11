@@ -1,0 +1,66 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4 Frequency=1;
+	float4 Phase=0;
+	bool Grayscale;
+	bool Alpha;
+};
+
+float4 pFILTER(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+
+    return c;
+}
+float4 texIN(sampler s,float2 x){
+    float4 c=tex0.SampleLevel(s0,x,0);
+    if(Grayscale)c.rgb=dot(c.rgb,normalize(float3(.33,.59,.11))/1.5);
+    return c;
+}
+float4 pLIN(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);
+    c=(c*Frequency+Phase);
+    return c;
+}
+float4 pINV(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);float pa=c.a;
+    c=1-(c*Frequency+Phase);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pTRI(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);float pa=c.a;
+    c=1-2*abs(frac((c)*Frequency+Phase)-.5);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pSIN(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);float pa=c.a;
+    c=.5+.5*cos((c*Frequency+Phase)*acos(-1)*2);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pRECT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);float pa=c.a;
+    c=step(-(frac((c*Frequency*254./255.+Phase))-.5),0);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pFRAC(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=texIN(s0,x);float pa=c.a;
+    c=(frac((c*Frequency*254./255.+Phase)));
+    if(!Alpha)c.a=pa;
+    return c;
+}
+
+technique10 Linear{pass P1{SetPixelShader(CompileShader(ps_4_0,pLIN()));}}
+technique10 Inverse{pass P1{SetPixelShader(CompileShader(ps_4_0,pINV()));}}
+technique10 Triangle{pass P1{SetPixelShader(CompileShader(ps_4_0,pTRI()));}}
+technique10 Sine{pass P1{SetPixelShader(CompileShader(ps_4_0,pSIN()));}}
+technique10 Rectangle{pass P1{SetPixelShader(CompileShader(ps_4_0,pRECT()));}}
+technique10 Frac{pass P1{SetPixelShader(CompileShader(ps_4_0,pFRAC()));}}
+
+
+

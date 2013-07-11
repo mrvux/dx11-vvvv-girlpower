@@ -1,0 +1,205 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.1.dtd" >
+   <PATCH nodename="D:\vvvv\vvvv_dx11_node\directx11\texture11\Mixer\Blend (DX11.TextureFX) help.v4p" systemname="Blend help" filename="D:\projects\_dx11\modules\Blend help.v4p">
+   <BOUNDS type="Window" left="10125" top="7785" width="6285" height="5190">
+   </BOUNDS>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="59">
+   <BOUNDS type="Node" left="180" top="4305" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="180" top="4305" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10110" top="1260" width="6240" height="6510">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\myplugins\lib\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="495" top="3840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="QUAD (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="660" top="3495" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layer">
+   </LINK>
+   <NODE componentmode="InABox" id="70" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="30" top="405" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="285" left="30" top="405" type="Box" width="1455">
+   </BOUNDS>
+   <BOUNDS height="160" left="10290" top="35940" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|Texture mixer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="69" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="30" top="30" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="375" left="30" top="30" type="Box" width="3765">
+   </BOUNDS>
+   <BOUNDS height="160" left="10290" top="35940" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|Blend - DX11.TextureFX|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE id="91" systemname="Blend (DX11.TextureFX)" filename="Blend.tfx" nodename="Blend (DX11.TextureFX)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="285" top="2955" width="3750" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="0" top="30" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Texture In 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Opacity" slicecount="1" values="0.52">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Normal">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Texture In" slicecount="1" visible="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Texture Out" dstnodeid="60" dstpinname="texture2d">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="96" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="1185" top="2610" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1185" top="2610" width="900" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Opacity">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0.5">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Opacity">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="97" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="4260" top="75" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4260" top="75" width="960" height="4365">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="Screen">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Technique">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Output Enum" dstnodeid="91" dstpinname="Technique">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="102">
+   <BOUNDS type="Node" left="195" top="1485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="195" top="1485">
+   </BOUNDS>
+   <PIN pinname="Path" visible="1" encoded="0">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="101">
+   <BOUNDS type="Node" left="195" top="825" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="100">
+   <BOUNDS type="Node" left="195" top="1155" width="2070" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="-1" slicecount="1" pintype="Input" encoded="0" values="lib\assets\images\earth_512x512.jpg">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="earth_512x512.jpg">
+   </PIN>
+   <PIN pinname="Intersperse" visible="-1" pintype="Input" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="101" srcpinname="Output" dstnodeid="100" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="100" srcpinname="Output" dstnodeid="102" dstpinname="Path">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="2760" top="1485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="2760" top="1485">
+   </BOUNDS>
+   <PIN pinname="Path" visible="1" encoded="0">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="2775" top="1125" width="1350" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="-1" slicecount="1" pintype="Input" encoded="0" values="lib\assets\images\wimp.jpg">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="wimp.jpg">
+   </PIN>
+   <PIN pinname="Intersperse" visible="-1" pintype="Input" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="98" srcpinname="Output" dstnodeid="99" dstpinname="Path">
+   </LINK>
+   <LINK srcnodeid="101" srcpinname="Output" dstnodeid="98" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="100" srcpinname="Output" dstnodeid="102" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="102" srcpinname="Texture Out" dstnodeid="91" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="91" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Output" dstnodeid="99" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="99" srcpinname="Texture Out" dstnodeid="91" dstpinname="Texture In 2">
+   </LINK>
+   </PATCH>

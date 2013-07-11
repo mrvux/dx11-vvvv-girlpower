@@ -1,0 +1,66 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+/*
+cbuffer controls:register(b0){
+
+};
+*/
+#include "ColorSpace.fxh"
+float4 pRGB2HSV(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSV(c.rgb);
+    return float4(h.xyz,1);
+}
+float4 pHSV2RGB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=HSVtoRGB(c.rgb);
+    return float4(h.xyz,1);
+}
+
+float4 pRED(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+    return float4(c.rrr,1);
+}
+float4 pGREEN(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+    return float4(c.ggg,1);
+}
+float4 pBLUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+    return float4(c.bbb,1);
+}
+float4 pALPHA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+    return float4(c.aaa,1);
+}
+float4 pHUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSV(c.rgb);
+    return float4(h.xxx,1);
+}
+float4 pSATURATION(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSV(c.rgb);
+    return float4(h.yyy,1);
+}
+float4 pVALUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSV(c.rgb);
+    return float4(h.zzz,1);
+}
+
+technique10 RGB2HSV{pass P1{SetPixelShader(CompileShader(ps_4_0,pRGB2HSV()));}}
+technique10 HSV2RGB{pass P1{SetPixelShader(CompileShader(ps_4_0,pHSV2RGB()));}}
+
+technique10 Red{pass P1{SetPixelShader(CompileShader(ps_4_0,pRED()));}}
+technique10 Green{pass P1{SetPixelShader(CompileShader(ps_4_0,pGREEN()));}}
+technique10 Blue{pass P1{SetPixelShader(CompileShader(ps_4_0,pBLUE()));}}
+technique10 Alpha{pass P1{SetPixelShader(CompileShader(ps_4_0,pALPHA()));}}
+
+technique10 Hue{pass P1{SetPixelShader(CompileShader(ps_4_0,pHUE()));}}
+technique10 Saturation{pass P1{SetPixelShader(CompileShader(ps_4_0,pSATURATION()));}}
+technique10 Value{pass P1{SetPixelShader(CompileShader(ps_4_0,pVALUE()));}}
+
+
+

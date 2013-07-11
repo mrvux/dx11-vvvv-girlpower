@@ -1,0 +1,46 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float RandomSeed <float uimin=0.0; float uimax=1.0;string uiname="Random Seed";> = 0.5;
+};
+
+float4 pHorizontalGlitch(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float offset = min(Fader+Fader*tex0.SampleLevel(s0, float2(uv.y, RandomSeed), 0).r, 1.0);
+	uv.x -= offset;
+	if(uv.x > 0.0)
+	{
+		return tex0.SampleLevel(s0, uv, 0);
+	}
+	else
+	{
+		return tex1.SampleLevel(s0, frac(uv), 0);
+	}
+}
+float4 pVerticalGlitch(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float offset = min(Fader+Fader*tex0.SampleLevel(s0, float2(uv.x, RandomSeed), 0).r, 1.0);
+	uv.y -= offset;
+	if(uv.y > 0.0)
+	{
+		return tex0.SampleLevel(s0, uv, 0);
+	}
+	else
+	{
+		return tex1.SampleLevel(s0, frac(uv), 0);
+	}
+}
+
+technique10 GlitchHorizontal{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pHorizontalGlitch()));}
+}
+technique10 GlitchVertical{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pVerticalGlitch()));}
+}

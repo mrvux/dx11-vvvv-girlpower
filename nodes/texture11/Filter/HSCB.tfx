@@ -1,0 +1,35 @@
+Texture2D tex0: PREVIOUS;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Hue=0;
+	float Saturation=1;
+	float Contrast=0;
+	float Brightness=0;
+};
+SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+#include "ColorSpace.fxh"
+float3 safenormalize(float3 x){
+		x=lerp(x,x+.00001,x==0);
+		return normalize(x);
+}
+float4 pHSCB(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+    float3 h=RGBtoHSL(c.rgb);
+   // h.x=(frac(h.x+Hue))*HueCycles;
+    h.y=h.y*Saturation;
+    //c.rgb=HSLtoRGB(h);
+	float3 k0=HSLtoRGB(float3((frac(h.x+Hue)-0),h.y,h.z));
+	float3 k1=HSLtoRGB(float3((frac(h.x+Hue)-1),h.y,h.z));
+	c.rgb=lerp(k0,k1,pow(smoothstep(0,1,h.x),2));
+    c.rgb=safenormalize(c.rgb)*sqrt(3)*pow(length(c.rgb)/sqrt(3),pow(2,Contrast))*pow(2,Brightness);
+    return c;
+}
+
+technique10 HSCB{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pHSCB()));}
+}
+
+
+

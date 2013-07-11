@@ -1,0 +1,46 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float twistAmount <string uiname="Twist Amount";> = 0.5;
+	float frequency <string uiname="Frequency";> = 15.0;
+};
+
+float4 pBandedSwirl(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 center = float2(0.5,0.5);
+	float2 toUV = uv - center;
+	float distanceFromCenter = length(toUV);
+	float2 normToUV = toUV / distanceFromCenter;
+	
+	
+	float angle = atan2(normToUV.y, normToUV.x);	
+	angle += sin(distanceFromCenter * frequency) * twistAmount * Fader;
+	float2 newUV;
+	sincos(angle, newUV.y, newUV.x);
+	newUV = newUV * distanceFromCenter + center;
+	
+	
+	angle = atan2(normToUV.y, normToUV.x);	
+	angle += sin(distanceFromCenter * frequency) * twistAmount * (-1+Fader);
+	float2 newUV2;
+	sincos(angle, newUV2.y, newUV2.x);
+	newUV2 = newUV2 * distanceFromCenter + center;	
+	
+	float4 c1 = tex0.SampleLevel(s0,newUV,0);
+	float4 c2 = tex1.SampleLevel(s0,newUV2,0);
+
+	return lerp(c1,c2, Fader);
+}
+
+technique10 BandedSwirl{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pBandedSwirl()));}
+}
+
+
+

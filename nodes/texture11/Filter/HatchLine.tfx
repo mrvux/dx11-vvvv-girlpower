@@ -1,0 +1,32 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4 ColorA <bool color=true; string uiname="Background Color";>;
+	float4 ColorB <bool color=true; string uiname="Hatch Color";>;
+	float threshold <string uiname = "Threshold";> = 5.0;
+	float thickness <string uiname = "Thickness";> = 4.0;
+	float rot <string uiname = "Rotation";> = 0.36;
+};
+
+float2 r2d(float2 x,float a)
+{
+	a*=acos(-1)*2;
+	return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);
+}
+
+float4 pHatchLine(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 x=uv*R-0.5;
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	col.rgb = sqrt(col.rgb);
+	return lerp(ColorA,ColorB,any(((r2d(x-R*.5,rot)+R).y)%thickness < col.rgb * threshold))*float4(1,1,1,col.a);
+}
+
+technique10 HatchLine{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pHatchLine()));}
+}

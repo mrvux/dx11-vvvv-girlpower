@@ -1,0 +1,24 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4 ColorA <bool color=true; string uiname="Background Color";>;
+	float4 ColorB <bool color=true; string uiname="Hatch Color";>;
+	float threshold = 10.0;
+};
+
+float4 pHatchDot(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 x=uv*R-0.5;
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	col.rgb = sqrt(col.rgb);
+	return lerp(ColorB, ColorA, any(((x.x*5.0 + x.y) % 8.0 < col.b * threshold))*float4(1,1,1,col.a));
+}
+
+technique10 HatchDot{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pHatchDot()));}
+}

@@ -1,0 +1,27 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+Texture2D tex2 <string uiname="Control";>;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0;float uimax=1.0;> =0.5;
+	float Smooth <float uimin=0.0;float uimax=1.0;> =0.25;
+};
+
+#define bld(op,c0,c1) float4(lerp((c0*c0.a+c1*c1.a*(1-c0.a))/saturate(c0.a+c1.a*(1-c0.a)),(op),c0.a*c1.a).rgb,saturate(c0.a+c1.a*(1-c0.a)))
+
+float4 pMIX(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c0=tex0.Sample(s0,x);
+	float4 c1=tex1.Sample(s0,x);
+	float4 c2=tex2.Sample(s0,x);
+	float fd=saturate(dot(c2.xyz,1./3.));
+	fd=fd-((Fader-.5)*(1+Smooth*2)*1.001+.5);
+	fd=smoothstep(Smooth+.0000001,-Smooth,fd);
+	float4 c=lerp(c0,c1,fd);
+    return c;
+}
+
+
+technique10 Mix{pass P1{SetPixelShader(CompileShader(ps_4_0,pMIX()));}}

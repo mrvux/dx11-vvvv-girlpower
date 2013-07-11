@@ -1,0 +1,26 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+Texture2D tex2 <string uiname="Control";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float randomSeed <string uiname = "Random Seed";>;
+	float amount <string uiname = "Amount";> = 0.5;
+};
+
+float4 pLeaking(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 offset = tex2.SampleLevel(s0, float2(uv.x, frac(uv.y /10 + randomSeed)), 0).xy * (amount*10.0);
+	float4 c1 = tex0.SampleLevel(s0, float2(uv.x, (uv.y + -offset.y * Fader)), 0);
+    float4 c2 = tex1.SampleLevel(s0, uv, 0);
+
+	return lerp(c1, c2, Fader);
+}
+
+technique10 Leaking{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pLeaking()));}
+}

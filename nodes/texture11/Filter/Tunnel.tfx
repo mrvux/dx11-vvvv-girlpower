@@ -1,0 +1,74 @@
+//All credits to Iñigo Quílez
+//www.iquilezles.org
+
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float time <string uiname = "Time";>;
+	float Rotate <string uiname = "Rotate";> = 0.0;
+	float Dist <string uiname = "Tunnel distance"; float uimin = 0.0;> = 0.5;
+	float Offset <string uiname = "Texture Offset";> = 0.0;
+	float FogDistance <float uimin = 0.0;> = 0.5;
+	float4 ColorA <bool color=true; string uiname="Fog Color";>;
+};
+
+float2 r2d(float2 x,float a)
+{
+	a*=acos(-1)*2;
+	return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);
+}
+
+float4 pTunnelSquare(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 p = uv-0.5;
+	float2 pRot = r2d(p, Rotate);
+    float2 uvp;
+    float r = pow(pow(pRot.x*pRot.x,3) + pow(pRot.y*pRot.y,3), 1.0/(Dist*8));
+    uvp.x = .5*time + 0.5/r;
+	uvp.y = (atan2(pRot.y,pRot.x)/3.1416+Offset);
+    float4 col = tex0.SampleLevel(s0,uvp,0);
+	
+	return lerp(col, ColorA, 1/(1+(FogDistance*10.0)*pow(r/Dist,2)));
+}
+
+float4 pTunnelCylinder(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+
+	float2 p = uv-0.5;
+	float2 uvp;
+	float a = atan2(p.y,p.x);
+	float r = sqrt(dot(p,p))*(1-Dist);
+	uvp.x = .5*time+.5/r;
+	uvp.y = (a/(3.1416))+Rotate;
+	float4 col =  tex0.SampleLevel(s0,uvp,0);
+	return lerp(col, ColorA, 1/(1+(FogDistance*10.0)*pow(r/Dist,2)));
+}
+
+float4 pTunnelFly(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+
+	float2 p = uv-0.5;
+	float2 uvp;
+	float an = Rotate;
+    float x = p.x*cos(an)-p.y*sin(an);
+    float y = p.x*sin(an)+p.y*cos(an);  	
+    uvp.x = .25*x/abs(y)*Dist+(Offset+0.5);
+    uvp.y = .25*time + .25/abs(y)*Dist;	
+	float4 col = tex0.SampleLevel(s0,uvp,0);
+	return lerp(col,ColorA, 1/(1+(FogDistance*10.0)*pow(y/Dist,2)));
+}
+
+technique10 TunnelSquare{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pTunnelSquare()));}
+}
+technique10 TunnelCylinder{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pTunnelCylinder()));}
+}
+technique10 TunnelFly{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pTunnelFly()));}
+}

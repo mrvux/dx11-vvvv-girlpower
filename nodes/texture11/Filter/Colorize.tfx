@@ -1,0 +1,39 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4 ColorA <bool color=true;>;
+	float4 ColorB <bool color=true;>;
+	float4 ColorC <bool color=true;>;
+
+};
+
+float4 pColorize(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float3 pixcol = length(tex0.SampleLevel(s0, uv, 0).rgb);
+	float3 tc = float3 (1.0, 0.0, 0.0);
+	float3 colors[3];
+	colors[0] = float3 (ColorA.r, ColorA.g, ColorA.b);
+	colors[1] = float3 (ColorB.r, ColorB.g, ColorB.b);
+	colors[2] = float3 (ColorC.r, ColorC.g, ColorC.b);	
+	float lum = dot(pixcol, 0.33);
+	float ix;	
+	if (lum < 0.5)
+	{
+		ix = 0;
+	}
+	else if (lum > 0.5)
+	{
+		ix = 1;
+	}
+	tc = lerp(colors[ix], colors[ix+1], (lum-float(ix)*0.5)/0.5);
+    return float4(tc, 1.0);
+	
+}
+
+technique10 Colorize{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pColorize()));}
+}

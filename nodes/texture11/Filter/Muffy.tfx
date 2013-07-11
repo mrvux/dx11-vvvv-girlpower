@@ -1,0 +1,21 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=MIRROR;AddressV=MIRROR;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float RingAmount <string uiname = "Ring Amount";> = 2.5;
+	float RingSize <string uiname = "Ring Size";> = 2.0;
+};
+
+float4 pMuffy(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{	
+	float4 col = tex0.SampleLevel(s0, uv + ((sin(uv.y * RingSize*10.0)*RingAmount ) * cos (uv.x)) + (sin(uv.x * RingSize*10.0)*RingAmount), 0);
+	return float4(col);
+}
+
+technique10 Muffy{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pMuffy()));}
+}

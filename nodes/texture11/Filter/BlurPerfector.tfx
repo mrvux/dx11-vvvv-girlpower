@@ -1,0 +1,95 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Radius <float uimin=0.0;> =.2;
+	float Threshold=.2;
+	
+};
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float diff(float3 a,float3 b){
+	float3 c=abs(a.xyz-b.yzx);
+	return max(c.x,max(c.y,c.z));
+}
+float4 pBLURPERF(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float lod=log2(max(R.x,R.y));
+    float kk=1;
+    float4 cc=tex0.SampleLevel(s0,x,1);
+	float4 c=cc;
+	float2 w=Radius/28*R/max(R.x,R.y);
+	//w*=pow(.002,pow(length(tex0.SampleLevel(s0,x,3).xyz-tex0.SampleLevel(s0,x,2).xyz),.5));
+    for (float i=0;i<1;i+=1./16){
+    	float2 off=sqrt(i+.05)*sin((i*3.5+float2(0,.25))*acos(-1)*2);
+        float4 nc=tex0.SampleLevel(s0,x+off*w,0);
+    	float k=pow(smoothstep(Threshold,0,distance(nc.rgb,cc.rgb)),.5);
+    	c+=nc*k;
+        kk+=k;
+    }
+    c=c/kk;
+	if(kk<2)c=cc;
+	c.a=cc.a;
+    return c;
+}
+float4 pBLURPERF_CTRL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float lod=log2(max(R.x,R.y));
+    float kk=1;
+    float4 cc=tex0.SampleLevel(s0,x,1);
+	float4 maskc=tex1.SampleLevel(s0,x,1);
+	float4 c=cc;
+	float2 w=Radius/28*R/max(R.x,R.y);
+	//w*=pow(.002,pow(length(tex0.SampleLevel(s0,x,3).xyz-tex0.SampleLevel(s0,x,2).xyz),.5));
+    for (float i=0;i<1;i+=1./16){
+    	float2 off=sqrt(i+.05)*sin((i*3.5+float2(0,.25))*acos(-1)*2);
+        float4 nc=tex0.SampleLevel(s0,x+off*w,0);
+    	float4 maskn=tex1.SampleLevel(s0,x+off*w,0);
+    	float k=pow(smoothstep(Threshold,0,distance(nc.rgb,cc.rgb)),.5);
+    	k=pow(smoothstep(Threshold,0,distance(maskn.rgb,maskc.rgb)),.5);
+    	c+=nc*k;
+        kk+=k;
+    }
+    c=c/kk;
+	if(kk<2)c=cc;
+	c.a=cc.a;
+    return c;
+}
+
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex0.SampleLevel(s0,x,0);
+}
+technique10 SelfBlurX1{
+	pass P0<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF()));}
+
+}
+technique10 SelfBlurX2{
+	pass P0<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF()));}
+	pass P2
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF()));}
+
+}
+technique10 ControlBlurX1{
+	pass P0<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF_CTRL()));}
+
+
+}
+technique10 ControlBlurX2{
+	pass P0<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1<bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF_CTRL()));}
+	pass P2
+	{SetPixelShader(CompileShader(ps_4_0,pBLURPERF_CTRL()));}
+
+}

@@ -1,0 +1,71 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	
+	float a <string uiname ="Threshold"; float uimin = 0.0;> = 6.5;
+};
+
+float FindClosest (int x, int y, float c0)
+{
+	float4x4 dither = float4x4(
+	1.0, 33.0, 9.0, 41.0,
+	49.0, 17.0, 57.0, 25.0,
+	13.0, 45.0, 5.0, 37.0,
+	61.0, 29.0, 53.0, 21.0);
+	
+	float limit = 0.0;
+	if(x < 4)
+	{
+		if(y >= 4)
+		{
+			limit = (dither[x][y-4]+3.0)/(a*10);
+		}
+		else
+		{
+			limit = (dither[x][y])/(a*10);
+		}
+	}
+	if(x>=4)
+	{
+		if(y>=4)
+		{
+			limit = (dither[x-4][y-4]+0.0)/(a*10);
+		}
+		else
+		{
+			limit = (dither[x-4][y]+0.0)/(a*10);
+		}
+	}
+	if(c0 < limit)
+	{
+		return 0.0;
+	}
+	else
+	{
+		return 1.0;
+	}
+}
+
+float4 pDither(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+
+	float3 rgb = tex0.SampleLevel(s0, uv, 0).rgb;
+	
+	int x = int((uv.x*R.x)%8);
+	int y = int((uv.y*R.y)%8);
+	
+	float3 finalRGB;
+	
+	finalRGB.r = FindClosest(x, y, rgb.r);
+	finalRGB.g = FindClosest(x, y, rgb.g);
+	finalRGB.b = FindClosest(x, y, rgb.b);
+	
+	return float4 (finalRGB, 1.0);
+}
+
+technique10 Dither{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pDither()));}
+}

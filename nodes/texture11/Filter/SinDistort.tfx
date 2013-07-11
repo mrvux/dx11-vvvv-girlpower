@@ -1,0 +1,39 @@
+Texture2D tex0: PREVIOUS;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Amount <float uimin=0.0;float uimax=1.0;> =0.9;
+	int Iterations <float uimin=1.0;float uimax=64.0;> =6;
+	float Shape=1;
+	float Frequency=1;
+	float2 Phase=1;
+};
+
+SamplerState s0 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float4 pDIST(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float lod=log2(max(R.x,R.y));
+	lod=0;
+	float4 c=0;
+	float2 asp=R/R.x;
+	float2 dx=(x-.5)*asp;
+	for(int i=0;i<Iterations;i++){
+		float2 sz=pow(2,-Shape*(i-Iterations*.5)+3+Frequency);
+		dx+=sin(dx.yx*float2(1,-1)*sz+Phase*pow(pow(2,Shape),i))*Amount/sz;
+	}
+	x=dx/asp+.5;
+	c=tex0.Sample(s0,x);
+
+	return c;
+}
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex0.SampleLevel(s0,x,0);
+}
+technique10 SinDistort{
+
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pDIST()));}
+}
+
+
+

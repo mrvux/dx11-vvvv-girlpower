@@ -1,0 +1,46 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+
+	float4 Levels <float uimin=1.0;> = {4.0,4.0,4.0,4.0};
+	bool Alpha = 0;
+	//float4 Dithering <float uimin=0.0;float uimax=1.0;> = 0;
+	float Smooth <float uimin=0.0;float uimax=1.0;> = 0.1;
+	float4 Phase <float uimin=0.0;float uimax=1.0;> = 0;
+};
+#include "ColorSpace.fxh"
+
+float4 posterizer(float4 c,float2 x){
+	float4 ph=(Phase);
+	c=c*max(Levels,0);//+Dithering*(1-Smooth)*dot(vp%2,float2(.75,.25))*frac(c*max(Levels,0));
+	c+=ph;
+	return (floor(c)-ph+saturate((frac(c)-.5)/(.00001+Smooth)+.5))/(max(Levels,0)+.000000001);
+}
+float4 pRGB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);float pa=c.a;
+    c=posterizer(c,x);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pHSV(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);float pa=c.a;
+    c.rgb=RGBtoHSV(c.rgb);
+	c=posterizer(c,x);
+	c.rgb=HSVtoRGB(c.rgb);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+float4 pHSL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);float pa=c.a;
+    c.rgb=RGBtoHSL(c.rgb);
+	c=posterizer(c,x);
+	c.rgb=HSLtoRGB(c.rgb);
+    if(!Alpha)c.a=pa;
+    return c;
+}
+technique10 RGB{pass P1{SetPixelShader(CompileShader(ps_4_0,pRGB()));}}
+technique10 HSV{pass P1{SetPixelShader(CompileShader(ps_4_0,pHSV()));}}
+technique10 HSL{pass P1{SetPixelShader(CompileShader(ps_4_0,pHSL()));}}
+

@@ -1,0 +1,22 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float2 Center = 0.5;
+	float Radius = 0.5;
+	float Amount = -1.5;
+};
+
+float4 pPinch(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{		
+    float2 displace = Center - uv;
+    float range = saturate(1 - (length(displace) / (abs(-sin(Radius) * Radius) + 0.00000001F)));
+    return tex0.SampleLevel(s0, uv + displace * range * Amount, 0);
+}
+technique10 Pinch{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pPinch()));}
+}

@@ -1,0 +1,47 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	
+	float Amount=0.5;
+	float2 Direction = {1,1};
+	float MapSmooth <float uimin=0.0; float uimax=1.0;> = 0.0;
+};
+
+float4 pTEXCOORD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+	float2 uv=lerp(x,tex1.SampleLevel(s0,x,lod).xy,(Direction)*Amount);
+	float4 c=tex0.SampleLevel(s0,uv,0);
+    return c;
+}
+float4 pNORMALMAP(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+	float2 uv=x+(tex1.Sample(s0,x).xy-.5)*(Direction)*Amount;
+	float4 c=tex0.SampleLevel(s0,uv,0);
+    return c;
+}
+float4 pHEIGHT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+    float4 c=0;
+    float2 off=.25/R*pow(2,lod)*saturate(lod-1)+1./R;
+    float4 map=tex1.SampleLevel(s0,x,lod);
+    float2 ht=float2((tex1.SampleLevel(s0,x-off*float2(1,0),lod)-tex1.SampleLevel(s0,x+off*float2(1,0),lod)).x,(tex1.SampleLevel(s0,x-off*float2(0,1),lod)-tex1.SampleLevel(s0,x+off*float2(0,1),lod)).x);
+    c=tex0.SampleLevel(s0,x+ht*(Direction)*Amount,1);
+    return c;
+}
+technique10 RedGreenXY{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pTEXCOORD()));}
+}
+technique10 NormalMap{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pNORMALMAP()));}
+}
+technique10 Height{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pHEIGHT()));}
+}
+
+

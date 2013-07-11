@@ -1,0 +1,47 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Factor <float uimin=0.0;float uimax=1.0;> =1.0;
+};
+#include "ColorSpace.fxh"
+float4 pRGB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c.rgb=lerp(c.rgb,1-c.rgb,Factor);
+    return c;
+}
+float4 pRGBA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c=lerp(c,1-c,Factor);
+    return c;
+}
+float4 pALPHA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c.a=lerp(c.a,1-c.a,Factor);
+    return c;
+}
+float4 pBGR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	c.rgb=lerp(c.rgb,1-c.bgr,Factor);
+    return c;
+}
+float4 pVALUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSV(c.rgb);
+	h.z=lerp(h.z,1-h.z,Factor);
+	c.rgb=HSVtoRGB(h);
+    return c;
+}
+float4 pLIGHTNESS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float3 h=RGBtoHSL(c.rgb);
+	h.z=lerp(h.z,1-h.z,Factor);
+	c.rgb=HSLtoRGB(h);
+    return c;
+}
+
+technique10 RGB{pass P1{SetPixelShader(CompileShader(ps_4_0,pRGB()));}}
+technique10 BGR{pass P1{SetPixelShader(CompileShader(ps_4_0,pBGR()));}}
+technique10 Lightness{pass P1{SetPixelShader(CompileShader(ps_4_0,pLIGHTNESS()));}}
+technique10 Value{pass P1{SetPixelShader(CompileShader(ps_4_0,pVALUE()));}}

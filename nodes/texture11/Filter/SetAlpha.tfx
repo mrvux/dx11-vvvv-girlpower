@@ -1,0 +1,57 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+SamplerState s0:IMMUTABLE {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+SamplerState s1 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	bool Original <string uiname="Keep Original Alpha";> =0;
+	bool Invert=0;
+};
+
+float4 pRED(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 m=tex1.SampleLevel(s1,x,0);
+	float alpha=saturate(m.r);
+	if(Invert)alpha=1-alpha;
+	if(!Original)c.a=1;
+	c.a*=alpha;
+    return c;
+}
+float4 pGREEN(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 m=tex1.SampleLevel(s1,x,0);
+	float alpha=saturate(m.g);
+	if(Invert)alpha=1-alpha;
+	if(!Original)c.a=1;
+	c.a*=alpha;
+    return c;
+}
+float4 pBLUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 m=tex1.SampleLevel(s1,x,0);
+	float alpha=saturate(m.b);
+	if(Invert)alpha=1-alpha;
+	if(!Original)c.a=1;
+	c.a*=alpha;
+    return c;
+}
+float4 pALPHA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 m=tex1.SampleLevel(s1,x,0);
+	float alpha=saturate(m.a);
+	if(Invert)alpha=1-alpha;
+	if(!Original)c.a=1;
+	c.a*=alpha;
+    return c;
+}
+
+technique10 Red{pass P1{SetPixelShader(CompileShader(ps_4_0,pRED()));}}
+technique10 Green{pass P1{SetPixelShader(CompileShader(ps_4_0,pGREEN()));}}
+technique10 Blue{pass P1{SetPixelShader(CompileShader(ps_4_0,pBLUE()));}}
+technique10 Alpha{pass P1{SetPixelShader(CompileShader(ps_4_0,pALPHA()));}}
+
+
+
+

@@ -1,0 +1,34 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+};
+
+float4 pPixelate(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float pixels;
+	float segment_progress;
+	if (Fader < 0.5)
+	{
+		segment_progress = 1 - Fader * 2;
+	}
+	else
+	{		
+		segment_progress = (Fader - 0.5) * 2;
+	}
+    pixels = 5 + 1000 * segment_progress * segment_progress;
+	float2 newUV = round(uv * pixels) / pixels;	
+    float4 c1 = tex0.SampleLevel(s0, newUV, 0);
+    float4 c2 = tex1.SampleLevel(s0, newUV, 0);
+	float lerp_progress = saturate((Fader - 0.4) / 0.2);
+	return lerp(c1,c2, lerp_progress);	
+}
+
+technique10 Pixelate{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pPixelate()));}
+}

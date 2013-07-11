@@ -1,0 +1,69 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+//	float Factor <float uimin=0.0;float uimax=1.0;> =0.25;
+float Threshold <float uimin=0.0; float uimax=1.0;> = 0.3;
+float Smooth <float uimin=0.0; float uimax=1.0;> = 0.1;
+float AlphaBlur <float uimin=0.0; float uimax=1.0;> = 0.0;
+bool Invert=0;
+bool SourceAlpha <bool visible=false;> =0;
+bool Premultiply <bool visible=false;> =0;
+};
+
+float4 pKEYING(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	//c.a=c.r<Factor;
+    return c;
+}
+#include "ColorSpace.fxh"
+float4 mmap(float2 x){
+	return tex0.SampleLevel(s0,x,(saturate(AlphaBlur)*log2(max(R.x,R.y))));
+}
+float4 keyer(float4 c,float4 map,float key){
+	c.a=smoothstep(Threshold-Smooth,Threshold+Smooth+.0001,key);
+	if(Invert)c.a=1-c.a;
+    if(Premultiply)c.rgb*=sqrt(1./c.a);
+    if(SourceAlpha)c.a*=map.a;
+	return c;
+}
+float4 pLUMA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,dot(map.xyz,float3(.33,.59,.11)));
+}
+float4 pSATUR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,RGBtoHSV(map.xyz).y);
+}
+float4 pRED(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,c.r);
+}
+float4 pGREEN(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,c.g);
+}
+float4 pBLUE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,c.b);
+}
+float4 pALPHA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+    float4 c=tex0.SampleLevel(s0,x,0);
+    float4 map=mmap(x);
+    return keyer(c,map,c.a);
+}
+technique10 Luma{pass P0{SetPixelShader(CompileShader(ps_4_0,pLUMA()));}}
+technique10 Saturation{pass P0{SetPixelShader(CompileShader(ps_4_0,pSATUR()));}}
+technique10 Red{pass P0{SetPixelShader(CompileShader(ps_4_0,pRED()));}}
+technique10 Green{pass P0{SetPixelShader(CompileShader(ps_4_0,pGREEN()));}}
+technique10 Blue{pass P0{SetPixelShader(CompileShader(ps_4_0,pBLUE()));}}
+technique10 Alpha{pass P0{SetPixelShader(CompileShader(ps_4_0,pALPHA()));}}
+
+
+

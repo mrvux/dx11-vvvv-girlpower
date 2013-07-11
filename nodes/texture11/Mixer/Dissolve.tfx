@@ -1,0 +1,31 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+Texture2D tex2 <string uiname="Control";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=2.0;> = 0.5;
+	float randomSeed<float uimin=0.0; float uimax=1.0;string uiname="Random Seed";> = 0.5;
+};
+
+float4 pDissolve(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{
+	float noise = dot(tex2.SampleLevel(s0, uv + randomSeed, 0), 0.33);
+	float4 c;
+	if((saturate(noise)-.5)*.99+.5 > Fader)
+	{
+		c = tex0.SampleLevel(s0, uv, 0);
+    }
+    else
+    {
+		c = tex1.SampleLevel(s0, uv, 0);
+	}
+	return c;
+}
+
+technique10 Dissolve{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pDissolve()));}
+}

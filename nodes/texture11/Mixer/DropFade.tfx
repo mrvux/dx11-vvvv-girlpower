@@ -1,0 +1,56 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float randomSeed <float uimin=0.0; float uimax=1.0;string uiname="Random Seed";> = 0.5;
+	float DistortAmount <float uimin=0.0; float uimax=1.0;string uiname="DistortAmount";> = 0.5;
+};
+
+float4 SampleWithBorder ( float4 border, sampler2D tex, float2 uv) : COLOR
+{
+	if (any(saturate(uv) - uv))
+	{
+		return border;
+	}
+	else
+	{
+		return tex0.SampleLevel(s0, uv, 0);
+	}
+}
+
+float4 pDropFadeDown(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{
+	float offset = -dot(tex1.SampleLevel(s0, float2(uv.x * DistortAmount, randomSeed), 0), 0.33);
+	float4 c1 = SampleWithBorder(float4(0,0,0,0), s0, float2(uv.x, uv.y + offset * Fader));
+    float4 c2 = tex1.SampleLevel(s0, uv, 0);
+
+	if (dot(c1, 0.33) <= 0.0)
+		return c2;
+	else
+		return lerp(c1, c2, Fader);
+}
+
+float4 pDropFadeUp(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{
+	float offset = dot(tex1.SampleLevel(s0, float2(uv.x * DistortAmount, randomSeed), 0), 0.33);
+	float4 c1 = SampleWithBorder(float4(0,0,0,0), s0, float2(uv.x, uv.y + offset * Fader));
+    float4 c2 = tex1.SampleLevel(s0, uv, 0);
+
+	if (dot(c1, 0.33) <= 0.0)
+		return c2;
+	else
+		return lerp(c1, c2, Fader);
+}
+
+technique10 DropFadeDown{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pDropFadeDown()));}
+}
+technique10 DropFadeUp{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pDropFadeUp()));}
+}

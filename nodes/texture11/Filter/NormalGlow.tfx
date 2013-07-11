@@ -1,0 +1,51 @@
+Texture2D tex0: PREVIOUS;
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+
+	float Depth=1;
+	float Shape=0;
+	float MaxRadius <float uimin=0.0;float uimax=1.0;> =1.0;
+	
+};
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float mx(float3 x){return max(x.x,max(x.y,x.z));}
+float4 pBLUR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	//float4 map=tex1.SampleLevel(s0,x,0);
+	float4 c=0;
+	float lod=log2(max(R.x,R.y));
+	float kk=0;
+	for (float i=1;i<min(lod-(1-MaxRadius*lod),14);i++){
+		float2 off=pow(2,i)/max(R.x,R.y);
+		off*=0.5;
+		//off*=R/R.x;
+		float k=1./pow(2,i*Shape-lod+1)*saturate(MaxRadius*lod-i+1);
+		float dx=(mx(tex0.SampleLevel(s0,x-off*float2(1,0),i).xyz)-mx(tex0.SampleLevel(s0,x+off*float2(1,0),i).xyz))*k;
+		float dy=(mx(tex0.SampleLevel(s0,x-off*float2(0,1),i).xyz)-mx(tex0.SampleLevel(s0,x+off*float2(0,1),i).xyz))*k;
+		c.xy+=float2(dx,dy)*sqrt(R.x/R);
+		c.z+=length(float2(dx,dy));
+		kk+=k;
+    }
+	c.xy/=pow(abs(c.z)*.1,.3)/.1;
+	float dd=Depth/pow(abs(kk),.7)*8;
+	c.z=pow(saturate(1-dd*length(c.xy)),.5);
+	c.xy=c.xy*dd+.5;
+	
+	//c.rgb=c.a;
+	c.a=tex0.SampleLevel(s0,x,0).a;
+
+    return c;
+}
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex0.SampleLevel(s0,x,0);
+}
+technique10 FastBlur{
+	pass P0 <bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pBLUR()));}
+}
+
+
+

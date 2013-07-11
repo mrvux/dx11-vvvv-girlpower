@@ -1,0 +1,24 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Fader <float uimin=0.0; float uimax=1.0;> = 0.5;
+	float deform <string uiname = "Deform Amount";> = 0.1;
+	float freq <string uiname = "Frequency";> = 20;
+};
+
+float4 pWave(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 newUV = uv + float2(deform * Fader * sin(freq * uv.y * Fader), 0);
+	float4 c1 = tex0.SampleLevel(s0, newUV, 0);
+    float4 c2 = tex1.SampleLevel(s0, uv, 0);
+    return lerp(c1,c2, Fader);
+}
+
+technique10 Wave{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pWave()));}
+}

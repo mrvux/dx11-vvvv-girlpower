@@ -1,0 +1,54 @@
+Texture2D tex0: PREVIOUS;
+
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4 ColorA <bool color=true; string uiname="Background Color";>;
+	float4 ColorB <bool color=true; string uiname="Hatch Color";>;
+	float Threshold <float uimin=0; string uiname="Threshold";> = 0.5;
+	int density <float uimin=0; string uiname="Density";> = 12;
+};
+
+float4 pHatchCrossed(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
+	
+	float2 x =uv*R-0.5;
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	float lum = dot(col.rgb, 0.33);
+	float4 tc = ColorA;
+	if (lum < Threshold)
+	{
+		if ((x.x+x.y)%density == 0.0)
+		{
+			tc = ColorB;
+		}
+	}	
+	if (lum < (Threshold*0.75))
+	{
+		if ((x.x-x.y)%density == 0.0)
+		{
+			tc = ColorB;
+		}
+	}	
+	if (lum < (Threshold*0.5))
+	{
+		if ((x.x+x.y+(density/2.0))%density == 0.0)
+		{
+			tc = ColorB;
+		}
+	}	
+	if (lum < (Threshold*0.5))
+	{
+		if ((x.x-x.y-(density/2.0))%density == 0.0)
+		{
+			tc = ColorB;	
+		}
+	}	
+	return lerp (ColorB, ColorA, tc);
+}
+
+technique10 HatchCrossed{
+	pass P0
+	{SetPixelShader(CompileShader(ps_4_0,pHatchCrossed()));}
+}
