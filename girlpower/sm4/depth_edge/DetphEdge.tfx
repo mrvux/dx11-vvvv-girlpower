@@ -1,0 +1,40 @@
+Texture2D InputTexture: PREVIOUS;
+
+float dthr = 0.01f; // Depth threshold
+
+//Luminance in case we have an edge or not
+float nonedgeluma = 0.0f;
+float edgeluma = 0.0f;
+
+float4 PS_DepthEdge(float4 p:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
+	bool overlay = true;
+	
+	//Simple sobel filter
+	float s00 = InputTexture.Load(int3(p.xy+ float2(-1, -1),0)).r;
+	float s01 = InputTexture.Load(int3(p.xy+ float2(0, -1),0)).r;
+	float s02 = InputTexture.Load(int3(p.xy+ float2(1, -1),0)).r;
+	float s10 = InputTexture.Load(int3(p.xy+ float2(-1, 0),0)).r;
+
+	float s12 = InputTexture.Load(int3(p.xy+ float2(1, 0),0)).r;
+	float s20 = InputTexture.Load(int3(p.xy+ float2(-1, 1),0)).r;
+	float s21 = InputTexture.Load(int3(p.xy+ float2(0, 1),0)).r;
+	float s22 = InputTexture.Load(int3(p.xy+ float2(1, 1),0)).r;
+
+	float sobelX = s00 + 2 * s10 + s20 - s02 - 2 * s12 - s22;
+	float sobelY = s00 + 2 * s01 + s02 - s20 - 2 * s21 - s22;
+
+	float edgeSqr = (sobelX * sobelX + sobelY * sobelY);
+	float result = (edgeSqr > dthr * dthr) ? edgeluma : nonedgeluma;
+	return result;
+}
+technique10 DepthEdge
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_DepthEdge()));
+	}
+}
+
+
+
