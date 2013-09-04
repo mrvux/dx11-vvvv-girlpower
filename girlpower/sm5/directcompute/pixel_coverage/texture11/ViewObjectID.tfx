@@ -1,0 +1,50 @@
+//@author: vux
+//@help: Object ID viewer
+//@tags: texture
+//@credits: 
+
+Texture2D<uint> texture2d : PREVIOUS;
+
+StructuredBuffer<float4> colors;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+
+float4 PS(psInput input) : SV_Target
+{
+	uint c = texture2d.Load(int3(input.p.xy,0));
+	if (c > 0)
+	{
+		uint cnt,dummy;
+		colors.GetDimensions(cnt,dummy);		
+		float4 cr = colors[c % cnt];
+		return cr;	
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+technique10 Process
+{
+	pass P0 <string format="R8G8B8A8_Unorm";>
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS()));
+	}
+}
+
+
+
