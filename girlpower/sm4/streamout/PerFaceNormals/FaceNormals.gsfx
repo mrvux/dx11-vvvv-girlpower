@@ -1,0 +1,72 @@
+struct vsIn
+{
+	float4 pos : POSITION;
+	float2 uv : TEXCOORD0;
+};
+
+struct GSIn
+{
+    float3 pos  : POSITION;
+	float2 uv : TEXCOORD0;
+};
+
+struct GSOut
+{
+    float3 pos  : POSITION;
+	float3 normal : NORMAL;
+	float2 uv : TEXCOORD0;
+};
+
+GSIn VS(vsIn input)
+{
+	GSIn o;
+	o.pos = input.pos.xyz;
+	o.uv = input.uv;
+    return o;
+}
+
+[maxvertexcount(3)]
+void GS(triangle GSIn input[3], inout TriangleStream<GSOut> gsout)
+{ 
+	GSOut elem = (GSOut)0;
+	 
+	float3 p1 = input[0].pos;
+	float3 p2 = input[1].pos;
+	float3 p3 = input[2].pos;
+	
+	float3 ce =( p1 + p2 + p3 )/3.0f;
+	
+	float3 faceEdgeA = p2 - p1;
+    float3 faceEdgeB = p1 -p3;
+    float3 norm = cross(faceEdgeB, faceEdgeA);	
+	norm = normalize(norm);
+	
+	
+	elem.pos = input[0].pos;
+	elem.uv = input[0].uv;
+	elem.normal = norm;
+	gsout.Append(elem);
+	
+	elem.pos = input[1].pos;
+	elem.uv = input[1].uv;
+	elem.normal = norm;
+	gsout.Append(elem);
+	
+	elem.pos = input[2].pos;
+	elem.uv = input[2].uv;
+	elem.normal = norm;
+	gsout.Append(elem);
+
+	gsout.RestartStrip();
+}
+
+GeometryShader gsStreamOut = ConstructGSWithSO( CompileShader( gs_4_0, GS() ), "POSITION.xyz;NORMAL.xyz;TEXCOORD.xy",NULL,NULL,NULL,-1 );
+technique11 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_4_0, VS() ) );
+        SetGeometryShader( gsStreamOut );
+    }  
+}
+
