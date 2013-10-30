@@ -1,0 +1,24 @@
+Texture2D InputTexture: PREVIOUS;
+Texture2D InputTexture2;
+
+
+
+float4 PS_Mul(float4 p:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
+	bool overlay = true;
+	
+	float4 c1 = InputTexture.Load(int3(p.xy,0));
+	float4 c2 = InputTexture2.Load(int3(p.xy,0));
+	
+	return c1 * c2;
+}
+technique10 Multiply
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_Mul()));
+	}
+}
+
+
+
