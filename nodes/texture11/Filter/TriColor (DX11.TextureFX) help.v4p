@@ -103,13 +103,13 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3300" top="2340" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" values="|0.99630,0.99630,0.99630,1.00000|">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7725" top="2895" width="480" height="480">
+   <BOUNDS type="Box" left="7500" top="2865" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="7725" top="2895" width="0" height="0">
+   <BOUNDS type="Node" left="7500" top="2865" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -219,9 +219,9 @@
    <LINK srcnodeid="30" srcpinname="Texture Out" dstnodeid="38" dstpinname="Input 2">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="39" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6555" top="2880" width="480" height="480">
+   <BOUNDS type="Box" left="6330" top="2850" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="6555" top="2880" width="0" height="0">
+   <BOUNDS type="Node" left="6330" top="2850" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -238,18 +238,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="SingleChannel">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="49" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4080" top="3030" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4080" top="3030" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0.5">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Smooth">
    </PIN>
    </NODE>
    <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\myplugins\lib\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="50">
@@ -296,32 +284,46 @@
    <PIN pinname="Color Input" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
    </PIN>
    </NODE>
-   <NODE nodename="TriColor (DX11.TextureFX)" componentmode="Hidden" id="59" systemname="TriColor (DX11.TextureFX)" filename="texture11\TriColor.tfx">
+   <NODE nodename="TriColor (DX11.TextureFX)" componentmode="Hidden" id="61" systemname="TriColor (DX11.TextureFX)" filename="texture11\TriColor.tfx">
    <BOUNDS type="Node" left="1930" top="3845" width="6555" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="1930" top="3845" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Enabled" slicecount="1" values="1">
+   <PIN pinname="Smooth" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="0.5">
    </PIN>
    </NODE>
-   <LINK srcnodeid="6" srcpinname="Color Output" dstnodeid="59" dstpinname="ColorC">
+   <LINK srcnodeid="6" srcpinname="Color Output" dstnodeid="61" dstpinname="ColorC">
    </LINK>
-   <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="59" dstpinname="ClampColor">
+   <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="61" dstpinname="ClampColor">
    </LINK>
-   <LINK srcnodeid="59" srcpinname="Texture Out" dstnodeid="31" dstpinname="Input Node">
+   <LINK srcnodeid="61" srcpinname="Texture Out" dstnodeid="31" dstpinname="Input Node">
    </LINK>
-   <LINK srcnodeid="59" srcpinname="Texture Out" dstnodeid="34" dstpinname="Input Node">
+   <LINK srcnodeid="61" srcpinname="Texture Out" dstnodeid="34" dstpinname="Input Node">
    </LINK>
-   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="59" dstpinname="Texture In">
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="61" dstpinname="Texture In">
    </LINK>
-   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Smooth">
+   <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="61" dstpinname="Center">
    </LINK>
-   <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Center">
+   <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="61" dstpinname="SingleChannel">
    </LINK>
-   <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="59" dstpinname="SingleChannel">
+   <LINK srcnodeid="57" srcpinname="Color Output" dstnodeid="61" dstpinname="ColorB">
    </LINK>
-   <LINK srcnodeid="57" srcpinname="Color Output" dstnodeid="59" dstpinname="ColorB">
+   <LINK srcnodeid="58" srcpinname="Color Output" dstnodeid="61" dstpinname="ColorA">
    </LINK>
-   <LINK srcnodeid="58" srcpinname="Color Output" dstnodeid="59" dstpinname="ColorA">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="66" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4080" top="3030" width="600" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4080" top="3030" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Smooth">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Y Output Value" dstnodeid="61" dstpinname="Smooth">
    </LINK>
    </PATCH>
