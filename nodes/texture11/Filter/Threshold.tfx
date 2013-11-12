@@ -1,0 +1,28 @@
+Texture2D tex0: PREVIOUS;
+float2 R:TARGETSIZE;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+cbuffer controls:register(b0){
+	float4 ColorA <bool color=true;string uiname="Color 1";> = {0,0,0,1};
+	float4 ColorB <bool color=true;string uiname="Color 2";> = {1,1,1,1};
+	float Threshold <float uimin=0.0; float uimax=1.0;> = 0.5; 
+	float Smooth <float uimin=0.0; float uimax=1.0;> = 0.01; 
+	bool Invert=0;
+	bool AntiAliasing=0;
+	
+};
+
+float4 pTHRESHOLD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float f=c.r;
+	float th=(Threshold-.5)*1.001+.5;
+	f=(f-th)/max(.0001+fwidth(f-th)*AntiAliasing,Smooth)+th;
+	if(Invert)f=1-f;
+	c=lerp(ColorA,ColorB,f);
+    return c;
+}
+
+technique10 _Threshold{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pTHRESHOLD()));}
+}
