@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="C:\Users\Matthias\Desktop\Rope (DX11).v4p" systemname="Rope (DX11)" filename="C:\Users\Matthias\Desktop\Rope (DX11).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_45beta31.2_x86\packs\DX11\nodes\modules\Rope (DX11).v4p" systemname="Rope (DX11)" filename="C:\Users\Matthias\Desktop\Rope (DX11).v4p">
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1695" top="4740" width="100" height="100">
    </BOUNDS>
@@ -39,17 +39,17 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="3" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Node" left="6210" top="7110" width="0" height="0">
+   <BOUNDS type="Node" left="6630" top="7125" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="6210" top="7110" width="1590" height="240">
+   <BOUNDS type="Box" left="6630" top="7125" width="1590" height="240">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="TriangleStrip">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="4" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Node" left="6105" top="6255" width="0" height="0">
+   <BOUNDS type="Node" left="6150" top="6225" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="6105" top="6255" width="1680" height="495">
+   <BOUNDS type="Box" left="6150" top="6225" width="1680" height="495">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="2" values="R32G32B32_Float,R32G32_Float">
    </PIN>
@@ -81,9 +81,9 @@
    </PIN>
    <PIN pinname="Input 2" visible="1" pintype="Input">
    </PIN>
-   <BOUNDS type="Node" left="2550" top="6975" width="100" height="100">
+   <BOUNDS type="Node" left="2565" top="6975" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="330" top="3540" width="2400" height="1800">
+   <BOUNDS type="Box" left="345" top="3540" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
    </BOUNDS>
@@ -103,9 +103,9 @@
    <NODE id="7" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)" hiddenwhenlocked="0" managers="">
    <PIN pinname="Y Output Value" pintype="Output" visible="1">
    </PIN>
-   <BOUNDS type="Node" left="2730" top="6555" width="0" height="0">
+   <BOUNDS type="Node" left="2745" top="6555" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2730" top="6555" width="345" height="240">
+   <BOUNDS type="Box" left="2745" top="6555" width="345" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" pintype="Input" visible="1" values="3">
    </PIN>
@@ -179,9 +179,9 @@
    <NODE id="8" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)" hiddenwhenlocked="0" managers="">
    <PIN pinname="Y Output Value" pintype="Output" visible="1">
    </PIN>
-   <BOUNDS type="Node" left="3120" top="6555" width="0" height="0">
+   <BOUNDS type="Node" left="3135" top="6555" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3120" top="6555" width="390" height="240">
+   <BOUNDS type="Box" left="3135" top="6555" width="390" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" pintype="Input" visible="1" values="2">
    </PIN>
@@ -253,7 +253,7 @@
    </PIN>
    </NODE>
    <NODE systemname="IndexedGeometryBuffer (DX11.Geometry Join)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedGeometryBuffer (DX11.Geometry Join)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="2580" top="7650" width="3900" height="270">
+   <BOUNDS type="Node" left="2580" top="7650" width="4110" height="270">
    </BOUNDS>
    <PIN pinname="Vertices" visible="1">
    </PIN>
@@ -267,9 +267,11 @@
    </PIN>
    <PIN pinname="Vertices Count" visible="1">
    </PIN>
+   <PIN pinname="Apply" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="4965" top="7110" width="100" height="100">
+   <BOUNDS type="Node" left="5250" top="7125" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -543,5 +545,29 @@
    </LINKPOINT>
    <LINKPOINT x="11085" y="4718">
    </LINKPOINT>
+   </LINK>
+   <INFO author="motzi" description="A generic rope 2d drawing module" tags="primitive, geometry">
+   </INFO>
+   <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="5940" top="3225" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OnChange" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="VerticesXY" dstnodeid="27" dstpinname="Input">
+   </LINK>
+   <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="5940" top="3630" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="OnChange" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="9" dstpinname="Apply">
    </LINK>
    </PATCH>
