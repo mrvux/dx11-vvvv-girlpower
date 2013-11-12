@@ -33,10 +33,11 @@ float4 pUNSHARP(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
     sh/=1+c;
     //c.rgb*=pow(2,sh);
     c.rgb+=sh.rgb*pow(pow(2,3*min(Shape,0)),2);
+	c=max(0,c);
     return c;
 }
 float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-	return tex0.SampleLevel(s0,x,0);
+	return max(0,tex0.SampleLevel(s0,x,0));
 }
 technique10 UnsharpMask{
 	pass P0 <bool mips=true;>
