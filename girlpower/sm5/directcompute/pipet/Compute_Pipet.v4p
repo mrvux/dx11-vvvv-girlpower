@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm5\directcompute\pipet\Compute_Pipet.v4p" systemname="QuadBatch (DX11)" filename="D:\vvvv\vvvv_45alpha27.1\myplugins\lib\nodes\dx11\QuadBatch (DX11).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
+   <PATCH nodename="E:\vvvv\vvvv_45beta31.2_x86\packs\DX11\girlpower\sm5\directcompute\pipet\Compute_Pipet.v4p" systemname="QuadBatch (DX11)" filename="D:\vvvv\vvvv_45alpha27.1\myplugins\lib\nodes\dx11\QuadBatch (DX11).v4p">
    <BOUNDS type="Window" left="1140" top="915" width="11175" height="8055">
    </BOUNDS>
    <NODE systemname="FILETEXTURE (DX11 2D)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="17">
@@ -383,11 +383,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="83" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="1620" top="6915" width="2805" height="270">
+   <BOUNDS type="Node" left="1290" top="6795" width="2805" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="1620" top="6915" width="2805" height="270">
+   <BOUNDS type="Box" left="1290" top="6795" width="4695" height="360">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|Here we read the buffer content again|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Different readbacks now, for base datatypes|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -420,6 +420,94 @@
    <LINKPOINT x="7260" y="4545">
    </LINKPOINT>
    <LINKPOINT x="6210" y="4545">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Color)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="4665" top="7590" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="85" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="5190" y="6975">
+   </LINKPOINT>
+   <LINKPOINT x="4695" y="6975">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="86" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="4650" top="9840" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4650" top="9840" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="85" srcpinname="Output" dstnodeid="86" dstpinname="Color Input">
+   </LINK>
+   <NODE id="89" systemname="Vector (4d Split)" nodename="Vector (4d Split)" componentmode="Hidden">
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="780" top="8625" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Output" dstnodeid="87" dstpinname="Color Input">
+   </LINK>
+   <NODE id="88" systemname="RGB (Color Join)" nodename="RGB (Color Join)" componentmode="Hidden">
+   <PIN pinname="Output">
+   </PIN>
+   <PIN pinname="Red" visible="1">
+   </PIN>
+   <PIN pinname="Green" visible="1">
+   </PIN>
+   <PIN pinname="Blue" visible="1">
+   </PIN>
+   <PIN pinname="Alpha" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="765" top="9120" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE id="87" nodename="IOBox (Color)" componentmode="InABox" systemname="IOBox (Color)">
+   <PIN pinname="Color Input">
+   </PIN>
+   <BOUNDS type="Node" left="750" top="9735" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="750" top="9735" width="2400" height="600">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="89" srcpinname="X" dstnodeid="88" dstpinname="Red">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Y" dstnodeid="88" dstpinname="Green">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Z" dstnodeid="88" dstpinname="Blue">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="W" dstnodeid="88" dstpinname="Alpha">
+   </LINK>
+   <NODE id="90" systemname="ReadBack (DX11.Buffer 4d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 4d)" componentmode="Hidden">
+   <PIN pinname="Output 1XYZW" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Node" left="795" top="8175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layout">
+   </PIN>
+   <PIN pinname="OutputXYZW" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="90" srcpinname="OutputXYZW" dstnodeid="89" dstpinname="XYZW">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Buffers" dstnodeid="90" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="5295" y="7095">
+   </LINKPOINT>
+   <LINKPOINT x="750" y="7410">
    </LINKPOINT>
    </LINK>
    </PATCH>

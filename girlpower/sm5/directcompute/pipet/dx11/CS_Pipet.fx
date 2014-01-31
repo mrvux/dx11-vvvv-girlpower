@@ -16,7 +16,7 @@ SamplerState mySampler : IMMUTABLE
     AddressV = Clamp;
 };
 
-[numthreads(1, 1, 1)]
+[numthreads(64, 1, 1)]
 void CS( uint3 i : SV_DispatchThreadID)
 { 
 	//Read color and writed to buffer
