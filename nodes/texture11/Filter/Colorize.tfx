@@ -10,9 +10,10 @@ cbuffer controls:register(b0){
 
 };
 
-float4 pColorize(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
-	
-	float3 pixcol = length(tex0.SampleLevel(s0, uv, 0).rgb);
+float4 pColorize(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{
+	float4 col = tex0.SampleLevel(s0, uv, 0);
+	float3 pixcol = length(col.rgb);
 	float3 tc = float3 (1.0, 0.0, 0.0);
 	float3 colors[3];
 	colors[0] = float3 (ColorA.r, ColorA.g, ColorA.b);
@@ -29,7 +30,7 @@ float4 pColorize(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target{
 		ix = 1;
 	}
 	tc = lerp(colors[ix], colors[ix+1], (lum-float(ix)*0.5)/0.5);
-    return float4(tc, 1.0);
+    return float4(tc, col.a);
 	
 }
 
