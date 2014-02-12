@@ -34,7 +34,7 @@
    <BOUNDS type="Box" left="390" top="2937">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
+   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="60" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layers">
    </LINK>

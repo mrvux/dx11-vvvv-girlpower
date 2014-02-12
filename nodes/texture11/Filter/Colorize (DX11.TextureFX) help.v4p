@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="W:\projects\_VVVV_DX11\packs\DX11\nodes\texture11\Filter\Colorize (DX11.TextureFX) help.v4p" systemname="Blur help" filename="D:\projects\_dx11\modules\Blur help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\Uberact\Desktop\vvvv beta test\vvvv_45beta29_x86\userfolder\lecloneur\Filter\Colorize (DX11.TextureFX) help.v4p" systemname="Blur help" filename="D:\projects\_dx11\modules\Blur help.v4p">
    <BOUNDS type="Window" left="4380" top="6645" width="4485" height="5340">
    </BOUNDS>
    <NODE systemname="RENDERER (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="59">
@@ -33,9 +33,9 @@
    </PIN>
    <BOUNDS type="Box" left="510" top="3090">
    </BOUNDS>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
    </NODE>
+   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="60" dstpinname="Geometry">
+   </LINK>
    <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layers">
    </LINK>
    <NODE componentmode="InABox" id="69" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -155,7 +155,5 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="120" srcpinname="Color Output" dstnodeid="112" dstpinname="ColorC">
-   </LINK>
-   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
    </LINK>
    </PATCH>

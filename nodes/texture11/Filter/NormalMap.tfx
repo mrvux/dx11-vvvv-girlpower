@@ -11,7 +11,7 @@ SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MI
 float4 q(float2 x,float2 off,float v){return tex0.SampleLevel(s0,x+off/R,v);}
 float gam(float x,float y){return sign(x)*pow(abs(x),y);}
 float sat(float4 c,float4 d){
-	return (dot(c.rgb,1./3.)-dot(d.rgb,1./3.))/sqrt(.00001+abs(dot(c.rgb,1./3.)+dot(d.rgb,1./3.)));
+	return (dot(c.rgb,1./3.)-dot(d.rgb,1./3.))/sqrt(dot(c.rgb,1./3.)+dot(d.rgb,1./3.));
 }
 float4 pNORMALMAP(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
     float rad=max(Radius,0);
