@@ -1,0 +1,161 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
+   <PATCH nodename="C:\Users\joreg\Documents\repos\resonate\modules\Normals (DX11).v4p" systemname="Normals (DX11)" filename="C:\Users\joreg\Documents\repos\resonate\modules\Normals (DX11).v4p">
+   <BOUNDS height="6000" left="8265" top="6915" type="Window" width="9000">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (Color)" systemname="IOBox (Color)">
+   <BOUNDS height="160" left="19110" top="10095" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|0.99062,1.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS height="0" left="3915" top="3615" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="255" left="3915" top="3615" type="Box" width="2280">
+   </BOUNDS>
+   </NODE>
+   <NODE componentmode="InABox" id="5" nodename="IOBox (Node)" systemname="IOBox (Node)">
+   <BOUNDS height="0" left="2400" top="4575" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="17280" top="16680" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="240" left="2400" top="4575" type="Box" width="795">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Layer">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="3" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="4965" top="840" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="20205" top="9885" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="240" left="4965" top="840" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Length">
+   </PIN>
+   </NODE>
+   <INFO author="vvvv group" description="Render helpers showing the normals of a mesh." tags="helper, scene, 3d, modelling">
+   </INFO>
+   <NODE componentmode="Hidden" filename="%VVVV%\packs\dx11\nodes\modules\Line (DX11).v4p" id="7" nodename="Line (DX11)" systemname="Line (DX11)">
+   <BOUNDS height="100" left="2400" top="4035" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="VerticesXYZ" visible="1" slicecount="6" values="0,0,0,0,0,0.05">
+   </PIN>
+   <PIN pinname="reset to standart settings" visible="1">
+   </PIN>
+   <PIN pinname="Antialias" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="PatternScale" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Render State" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Priority">
+   </PIN>
+   <PIN pinname="OpenGl-Style">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="BinSize" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Single Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="From" visible="1">
+   </PIN>
+   <PIN pinname="To" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="7" dstpinname="Color" srcnodeid="8" srcpinname="Color Output">
+   </LINK>
+   <LINK dstnodeid="5" dstpinname="Input Node" srcnodeid="7" srcpinname="Layer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2175" top="405" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2175" top="405" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXYZ">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4050" top="165" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4050" top="165" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="NormalsXYZ">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="3315" top="2505" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="7" dstpinname="From">
+   </LINK>
+   <NODE systemname="Normalize (3d Vector)" nodename="Normalize (3d Vector)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="3645" top="1095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="NormalizedXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="20" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Output" dstnodeid="7" dstpinname="To">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="3780" top="1860" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="NormalizedXYZ" dstnodeid="21" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="21" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="19" dstpinname="Input 2">
+   </LINK>
+   </PATCH>
