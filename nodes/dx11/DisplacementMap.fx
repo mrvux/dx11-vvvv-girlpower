@@ -50,7 +50,7 @@ float4 PS(vs2ps In): SV_Target
 	float4 disp = texture2dctrl.Sample(Samp, In.TexCd).a;
 	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;
 	
-	float4 col = texture2d.Sample(Samp, In.TexCd + dir);
+	float4 col = texture2d.Sample(Samp, In.TexCd + dir * disp);
     return col;
 }
 
