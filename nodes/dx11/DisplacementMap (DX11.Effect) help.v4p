@@ -1,0 +1,351 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
+   <PATCH nodename="D:\workspace\dev\research\2014\DisplacementMap (DX11.Effect)\DisplacementMap (DX11.Effect) help.v4p" systemname="DisplacementMap (DX11.Effect)" filename="D:\workspace\dev\research\2014\DisplacementMap (DX11.Effect)\DisplacementMap (DX11.Effect).v4p">
+   <BOUNDS type="Window" left="1560" top="1485" width="10815" height="6345">
+   </BOUNDS>
+   <NODE componentmode="Hidden" id="13" nodename="Map (Value)" systemname="Map (Value)">
+   <BOUNDS height="100" left="9165" top="2460" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Destination Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Destination Maximum" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="12" nodename="WaveShaper (Value)" systemname="WaveShaper (Value)">
+   <BOUNDS height="100" left="9165" top="2025" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Shape" slicecount="1" values="Triangle">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="13" dstpinname="Input" srcnodeid="12" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="11" nodename="CircularSpread (Spreads)" systemname="CircularSpread (Spreads)">
+   <BOUNDS height="100" left="4245" top="1920" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Phase" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output X" visible="1">
+   </PIN>
+   <PIN pinname="Output Y" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="9" nodename="IOBox (Color)" systemname="IOBox (Color)">
+   <BOUNDS height="100" left="6180" top="2460" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="6180" top="2460" type="Box" width="2685">
+   </BOUNDS>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   <PIN pinname="Chooser Style" slicecount="1" values="RGBASlider">
+   </PIN>
+   <PIN pinname="Color Input" visible="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="8" nodename="LFO (Animation)" systemname="LFO (Animation)">
+   <BOUNDS height="100" left="9180" top="1590" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Pause" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="12" dstpinname="Input" srcnodeid="8" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="InABox" id="7" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="6165" top="765" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="420" left="6165" top="765" type="Box" width="735">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0.5,0">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|displace direction xy|">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="2" values="0,0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="6" nodename="RGB (Color Join)" systemname="RGB (Color Join)">
+   <BOUNDS height="270" left="6165" top="2070" type="Node" width="765">
+   </BOUNDS>
+   <PIN pinname="Red" visible="1">
+   </PIN>
+   <PIN pinname="Green" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Blue" pintype="Input" slicecount="1" visible="-1" values="0">
+   </PIN>
+   <PIN pinname="Alpha" pintype="Input" slicecount="1" visible="-1" values="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="5" nodename="Vector (2d Split)" systemname="Vector (2d Split)">
+   <BOUNDS height="270" left="6165" top="1710" type="Node" width="780">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="First Slice" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="5" dstpinname="XY" srcnodeid="7" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="6" dstpinname="Red" srcnodeid="5" srcpinname="X">
+   </LINK>
+   <LINK dstnodeid="6" dstpinname="Green" srcnodeid="5" srcpinname="Y">
+   </LINK>
+   <LINK dstnodeid="9" dstpinname="Color Input" srcnodeid="6" srcpinname="Output" linkstyle="Bezier">
+   </LINK>
+   <NODE componentmode="InABox" id="3" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="615" top="795" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="1380" left="615" top="795" type="Box" width="2025">
+   </BOUNDS>
+   <BOUNDS height="160" left="6750" top="4020" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|Displace input texture into direction specified by RG (=XY) components of direction vectors and strength from displacement map alpha.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="PhongDirectional (DX11.Effect)" filename="%VVVV%\packs\vvvv-DX11\nodes\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="5340" top="3540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Ambient Color" visible="1" slicecount="1" values="|0.00185,0.00071,0.00000,0.44968|">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Diffuse Color" slicecount="1" visible="1" values="|0.98000,0.20000,0.00000,0.76742|">
+   </PIN>
+   <PIN pinname="Specular Color" slicecount="1" visible="1" values="|0.98000,0.20000,0.00000,0.51611|">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Alpha" slicecount="1" visible="1" values="0.83">
+   </PIN>
+   <PIN pinname="Light DirectionXYZ" slicecount="3" values="0,0,2">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="24">
+   <BOUNDS type="Node" left="5160" top="4005" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5160" top="4005" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12435" top="4620" width="3690" height="3240">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Layer" dstnodeid="24" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="3270" top="2460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="3270" top="2460">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="22" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="3330" y="3120">
+   </LINKPOINT>
+   <LINKPOINT x="5490" y="3120">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" id="17" nodename="Transform (Transform 3d)" systemname="Transform (Transform 3d)">
+   <BOUNDS height="100" left="4080" top="2460" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="ScaleX" slicecount="1" values="0.86">
+   </PIN>
+   <PIN pinname="TranslateY" visible="1">
+   </PIN>
+   <PIN pinname="TranslateZ" slicecount="1" values="1.27">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="17" dstpinname="TranslateX" srcnodeid="11" srcpinname="Output X">
+   </LINK>
+   <LINK dstnodeid="17" dstpinname="TranslateY" srcnodeid="11" srcpinname="Output Y" linkstyle="VHV">
+   <LINKPOINT x="5250" y="2265">
+   </LINKPOINT>
+   <LINKPOINT x="4455" y="2265">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Transform Out" dstnodeid="22" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="4140" y="3120">
+   </LINKPOINT>
+   <LINKPOINT x="5655" y="3120">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Color Output" dstnodeid="22" dstpinname="Diffuse Color" linkstyle="Bezier">
+   <LINKPOINT x="6195" y="3105">
+   </LINKPOINT>
+   <LINKPOINT x="6150" y="3105">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Color Output" dstnodeid="22" dstpinname="Specular Color" linkstyle="Bezier">
+   <LINKPOINT x="6210" y="3120">
+   </LINKPOINT>
+   <LINKPOINT x="6300" y="3120">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="22" dstpinname="Alpha" linkstyle="Bezier">
+   <LINKPOINT x="9165" y="3120">
+   </LINKPOINT>
+   <LINKPOINT x="6960" y="3120">
+   </LINKPOINT>
+   </LINK>
+   <NODE id="4" componentmode="InABox" nodename="IOBox (String)" systemname="IOBox (String)">
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|DisplacementMap (DX11.Effect)|">
+   </PIN>
+   <BOUNDS type="Node" height="270" left="555" top="405" width="915">
+   </BOUNDS>
+   <BOUNDS type="Box" height="420" left="555" top="405" width="3945">
+   </BOUNDS>
+   <BOUNDS type="Window" height="160" left="7350" top="4620" width="215">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="795" top="4005" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="795" top="4005">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="31">
+   <BOUNDS type="Node" left="3105" top="5235" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3105" top="5235" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12420" top="1485" width="3720" height="3105">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicTexture (DX11.Texture 2d Color)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicTexture (DX11.Texture 2d Color)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="2415" top="4005" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Width" slicecount="1" values="256">
+   </PIN>
+   <PIN pinname="Height" slicecount="1" values="256">
+   </PIN>
+   <PIN pinname="Data" slicecount="9" values="|1.00000,1.00000,1.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|0.00000,0.00000,0.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="2415" top="4005">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="1350" top="4005" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="DisplacementMap (DX11.Effect)" filename="DisplacementMap.fx" nodename="DisplacementMap (DX11.Effect)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="3255" top="4755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Control" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Texture Out" dstnodeid="34" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="2475" y="4500">
+   </LINKPOINT>
+   <LINKPOINT x="4065" y="4500">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Texture Out" dstnodeid="34" dstpinname="Control" linkstyle="Bezier">
+   <LINKPOINT x="6405" y="4500">
+   </LINKPOINT>
+   <LINKPOINT x="4335" y="4500">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Layer" dstnodeid="31" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Geometry Out" dstnodeid="34" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="855" y="4500">
+   </LINKPOINT>
+   <LINKPOINT x="3465" y="4500">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Transform Out" dstnodeid="34" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="1410" y="4500">
+   </LINKPOINT>
+   <LINKPOINT x="3660" y="4500">
+   </LINKPOINT>
+   </LINK>
+   <NODE id="25" systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\vvvv-DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden">
+   <BOUNDS type="Node" left="2670" top="2460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="AlphaAdd">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Box" left="2670" top="2460">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Render State" dstnodeid="22" dstpinname="Render State" linkstyle="Bezier">
+   <LINKPOINT x="2730" y="3120">
+   </LINKPOINT>
+   <LINKPOINT x="5340" y="3120">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
