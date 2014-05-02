@@ -13,6 +13,7 @@ float4x4 tV: VIEW;         //view matrix as set via Renderer (DX9)
 float4x4 tWV: WORLDVIEW;
 float4x4 tWVP: WORLDVIEWPROJECTION;
 float4x4 tP: PROJECTION;   //projection matrix as set via Renderer (DX9)
+float4x4 tWIT: WORLDINVERSETRANSPOSE;
 
 //light properties
 float3 lPos <string uiname="Light Position";> = {0, 5, -2};       //light position in world space
@@ -72,7 +73,7 @@ vs2ps VS(
     float3 LightDirV = mul(float4(LightDirW,0.0f), tV).xyz;
     
     //normal in view space
-    float3 NormV = normalize(mul(float4(NormO,0.0f), tWV).xyz);
+    float3 NormV = normalize(mul(mul(NormO, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //view direction = inverse vertexposition in viewspace
     float3 PosV = mul(PosW, tV).xyz;
