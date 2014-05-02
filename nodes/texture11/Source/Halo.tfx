@@ -1,0 +1,95 @@
+float2 R:TARGETSIZE;
+//Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+
+SamplerState s0:IMMUTABLE
+{Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+cbuffer controls:register(b0){
+	float4x4 tTex <string uiname="Transform";>;
+	//float Factor <float uimin=0.0;float uimax=1.0;> =0.25;
+	float4 Color1 <bool color=true;> =float4(0,0,0,1);
+	float4 Color2 <bool color=true;> =1;
+	float Gamma <float uimin=0.0;float uimax=1.0;> =0.5;
+
+	//bool ClipColor=0;
+	float MaxColor=10;
+	
+};
+
+float4 pLINEAR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
+	float d=length(x0-.5);
+	float f=length(x0-.5);
+	//if(ClipColor)f=saturate(fade);
+	float g=Gamma/(1.00001-Gamma);
+	f=saturate(1-2*f);
+	f=pow(f,g);
+	//g=1./g;
+	//f=1-pow(max(0,1-pow(f,g)),1./g);
+	//f=pow(max(0,1-pow(1-f,g)),1./g);
+	c=lerp(Color1,Color2,f);
+	
+
+    return c;
+}
+float4 pSMOOTH(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
+	float d=length(x0-.5);
+	float f=length(x0-.5);
+	//if(ClipColor)f=saturate(fade);
+	float g=Gamma/(1.00001-Gamma);
+	f=saturate(1-2*f);
+	f=smoothstep(0,1,f);
+	f=pow(f,g);
+
+	c=lerp(Color1,Color2,f);
+
+    return c;
+}
+
+float4 pSPIKE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
+	float d=length(x0-.5);
+	float f=length(x0-.5);
+	//if(ClipColor)f=saturate(fade);
+	float g=Gamma/(1.00001-Gamma);
+	
+	f=saturate(1-2*f);
+
+	f=2*pow(.5*f/(pow(d,.5)+.5),g);
+
+	c=lerp(Color1,Color2,f);
+	c=min(MaxColor,c);
+    return c;
+}
+float4 pTEX(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
+	float d=length(x0-.5);
+	float4 f=length(x0-.5);
+	//if(ClipColor)f=saturate(fade);
+	float g=Gamma/(1.00001-Gamma);
+	
+	//f=saturate(1-2*f);
+	f=tex1.SampleLevel(s0,f.x*2,0);
+	f=sign(f)*pow(abs(f),g);
+	c=lerp(Color1,Color2,f);
+
+	c=min(MaxColor,c);
+	
+    return c;
+}
+technique10 Linear{pass P1 <bool mips=true; string format="R16G16B16A16_Float";> 
+	{SetPixelShader(CompileShader(ps_4_0,pLINEAR()));}}
+technique10 Smooth{pass P1 <bool mips=true; string format="R16G16B16A16_Float";> 
+	{SetPixelShader(CompileShader(ps_4_0,pSMOOTH()));}}
+technique10 Spike{pass P1 <bool mips=true; string format="R16G16B16A16_Float";> 
+	{SetPixelShader(CompileShader(ps_4_0,pSPIKE()));}}
+technique10 Textured{pass P1 <bool mips=true; string format="R16G16B16A16_Float";> 
+	{SetPixelShader(CompileShader(ps_4_0,pTEX()));}}
+
+
