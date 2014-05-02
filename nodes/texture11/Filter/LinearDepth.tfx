@@ -1,0 +1,33 @@
+Texture2D tex0: PREVIOUS;
+SamplerState s0:IMMUTABLE {Filter=MIN_MAG_MIP_POINT;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+float4x4 tP <string uiname="Projection";>;
+float MinDepth=0;
+float MaxDepth=10;
+
+float4 pLINEARDEPTH(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float d=tex0.SampleLevel(s0,x,0).x;
+	float ld=tP._43/(d-tP._33);
+	float4 c=ld;
+	return c;
+}
+#define linstep(a,b,x) saturate((x-a)/(b-a))
+float4 pDEPTHTHRESHOLD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float d=tex0.SampleLevel(s0,x,0).x;
+	float ld=tP._43/(d-tP._33);
+	float4 c=linstep(MinDepth,MaxDepth,ld);
+	return c;
+}
+technique10 DepthThreshold{
+	pass P0 <string format="R8G8B8A8_Unorm";>
+	{SetPixelShader(CompileShader(ps_4_0,pDEPTHTHRESHOLD()));}
+}
+technique10 LinearDepth{
+	pass P0 <string format="R32_Float";>
+	{SetPixelShader(CompileShader(ps_4_0,pLINEARDEPTH()));}
+}
+
+
+
+

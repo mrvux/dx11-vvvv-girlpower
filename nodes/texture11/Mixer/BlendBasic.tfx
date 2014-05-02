@@ -1,0 +1,39 @@
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Texture In 2";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Input <float uimin=0.0;float uimax=1.0;> =1.0;
+};
+
+float4 pFADE(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{float4 c0=tex0.Sample(s0,x);float4 c1=tex1.Sample(s0,x);
+    float4 c=lerp(c0,c1,Input);
+    return c;
+}
+float4 pADD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{float4 c0=tex0.Sample(s0,x);float4 c1=tex1.Sample(s0,x);
+    float4 c=lerp(c0,c0+c1,Input);
+    return c;
+}
+float4 pSUB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{float4 c0=tex0.Sample(s0,x);float4 c1=tex1.Sample(s0,x);
+    float4 c=lerp(c0,c0-c1,Input);
+    return c;
+}
+float4 pMUL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{float4 c0=tex0.Sample(s0,x);float4 c1=tex1.Sample(s0,x);
+    float4 c=lerp(c0,c0*c1,Input);
+    return c;
+}
+
+float4 pBLEND(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{float4 c0=tex0.Sample(s0,x);float4 c1=tex1.Sample(s0,x);
+    float4 c=lerp(c0,c1,c1.a*Input);
+    return c;
+}
+
+
+technique10 Fade{pass P1{SetPixelShader(CompileShader(ps_4_0,pFADE()));}}
+
+technique10 Add{pass P1{SetPixelShader(CompileShader(ps_4_0,pADD()));}}
+technique10 Sub{pass P1{SetPixelShader(CompileShader(ps_4_0,pSUB()));}}
+technique10 Mul{pass P1{SetPixelShader(CompileShader(ps_4_0,pMUL()));}}
+
+technique10 Blend{pass P1{SetPixelShader(CompileShader(ps_4_0,pBLEND()));}}
