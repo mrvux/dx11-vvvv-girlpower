@@ -31,7 +31,7 @@ cbuffer cbPerObj : register( b1 )
 struct VS_IN
 {
 	float4 PosO : POSITION;
-	//float4 TexCd : TEXCOORD0;
+	float4 TexCd : TEXCOORD0;
 
 };
 
@@ -45,7 +45,7 @@ vs2ps VS(VS_IN input)
 {
     vs2ps Out = (vs2ps)0;
     Out.PosWVP  = mul(input.PosO,mul(tW,tVP));
-    //Out.TexCd = mul(input.TexCd, tTex);
+    Out.TexCd = mul(input.TexCd, tTex);
     return Out;
 }
 
@@ -55,6 +55,7 @@ vs2ps VS(VS_IN input)
 float4 PS(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample(g_samLinear,In.TexCd.xy) * cAmb;
+	col = mul(col, tColor);
 	col.a *= Alpha;
     return col;
 }
