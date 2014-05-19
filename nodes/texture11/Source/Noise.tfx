@@ -1,0 +1,37 @@
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float4x4 tTex <bool uvspace=true;string uiname="Transform";>;
+	float4 Color1 <bool color=true;> =float4(0,0,0,1);
+	float4 Color2 <bool color=true;> =1;
+	bool Grey=0;
+	
+	float RandomSeed=0;
+	float Phase=0;
+};
+#include "Noise.fxh"
+
+float4 pGLOWRECT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float4 c=0;
+	float4 rnd0=_dnoise4(PosWVP.xy,RandomSeed);
+	float ph=Phase+rnd0.x;
+	
+	float4 rnd1=_dnoise4(PosWVP.xy+100,RandomSeed+sin((floor(ph))));
+	float4 rnd2=_dnoise4(PosWVP.xy+100,RandomSeed+sin((floor(ph)+1)));
+	float4 rnd=lerp(rnd1,rnd2,frac(ph));
+	
+	if(Grey)rnd=rnd.x;
+	
+	c=lerp(Color1,Color2,rnd);
+	return c;
+}
+
+technique10 Noise{
+	pass P1 <bool initial=true;>
+	{
+		SetPixelShader(CompileShader(ps_4_0,pGLOWRECT()));
+	}
+}
+
+
+

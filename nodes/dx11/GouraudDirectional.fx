@@ -2,6 +2,7 @@ float4x4 tW: WORLD;
 float4x4 tWV: WORLDVIEW;
 float4x4 tV: VIEW;
 float4x4 tP: PROJECTION;
+float4x4 tWIT: WORLDINVERSETRANSPOSE;
 
 float3 lDir <string uiname="Light Direction";> = {0, -5, 2}; 
 float4 lAmb  <bool color=true; String uiname="Ambient Color";>  = {0.15, 0.15, 0.15, 1};
@@ -45,8 +46,8 @@ vs2ps VS(VS_IN input)
     float3 LightDirV = normalize(-mul(float4(lDir,0.0f), tV).xyz);
 
     //normal in view space
-    float3 NormV = normalize(mul(float4(input.NormO.xyz,0), tWV).xyz).xyz;
-
+    float3 NormV = normalize(mul(mul(input.NormO.xyz, (float3x3)tWIT),(float3x3)tV).xyz);
+	
     //view direction = inverse vertexposition in viewspace
     float4 PosV = mul(input.PosO, tWV);
     float3 ViewDirV = normalize(-PosV.xyz);

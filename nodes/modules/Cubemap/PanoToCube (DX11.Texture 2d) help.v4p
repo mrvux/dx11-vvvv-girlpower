@@ -1,0 +1,183 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
+   <PATCH nodename="X:\Cubemap\PanoToCube (DX11.Texture 2d) help.v4p">
+   <BOUNDS type="Window" left="17415" top="765" width="8745" height="7965">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="150" top="150" width="5000" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="150" top="150" width="5000" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|PanoToCube (DX11.Texture 2d)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="150" top="550" width="5000" height="500">
+   </BOUNDS>
+   <BOUNDS type="Box" left="150" top="550" width="5000" height="500">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Converting panorama image to CubeMap|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="PanoToCube (DX11.Texture 2d)" componentmode="Hidden" id="0" systemname="PanoToCube (DX11.Texture 2d)" filename="PanoToCube (DX11.Texture 2d).v4p">
+   <BOUNDS type="Node" left="1870" top="3050" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1870" top="3050" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15135" top="9210" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="4095" top="2175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" slicecount="1" values="..\Assets\meso_panorama.jpg">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="14">
+   <BOUNDS type="Node" left="450" top="4480" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="450" top="4480" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12705" top="3615" width="4740" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="CUBEMAP">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Texture Out" dstnodeid="0" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="CubeMap (DX11.Effect)" filename="%VVVV%\packs\DX11\nodes\dx11\CubeMap.fx" nodename="CubeMap (DX11.Effect)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="1050" top="3570" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Cube" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="16" dstpinname="Texture Cube">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="1650" top="4065" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="View" dstnodeid="14" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Projection" dstnodeid="14" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="390" top="3975" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Layer" dstnodeid="19" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Layer Out" dstnodeid="14" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="1245" top="3150" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Geometry Out" dstnodeid="16" dstpinname="Geometry">
+   </LINK>
+   <NODE id="13" systemname="QUAD (DX11.LAYER)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden">
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="4290" top="3220" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="12" systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden">
+   <BOUNDS type="Node" left="4455" top="2890" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="13" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Texture Out" dstnodeid="13" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="22">
+   <BOUNDS type="Node" left="4200" top="3615" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4200" top="3615" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12660" top="750" width="4740" height="2835">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="22" dstpinname="Layers">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2400" top="3600" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2400" top="3600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Inital Distance">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="4065" top="1530" width="2970" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4065" top="1530" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="meso_panorama.jpg">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Output String" dstnodeid="11" dstpinname="Filename">
+   </LINK>
+   </PATCH>

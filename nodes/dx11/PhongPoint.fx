@@ -13,6 +13,7 @@ float4x4 tV: VIEW;         //view matrix as set via Renderer (DX9)
 float4x4 tWV: WORLDVIEW;
 float4x4 tWVP: WORLDVIEWPROJECTION;
 float4x4 tP: PROJECTION;   //projection matrix as set via Renderer (DX9)
+float4x4 tWIT: WORLDINVERSETRANSPOSE;
 
 #include "PhongPoint.fxh"
 
@@ -56,7 +57,7 @@ vs2ps VS(
     Out.LightDirV = mul(float4(LightDirW,0.0f), tV).xyz;
     
     //normal in view space
-    Out.NormV = normalize(mul(float4(NormO,0.0f), tWV).xyz);
+    Out.NormV = normalize(mul(mul(NormO, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //position (projected)
     Out.PosWVP  = mul(PosO, tWVP);

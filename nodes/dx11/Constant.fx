@@ -55,6 +55,7 @@ vs2ps VS(VS_IN input)
 float4 PS(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample(g_samLinear,In.TexCd.xy) * cAmb;
+	col = mul(col, tColor);
 	col.a *= Alpha;
     return col;
 }
