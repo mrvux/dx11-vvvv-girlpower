@@ -1,0 +1,80 @@
+Texture2D tex0: INITIAL;
+Texture2D texM: PASSRESULT0;
+Texture2D texP: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
+SamplerState sA:IMMUTABLE{Filter=ANISOTROPIC;AddressU=WRAP;AddressV=WRAP;};
+
+float2 R:TARGETSIZE;
+
+cbuffer controls:register(b0){
+	float Amount=0.1;
+	float MapSmooth <float uimin=0.0; float uimax=1.0;string uiname="Control Blur";> = 0.5;
+	int Iterations <float uimin=0.0;float uimax=64.0;> =1;
+};
+
+float smp(float2 x,float lod=0){
+	float4 c=texM.SampleLevel(s0,x,lod);
+	return max(c.r,max(c.g,c.b))*c.a;
+}
+
+float4 pFLOW(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+	float2 off=pow(2,MapSmooth*6)*R/R.x;
+	float2 dir=float2(	smp(x-off*float2(1,0)/R,lod)-smp(x+off*float2(1,0)/R,lod),
+						smp(x-off*float2(0,1)/R,lod)-smp(x+off*float2(0,1)/R,lod));
+	dir=dir.yx*float2(1,-1)*pow(2,MapSmooth*8);
+	float4 c=tex0.SampleLevel(s0,x+dir*.01*Amount,0);
+
+    return c;
+}
+float4 pFLOWITR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+	float2 off=pow(2,MapSmooth*6)*R/R.x;
+	float2 dir=0;
+	float2 dx=x;
+	for(int i=0;i<Iterations;i++){
+		
+	dir=float2(	smp(dx-off*float2(1,0)/R,lod)-smp(dx+off*float2(1,0)/R,lod),
+				smp(dx-off*float2(0,1)/R,lod)-smp(dx+off*float2(0,1)/R,lod));
+		dir=dir.yx*float2(1,-1)*pow(2,MapSmooth*8);
+		dx=dx+dir*.01*Amount*exp(abs(Amount));
+	}
+	float4 c=tex0.Sample(sA,dx);
+
+    return c;
+}
+/*
+float4 pFLOWITR2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+	float lod=saturate(MapSmooth)*log2(max(R.x,R.y));
+	float2 off=pow(2,MapSmooth*6)*R/R.x;
+	float2 dir=0;
+	float2 dx=x;
+	for(int i=0;i<Iterations;i++){
+		
+	dir=float2(	smp(dx-off*float2(1,0)/R,lod)-smp(dx+off*float2(1,0)/R,lod),
+				smp(dx-off*float2(0,1)/R,lod)-smp(dx+off*float2(0,1)/R,lod));
+		//dir=r2d(dir,.25+Rotate)*pow(2,MapSmooth*8);
+		dir=dir.yx*float2(1,-1)*pow(2,MapSmooth*8);
+		dx=dx+dir*.01*Amount*exp(abs(Amount));
+	}
+	float4 c=texP.Sample(sA,dx);
+
+    return c;
+}
+*/
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex0.SampleLevel(s0,x,0);
+}
+float4 pMIPSCTRL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex1.SampleLevel(s0,x,0);
+}
+technique10 DistortFlow{
+	pass P0 <bool mips=true;>
+	{SetPixelShader(CompileShader(ps_4_0,pMIPSCTRL()));}
+	pass P1{SetPixelShader(CompileShader(ps_4_0,pFLOWITR()));}
+	//pass P2{SetPixelShader(CompileShader(ps_4_0,pFLOWITR2()));}
+	//pass P3{SetPixelShader(CompileShader(ps_4_0,pFLOWITR2()));}
+}
+
+

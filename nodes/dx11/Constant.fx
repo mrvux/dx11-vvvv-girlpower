@@ -5,7 +5,7 @@
 
 Texture2D texture2d <string uiname="Texture";>;
 
-SamplerState g_samLinear : IMMUTABLE
+SamplerState g_samLinear <string uiname="Sampler State";>
 {
     Filter = MIN_MAG_MIP_LINEAR;
     AddressU = Clamp;
