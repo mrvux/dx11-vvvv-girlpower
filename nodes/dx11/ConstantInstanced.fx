@@ -18,6 +18,8 @@ StructuredBuffer<float4> sbColor;
 cbuffer cbPerDraw : register( b0 )
 {
 	float4x4 tVP : VIEWPROJECTION;
+	float4x4 tW : WORLD;
+	
 	int colorcount = 1;
 };
 
@@ -44,6 +46,7 @@ vs2ps VS(VS_IN input)
     vs2ps Out = (vs2ps)0;
 	
 	float4x4 w = sbWorld[input.ii];
+	w=mul(w,tW);
     Out.PosWVP  = mul(input.PosO,mul(w,tVP));
 	Out.Color = sbColor[input.ii % colorcount];
     Out.TexCd = input.TexCd;
