@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_node\directx11\texture11\Source\BubbleNoise (DX11.TextureFX) help.v4p" systemname="Blur help" filename="D:\projects\_dx11\modules\Blur help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.6.dtd" >
+   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\nodes\texture11\Source\BubbleNoise (DX11.TextureFX) help.v4p" systemname="Blur help" filename="D:\projects\_dx11\modules\Blur help.v4p">
    <BOUNDS type="Window" left="4875" top="3885" width="6465" height="5070">
    </BOUNDS>
    <NODE systemname="RENDERER (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="59">
@@ -56,78 +56,6 @@
    </NODE>
    <INFO author="" description="" tags="">
    </INFO>
-   <NODE systemname="BubbleNoise (DX11.TextureFX)" filename="%VVVV%\userfolder\lecloneur\Source\BubbleNoise.tfx" nodename="BubbleNoise (DX11.TextureFX)" componentmode="Hidden" id="112">
-   <BOUNDS type="Node" left="1305" top="2697" width="1050" height="270">
-   </BOUNDS>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Texture In 2" visible="1">
-   </PIN>
-   <PIN pinname="Fader" visible="1">
-   </PIN>
-   <PIN pinname="deform Amount" visible="1">
-   </PIN>
-   <PIN pinname="Time" visible="1" slicecount="1" values="1.57">
-   </PIN>
-   <PIN pinname="Frequency" visible="1" slicecount="1" values="3.5">
-   </PIN>
-   <PIN pinname="Technique" slicecount="1" values="BubbleNoise">
-   </PIN>
-   <PIN pinname="ColorB" visible="1">
-   </PIN>
-   <PIN pinname="ColorC" visible="1">
-   </PIN>
-   <PIN pinname="ColorA">
-   </PIN>
-   <PIN pinname="Control" visible="1">
-   </PIN>
-   <PIN pinname="AmountXYXY">
-   </PIN>
-   <BOUNDS type="Box" left="1305" top="2697">
-   </BOUNDS>
-   <PIN pinname="lum_threshold_1" visible="1">
-   </PIN>
-   <PIN pinname="lum_threshold_2" visible="1">
-   </PIN>
-   <PIN pinname="lum_threshold_3" visible="1">
-   </PIN>
-   <PIN pinname="lum_threshold_4" visible="1">
-   </PIN>
-   <PIN pinname="Density">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Background Color" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
-   </PIN>
-   <PIN pinname="threshold" visible="1">
-   </PIN>
-   <PIN pinname="outer_radius" visible="1">
-   </PIN>
-   <PIN pinname="magnification" visible="1">
-   </PIN>
-   <PIN pinname="inner_radius" visible="1">
-   </PIN>
-   <PIN pinname="CenterXY" visible="1">
-   </PIN>
-   <PIN pinname="Radius" visible="1">
-   </PIN>
-   <PIN pinname="Dist">
-   </PIN>
-   <PIN pinname="Rotate">
-   </PIN>
-   <PIN pinname="time">
-   </PIN>
-   <PIN pinname="FogDistance">
-   </PIN>
-   <PIN pinname="Contrast" slicecount="1" values="0.17">
-   </PIN>
-   <PIN pinname="Bubble Color" slicecount="1" values="|1.00000,1.00000,1.00000,0.00000|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="112" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="113" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="330" top="1860" width="0" height="0">
    </BOUNDS>
@@ -143,9 +71,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Time">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="114">
    <BOUNDS type="Node" left="330" top="795" width="100" height="100">
    </BOUNDS>
@@ -185,9 +113,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="116" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Frequency">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="117" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="2355" top="1860" width="0" height="0">
    </BOUNDS>
@@ -203,37 +131,53 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Contrast">
-   </LINK>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="118" systemname="IOBox (Color)">
-   <BOUNDS type="Node" left="3534" top="1860" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3534" top="1860" width="1035" height="240">
-   </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Background Color|">
-   </PIN>
-   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="118" srcpinname="Color Output" dstnodeid="112" dstpinname="Background Color">
+   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
    </LINK>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="119" systemname="IOBox (Color)">
-   <BOUNDS type="Node" left="4839" top="1860" width="0" height="0">
+   <NODE systemname="BubbleNoise (DX11.TextureFX)" filename="BubbleNoise.tfx" nodename="BubbleNoise (DX11.TextureFX)" componentmode="Hidden" id="122">
+   <BOUNDS type="Node" left="1215" top="2490" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4839" top="1860" width="960" height="240">
+   <PIN pinname="Contrast" visible="1">
+   </PIN>
+   <PIN pinname="Frequency" visible="1">
+   </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="123" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="3135" top="1620" width="2250" height="480">
    </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,0.00000|">
+   <BOUNDS type="Node" left="3135" top="1620" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Bubble Color|">
    </PIN>
-   <PIN pinname="Pin Visibility" slicecount="1" values="False">
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Color Output" dstnodeid="122" dstpinname="Bubble Color">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="124" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="2010" top="810" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2010" top="810" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Background Color|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="119" srcpinname="Color Output" dstnodeid="112" dstpinname="Bubble Color">
+   <LINK srcnodeid="124" srcpinname="Color Output" dstnodeid="122" dstpinname="Background Color">
    </LINK>
-   <LINK srcnodeid="61" srcpinname="Geometry Out" dstnodeid="60" dstpinname="Geometry">
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Contrast">
+   </LINK>
+   <LINK srcnodeid="116" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Frequency">
+   </LINK>
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Time">
+   </LINK>
+   <LINK srcnodeid="122" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
    </LINK>
    </PATCH>
