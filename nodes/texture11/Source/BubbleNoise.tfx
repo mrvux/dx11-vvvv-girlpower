@@ -12,8 +12,8 @@ cbuffer controls:register(b0){
 	float time <string uiname = "Time";>;
 	float freq <string uiname = "Frequency";> = 3.5;
 	float contrast <string uiname = "Contrast";>;
-	float4 ColorA <bool color=true; string uiname="Background Color";>;
-	float4 ColorB <bool color=true; string uiname="Bubble Color";>;
+	float4 ColorA <bool color=true; string uiname="Background Color";> = float4(0,0,0,1);
+	float4 ColorB <bool color=true; string uiname="Bubble Color";> = 1;
 };
 
 float3 mod289(float3 x)
