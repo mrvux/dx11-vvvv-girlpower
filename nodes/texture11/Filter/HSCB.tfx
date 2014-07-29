@@ -15,12 +15,12 @@ float3 safenormalize(float3 x){
 }
 float4 pHSCB(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
 	float4 c=tex0.SampleLevel(s0,x,0);
-    float3 h=RGBtoHSL(c.rgb);
+    float3 h=RGBtoHSV(c.rgb);
    // h.x=(frac(h.x+Hue))*HueCycles;
     h.y=h.y*Saturation;
     //c.rgb=HSLtoRGB(h);
-	float3 k0=HSLtoRGB(float3((frac(h.x+Hue)-0),h.y,h.z));
-	float3 k1=HSLtoRGB(float3((frac(h.x+Hue)-1),h.y,h.z));
+	float3 k0=HSVtoRGB(float3((frac(h.x+Hue)-0),h.y,h.z));
+	float3 k1=HSVtoRGB(float3((frac(h.x+Hue)-1),h.y,h.z));
 	c.rgb=lerp(k0,k1,pow(smoothstep(0,1,h.x),2));
     c.rgb=safenormalize(c.rgb)*sqrt(3)*pow(length(c.rgb)/sqrt(3),pow(2,Contrast))*pow(2,Brightness);
     return c;
