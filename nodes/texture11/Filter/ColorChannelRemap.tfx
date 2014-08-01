@@ -43,6 +43,17 @@ class cLightnessChannel : iChannel{
 	   return RGBtoHSL(c.rgb).z;
    }
 };
+class cOne : iChannel{
+   float Channel(float4 c) { 
+	   return 1;
+   }
+};
+class cZero : iChannel{
+   float Channel(float4 c) { 
+	   return 0;
+   }
+};
+
 
 cRedChannel Red;
 cGreenChannel Green;
@@ -52,12 +63,13 @@ cHueChannel Hue;
 cSaturationChannel Saturation;
 cValueChannel Value;
 cLightnessChannel Lightness;
+cOne One;
+cZero Zero;
 
-
-iChannel InputRed <string uiname="Input Red";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Red;
-iChannel InputGreen <string uiname="Input Green";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Green;
-iChannel InputBlue <string uiname="Input Blue";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Blue;
-iChannel InputAlpha <string uiname="Input Alpha";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Alpha;
+iChannel InputRed <string uiname="Input Red";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Red;
+iChannel InputGreen <string uiname="Input Green";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Green;
+iChannel InputBlue <string uiname="Input Blue";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Blue;
+iChannel InputAlpha <string uiname="Input Alpha";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Alpha;
 /*
 iChannel OutputRed <string uiname="Output Red";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Red;
 iChannel OutputGreen <string uiname="Output Green";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness";> =Green;

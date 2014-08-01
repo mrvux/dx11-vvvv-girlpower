@@ -1,5 +1,5 @@
 
-#define IS_ORTHO(P) (P._34==0&&P._44==1)
+#define IS_ORTHO(P) (round(P._34)==0&&round(P._44)==1)
 
 float4 UVtoSCREEN(float2 UV){
 	return float4((UV.xy*2-1)*float2(1,-1),0,1);

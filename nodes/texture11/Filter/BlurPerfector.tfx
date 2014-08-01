@@ -18,7 +18,7 @@ float diff(float3 a,float3 b){
 float4 pBLURPERF(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	float lod=log2(max(R.x,R.y));
     float kk=1;
-    float4 cc=tex0.SampleLevel(s0,x,1);
+    float4 cc=tex0.SampleLevel(s0,x,0);
 	float4 c=cc;
 	float2 w=Radius/28*R/max(R.x,R.y);
 	//w*=pow(.002,pow(length(tex0.SampleLevel(s0,x,3).xyz-tex0.SampleLevel(s0,x,2).xyz),.5));
@@ -37,8 +37,8 @@ float4 pBLURPERF(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 float4 pBLURPERF_CTRL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	float lod=log2(max(R.x,R.y));
     float kk=1;
-    float4 cc=tex0.SampleLevel(s0,x,1);
-	float4 maskc=tex1.SampleLevel(s0,x,1);
+    float4 cc=tex0.SampleLevel(s0,x,0);
+	float4 maskc=tex1.SampleLevel(s0,x,0);
 	float4 c=cc;
 	float2 w=Radius/28*R/max(R.x,R.y);
 	//w*=pow(.002,pow(length(tex0.SampleLevel(s0,x,3).xyz-tex0.SampleLevel(s0,x,2).xyz),.5));
