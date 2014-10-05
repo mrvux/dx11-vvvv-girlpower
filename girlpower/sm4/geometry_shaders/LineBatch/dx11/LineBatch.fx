@@ -81,11 +81,9 @@ technique10 Constant
 {
 	pass P0
 	{
-		SetHullShader( 0 );
-		SetDomainShader( 0 );
-		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
-		SetVertexShader( CompileShader( vs_5_0, VS() ) );
-		SetPixelShader( CompileShader( ps_5_0, PS_Tex() ) );
+		SetGeometryShader( CompileShader( gs_4_0, GS() ) );
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS_Tex() ) );
 	}
 }
 

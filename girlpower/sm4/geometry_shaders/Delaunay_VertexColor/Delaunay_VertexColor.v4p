@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\Delaunay_VertexColor\Delaunay_VertexColor.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm4\geometry_shaders\Delaunay_VertexColor\Delaunay_VertexColor.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="1440">
    <BOUNDS height="7890" left="1500" top="780" type="Window" width="9615">
    </BOUNDS>
    <LINK dstnodeid="196" dstpinname="g_samLinear" srcnodeid="215" srcpinname="Sampler">
@@ -86,6 +86,8 @@
    <PIN pinname="Y" visible="1">
    </PIN>
    <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="232" srcpinname="X" dstnodeid="234" dstpinname="X" linkstyle="Bezier">
