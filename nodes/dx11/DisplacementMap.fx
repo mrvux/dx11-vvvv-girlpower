@@ -13,14 +13,10 @@ SamplerState Samp : IMMUTABLE
     AddressV = MIRROR;
 };
  
-cbuffer cbPerDraw : register( b0 )
-{
-	float4x4 tVP : VIEWPROJECTION;	
-};
-
-cbuffer cbPerObj : register( b1 )
+cbuffer cbControls : register( b1 )
 {
 	float4x4 tW : WORLD;
+	float4x4 tVP : VIEWPROJECTION;
 	float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
 };
 
@@ -34,23 +30,23 @@ struct VS_IN
 struct vs2ps
 {
     float4 PosWVP: SV_POSITION;
-    float4 TexCd: TEXCOORD0;
+    float2 TexCd: TEXCOORD0;
 };
 
 vs2ps VS(VS_IN input)
 {
     vs2ps output;
     output.PosWVP  = mul(input.PosO,mul(tW,tVP));
-    output.TexCd = mul(input.TexCd, tTex);
+    output.TexCd = mul(input.TexCd, tTex).xy;
     return output;
 }
 
 float4 PS(vs2ps In): SV_Target
 {
-	float4 disp = texture2dctrl.Sample(Samp, In.TexCd).a;
+	float4 disp = texture2dctrl.Sample(Samp, In.TexCd);
 	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;
 	
-	float4 col = texture2d.Sample(Samp, In.TexCd + dir * disp);
+	float4 col = texture2d.Sample(Samp, In.TexCd + dir * disp.xy);
     return col;
 }
 

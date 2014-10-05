@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="D:\workspace\dev\research\2014\DisplacementMap (DX11.Effect)\DisplacementMap (DX11.Effect) help.v4p" systemname="DisplacementMap (DX11.Effect)" filename="D:\workspace\dev\research\2014\DisplacementMap (DX11.Effect)\DisplacementMap (DX11.Effect).v4p">
-   <BOUNDS type="Window" left="1560" top="1485" width="10815" height="6345">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="C:\apps\code\vvvv_45beta33.1_x64\packs\dx11\nodes\dx11\DisplacementMap (DX11.Effect) help.v4p" systemname="DisplacementMap (DX11.Effect)" filename="D:\workspace\dev\research\2014\DisplacementMap (DX11.Effect)\DisplacementMap (DX11.Effect).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="1875" top="6720" width="10815" height="6345">
    </BOUNDS>
    <NODE componentmode="Hidden" id="13" nodename="Map (Value)" systemname="Map (Value)">
    <BOUNDS height="100" left="9165" top="2460" type="Node" width="100">
@@ -305,6 +305,8 @@
    </PIN>
    <PIN pinname="Transform In" visible="1">
    </PIN>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="32" srcpinname="Texture Out" dstnodeid="34" dstpinname="Input" linkstyle="Bezier">
    <LINKPOINT x="2475" y="4500">
@@ -348,4 +350,6 @@
    <LINKPOINT x="5340" y="3120">
    </LINKPOINT>
    </LINK>
+   <PACK Name="addonpack" Version="33.0.0">
+   </PACK>
    </PATCH>
