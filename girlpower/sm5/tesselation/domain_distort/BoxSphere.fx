@@ -140,7 +140,7 @@ DS_OUTPUT DS(HS_CONSTANT_OUTPUT input, OutputPatch<HS_OUTPUT, 3> op, float3 uv :
 	float3 pc = p + 0.5f;
 	
 	float2 uvt = op[0].uv * uv.x + 
-	op[1].uv * uv.z + op[2].uv * uv.y;
+	op[1].uv * uv.y + op[2].uv * uv.z;
 	
 	p = rCZ(p,p.y* lrp,float3(0,0,0));
 	p.xz = lerp(pc.xz * pc.y, pc.xz, sl);

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="E:\repositories\cartfile\vvvv\research\tesselation\domain_distort\DomainDistort.v4p" filename="C:\Users\utente\Desktop\CubicBézierSpline\CubicBézierSpline_ROOT.v4p" systemname="CubicBézierSpline_ROOT" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm5\tesselation\domain_distort\DomainDistort.v4p" filename="C:\Users\utente\Desktop\CubicBézierSpline\CubicBézierSpline_ROOT.v4p" systemname="CubicBézierSpline_ROOT" locked="0">
    <BOUNDS height="11700" left="315" top="0" type="Window" width="13125">
    </BOUNDS>
    <NODE componentmode="Hidden" id="35" nodename="Timing (Debug)" systemname="Timing (Debug)">
@@ -354,7 +354,7 @@
    </LINK>
    <LINK srcnodeid="216" srcpinname="Position Out" dstnodeid="126" dstpinname="time">
    </LINK>
-   <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="Hidden" id="258" stayontop="1">
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="258" stayontop="1">
    <BOUNDS type="Node" left="1425" top="9870" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1425" top="9870" width="6000" height="4500">
