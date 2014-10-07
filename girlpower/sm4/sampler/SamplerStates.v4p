@@ -1,0 +1,317 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm4\sampler\SamplerStates.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
+   <BOUNDS height="8640" left="255" top="765" type="Window" width="10935">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="RENDERER (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <BOUNDS height="270" left="1584" top="7494" type="Node" width="1800">
+   </BOUNDS>
+   <BOUNDS height="4500" left="1584" top="7494" type="Box" width="6000">
+   </BOUNDS>
+   <BOUNDS height="4665" left="11340" top="870" type="Window" width="6360">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="AA Quality" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="241" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="165" top="105" width="3660" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="165" top="105" width="8100" height="615">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This demo show how to use sampler state objects&cr;&lf;For more information see: http://msdn.microsoft.com/en-us/library/windows/desktop/ff476207(v=vs.85).aspx|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="ConstantSampler (DX11.Effect)" filename="ConstantSampler.fx" nodename="ConstantSampler (DX11.Effect)" componentmode="Hidden" id="235">
+   <BOUNDS type="Node" left="1755" top="6675" width="3495" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="5" values="|0.34500,0.65500,0.51463,1.00000|,|0.34500,0.40604,0.65500,1.00000|,|0.34500,0.63237,0.65500,1.00000|,|0.34500,0.65500,0.37728,1.00000|,|0.34500,0.65500,0.59870,1.00000|">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   <PIN pinname="Sampler State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="235" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="242">
+   <BOUNDS type="Node" left="3900" top="6120" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" values="assets\Desert.jpg">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="242" srcpinname="Texture Out" dstnodeid="235" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="243">
+   <BOUNDS type="Node" left="675" top="5595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="Geometry Out" dstnodeid="235" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="735" y="6255">
+   </LINKPOINT>
+   <LINKPOINT x="2610" y="6255">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="244">
+   <BOUNDS type="Node" left="3480" top="5580" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="ScaleX" slicecount="1" values="2.63">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="244" srcpinname="Transform Out" dstnodeid="235" dstpinname="Texture Transform">
+   </LINK>
+   <NODE systemname="Sampler (DX11 Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11 Advanced)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="1905" top="5085" width="6195" height="270">
+   </BOUNDS>
+   <PIN pinname="Sampler" visible="1">
+   </PIN>
+   <PIN pinname="Address U" slicecount="1" visible="1" values="Mirror">
+   </PIN>
+   <PIN pinname="Address V" visible="1">
+   </PIN>
+   <PIN pinname="Address W" visible="1">
+   </PIN>
+   <PIN pinname="Border Color" visible="1" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Comparison" visible="1" slicecount="1" values="Equal">
+   </PIN>
+   <PIN pinname="Filter Mode" visible="1">
+   </PIN>
+   <PIN pinname="Maximum Anisotropy" slicecount="1" visible="1" values="6">
+   </PIN>
+   <PIN pinname="Minimum Lod" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Maximum Lod" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="245" srcpinname="Sampler" dstnodeid="235" dstpinname="Sampler State" linkstyle="VHV">
+   <LINKPOINT x="1940" y="6935">
+   </LINKPOINT>
+   <LINKPOINT x="4360" y="6715">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="246" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1965" top="1155" width="1200" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1965" top="1155" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Wrap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Address U|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Output Enum" dstnodeid="245" dstpinname="Address U">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="247" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2640" top="1815" width="1140" height="315">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2640" top="1815" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Wrap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Address V|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="247" srcpinname="Output Enum" dstnodeid="245" dstpinname="Address V">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="248" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3300" top="960" width="1080" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3300" top="960" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Wrap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Address W|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="248" srcpinname="Output Enum" dstnodeid="245" dstpinname="Address W">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="249" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3960" top="1410" width="5925" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3960" top="1410" width="3480" height="645">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Address changes how sampler process textures coordinate outside the 0-1 range.&cr;&lf;U = X Axis, V = Y Axis, W = Z Axis|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="RGB (Color Join)" nodename="RGB (Color Join)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="3405" top="2325" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Output" dstnodeid="245" dstpinname="Border Color" linkstyle="VHV">
+   <LINKPOINT x="3430" y="3730">
+   </LINKPOINT>
+   <LINKPOINT x="3965" y="3950">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="252" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4065" top="2310" width="3720" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4065" top="2310" width="3720" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;--This is border color if address is set to border|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="254" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3960" top="2835" width="2280" height="285">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3960" top="2835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="MinMagMipPoint">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Filter Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="254" srcpinname="Output Enum" dstnodeid="245" dstpinname="Filter Mode" linkstyle="VHV">
+   <LINKPOINT x="3985" y="3535">
+   </LINKPOINT>
+   <LINKPOINT x="5345" y="3755">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="255" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6285" top="2820" width="960" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6285" top="2820" width="960" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Filter mode|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="256" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4275" top="3435" width="945" height="360">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4275" top="3435" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Maximum Anisotropy|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="256" srcpinname="Y Output Value" dstnodeid="245" dstpinname="Maximum Anisotropy">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="257" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5385" top="3420" width="2475" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5385" top="3420" width="2475" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|In case filter mode is anisotropic|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="258" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6660" top="4110" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6660" top="4110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Minimum Lod|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="258" srcpinname="Y Output Value" dstnodeid="245" dstpinname="Minimum Lod">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="259" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7350" top="4635" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7350" top="4635" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3.40282346638529E038">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Maximum Lod|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="259" srcpinname="Y Output Value" dstnodeid="245" dstpinname="Maximum Lod">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="260" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7665" top="4050" width="5760" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7665" top="4050" width="5760" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Minimum and maximum lod (with mipmaps, use with point filtering for testing)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
