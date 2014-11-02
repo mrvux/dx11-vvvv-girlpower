@@ -1,0 +1,153 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-AM\Colorsound\otherlibs_2\modules\MultiScreen (DX11)\sub\MultiViewport (DX11) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="9210" top="5220" width="9000" height="6000">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|MultiViewport (DX11)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Specify Viewports within the renderer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="4">
+   <BOUNDS type="Node" left="3855" top="4590" width="1980" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3855" top="4590" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9135" top="165" width="6240" height="5010">
+   </BOUNDS>
+   <PIN pinname="ViewPort" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="ScreenNumber (DX11)" filename="ScreenNumber (DX11).v4p" nodename="ScreenNumber (DX11)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="2880" top="2955" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Screen Count X" visible="1">
+   </PIN>
+   <PIN pinname="Screen Count Y" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="13770" top="3825" width="14280" height="11370">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="2520" top="3720" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Layer" dstnodeid="6" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="1515" top="2970" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Layer" dstnodeid="6" dstpinname="Layer 1">
+   </LINK>
+   <NODE componentmode="Hidden" id="10" nodename="UniformScale (Transform)" systemname="UniformScale (Transform)">
+   <BOUNDS height="0" left="1695" top="1680" type="Node" width="0">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="9" nodename="Rotate (Transform)" systemname="Rotate (Transform)">
+   <BOUNDS height="270" left="1680" top="2355" type="Node" width="1065">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="8" nodename="LFO (Animation)" systemname="LFO (Animation)">
+   <BOUNDS height="0" left="2925" top="1665" type="Node" width="0">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="60">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="9" dstpinname="Z" srcnodeid="8" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="9" dstpinname="Transform In" srcnodeid="10" srcpinname="Transform Out">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Transform Out" dstnodeid="7" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Transform Out" dstnodeid="5" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Layer Out" dstnodeid="4" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="11">
+   <BOUNDS type="Node" left="5790" top="2310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5790" top="2310" width="435" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Screen Count X">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="12">
+   <BOUNDS type="Node" left="6315" top="2310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6315" top="2310" width="450" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Screen Count Y">
+   </LINK>
+   <NODE nodename="MultiViewport (DX11)" componentmode="Hidden" id="14" systemname="MultiViewport (DX11)" filename="MultiViewport (DX11).v4p">
+   <BOUNDS type="Node" left="5790" top="3000" width="1665" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5790" top="3000" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="ViewPort" dstnodeid="4" dstpinname="ViewPort">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Screen Count X">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Screen Count Y">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
+   </PATCH>
