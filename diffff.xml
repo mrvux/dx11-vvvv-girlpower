@@ -36,6 +36,7 @@ olddefault="3"
 -->
 <CONVVVVERTER>
 <PATCH version="33.0">
-	<NODE old="Normals (DX11)" new="Normals (DX11 FromVertex)"> </NODE>
+	<NODE old="Normals (DX11)" new="Normals (DX11 FromPoint)"> </NODE>
+	<NODE old="Line (DX11)" new="Line (DX11 Legacy)"> </NODE>
 </PATCH>
 </CONVVVVERTER>
