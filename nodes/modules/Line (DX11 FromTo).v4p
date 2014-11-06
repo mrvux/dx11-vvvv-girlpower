@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" systemname="Line (DX11 FromTo)" filename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" scrollx="1815" scrolly="3015">
+   <PATCH nodename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" systemname="Line (DX11 FromTo)" filename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" scrollx="30" scrolly="3375">
    <BOUNDS type="Window" left="855" top="2790" width="13740" height="12900">
    </BOUNDS>
    <PACK Name="dx11" Version="33.0">
@@ -67,9 +67,9 @@
    </PIN>
    </NODE>
    <NODE id="34" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7950" top="12330" width="1395" height="270">
+   <BOUNDS type="Node" left="2325" top="13590" width="1395" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7950" top="12330" width="1395" height="270">
+   <BOUNDS type="Box" left="2325" top="13590" width="1395" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Enable binweise|">
    </PIN>
@@ -103,19 +103,19 @@
    </PIN>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Enabled" visible="1">
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="26" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1350" top="13665" width="795" height="240">
+   <BOUNDS type="Box" left="1350" top="14985" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1350" top="13665" width="0" height="0">
+   <BOUNDS type="Node" left="1350" top="14985" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="27" srcpinname="Layer" dstnodeid="26" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="705" top="12330" width="100" height="100">
    </BOUNDS>
@@ -483,7 +483,7 @@
    <LINK srcnodeid="17" srcpinname="Count" dstnodeid="24" dstpinname="Resolution Y">
    </LINK>
    <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="7320" top="12330" width="100" height="100">
+   <BOUNDS type="Node" left="1665" top="13605" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -491,12 +491,10 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <BOUNDS type="Box" left="7320" top="12330">
+   <BOUNDS type="Box" left="1665" top="13605">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="27" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="61" srcpinname="Color Output" dstnodeid="27" dstpinname="Color">
    </LINK>
@@ -805,5 +803,33 @@
    <LINK srcnodeid="2" srcpinname="Output" dstnodeid="3" dstpinname="Data">
    </LINK>
    <LINK srcnodeid="78" srcpinname="Output" dstnodeid="1" dstpinname="Select">
+   </LINK>
+   <NODE systemname="Select (DX11.Validator)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Select (DX11.Validator)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="1665" top="13995" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enable Slice" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="83" dstpinname="Enable Slice">
+   </LINK>
+   <NODE systemname="Validator (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Validator (DX11.Layer)" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="1335" top="14445" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Validators" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Layer" dstnodeid="84" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="83" srcpinname="Output" dstnodeid="84" dstpinname="Validators">
+   </LINK>
+   <LINK srcnodeid="84" srcpinname="Layer Out" dstnodeid="26" dstpinname="Input Node">
    </LINK>
    </PATCH>
