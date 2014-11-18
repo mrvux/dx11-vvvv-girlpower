@@ -43,10 +43,15 @@ vs2ps VS(VS_IN input)
 
 float4 PS(vs2ps In): SV_Target
 {
-	float4 disp = texture2dctrl.Sample(Samp, In.TexCd);
-	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;
-	
-	float4 col = texture2d.Sample(Samp, In.TexCd + dir * disp.xy);
+	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;	
+	float4 col = texture2d.Sample(Samp, In.TexCd + dir );
+    return col;
+}
+
+float4 PS_Absolute(vs2ps In): SV_Target
+{
+	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;	
+	float4 col = texture2d.Sample(Samp, dir );
     return col;
 }
 
@@ -59,6 +64,11 @@ technique10 TDisplacementMap
 	}
 }
 
-
-
-
+technique10 TDisplacementMapAbsolute
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS_Absolute() ) );
+	}
+}
