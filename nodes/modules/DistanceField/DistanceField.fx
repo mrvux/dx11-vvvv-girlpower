@@ -63,7 +63,7 @@ float4 pHORZ(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 		dist = min(dist, CalcC(H, texPREV.Load(int3(clamp(ip.x+i,0,R.x-1),ip.y,0)).x,inside));
 		dist = min(dist, CalcC(H, texPREV.Load(int3(clamp(ip.x-i,0,R.x-1),ip.y,0)).x,inside));
 	}
-	if(inside)dist*=-1;
+	if(inside)dist=-dist+1./Width;
 	dist=dist*Scale+Bias;
 	return dist;
 }
