@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0 : PREVIOUS;
 Texture2D tex1 : INITIAL;
 SamplerState Sampler <bool visible=false;> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
