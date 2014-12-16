@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex1: INITIAL;
 Texture2D tex0: PREVIOUS;
 SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};

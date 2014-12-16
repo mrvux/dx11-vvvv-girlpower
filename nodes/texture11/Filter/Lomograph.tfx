@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 
 float Start <float uimin=0.0;float uimax=1.0;string uiname="Vignette Start";> =0.1;
 float Amount <float uimin=0.0;float uimax=1.0;string uiname="Vignette Amount";> =0.25;

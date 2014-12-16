@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 Texture3D tex0 <string uiname="Noise Texture";>;
 
 SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
