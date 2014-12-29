@@ -1,13 +1,13 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.1.dtd" >
-   <PATCH nodename="D:\vvvv\vvvv_dx11_node\directx11\texture11\Filter\TransformTexture (DX11.TextureFX) help.v4p" systemname="TransformTexture help" filename="D:\projects\_dx11\modules\TransformTexture help.v4p">
-   <BOUNDS type="Window" left="6360" top="1080" width="6285" height="5190">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\texture11\Filter\TransformTexture (DX11.TextureFX) help.v4p" systemname="TransformTexture help" filename="D:\projects\_dx11\modules\TransformTexture help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="8295" top="645" width="6510" height="6465">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="59">
    <BOUNDS type="Node" left="180" top="4050" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="180" top="4050" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="12585" top="1110" width="6240" height="6510">
+   <BOUNDS type="Window" left="2070" top="645" width="6240" height="6510">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -25,7 +25,7 @@
    </PIN>
    <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="QUAD (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="61">
@@ -70,26 +70,6 @@
    <PIN pinname="Size" slicecount="1" values="12">
    </PIN>
    </NODE>
-   <NODE id="89" systemname="TransformTexture (DX11.TextureFX)" filename="TransformTexture.tfx" nodename="TransformTexture (DX11.TextureFX)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="1620" top="2925" width="3495" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="0" top="0" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
-   </BOUNDS>
-   <PIN pinname="Default SizeXY" slicecount="2" values="256,256">
-   </PIN>
-   <PIN pinname="tTex" visible="1">
-   </PIN>
-   <PIN pinname="Sampler" visible="1">
-   </PIN>
-   <PIN pinname="Texture In" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="89" srcpinname="Texture Out" dstnodeid="60" dstpinname="texture2d">
-   </LINK>
    <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="90">
    <BOUNDS type="Node" left="2565" top="2325" width="100" height="100">
    </BOUNDS>
@@ -98,8 +78,6 @@
    <PIN pinname="Rotate" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="90" srcpinname="Transform Out" dstnodeid="89" dstpinname="tTex">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="91">
    <BOUNDS type="Node" left="4155" top="1575" width="100" height="100">
    </BOUNDS>
@@ -116,8 +94,6 @@
    <PIN pinname="Sampler" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="92" srcpinname="Sampler" dstnodeid="89" dstpinname="Sampler">
-   </LINK>
    <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="95">
    <BOUNDS type="Node" left="225" top="1785" width="100" height="100">
    </BOUNDS>
@@ -158,10 +134,26 @@
    </LINK>
    <LINK srcnodeid="93" srcpinname="Output" dstnodeid="95" dstpinname="Filename">
    </LINK>
-   <LINK srcnodeid="95" srcpinname="Texture Out" dstnodeid="89" dstpinname="Texture In">
-   </LINK>
-   <LINK srcnodeid="89" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
-   </LINK>
    <LINK srcnodeid="60" srcpinname="Layer" dstnodeid="59" dstpinname="Layers">
    </LINK>
+   <NODE id="103" systemname="TransformTexture (DX11.TextureFX)" filename="TransformTexture.tfx" nodename="TransformTexture (DX11.TextureFX)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="1620" top="2925" width="3495" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="0" top="0" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="95" srcpinname="Texture Out" dstnodeid="103" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="103" srcpinname="Texture Out" dstnodeid="60" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Sampler" dstnodeid="103" dstpinname="Sampler">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Transform Out" dstnodeid="103" dstpinname="Texture Transform">
+   </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
    </PATCH>
