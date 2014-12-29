@@ -16,23 +16,16 @@ float4x4 tPI;
 [numthreads(64, 1, 1)]
 void CS( uint3 DTid : SV_DispatchThreadID){
 	if(DTid.x>=(uint)TotalCount)return;
+	int2 R;tex.GetDimensions(R.x,R.y);
 	float2 UV=uv[DTid.x];
 	if(!UVSpace)UV=UV*0.5*float2(1,-1)+0.5;
-	float d=tex.SampleLevel(s0,UV,0).x;
-	float2 R;tex.GetDimensions(R.x,R.y);
+	UV+=0.5/R;
 	if(!Filter)UV=(floor(UV*R)+0.5)/R;
+	float d=tex.SampleLevel(s0,UV,0).x;
 	float4 PosW=UVZtoWORLD(UV,d);
 	PosW.w=(d!=1);
 	Out[DTid.x] = PosW;
 }
 
 technique11 Process{pass P0{SetComputeShader(CompileShader(cs_5_0,CS()));}}
-
-
-
-
-
-
-
-
 
