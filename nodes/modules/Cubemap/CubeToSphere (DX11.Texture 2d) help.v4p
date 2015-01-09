@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="W:\projects\_tools\modules\_texture11\CubeMap\CubeToSphere\CubeToSphere (DX11.Texture 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\Cubemap\CubeToSphere (DX11.Texture 2d) help.v4p">
    <BOUNDS type="Window" left="16860" top="1290" width="5625" height="10260">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -130,17 +130,17 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|SPHERE MAP|">
    </PIN>
    </NODE>
-   <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="16">
+   <NODE systemname="QUAD (DX11.LAYER)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="1425" top="7905" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Layer Out" visible="1">
+   <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform" visible="1">
    </PIN>
-   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="16" srcpinname="Layer Out" dstnodeid="15" dstpinname="Layers">
+   <LINK srcnodeid="16" srcpinname="Layer" dstnodeid="15" dstpinname="Layers">
    </LINK>
    <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="17">
    <BOUNDS type="Node" left="780" top="7350" width="100" height="100">
@@ -150,7 +150,7 @@
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="17" srcpinname="Transform Out" dstnodeid="16" dstpinname="Transform In">
+   <LINK srcnodeid="17" srcpinname="Transform Out" dstnodeid="16" dstpinname="Transform">
    </LINK>
    <NODE systemname="ApplyTransform (Transform Vector)" nodename="ApplyTransform (Transform Vector)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="2700" top="4710" width="100" height="100">
@@ -342,7 +342,7 @@
    </LINK>
    <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="0" dstpinname="Texture In">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="16" dstpinname="Texture In">
+   <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="16" dstpinname="Texture">
    </LINK>
    <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="39">
    <BOUNDS type="Node" left="3345" top="5805" width="100" height="100">
@@ -351,11 +351,15 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="X" slicecount="1" values="-1">
+   <PIN pinname="X" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Z" slicecount="1" values="-1">
    </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Inverse Rotation" dstnodeid="39" dstpinname="Transform In">
    </LINK>
    <LINK srcnodeid="39" srcpinname="Transform Out" dstnodeid="22" dstpinname="Input Node">
    </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
    </PATCH>

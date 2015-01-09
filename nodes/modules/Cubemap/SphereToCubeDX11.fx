@@ -39,7 +39,7 @@ float2 XYZtoUV(float3 p){p=normalize(p);
 
 float4 PS(VS_OUT In):SV_Target{
 	float3 p=In.PosW.xyz;
-	p.xyz=p.xyz*float3(-1,-1,1);
+	p.xyz=p.xyz*float3(1,-1,-1);
 	
 	p=mul(float4(normalize(p.xyz),1),tTex).xyz;
 	
