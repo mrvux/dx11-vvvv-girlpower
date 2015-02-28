@@ -33,7 +33,7 @@ float4 PS(float2 UV:TEXCOORD0,float4 PosWVP:SV_POSITION):SV_Target{
 	float4 c=texSPHERE.SampleLevel(s0,uv.xy,0);
 
 	c=mul(c*Color,tColor);
-	if(ClipBorder&&length(UV.xy-.5)>.51)c=1;
+	if(ClipBorder&&length(UV.xy-.5)>.51)c=0;
 	return c;
 }
 
