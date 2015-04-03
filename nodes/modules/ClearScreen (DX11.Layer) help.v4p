@@ -195,7 +195,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1065" top="8250" width="2400" height="1800">
    </BOUNDS>
-   <BOUNDS type="Window" left="-120" top="-120" width="28980" height="16380">
+   <BOUNDS type="Window" left="5520" top="345" width="6240" height="5085">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" pintype="Input" slicecount="1" values="||">
    </PIN>
