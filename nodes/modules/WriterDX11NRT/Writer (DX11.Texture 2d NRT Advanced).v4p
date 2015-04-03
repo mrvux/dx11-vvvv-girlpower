@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" systemname="Writer (DX11.Texture 2d NRT Advanced)" filename="X:\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" scrollx="0" scrolly="5760">
-   <BOUNDS type="Window" left="6015" top="690" width="22005" height="13650">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" systemname="Writer (DX11.Texture 2d NRT Advanced)" filename="X:\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" scrollx="45" scrolly="3240">
+   <BOUNDS type="Window" left="7710" top="7380" width="18885" height="10980">
    </BOUNDS>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="1" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="285" top="4860" width="2070" height="240">
@@ -1289,7 +1289,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="15270" top="600" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -2415,6 +2415,8 @@
    </PIN>
    <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Uniform" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="243">
    <BOUNDS type="Node" left="465" top="7020" width="100" height="100">
@@ -2446,6 +2448,8 @@
    <BOUNDS type="Node" left="1515" top="6945" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="248" systemname="IOBox (Value Advanced)">
@@ -2480,14 +2484,6 @@
    <PIN pinname="String Value" visible="1">
    </PIN>
    <PIN pinname="Enum" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Enum2String (Enumerations)" nodename="Enum2String (Enumerations)" componentmode="Hidden" id="252">
-   <BOUNDS type="Node" left="4065" top="765" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Enum" visible="1">
-   </PIN>
-   <PIN pinname="String Value" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="253">
@@ -2539,8 +2535,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="255" srcpinname="Y Output Value" dstnodeid="242" dstpinname="Grain">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Output Enum" dstnodeid="252" dstpinname="Enum">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="256" systemname="IOBox (String)">
    <BOUNDS type="Box" left="3615" top="1470" width="795" height="240">
@@ -2920,7 +2914,7 @@
    </LINK>
    <LINK srcnodeid="285" srcpinname="Output" dstnodeid="146" dstpinname="Y Input Value">
    </LINK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="287" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4305" top="10110" width="480" height="480">
@@ -2957,7 +2951,7 @@
    </PIN>
    </NODE>
    <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="289">
-   <BOUNDS type="Node" left="2190" top="8685" width="100" height="100">
+   <BOUNDS type="Node" left="2175" top="8790" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Render State" visible="1">
    </PIN>
@@ -2965,9 +2959,11 @@
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
+   <PIN pinname="Color" visible="1" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
    </NODE>
    <NODE systemname="Blend (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState Advanced)" componentmode="Hidden" id="290">
-   <BOUNDS type="Node" left="2205" top="8400" width="100" height="100">
+   <BOUNDS type="Node" left="2160" top="8415" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
@@ -2977,7 +2973,7 @@
    </PIN>
    <PIN pinname="Alpha Operation" slicecount="1" values="Add">
    </PIN>
-   <PIN pinname="Source Blend" slicecount="1" values="Zero">
+   <PIN pinname="Source Blend" slicecount="1" values="One">
    </PIN>
    <PIN pinname="Destination Blend" slicecount="1" values="One">
    </PIN>
@@ -3079,5 +3075,75 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="288" srcpinname="Output" dstnodeid="297" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="RGB (Color Join)" nodename="RGB (Color Join)" componentmode="Hidden" id="301">
+   <BOUNDS type="Node" left="3810" top="8835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Red" visible="1">
+   </PIN>
+   <PIN pinname="Green" visible="1">
+   </PIN>
+   <PIN pinname="Blue" visible="1">
+   </PIN>
+   <PIN pinname="Alpha" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="302" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3810" top="8535" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3810" top="8535" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="302" srcpinname="Y Output Value" dstnodeid="301" dstpinname="Red">
+   </LINK>
+   <LINK srcnodeid="302" srcpinname="Y Output Value" dstnodeid="301" dstpinname="Green">
+   </LINK>
+   <LINK srcnodeid="302" srcpinname="Y Output Value" dstnodeid="301" dstpinname="Blue">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="303" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3825" top="8220" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3825" top="8220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="303" srcpinname="Y Output Value" dstnodeid="301" dstpinname="Alpha">
+   </LINK>
+   <LINK srcnodeid="301" srcpinname="Output" dstnodeid="289" dstpinname="Color">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="304" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2340" top="6720" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2340" top="6720" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="304" srcpinname="Y Output Value" dstnodeid="242" dstpinname="Uniform">
    </LINK>
    </PATCH>
