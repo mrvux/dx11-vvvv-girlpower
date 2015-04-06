@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="L:\BoundingBox (DX11.Geometry Transform).v4p" systemname="BoundingBox (DX11.Geometry Transform)" filename="W:\projects\_workbench\modules\Transform\BoundingBox (DX11.Geometry Transform).v4p" scrollx="675" scrolly="0">
-   <BOUNDS type="Window" left="26640" top="3375" width="8835" height="12060">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\BoundingBox (DX11.Geometry Transform).v4p" systemname="BoundingBox (DX11.Geometry Transform)" filename="W:\projects\_workbench\modules\Transform\BoundingBox (DX11.Geometry Transform).v4p" scrollx="675" scrolly="0">
+   <BOUNDS type="Window" left="9780" top="1500" width="8835" height="12060">
    </BOUNDS>
    <NODE systemname="BoundingBox (DX11.Geometry Get)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="BoundingBox (DX11.Geometry Get)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="1470" top="645" width="100" height="100">
@@ -134,7 +134,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="11" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="7050" top="5400" width="795" height="240">
@@ -167,7 +167,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3945" top="390" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
