@@ -123,30 +123,30 @@ float4 PS(VS_OUT In):SV_Target{
 
 technique10 Sprite{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
 		SetGeometryShader(CompileShader(gs_4_0,gsSPRITE()));
-		SetPixelShader(CompileShader(ps_5_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
 technique10 Billboard{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
 		SetGeometryShader(CompileShader(gs_4_0,gsBILLBOARD()));
-		SetPixelShader(CompileShader(ps_5_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
 technique10 BillboardAxis{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
 		SetGeometryShader(CompileShader(gs_4_0,gsBILLBOARD(1)));
-		SetPixelShader(CompileShader(ps_5_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
 technique10 Point{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
 		SetGeometryShader(CompileShader(gs_4_0,gsPOINT()));
-		SetPixelShader(CompileShader(ps_5_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
 
