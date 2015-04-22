@@ -1,0 +1,183 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Anwender\Dropbox\PointcloudWorkshop\CustomizeStructure\modules\OpticalFlow\OpticalFlow (DX11.TextureFX).v4p" systemname="OpticalFlow (Texture FX)" filename="D:\MIO\Coding\vvvv\vvvvContributions\modules\Optical Flow\OpticalFlow (Texture FX).v4p" locked="0" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="5085" top="6330" width="7020" height="5760">
+   </BOUNDS>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="147" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="495" top="1920" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="495" top="1920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture In|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="151" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2295" top="600" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2295" top="600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" values="1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="poffsetXY">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="2" values="1,1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="153" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4440" top="600" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4440" top="600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="lambda">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="154" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2145" top="4290" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2145" top="4290" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Blur (DX11.TextureFX)" filename="%VVVV%\packs\DX11\nodes\texture11\Filter\Blur.tfx" nodename="Blur (DX11.TextureFX)" componentmode="Hidden" id="156">
+   <BOUNDS type="Node" left="2145" top="3555" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Default SizeXY" visible="-1" pintype="Input" slicecount="2" values="256,256">
+   </PIN>
+   <BOUNDS type="Box" left="2145" top="3555">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="157" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5475" top="600" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5475" top="600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Blur Width|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="157" srcpinname="Y Output Value" dstnodeid="156" dstpinname="Width" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="5475" y="2183">
+   </LINKPOINT>
+   <LINKPOINT x="2370" y="2183">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="165" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3435" top="600" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3435" top="600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" values="1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="scaleXY">
+   </PIN>
+   </NODE>
+   <INFO author="prince mio" description="Optical Flow Solution for dx11 on GPU" tags="Filter">
+   </INFO>
+   <NODE systemname="FrameDelay (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FrameDelay (DX11.Texture 2d)" componentmode="Hidden" id="146">
+   <BOUNDS type="Node" left="2970" top="2355" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="13140" top="3495" width="14235" height="12105">
+   </BOUNDS>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="147" srcpinname="Output Node" dstnodeid="146" dstpinname="Texture In" linkstyle="VHV">
+   <LINKPOINT x="0" y="2355">
+   </LINKPOINT>
+   <LINKPOINT x="3700" y="2130">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <LINK srcnodeid="156" srcpinname="Texture Out" dstnodeid="154" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="OpticalFlow (DX11.TextureFX)" filename="OpticalFlow.tfx" nodename="OpticalFlow (DX11.TextureFX)" componentmode="Hidden" id="166">
+   <BOUNDS type="Node" left="2145" top="2895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Technique" slicecount="1" values="Process">
+   </PIN>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="PrevTex" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="2145" top="2895">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="147" srcpinname="Output Node" dstnodeid="166" dstpinname="ActualTex" linkstyle="VHV">
+   <LINKPOINT x="525" y="2745">
+   </LINKPOINT>
+   <LINKPOINT x="3210" y="2745">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="151" srcpinname="Y Output Value" dstnodeid="166" dstpinname="poffsetXY" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="2330" y="1973">
+   </LINKPOINT>
+   <LINKPOINT x="2320" y="1973">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="Y Output Value" dstnodeid="166" dstpinname="lambda" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="4425" y="1853">
+   </LINKPOINT>
+   <LINKPOINT x="2535" y="1853">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="166" srcpinname="Texture Out" dstnodeid="156" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="165" srcpinname="Y Output Value" dstnodeid="166" dstpinname="scaleXY" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="3435" y="1988">
+   </LINKPOINT>
+   <LINKPOINT x="2670" y="1988">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="146" srcpinname="Texture Out" dstnodeid="166" dstpinname="PrevTex">
+   </LINK>
+   </PATCH>
