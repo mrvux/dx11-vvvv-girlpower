@@ -1,0 +1,703 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\06_Geometry_Join_Overview.v4p" systemname="Creating_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Creating_Geometry_Overview.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="1455" top="0" width="17910" height="10725">
+   </BOUNDS>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="33" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6570" top="690" width="1485" height="1500">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6570" top="690" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="NoCullWireframe">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Show SliceIndex" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="240" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="240" width="4395" height="435">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Creating Geometry|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="95" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8190" top="1035" width="1725" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8190" top="1035" width="1725" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Rightclick to change|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="32" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="5850" top="2310" width="330" height="270">
+   </BOUNDS>
+   <PIN pinname="Render State Out" visible="1">
+   </PIN>
+   <PIN pinname="Mode" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Output Enum" dstnodeid="32" dstpinname="Mode">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="104">
+   <BOUNDS type="Node" left="7965" top="9390" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7965" top="9390" width="2340" height="2055">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11685" top="10755" width="4080" height="4425">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="105">
+   <BOUNDS type="Node" left="570" top="9705" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="570" top="9705" width="2340" height="2055">
+   </BOUNDS>
+   <BOUNDS type="Window" left="1455" top="10725" width="4080" height="4425">
+   </BOUNDS>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="25" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx">
+   <BOUNDS type="Node" left="8130" top="8700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="8130" top="8700">
+   </BOUNDS>
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Render State" dstnodeid="25" dstpinname="Render State" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Layer" dstnodeid="104" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Constant (DX11.Effect)" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="35" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx">
+   <BOUNDS type="Node" left="735" top="7440" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Resolution Y" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="735" top="7440">
+   </BOUNDS>
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layout Valid" visible="1">
+   </PIN>
+   <PIN pinname="Layout Message" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Render State" dstnodeid="35" dstpinname="Render State" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="35" srcpinname="Layer" dstnodeid="105" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Cons (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Geometry)" componentmode="Hidden" id="211">
+   <BOUNDS type="Node" left="12525" top="1830" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12525" top="1830">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="210">
+   <BOUNDS type="Node" left="12510" top="2430" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12510" top="2430">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="209" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="13320" top="1830" width="5625" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13320" top="1830" width="3600" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; You can join different types of geometry to one spread by using a Cons (DX11.Geometry) node.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="208" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="13320" top="2430" width="5940" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13320" top="2430" width="3705" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; You can connect multiple layers to one renderer via a Group (DX11.Layer) node.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="GeometryBuffer (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="GeometryBuffer (DX11.Geometry Join)" componentmode="Hidden" id="220">
+   <BOUNDS type="Node" left="900" top="6435" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Layout" visible="1">
+   </PIN>
+   <PIN pinname="Vertices" visible="1" slicecount="168" values="0.5,0,0,0,0.494415413112564,0.0745211330880872,0,0,0.47778640289307,0.147377587205452,0,0,0.45048443395121,0.216941869558779,0,0,0.413119387157997,0.281660029031811,0,0,0.366525935914913,0.34008636888546,0,0,0.311744900929367,0.390915741234015,0,0,0.25,0.433012701892219,0,0,0.182670512183197,0.465436874322102,0,0,0.111260466978157,0.487463956090912,0,0,0.0373650467932122,0.49860189859059,0,0,-0.0373650467932121,0.49860189859059,0,0,-0.111260466978157,0.487463956090912,0,0,-0.182670512183198,0.465436874322102,0,0,-0.25,0.433012701892219,0,0,-0.311744900929367,0.390915741234015,0,0,-0.366525935914913,0.34008636888546,0,0,-0.413119387157998,0.281660029031811,0,0,-0.45048443395121,0.216941869558779,0,0,-0.47778640289307,0.147377587205452,0,0,-0.494415413112564,0.0745211330880874,0,0,-0.5,6.12303176911189E-017,0,0,-0.494415413112564,-0.0745211330880872,0,0,-0.47778640289307,-0.147377587205452,0,0,-0.45048443395121,-0.216941869558779,0,0,-0.413119387157997,-0.281660029031811,0,0,-0.366525935914913,-0.34008636888546,0,0,-0.311744900929366,-0.390915741234015,0,0,-0.25,-0.433012701892219,0,0,-0.182670512183197,-0.465436874322102,0,0,-0.111260466978157,-0.487463956090912,0,0,-0.0373650467932119,-0.49860189859059,0,0,0.0373650467932122,-0.49860189859059,0,0,0.111260466978157,-0.487463956090912,0,0,0.182670512183198,-0.465436874322102,0,0,0.25,-0.433012701892219,0,0,0.311744900929367,-0.390915741234015,0,0,0.366525935914913,-0.34008636888546,0,0,0.413119387157997,-0.281660029031811,0,0,0.45048443395121,-0.216941869558779,0,0,0.47778640289307,-0.147377587205452,0,0,0.494415413112564,-0.0745211330880872,0,0">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Topology" slicecount="1" visible="1" values="TriangleList">
+   </PIN>
+   <PIN pinname="Vertices Count" slicecount="1" visible="1" values="1">
+   </PIN>
+   <BOUNDS type="Box" left="900" top="6435">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="IndexedGeometryBuffer (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="IndexedGeometryBuffer (DX11.Geometry Join)" componentmode="Hidden" id="219">
+   <BOUNDS type="Node" left="8310" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Input Layout" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Vertices" visible="1">
+   </PIN>
+   <PIN pinname="Vertices Count" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Indices Count" visible="1">
+   </PIN>
+   <PIN pinname="Topology" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="218" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="2580" top="4725" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2580" top="4725" width="1305" height="525">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="2" values="Position,TextureCoord">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="217" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="4005" top="4725" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4005" top="4725" width="1665" height="510">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="2" values="R32G32B32_Float,R32G32_Float">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="CircularSpread (Spreads)" nodename="CircularSpread (Spreads)" componentmode="Hidden" id="215">
+   <BOUNDS type="Node" left="900" top="3990" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output X" visible="1">
+   </PIN>
+   <PIN pinname="Output Y" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="214" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2370" top="3600" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2370" top="3600" width="510" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="24">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="214" srcpinname="Y Output Value" dstnodeid="215" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="212">
+   <BOUNDS type="Node" left="2580" top="5505" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="212" srcpinname="Output" dstnodeid="220" dstpinname="Input Layout">
+   </LINK>
+   <LINK srcnodeid="218" srcpinname="Output Enum" dstnodeid="212" dstpinname="Element Type">
+   </LINK>
+   <LINK srcnodeid="217" srcpinname="Output Enum" dstnodeid="212" dstpinname="Format">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="221" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="1005" width="1620" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="1005" width="3975" height="765">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Distinguish between:&cr;&lf;- Geometry: has only VertexBuffer&cr;&lf;- Indexed Geometry: has VertexBuffer and IndexBuffer&cr;&lf;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="220" srcpinname="Geometry Out" dstnodeid="35" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1050" top="7890" width="405" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1050" top="7890" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Layout Valid" dstnodeid="222" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="223" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="1350" top="8745" width="2610" height="840">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1350" top="8745" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Layout Message" dstnodeid="223" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="Zip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (Value Bin)" componentmode="Hidden" id="216">
+   <BOUNDS type="Node" left="900" top="5460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Input 1XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Input 1 Bin Size" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Input 2 Bin Size" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="900" top="5460">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector (3d Join)" nodename="Vector (3d Join)" componentmode="Hidden" id="213">
+   <BOUNDS type="Node" left="900" top="4905" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1" slicecount="36" values="0">
+   </PIN>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="213" srcpinname="XYZ" dstnodeid="216" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="216" srcpinname="Output" dstnodeid="220" dstpinname="Vertices">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="224" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2550" top="6120" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2550" top="6120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="LineStrip">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="224" srcpinname="Output Enum" dstnodeid="220" dstpinname="Topology">
+   </LINK>
+   <LINK srcnodeid="214" srcpinname="Y Output Value" dstnodeid="220" dstpinname="Vertices Count">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="225" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2100" top="4725" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2100" top="4725" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="225" srcpinname="Y Output Value" dstnodeid="216" dstpinname="Input 1 Bin Size">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="226" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2100" top="5010" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2100" top="5010" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="226" srcpinname="Y Output Value" dstnodeid="216" dstpinname="Input 2 Bin Size">
+   </LINK>
+   <LINK srcnodeid="215" srcpinname="Output X" dstnodeid="213" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="215" srcpinname="Output Y" dstnodeid="213" dstpinname="Y">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="229" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5760" top="4890" width="1275" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5760" top="4890" width="1275" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Vertex Layout|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="230" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4320" top="6120" width="960" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4320" top="6120" width="960" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Topology|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="231" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="12945" top="1140" width="6720" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12945" top="1140" width="2535" height="285">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1" slicecount="1" pintype="Input" values="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205124%28v=vs.85%29.aspx">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="URL">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="232" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1590" top="7890" width="4770" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1590" top="7890" width="2580" height="735">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Indicates whether the geometries layout is valid with this shader. If not here is whats wrong:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="219" srcpinname="Geometry Out" dstnodeid="25" dstpinname="Geometry">
+   </LINK>
+   <NODE componentmode="InABox" id="234" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="8325" top="3555" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="8115" top="7500" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="1170" left="8325" top="3555" type="Box" width="1845">
+   </BOUNDS>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="12" values="-0.5,-0.5,0,0.5,0.5,0,-0.5,0.5,0,0.5,-0.5,0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="235" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="8835" top="6420" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="8415" top="7800" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="435" left="8835" top="6420" type="Box" width="675">
+   </BOUNDS>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="6" values="0,1,2,0,1,3">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="242" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="10185" top="5070" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10185" top="5070" width="1305" height="525">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="2" values="Position,TextureCoord">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="241" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="11610" top="5070" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11610" top="5070" width="1665" height="510">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="2" values="R32G32B32_Float,R32G32_Float">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="240">
+   <BOUNDS type="Node" left="10185" top="5850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="242" srcpinname="Output Enum" dstnodeid="240" dstpinname="Element Type">
+   </LINK>
+   <LINK srcnodeid="241" srcpinname="Output Enum" dstnodeid="240" dstpinname="Format">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="239" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9705" top="5070" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9705" top="5070" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="238" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9705" top="5355" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9705" top="5355" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="237" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="13365" top="5235" width="1275" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13365" top="5235" width="1275" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Vertex Layout|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="240" srcpinname="Output" dstnodeid="219" dstpinname="Input Layout">
+   </LINK>
+   <LINK srcnodeid="235" srcpinname="Y Output Value" dstnodeid="219" dstpinname="Indices">
+   </LINK>
+   <NODE systemname="Zip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (Value Bin)" componentmode="Hidden" id="243">
+   <BOUNDS type="Node" left="8325" top="5850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Input 1XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Input 1 Bin Size" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Input 2 Bin Size" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="8325" top="5850">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="239" srcpinname="Y Output Value" dstnodeid="243" dstpinname="Input 1 Bin Size">
+   </LINK>
+   <LINK srcnodeid="238" srcpinname="Y Output Value" dstnodeid="243" dstpinname="Input 2 Bin Size">
+   </LINK>
+   <LINK srcnodeid="234" srcpinname="Y Output Value" dstnodeid="243" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="243" srcpinname="Output" dstnodeid="219" dstpinname="Vertices">
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="244">
+   <BOUNDS type="Node" left="9090" top="7185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="235" srcpinname="Y Output Value" dstnodeid="244" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="244" srcpinname="Count" dstnodeid="219" dstpinname="Indices Count">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="246" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="10185" top="6540" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10185" top="6540" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="TriangleList">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="245" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11955" top="6540" width="960" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11955" top="6540" width="960" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Topology|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="247" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="12945" top="825" width="1620" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12945" top="825" width="1620" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Info about Topology:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Output Enum" dstnodeid="219" dstpinname="Topology">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="248" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="735" top="2835" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="735" top="2835" width="1470" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Geometry">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="249" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8100" top="2835" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8100" top="2835" width="2595" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Instanced Geometry|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   </PATCH>
