@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\02_Texture_Overview.v4p" systemname="Texture_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Texture_Overview.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="4650" top="1095" width="16770" height="8910">
+   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\02_Texture_Overview.v4p" systemname="Texture_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Texture_Overview.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="3585" top="960" width="19800" height="8910">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -173,7 +173,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="825" top="7515" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="1500" top="5610" width="3045" height="3255">
+   <BOUNDS type="Window" left="465" top="6600" width="3045" height="3255">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -314,6 +314,50 @@
    <BOUNDS type="Box" left="8040" top="6465" width="1170" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Texture Size|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="50" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16440" top="3405" width="1440" height="480">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16440" top="3405" width="1335" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Have a look at the|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="51" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16440" top="3675" width="1290" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16440" top="3675" width="1710" height="300">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="DX11.TextureFX">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="52" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16440" top="3960" width="2190" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16440" top="3960" width="2235" height="780">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|category in the NodeBrowser for a list of ~150 easily appliable effects.|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
