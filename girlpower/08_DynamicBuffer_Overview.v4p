@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\DynamicBuffer_Overview.v4p" systemname="Buffer_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Buffer_Overview.v4p" scrollx="0" scrolly="-360" locked="0">
-   <BOUNDS type="Window" left="7170" top="1830" width="16890" height="8145">
+   <BOUNDS type="Window" left="3105" top="1860" width="16890" height="8145">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="0" systemname="IOBox (String)">
    <BOUNDS type="Node" left="6900" top="5880" width="5625" height="270">
@@ -370,4 +370,6 @@
    <PIN pinname="Size" slicecount="1" values="9">
    </PIN>
    </NODE>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
    </PATCH>

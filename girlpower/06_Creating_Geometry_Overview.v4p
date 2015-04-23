@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Creating_Geometry_Overview.v4p" systemname="Creating_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Creating_Geometry_Overview.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1455" top="0" width="17910" height="10725">
    </BOUNDS>
@@ -52,7 +52,7 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="Rasterizer (DX11.RenderState)" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="32" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="5850" top="2310" width="330" height="270">
@@ -283,7 +283,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="555" top="1005" width="3975" height="765">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|Distinguish between:&cr;&lf;- Indexed Geometry: has VertexBuffer and IndexBuffer&cr;&lf;- Geometry: has only VertexBuffer|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Distinguish between:&cr;&lf;- Geometry: has only VertexBuffer&cr;&lf;- Indexed Geometry: has VertexBuffer and IndexBuffer&cr;&lf;|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -666,4 +666,38 @@
    </NODE>
    <LINK srcnodeid="246" srcpinname="Output Enum" dstnodeid="219" dstpinname="Topology">
    </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="248" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="735" top="2835" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="735" top="2835" width="1470" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Geometry">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="249" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8100" top="2835" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8100" top="2835" width="2595" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Instanced Geometry|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
    </PATCH>

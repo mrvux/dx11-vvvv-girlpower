@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" systemname="Loading_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" scrollx="15" scrolly="0">
    <BOUNDS type="Window" left="1455" top="0" width="18600" height="9660">
    </BOUNDS>
@@ -18,7 +18,7 @@
    <PIN pinname="Size" slicecount="1" values="15">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.0.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="104">
    <BOUNDS type="Node" left="8505" top="8385" width="100" height="100">
@@ -32,6 +32,8 @@
    <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.49861,0.49861,0.49861,1.00000|">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="105">
@@ -48,6 +50,8 @@
    <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.49861,0.49861,0.49861,1.00000|">
    </PIN>
    </NODE>
    <NODE systemname="Cons (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Geometry)" componentmode="Hidden" id="211">
@@ -105,11 +109,15 @@
    </PIN>
    </NODE>
    <NODE systemname="Geometry (DX11 Assimp.Structured)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="Geometry (DX11 Assimp.Structured)" componentmode="Hidden" id="251">
-   <BOUNDS type="Node" left="14460" top="4350" width="100" height="100">
+   <BOUNDS type="Node" left="14205" top="3810" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="14460" top="4350">
+   <BOUNDS type="Box" left="14205" top="3810">
    </BOUNDS>
    <PIN pinname="Path" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   <PIN pinname="Reload" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="250">
@@ -123,9 +131,9 @@
    </PIN>
    </NODE>
    <NODE systemname="SceneFile (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="SceneFile (DX11.Geometry Assimp)" componentmode="Hidden" id="249">
-   <BOUNDS type="Node" left="7830" top="4350" width="100" height="100">
+   <BOUNDS type="Node" left="7830" top="3750" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="7830" top="4350">
+   <BOUNDS type="Box" left="7830" top="3750">
    </BOUNDS>
    <PIN pinname="Scene" visible="1">
    </PIN>
@@ -133,13 +141,15 @@
    </PIN>
    <PIN pinname="Mesh" visible="1">
    </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="250" dstpinname="Scene">
    </LINK>
    <NODE systemname="GeometryFile (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="GeometryFile (DX11.Geometry Assimp)" componentmode="Hidden" id="248">
-   <BOUNDS type="Node" left="675" top="4350" width="100" height="100">
+   <BOUNDS type="Node" left="675" top="3750" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="675" top="4350">
+   <BOUNDS type="Box" left="675" top="3750">
    </BOUNDS>
    <PIN pinname="Filename" visible="1">
    </PIN>
@@ -285,9 +295,9 @@
    <LINK srcnodeid="248" srcpinname="Output" dstnodeid="35" dstpinname="Geometry">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="267" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1620" top="4800" width="480" height="480">
+   <BOUNDS type="Box" left="1605" top="4500" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="1620" top="4800" width="0" height="0">
+   <BOUNDS type="Node" left="1605" top="4500" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -347,9 +357,9 @@
    <LINK srcnodeid="269" srcpinname="Output" dstnodeid="248" dstpinname="Filename" hiddenwhenlocked="1">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="272" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2145" top="4905" width="1470" height="270">
+   <BOUNDS type="Node" left="2130" top="4605" width="1470" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="2145" top="4905" width="1470" height="270">
+   <BOUNDS type="Box" left="2130" top="4605" width="1470" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
    </PIN>
@@ -361,9 +371,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="273" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="615" top="3615" width="1110" height="270">
+   <BOUNDS type="Node" left="615" top="3165" width="1110" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="615" top="3615" width="1890" height="375">
+   <BOUNDS type="Box" left="615" top="3165" width="1890" height="375">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Simplest Case|">
    </PIN>
@@ -377,9 +387,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="274" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="6555" top="3585" width="1110" height="270">
+   <BOUNDS type="Node" left="6555" top="3135" width="1110" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="6555" top="3585" width="3780" height="375">
+   <BOUNDS type="Box" left="6555" top="3135" width="3780" height="375">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Get more info from the Scene|">
    </PIN>
@@ -479,9 +489,9 @@
    <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="255" dstpinname="Scene">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="277" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="13935" top="3435" width="1110" height="270">
+   <BOUNDS type="Node" left="13935" top="2985" width="1110" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="13935" top="3435" width="3750" height="720">
+   <BOUNDS type="Box" left="13935" top="2985" width="3750" height="720">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Get data in form of structured buffers for use with Compute|">
    </PIN>
@@ -496,4 +506,84 @@
    </NODE>
    <LINK srcnodeid="275" srcpinname="Output" dstnodeid="276" dstpinname="Filename">
    </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="278" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10575" top="6180" width="7710" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10575" top="6180" width="3630" height="705">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; fails to read .tga images (as used in this example), otherwise the renderer below would show the texture referenced in the geometry file.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="280" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9255" top="4005" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9255" top="4005" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="279" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="9780" top="4260" width="1470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9780" top="4260" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Is Valid" dstnodeid="280" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="282" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="15975" top="4410" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15975" top="4410" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="281" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16500" top="4515" width="1470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16500" top="4515" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Is Valid" dstnodeid="282" dstpinname="Y Input Value">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
    </PATCH>
