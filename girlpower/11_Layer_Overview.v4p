@@ -1,0 +1,541 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\09_Layers_Overview.v4p" systemname="09_Layers_Overview" filename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\09_Layers_Overview.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="840" top="0" width="15240" height="9510">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="240" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="240" width="3900" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Layer Overview|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="210" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="630" top="855" width="7230" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="630" top="855" width="3840" height="765">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|DX11 comes with two extra features for layers:&cr;&lf;- Validators&cr;&lf;- Within Transforms&cr;&lf;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="221">
+   <BOUNDS type="Node" left="6945" top="930" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6945" top="930">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="219" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7755" top="930" width="5940" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7755" top="930" width="3705" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; You can connect multiple layers to one renderer via a Group (DX11.Layer) node.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="231" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8130" top="2625" width="7230" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8130" top="2625" width="1305" height="300">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Validators">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="232" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="690" top="2625" width="7230" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="690" top="2625" width="2490" height="360">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Within Transforms|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE systemname="WithinProjection (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="WithinProjection (DX11.Layer)" componentmode="Hidden" id="233">
+   <BOUNDS type="Node" left="690" top="4140" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="690" top="4140">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="WithinView (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="WithinView (DX11.Layer)" componentmode="Hidden" id="234">
+   <BOUNDS type="Node" left="690" top="4710" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="690" top="4710">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="235" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="690" top="3000" width="7230" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="690" top="3000" width="3765" height="975">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|By default layers are being transformed within World Space. By using any of the two nodes below you can specify that all upstream transformations instead are applied:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="236" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2115" top="4140" width="540" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2115" top="4140" width="540" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Space">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="237" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2115" top="4710" width="540" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2115" top="4710" width="540" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Space">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="239">
+   <BOUNDS type="Node" left="3045" top="7515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.21">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.08">
+   </PIN>
+   <BOUNDS type="Box" left="3045" top="7515">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="238">
+   <BOUNDS type="Node" left="1770" top="8070" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1770" top="8070" width="3855" height="3315">
+   </BOUNDS>
+   <BOUNDS type="Window" left="945" top="9525" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.39657,0.39657,0.39657,1.00000|">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="239" srcpinname="View" dstnodeid="238" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="239" srcpinname="Projection" dstnodeid="238" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="240">
+   <BOUNDS type="Node" left="1920" top="6675" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="240" srcpinname="Layer Out" dstnodeid="238" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="242">
+   <BOUNDS type="Node" left="4755" top="5505" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="String" visible="1">
+   </PIN>
+   <PIN pinname="Horizontal Align" slicecount="1" values="Left">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.87226,0.87226,0.87226,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="243">
+   <BOUNDS type="Node" left="2325" top="5565" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="244">
+   <BOUNDS type="Node" left="660" top="5985" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="PhongDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="2040" top="6000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="Geometry Out" dstnodeid="245" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="246">
+   <BOUNDS type="Node" left="3255" top="7050" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Reverse" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Output" dstnodeid="239" dstpinname="Initial Yaw">
+   </LINK>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="247">
+   <BOUNDS type="Node" left="4860" top="4515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" slicecount="1" values="-0.81">
+   </PIN>
+   <PIN pinname="TranslateY" slicecount="1" values="-0.78">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="247" srcpinname="Transform Out" dstnodeid="242" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="248" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="4830" top="4905" width="2175" height="465">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4830" top="4905" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="|Text in Projection Space&cr;&lf; (ie. not moving with camera)|">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="DX11">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="248" srcpinname="Output String" dstnodeid="242" dstpinname="String">
+   </LINK>
+   <LINK srcnodeid="244" srcpinname="Layer" dstnodeid="240" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="245" srcpinname="Layer" dstnodeid="240" dstpinname="Layer 2">
+   </LINK>
+   <NODE id="241" systemname="WithinProjection (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="WithinProjection (DX11.Layer)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="4755" top="6000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Layer In" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Box" left="285" top="0" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" pintype="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="241" srcpinname="Layer Out" dstnodeid="240" dstpinname="Layer 3">
+   </LINK>
+   <LINK srcnodeid="242" srcpinname="Layer" dstnodeid="241" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="GetSlice (DX11.Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="GetSlice (DX11.Validator)" componentmode="Hidden" id="252">
+   <BOUNDS type="Node" left="12765" top="4080" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12765" top="4080">
+   </BOUNDS>
+   <PIN pinname="Mode">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetSpread (DX11.Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="GetSpread (DX11.Validator)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="12765" top="4575" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12765" top="4575">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Select (DX11.Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Select (DX11.Validator)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="12765" top="5055" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12765" top="5055">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrustrumTest (DX11.Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="FrustrumTest (DX11.Validator)" componentmode="Hidden" id="255">
+   <BOUNDS type="Node" left="12765" top="5535" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12765" top="5535">
+   </BOUNDS>
+   </NODE>
+   <NODE componentmode="InABox" id="256" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="8085" top="3120" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="885" left="8085" top="3120" type="Box" width="3345">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Allows you to attach a &quot;per object validator&quot; to a layer. A Validator is a function which is run once per draw-call on the shader.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Validator (DX11.Layer)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Validator (DX11.Layer)" componentmode="Hidden" id="257">
+   <BOUNDS type="Node" left="8040" top="7515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Validators" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="8040" top="7515">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="258" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="12765" top="3255" width="2205" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12765" top="3255" width="1485" height="525">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Available Validator functions:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="259">
+   <BOUNDS type="Node" left="8040" top="8070" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8040" top="8070" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7695" top="9540" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="257" srcpinname="Layer Out" dstnodeid="259" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="261">
+   <BOUNDS type="Node" left="8520" top="5745" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" visible="1">
+   </PIN>
+   <PIN pinname="ScaleX" visible="1">
+   </PIN>
+   <PIN pinname="ScaleY" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="262">
+   <BOUNDS type="Node" left="8685" top="4950" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" visible="1" values="17">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="2.45">
+   </PIN>
+   <PIN pinname="Phase" slicecount="1" values="0.85">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="262" srcpinname="Output" dstnodeid="261" dstpinname="TranslateX">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="263" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9075" top="5340" width="570" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9075" top="5340" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.09">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="263" srcpinname="Y Output Value" dstnodeid="261" dstpinname="ScaleX">
+   </LINK>
+   <LINK srcnodeid="263" srcpinname="Y Output Value" dstnodeid="261" dstpinname="ScaleY">
+   </LINK>
+   <NODE systemname="FrustrumTest (DX11.Validator)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="FrustrumTest (DX11.Validator)" componentmode="Hidden" id="266">
+   <BOUNDS type="Node" left="10635" top="6390" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10635" top="6390">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="265" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="11115" top="6945" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11115" top="6945" width="450" height="240">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="266" srcpinname="Passed" dstnodeid="265" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="264" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="11115" top="7290" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11115" top="7290" width="450" height="240">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="266" srcpinname="Failed" dstnodeid="264" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="266" srcpinname="Output" dstnodeid="257" dstpinname="Validators">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="267" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11670" top="6945" width="765" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11670" top="6945" width="765" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Passed|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="268" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11715" top="7290" width="705" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11715" top="7290" width="705" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Failed|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="260">
+   <BOUNDS type="Node" left="8040" top="6405" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="8040" top="6405">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="260" srcpinname="Layer" dstnodeid="257" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="269">
+   <BOUNDS type="Node" left="7920" top="5790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="269" srcpinname="Geometry Out" dstnodeid="260" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="261" srcpinname="Transform Out" dstnodeid="260" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="270" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9585" top="4515" width="405" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9585" top="4515" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="17">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="270" srcpinname="Y Output Value" dstnodeid="262" dstpinname="Spread Count">
+   </LINK>
+   </PATCH>

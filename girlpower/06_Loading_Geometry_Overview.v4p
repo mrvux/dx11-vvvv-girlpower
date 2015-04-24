@@ -1,0 +1,589 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" systemname="Loading_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" scrollx="15" scrolly="0">
+   <BOUNDS type="Window" left="1455" top="0" width="18600" height="9660">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="240" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="240" width="4395" height="435">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Loading Geometry Overview|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="104">
+   <BOUNDS type="Node" left="8505" top="8385" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8505" top="8385" width="2340" height="2055">
+   </BOUNDS>
+   <BOUNDS type="Window" left="8280" top="9675" width="4080" height="4425">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.49861,0.49861,0.49861,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="105">
+   <BOUNDS type="Node" left="840" top="8385" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="840" top="8385" width="2340" height="2055">
+   </BOUNDS>
+   <BOUNDS type="Window" left="1515" top="9720" width="4080" height="4425">
+   </BOUNDS>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.49861,0.49861,0.49861,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cons (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Geometry)" componentmode="Hidden" id="211">
+   <BOUNDS type="Node" left="13380" top="690" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13380" top="690">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="210">
+   <BOUNDS type="Node" left="13365" top="1290" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13365" top="1290">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="209" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="14175" top="690" width="5625" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14175" top="690" width="3600" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; You can join different types of geometry to one spread by using a Cons (DX11.Geometry) node.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="208" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="14175" top="1290" width="5940" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14175" top="1290" width="3705" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; You can connect multiple layers to one renderer via a Group (DX11.Layer) node.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="221" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="585" top="1005" width="1620" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="585" top="1005" width="3465" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|In DX11 all loading of Geometry is done via the&cr;&lf;Open Asset Import Library (Assimp)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Geometry (DX11 Assimp.Structured)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="Geometry (DX11 Assimp.Structured)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="14205" top="3810" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14205" top="3810">
+   </BOUNDS>
+   <PIN pinname="Path" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   <PIN pinname="Reload" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="7830" top="4920" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7830" top="4920">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SceneFile (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="SceneFile (DX11.Geometry Assimp)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="7830" top="3750" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7830" top="3750">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="250" dstpinname="Scene">
+   </LINK>
+   <NODE systemname="GeometryFile (DX11.Geometry Assimp)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Assimp.Nodes.dll" nodename="GeometryFile (DX11.Geometry Assimp)" componentmode="Hidden" id="248">
+   <BOUNDS type="Node" left="675" top="3750" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="675" top="3750">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Material (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Material (Assimp)" componentmode="Hidden" id="253">
+   <BOUNDS type="Node" left="9570" top="4920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Texture Path" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="9570" top="4920">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="253" dstpinname="Scene">
+   </LINK>
+   <NODE systemname="Info (Assimp Mesh)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Info (Assimp Mesh)" componentmode="Hidden" id="254">
+   <BOUNDS type="Node" left="11475" top="4920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="11475" top="4920">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Camera (Assimp Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Camera (Assimp Transform)" componentmode="Hidden" id="256">
+   <BOUNDS type="Node" left="6645" top="5370" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="6645" top="5370">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Animation (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Animation (Assimp)" componentmode="Hidden" id="257">
+   <BOUNDS type="Node" left="6645" top="6330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Channels" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="6645" top="6330">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="AnimationChannels (Assimp Animation)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="AnimationChannels (Assimp Animation)" componentmode="Hidden" id="259">
+   <BOUNDS type="Node" left="6645" top="6735" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Channels" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="6645" top="6735">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="AnimationChannels (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="AnimationChannels (Assimp)" componentmode="Hidden" id="260">
+   <BOUNDS type="Node" left="6645" top="7125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Channels" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="6645" top="7125">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Skeleton (Skeleton Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Skeleton (Skeleton Assimp)" componentmode="Hidden" id="261">
+   <BOUNDS type="Node" left="6645" top="4920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="6645" top="4920">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="263" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="585" top="1545" width="2385" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="585" top="1545" width="2385" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="http://assimp.sourceforge.net/">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="URL">
+   </PIN>
+   </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="265">
+   <BOUNDS type="Node" left="3780" top="7500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Interest" visible="1">
+   </PIN>
+   <PIN pinname="Inverse View" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="3780" top="7500">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="265" srcpinname="View" dstnodeid="105" dstpinname="View" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="105" dstpinname="Projection" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="266" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3780" top="6345" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3780" top="6345" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,8.88,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="266" srcpinname="Y Output Value" dstnodeid="265" dstpinname="Initial Interest">
+   </LINK>
+   <NODE systemname="PhongDirectional (DX11.Effect)" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="35" filename="%VVVV%\packs\dx11\nodes\dx11\PhongDirectional.fx">
+   <BOUNDS type="Node" left="1005" top="7500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Resolution Y" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="1005" top="7500">
+   </BOUNDS>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layout Valid" visible="1">
+   </PIN>
+   <PIN pinname="Layout Message" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Layer" dstnodeid="105" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="248" srcpinname="Output" dstnodeid="35" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="267" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1605" top="4500" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1605" top="4500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="248" srcpinname="Is Valid" dstnodeid="267" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="271">
+   <BOUNDS type="Node" left="6690" top="1425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="270">
+   <BOUNDS type="Node" left="6699" top="1875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" slicecount="1" values="lib\assets\geometries\">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="271" srcpinname="Output" dstnodeid="270" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="269">
+   <BOUNDS type="Node" left="6711" top="2310" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="270" srcpinname="Output" dstnodeid="269" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="268" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7941" top="1425" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7941" top="1425" width="1425" height="285">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="astroBoy_walk.dae">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="268" srcpinname="Output String" dstnodeid="269" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="269" srcpinname="Output" dstnodeid="248" dstpinname="Filename" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="272" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2130" top="4605" width="1470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2130" top="4605" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="273" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="615" top="3165" width="1110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="615" top="3165" width="1890" height="375">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Simplest Case|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="274" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6555" top="3135" width="1110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6555" top="3135" width="3780" height="375">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Get more info from the Scene|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="269" srcpinname="Output" dstnodeid="249" dstpinname="Filename" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="269" srcpinname="Output" dstnodeid="251" dstpinname="Path" hiddenwhenlocked="1">
+   </LINK>
+   <NODE systemname="PhongDirectional (DX11.Effect)" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="25" filename="%VVVV%\packs\dx11\nodes\dx11\PhongDirectional.fx">
+   <BOUNDS type="Node" left="8670" top="7500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Box" left="8670" top="7500">
+   </BOUNDS>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Color Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Layer" dstnodeid="104" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="MakePath (String)" nodename="MakePath (String)" componentmode="Hidden" id="275" filename="%VVVV%\addonpack\lib\nodes\plugins\MakePath.dll">
+   <BOUNDS type="Node" left="9615" top="5715" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Prepend Patch Path" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="9615" top="5715">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="270" srcpinname="Output" dstnodeid="275" dstpinname="Input 1" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="253" srcpinname="Texture Path" dstnodeid="275" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="276">
+   <BOUNDS type="Node" left="9615" top="6150" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="4" values="..\..\..\..\Desktop\vvvvs\vvvv_45beta33.1_x86\lib\assets\geometries\boy_10.tga,..\..\..\..\Desktop\vvvvs\vvvv_45beta33.1_x86\lib\assets\geometries\boy_10.tga,..\..\..\..\Desktop\vvvvs\vvvv_45beta33.1_x86\lib\assets\geometries\boy_10.tga,..\..\..\..\Desktop\vvvvs\vvvv_45beta33.1_x86\lib\assets\geometries\boy_10.tga">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="9615" top="6150">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="250" srcpinname="Output" dstnodeid="25" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="View" dstnodeid="104" dstpinname="View" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="104" dstpinname="Projection" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="276" srcpinname="Texture Out" dstnodeid="25" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Mesh" dstnodeid="254" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="256" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="257" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="257" srcpinname="Channels" dstnodeid="260" dstpinname="Channels">
+   </LINK>
+   <LINK srcnodeid="257" srcpinname="Channels" dstnodeid="259" dstpinname="Channels">
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="261" dstpinname="Scene">
+   </LINK>
+   <NODE systemname="Node (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Node (Assimp)" componentmode="Hidden" id="255">
+   <BOUNDS type="Node" left="6645" top="5805" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Scene" dstnodeid="255" dstpinname="Scene">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="277" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="13935" top="2985" width="1110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13935" top="2985" width="3750" height="720">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Get data in form of structured buffers for use with Compute|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="275" srcpinname="Output" dstnodeid="276" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="278" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10575" top="6180" width="7710" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10575" top="6180" width="3630" height="705">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; fails to read .tga images (as used in this example), otherwise the renderer below would show the texture referenced in the geometry file.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="280" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9255" top="4005" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9255" top="4005" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="279" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="9780" top="4260" width="1470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9780" top="4260" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Is Valid" dstnodeid="280" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="282" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="15975" top="4410" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15975" top="4410" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="281" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16500" top="4515" width="1470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16500" top="4515" width="1470" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Input file is valid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Is Valid" dstnodeid="282" dstpinname="Y Input Value">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   </PATCH>
