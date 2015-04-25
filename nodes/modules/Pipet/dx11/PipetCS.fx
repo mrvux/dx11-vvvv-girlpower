@@ -10,6 +10,8 @@ void CS( uint3 DTid : SV_DispatchThreadID){
 	if(DTid.x>=(uint)TotalCount)return;
 	float2 TexCd=uv[DTid.x];
 	if(!UVSpace)TexCd=TexCd*0.5*float2(1,-1)+0.5;
+	int2 R;tex.GetDimensions(R.x,R.y);
+	TexCd.xy+=0.5/R;
 	Out[DTid.x] = tex.SampleLevel(s0,TexCd,0);
 }
 
