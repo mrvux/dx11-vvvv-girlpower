@@ -34,6 +34,9 @@ technique10 FastEdge{
 	pass P1
 	{SetPixelShader(CompileShader(ps_4_0,pEDGE()));}
 }
-
+technique10 FastEdge_NoMips{
+	pass P1
+	{SetPixelShader(CompileShader(ps_4_0,pEDGE()));}
+}
 
 

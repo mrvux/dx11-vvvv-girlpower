@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="X:\TextureCache (DX11.Texture 2d).v4p" systemname="TextureCache (DX11.Texture 2d)" filename="X:\TextureCache (DX11.Texture 2d).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\TextureCache (DX11.Texture 2d).v4p" systemname="TextureCache (DX11.Texture 2d)" filename="X:\TextureCache (DX11.Texture 2d).v4p" scrollx="15" scrolly="-360">
    <BOUNDS type="Window" left="14835" top="945" width="12780" height="13350">
    </BOUNDS>
    <NODE systemname="Self (VVVV)" nodename="Self (VVVV)" componentmode="Hidden" id="0">
@@ -32,6 +32,8 @@
    <PIN pinname="Filename" visible="1">
    </PIN>
    <PIN pinname="Write" visible="1">
+   </PIN>
+   <PIN pinname="Create Folder" slicecount="1" visible="1" pintype="Input" values="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="3" systemname="IOBox (Node)">
@@ -132,28 +134,20 @@
    </LINK>
    <LINK srcnodeid="10" srcpinname="String Value" dstnodeid="9" dstpinname="Input">
    </LINK>
-   <NODE systemname="Directory (File)" filename="%VVVV%\addonpack\lib\nodes\plugins\Directory.dll" nodename="Directory (File)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="1560" top="2115" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Exists" visible="1">
-   </PIN>
-   <PIN pinname="Create" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1305" top="1275" width="1215" height="240">
+   <BOUNDS type="Box" left="3765" top="975" width="1215" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1305" top="1275" width="0" height="0">
+   <BOUNDS type="Node" left="3765" top="975" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" values=".texturecache">
    </PIN>
-   <PIN pinname="Default" slicecount="1" values="C:\">
+   <PIN pinname="Default" slicecount="1" values=".texturecache">
    </PIN>
    <PIN pinname="File Mask" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="String Type" slicecount="1" values="Directory">
+   <PIN pinname="String Type" slicecount="1" values="String">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -162,54 +156,10 @@
    <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Output String" dstnodeid="11" dstpinname="Directory">
-   </LINK>
-   <NODE systemname="NOT (Boolean)" nodename="NOT (Boolean)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="3285" top="1365" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="3300" top="1875" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 2" visible="1">
-   </PIN>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Animation)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="1560" top="2565" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="11" srcpinname="Exists" dstnodeid="17" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Output 1" dstnodeid="13" dstpinname="Input">
-   <LINKPOINT x="1665" y="3285">
-   </LINKPOINT>
-   <LINKPOINT x="2790" y="3120">
-   </LINKPOINT>
-   <LINKPOINT x="2805" y="975">
-   </LINKPOINT>
-   <LINKPOINT x="3255" y="1035">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="16" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="11" dstpinname="Create">
-   </LINK>
    <NODE systemname="MakePath (String)" filename="%VVVV%\addonpack\lib\nodes\plugins\MakePath.dll" nodename="MakePath (String)" componentmode="Hidden" id="20">
    <BOUNDS type="Node" left="4710" top="5220" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="W:\projects\dx11-vvvv-girlpower\nodes\modules\.texturecache">
    </PIN>
    <PIN pinname="Input Count" slicecount="1" values="2">
    </PIN>
@@ -218,8 +168,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Output String" dstnodeid="20" dstpinname="Input 1">
-   </LINK>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="24">
    <BOUNDS type="Node" left="4725" top="5865" width="100" height="100">
    </BOUNDS>
@@ -242,27 +190,7 @@
    </LINK>
    <LINK srcnodeid="24" srcpinname="Output" dstnodeid="2" dstpinname="Filename">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="26" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3915" top="1230" width="495" height="510">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3915" top="1230" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="26" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Input 2">
-   </LINK>
-   <NODE systemname="FrameDelay (Animation)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="28">
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="28">
    <BOUNDS type="Node" left="3120" top="7050" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
@@ -357,9 +285,9 @@
    <LINK srcnodeid="35" srcpinname="Texture Out" dstnodeid="30" dstpinname="Input 2">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="37" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="7605" top="7755" width="2160" height="240">
+   <BOUNDS type="Box" left="6210" top="8505" width="2160" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="7605" top="7755" width="0" height="0">
+   <BOUNDS type="Node" left="6210" top="8505" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" values="text">
    </PIN>
@@ -369,9 +297,11 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="FileNames">
    </PIN>
-   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
    </PIN>
    <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
    </PIN>
    </NODE>
    <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="38">
@@ -479,9 +409,9 @@
    <LINK srcnodeid="43" srcpinname="Exists" dstnodeid="42" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4575" top="10755" width="480" height="480">
+   <BOUNDS type="Box" left="7965" top="12600" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="4575" top="10755" width="0" height="0">
+   <BOUNDS type="Node" left="7965" top="12600" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -630,8 +560,6 @@
    </LINK>
    <LINK srcnodeid="56" srcpinname="Output" dstnodeid="57" dstpinname="Input 2">
    </LINK>
-   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="26" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="58" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3165" top="5325" width="480" height="480">
    </BOUNDS>
@@ -750,30 +678,88 @@
    </LINK>
    <LINK srcnodeid="78" srcpinname="Output" dstnodeid="77" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="79">
-   <BOUNDS type="Node" left="3120" top="2460" width="100" height="100">
+   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="58" dstpinname="Y Input Value">
+   </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
+   <NODE systemname="PatchAlias (VVVV)" nodename="PatchAlias (VVVV)" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="1725" top="1440" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Parent Level" visible="1">
    </PIN>
-   <PIN pinname="Down Edge" visible="1">
+   <PIN pinname="Patch" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="79" dstpinname="Input">
-   </LINK>
-   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="80">
-   <BOUNDS type="Node" left="3750" top="2925" width="100" height="100">
+   <NODE systemname="GetPatch (VVVV)" nodename="GetPatch (VVVV)" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="1785" top="2115" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Patch Path" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="Patch" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FileName (File Split)" nodename="FileName (File Split)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="1950" top="2520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Path" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Patch Path" dstnodeid="83" dstpinname="Filename">
+   </LINK>
+   <NODE systemname="MakePath (String)" filename="%VVVV%\addonpack\lib\nodes\plugins\MakePath.dll" nodename="MakePath (String)" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="1935" top="2970" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="W:\projects\dx11-vvvv-girlpower\nodes\modules\.texturecache">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="79" srcpinname="Down Edge" dstnodeid="80" dstpinname="Input 1">
+   <LINK srcnodeid="83" srcpinname="Path" dstnodeid="84" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="26" srcpinname="Y Output Value" dstnodeid="80" dstpinname="Input 2">
+   <LINK srcnodeid="12" srcpinname="Output String" dstnodeid="84" dstpinname="Input 2">
    </LINK>
-   <LINK srcnodeid="80" srcpinname="Output" dstnodeid="58" dstpinname="Y Input Value">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="85" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1665" top="960" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1665" top="960" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="81" dstpinname="Parent Level">
+   </LINK>
+   <LINK srcnodeid="81" srcpinname="Patch" dstnodeid="82" dstpinname="Patch">
+   </LINK>
+   <LINK srcnodeid="84" srcpinname="Output" dstnodeid="20" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3945" top="1995" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3945" top="1995" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Create Folder">
    </LINK>
    </PATCH>

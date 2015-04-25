@@ -11,5 +11,5 @@ float4 _dnoise4(float2 x,float RandomSeed){
 	_dnoise1(float3((x+RandomSeed*5+113)+7,length(sin((x+191)/173+RandomSeed*float2(7,17))))+.5),
 	_dnoise1(float3((x+RandomSeed*11+97)+13,length(sin((x-37)/181+RandomSeed*float2(5,23))))+.5)
 	};
-	return frac(c+x.x*2+RandomSeed);
+	return frac(c+x.x*2+RandomSeed+dot(c,1));
 }

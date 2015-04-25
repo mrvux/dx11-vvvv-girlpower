@@ -70,14 +70,14 @@ float4 pHORZ(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 
 technique10 Vertical{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
-		SetPixelShader(CompileShader(ps_5_0,pVERT()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetPixelShader(CompileShader(ps_4_0,pVERT()));
 	}
 }
 technique10 Horizontal{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
-		SetPixelShader(CompileShader(ps_5_0,pHORZ()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetPixelShader(CompileShader(ps_4_0,pHORZ()));
 	}
 }
 

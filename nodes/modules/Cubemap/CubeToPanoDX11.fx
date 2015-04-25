@@ -16,7 +16,7 @@ float4 PS(float2 UV:TEXCOORD0,float4 PosWVP:SV_POSITION):SV_Target{
 
 	float3 p=float3(0,0,1);
 	p.yz=r2d(p.yz,-(UV.y-.5)*.5);
-	p.xz=r2d(p.xz,UV.x+.5);
+	p.xz=r2d(p.xz,-UV.x);
 	//c.rgb=sin((c.rgb/4+Parameter)*acos(-1)*2);
 	p=mul(float4(p,1),tTex).xyz;
 	float4 c=texENVI.SampleLevel(s0,p,0);

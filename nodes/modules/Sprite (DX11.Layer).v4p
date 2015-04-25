@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="X:\Sprite\Sprite (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\Sprite (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p" scrollx="0" scrolly="0">
    <NODE systemname="NullGeometry (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="NullGeometry (DX11.Drawer)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="675" top="3765" width="100" height="100">
    </BOUNDS>
@@ -53,9 +53,9 @@
    <BOUNDS type="Window" left="11805" top="4350" width="15420" height="6750">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="19" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="3420" top="855" width="795" height="240">
+   <BOUNDS type="Box" left="8055" top="705" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3420" top="855" width="0" height="0">
+   <BOUNDS type="Node" left="8055" top="705" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -139,9 +139,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Color)" componentmode="InABox" id="33" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="5640" top="450" width="2250" height="480">
+   <BOUNDS type="Box" left="4830" top="330" width="2250" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="5640" top="450" width="0" height="0">
+   <BOUNDS type="Node" left="4830" top="330" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
@@ -212,6 +212,12 @@
    <PIN pinname="sbTexTransformCount" visible="1">
    </PIN>
    <PIN pinname="sbTexTransform" visible="1">
+   </PIN>
+   <PIN pinname="UpVectorXYZ" visible="1">
+   </PIN>
+   <PIN pinname="tSprite" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Sampler" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="40" dstpinname="Technique">
@@ -287,9 +293,9 @@
    <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="44" dstpinname="DataXYZ">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="48" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4485" top="780" width="795" height="240">
+   <BOUNDS type="Box" left="3315" top="885" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4485" top="780" width="0" height="0">
+   <BOUNDS type="Node" left="3315" top="885" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.1">
    </PIN>
@@ -360,6 +366,8 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Update Buffers|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Y Input Value">
@@ -471,6 +479,8 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Default" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="63" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Y Input Value">
    </LINK>
@@ -487,5 +497,57 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Size">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6975" top="1305" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6975" top="1305" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,1,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="UpVectorXYZ">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="65" srcpinname="Y Output Value" dstnodeid="40" dstpinname="UpVectorXYZ">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="70" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="7200" top="2205" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7200" top="2205" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Sprite Transform|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="70" srcpinname="Output Node" dstnodeid="40" dstpinname="tSprite">
+   </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="71" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="7770" top="2865" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7770" top="2865" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Sampler">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Output Node" dstnodeid="40" dstpinname="Sampler">
    </LINK>
    </PATCH>
