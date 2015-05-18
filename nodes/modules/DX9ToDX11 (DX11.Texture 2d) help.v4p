@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\DX9ToDX11 (DX11.Texture 2d) help.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="3750" top="5445" width="9540" height="6600">
+   <BOUNDS type="Window" left="3690" top="5475" width="9480" height="7830">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -17,7 +17,7 @@
    <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
    </BOUNDS>
-   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   <BOUNDS type="Box" left="225" top="600" width="5040" height="375">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" visible="0" values="|Takes a DX9 texture and returns a DX11 texture|">
    </PIN>
@@ -27,13 +27,13 @@
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="4110" top="1620" width="100" height="100">
+   <BOUNDS type="Node" left="5025" top="1590" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="4110" top="1950" width="2070" height="270">
+   <BOUNDS type="Node" left="5025" top="1920" width="2070" height="270">
    </BOUNDS>
    <PIN pinname="Input 2" visible="-1" slicecount="1" pintype="Input" encoded="0" values="lib\assets\images\earth_512x512.jpg">
    </PIN>
@@ -49,7 +49,7 @@
    <LINK srcnodeid="6" srcpinname="Output" dstnodeid="5" dstpinname="Input 1">
    </LINK>
    <NODE systemname="FileTexture (EX9.Texture)" nodename="FileTexture (EX9.Texture)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="4110" top="2325" width="100" height="100">
+   <BOUNDS type="Node" left="5025" top="2295" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Filename" visible="1">
    </PIN>
@@ -79,9 +79,9 @@
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="7" dstpinname="Filename">
    </LINK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="9">
-   <BOUNDS type="Node" left="2820" top="5400" width="100" height="100">
+   <BOUNDS type="Node" left="3570" top="6300" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2820" top="5400" width="6000" height="4500">
+   <BOUNDS type="Box" left="3570" top="6300" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="8430" top="375" width="4740" height="5085">
    </BOUNDS>
@@ -91,7 +91,7 @@
    </PIN>
    </NODE>
    <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="3000" top="4950" width="100" height="100">
+   <BOUNDS type="Node" left="3750" top="5850" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
@@ -99,15 +99,15 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
-   <BOUNDS type="Box" left="3000" top="4950">
+   <BOUNDS type="Box" left="3750" top="5850">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="10" srcpinname="Layer" dstnodeid="9" dstpinname="Layers">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="975" top="4245" width="795" height="240">
+   <BOUNDS type="Box" left="1725" top="4695" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="975" top="4245" width="0" height="0">
+   <BOUNDS type="Node" left="1725" top="4695" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -115,9 +115,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="16">
-   <BOUNDS type="Node" left="945" top="5400" width="100" height="100">
+   <BOUNDS type="Node" left="1695" top="6300" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="945" top="5400" width="2400" height="1800">
+   <BOUNDS type="Box" left="1695" top="6300" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="3690" top="375" width="4740" height="5085">
    </BOUNDS>
@@ -127,13 +127,13 @@
    </PIN>
    </NODE>
    <NODE systemname="FullscreenQuad (DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\FullscreenQuad (DX9).v4p" nodename="FullscreenQuad (DX9)" componentmode="Hidden" id="15">
-   <BOUNDS type="Node" left="960" top="4950" width="100" height="100">
+   <BOUNDS type="Node" left="1710" top="5850" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Box" left="960" top="4950">
+   <BOUNDS type="Box" left="1710" top="5850">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="15" srcpinname="Layer" dstnodeid="16" dstpinname="Layers">
@@ -141,9 +141,9 @@
    <LINK srcnodeid="12" srcpinname="Output Node" dstnodeid="15" dstpinname="Texture">
    </LINK>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="2445" top="3120" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="3465" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2445" top="3120" width="2400" height="1800">
+   <BOUNDS type="Box" left="3195" top="3465" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="12000" top="11310" width="6240" height="5085">
    </BOUNDS>
@@ -153,7 +153,7 @@
    </PIN>
    </NODE>
    <NODE systemname="DX9Texture (EX9.Texture)" nodename="DX9Texture (EX9.Texture)" componentmode="Hidden" id="26">
-   <BOUNDS type="Node" left="2445" top="3450" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="3795" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Source" visible="1">
    </PIN>
@@ -165,9 +165,9 @@
    <LINK srcnodeid="23" srcpinname="EX9 Out" dstnodeid="26" dstpinname="Source">
    </LINK>
    <NODE nodename="DX9ToDX11 (DX11.Texture 2d)" componentmode="Hidden" id="0" systemname="DX9ToDX11 (DX11.Texture 2d)" filename="DX9ToDX11 (DX11.Texture 2d).v4p">
-   <BOUNDS type="Node" left="3420" top="4575" width="100" height="100">
+   <BOUNDS type="Node" left="4170" top="5475" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3420" top="4575" width="0" height="0">
+   <BOUNDS type="Box" left="4170" top="5475" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Window" left="18270" top="1920" width="5265" height="4815">
    </BOUNDS>
@@ -187,7 +187,7 @@
    </PIN>
    <PIN pinname="Output" visible="1" pintype="Output">
    </PIN>
-   <BOUNDS type="Node" left="2445" top="2145" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="2490" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
    </PIN>
@@ -211,7 +211,7 @@
    </PIN>
    <PIN pinname="Z" visible="1" slicecount="1" pintype="Input" values="-0.05">
    </PIN>
-   <BOUNDS type="Node" left="2445" top="2475" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="2820" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
    </PIN>
@@ -227,7 +227,7 @@
    <LINK srcnodeid="22" srcpinname="Output" dstnodeid="21" dstpinname="Z">
    </LINK>
    <NODE systemname="Quad (DX9)" filename="" nodename="Quad (DX9)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="2445" top="2805" width="100" height="100">
+   <BOUNDS type="Node" left="3195" top="3150" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
    </PIN>
@@ -243,7 +243,7 @@
    <LINK srcnodeid="21" srcpinname="Transform Out" dstnodeid="27" dstpinname="Transform">
    </LINK>
    <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="29">
-   <BOUNDS type="Node" left="975" top="3855" width="2985" height="270">
+   <BOUNDS type="Node" left="1725" top="4305" width="2985" height="270">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
@@ -255,9 +255,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="975" top="3195" width="480" height="480">
+   <BOUNDS type="Box" left="1725" top="3195" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="975" top="3195" width="0" height="0">
+   <BOUNDS type="Node" left="1725" top="3195" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -281,9 +281,9 @@
    <LINK srcnodeid="26" srcpinname="Texture Out" dstnodeid="29" dstpinname="Input 1">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="31" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="195" top="2325" width="240" height="270">
+   <BOUNDS type="Node" left="945" top="2325" width="240" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="195" top="2325" width="1950" height="750">
+   <BOUNDS type="Box" left="945" top="2325" width="1950" height="750">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|doesn&apos;t seem to work with FileTexture directly, switch to check|">
    </PIN>
