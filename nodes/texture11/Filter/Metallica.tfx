@@ -1,0 +1,75 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
+Texture2D tex0: PREVIOUS;
+SamplerState s0 <bool visible=true;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float2 R:TARGETSIZE;
+
+float4 ColA <bool color=true;string uiname="Color A";> ={.60,.99,.96,0};
+float4 ColB <bool color=true;string uiname="Color B";> ={.57,.41,.07,0};
+float2 Angle={0,0};
+float2 BumpAmount <float uimin=0.0;> ={1,1};
+float2 BumpGamma={0,0};
+float2 Brightness={0,0};
+
+
+float Depth=1;
+float Shape=0;
+
+float MaxRadius <bool visible=false;float uimin=0.0;float uimax=1.0;> =1.0;
+	
+
+
+float4 q(float2 x,float2 off,float v){return tex2Dlod(s0,float4(x+off/R,0,1+v));}
+#define gam(x,y) sign(x)*pow(abs(x),(y))
+float2 r2d(float2 x,float a){a*=acos(-1)*2;return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
+
+float mx(float3 p){return max(p.x,max(p.y,p.z));}
+
+float4 pMETALLICA(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+
+	float4 c=0;
+	float lod=log2(max(R.x,R.y));
+	float kk=0;
+	for (float i=0;i<min(lod-(1-MaxRadius*lod),14);i++){
+		float2 off=pow(2,i)/max(R.x,R.y);
+		off*=0.5;
+		//off*=R/R.x;
+		float k=1./pow(2,i*Shape-lod)*saturate(MaxRadius*lod-i);
+		float dx=(mx(tex0.SampleLevel(s0,x-off*float2(1,0),i).xyz)-mx(tex0.SampleLevel(s0,x+off*float2(1,0),i).xyz));
+		float dy=(mx(tex0.SampleLevel(s0,x-off*float2(0,1),i).xyz)-mx(tex0.SampleLevel(s0,x+off*float2(0,1),i).xyz));
+		c.xy+=float2(dx,dy)*sqrt(R.x/R)*k;
+		c.z+=length(float2(dx,dy)*k);
+		
+		kk+=k;
+    }
+	c.xy/=pow(abs(c.z)*.1,.3)/.1+.00000001;
+	float dd=Depth/pow(abs(kk),.7)*8;
+	c.z=pow(saturate(1-dd*length(c.xy)),.5);
+	c.xy=c.xy*dd;
+
+	float2 dir=c.xy;
+	c=0;
+	dir=gam(dir,pow(2,BumpGamma*sqrt(smoothstep(0,1,1*abs(dir)))))/2;
+
+	
+	c+=lerp(ColA*pow(2,Brightness.x),0,r2d(dir,Angle.x).x*BumpAmount.x+.5);
+	c+=lerp(ColB*pow(2,Brightness.y),0,r2d(dir,Angle.y+.25).x*BumpAmount.y+.5)*(1-abs(r2d(dir,Angle.x).x));
+
+	c.a=tex0.SampleLevel(s0,x,0).a;
+	return c;
+}
+
+float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	return tex0.SampleLevel(s0,x,0);
+}
+technique10 Metallica{
+	pass P0 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
+	pass P1{SetPixelShader(CompileShader(ps_4_0,pMETALLICA()));}
+}
+technique10 Metallica_nomips{
+	pass P1{SetPixelShader(CompileShader(ps_4_0,pMETALLICA()));}
+}
