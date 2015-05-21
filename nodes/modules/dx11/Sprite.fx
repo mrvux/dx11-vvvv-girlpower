@@ -135,7 +135,13 @@ technique10 Billboard{
 		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
-
+technique10 BillboardAxis{
+	pass P0{
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetGeometryShader(CompileShader(gs_4_0,gsBILLBOARD(1)));
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
 technique10 Point{
 	pass P0{
 		SetVertexShader(CompileShader(vs_4_0,VS()));

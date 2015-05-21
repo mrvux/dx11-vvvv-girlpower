@@ -1,0 +1,131 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
+Texture2D tex0: PREVIOUS;
+Texture2D tex1 <string uiname="Control";>;
+
+float2 R:TARGETSIZE;
+
+SamplerState s0 <bool visible=true;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+
+//light properties
+float3 lDir <string uiname="Light";> = {0.25, -0.5, .1};//light direction in world space
+
+float4 lAmb  <bool color=true; String uiname="Ambient Color";>  = {0.15, 0.15, 0.15, 1};
+float4 lDiff <bool color=true; String uiname="Diffuse Color";>  = {0.85, 0.85, 0.85, 1};
+float4 lSpec <bool color=true; String uiname="Specular Color";> = {0.35, 0.35, 0.35, 1};
+float lPower <String uiname="Power"; float uimin=0.0;> = 25.0;     //shininess of specular highlight
+float lRange <String uiname="Light Range"; float uimin=0.0;> = 10.0;
+
+float lAtt0 <String uiname="Light Attenuation 0"; float uimin=0.0;> = 0;
+float lAtt1 <String uiname="Light Attenuation 1"; float uimin=0.0;> = 0.3;
+float lAtt2 <String uiname="Light Attenuation 2"; float uimin=0.0;> = 0;
+
+float SmoothSpot <float uimin=0.0; float uimax=1.0;> = 0.1; 
+float BumpAmount=1;
+
+//phong directional function
+float4 PhongDirectional(float3 NormV, float3 ViewDirV, float3 LightDirV)
+{
+    //In.TexCd = In.TexCd / In.TexCd.w; // for perpective texture projections (e.g. shadow maps) ps_2_0
+
+	float4 amb = float4(lAmb.rgb, 1);
+    //halfvector
+    float3 H = normalize(ViewDirV + LightDirV);
+
+    //compute blinn lighting
+    float3 shades = lit(dot(NormV, LightDirV), dot(NormV, H), lPower).xyz;
+
+    float4 diff = lDiff * shades.y;
+    diff.a = 1;
+
+    //reflection vector (view space)
+    float3 R = normalize(2 * dot(NormV, LightDirV) * NormV - LightDirV);
+
+    //normalized view direction (view space)
+    float3 V = normalize(ViewDirV);
+
+    //calculate specular light
+    float4 spec = pow(max(dot(R, V),0), lPower*.2) * lSpec;
+
+    return (amb + diff) + spec;
+}
+//phong point function
+float4 PhongPoint(float3 PosW, float3 NormV, float3 ViewDirV, float3 LightDirV)
+{
+
+    //float d = distance(PosW, lPos);
+	float d = distance(PosW, lDir);
+    float atten = 0;
+
+    //compute attenuation only if vertex within lightrange
+    if (d<lRange)
+    {
+       atten = 1/(saturate(lAtt0) + saturate(lAtt1) * d + saturate(lAtt2) * pow(d, 2));
+    }
+
+    float4 amb = lAmb * atten;
+    amb.a = 1;
+
+    //halfvector
+    float3 H = normalize(ViewDirV + LightDirV);
+
+    //compute blinn lighting
+    float4 shades = lit(dot(NormV, LightDirV), dot(NormV, H), lPower);
+
+    float4 diff = lDiff * shades.y * atten;
+    diff.a = 1;
+
+    //reflection vector (view space)
+    float3 R = normalize(2 * dot(NormV, LightDirV) * NormV - LightDirV);
+
+    //normalized view direction (view space)
+    float3 V = normalize(ViewDirV);
+
+    //calculate specular light
+    float4 spec = pow(max(dot(R, V),0), lPower*.2) * lSpec;
+
+    return ((amb + diff) + spec)*smoothstep(1,1-max(0,SmoothSpot)*0.99999,d/lRange);
+}
+
+float4 pPHONGDIRECTIONAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 nmap=tex1.SampleLevel(s0,x,0);
+	float3 LightDirV = normalize(-lDir);
+	float3 NormV=float3(nmap.x-0.5,-(nmap.y-0.5),-1);
+	NormV=lerp(float3(0,0,-1),NormV,BumpAmount);
+	NormV=normalize(NormV);
+	float3 ViewDirV=-normalize(float3((x.xy*2-1)*float2(1,-1)*R/R.x,11.1));
+	//c=1;
+	c.rgb *= PhongDirectional(NormV, ViewDirV, LightDirV).rgb;
+    
+	return c;
+}
+float4 pPHONGPOINT(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+	float4 nmap=tex1.SampleLevel(s0,x,0);
+	
+	float3 NormV=float3(nmap.x-0.5,-(nmap.y-0.5),-1);
+	//NormV=float3(0,0,-1);
+	NormV=lerp(float3(0,0,-1),NormV,BumpAmount);
+	NormV=normalize(NormV);
+	float3 ViewDirV=-normalize(float3((x.xy*2-1)*float2(1,-1)*R/R.x,1));
+	//c=1;
+	float3 PosW=float3((x.xy*2-1)*float2(1,-1)*R/R.x*0.5,0);
+	float3 LightDirV = normalize(lDir-PosW);
+	
+	c.rgb *= PhongPoint(PosW, NormV, ViewDirV, LightDirV).rgb;
+    //c.rgb=-LightDirV.xyz;
+	return c;
+}
+technique10 Directional{
+	pass P0 {SetPixelShader(CompileShader(ps_4_0,pPHONGDIRECTIONAL()));}
+
+}
+technique10 Point{
+	pass P0 {SetPixelShader(CompileShader(ps_4_0,pPHONGPOINT()));}
+
+}
