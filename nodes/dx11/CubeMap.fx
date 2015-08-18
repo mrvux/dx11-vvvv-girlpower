@@ -66,20 +66,20 @@ float4 psSKY(VS_OUT In):SV_Target{
 
 technique10 _Reflection{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
-		SetPixelShader(CompileShader(ps_5_0,psREFLECTION()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetPixelShader(CompileShader(ps_4_0,psREFLECTION()));
 	}
 }
 technique10 _Normal{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
-		SetPixelShader(CompileShader(ps_5_0,psNORMAL()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetPixelShader(CompileShader(ps_4_0,psNORMAL()));
 	}
 }
 technique10 _Sky{
 	pass P0{
-		SetVertexShader(CompileShader(vs_5_0,VS()));
-		SetPixelShader(CompileShader(ps_5_0,psSKY()));
+		SetVertexShader(CompileShader(vs_4_0,VS()));
+		SetPixelShader(CompileShader(ps_4_0,psSKY()));
 	}
 }
 

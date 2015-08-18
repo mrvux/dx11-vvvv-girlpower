@@ -12,7 +12,7 @@ float4x4 tColor <string uiname="Color Transform";>;
 
 float2 r2d(float2 x,float a){a*=acos(-1)*2;return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
 
-
+float SphereFactor <float uimin=0.0;float uimax=1.0;> =1.0;
 float4 PS(float2 UV:TEXCOORD0,float4 PosWVP:SV_POSITION):SV_Target{
 
 	float3 p=float3(0,0,1);
@@ -21,11 +21,12 @@ float4 PS(float2 UV:TEXCOORD0,float4 PosWVP:SV_POSITION):SV_Target{
 	p=normalize(p);
 	p=mul(float4(p.xyz,1),tTex).xyz;
 	
-	float2 uv=normalize(p.xy)*(acos(p.z)/acos(-1))*0.5+0.5;
-
+	float2 uv=normalize(p.xy)*(acos(p.z)/acos(-1))*0.5/SphereFactor+0.5;
+	
 	float4 c=texSPHERE.SampleLevel(s0,uv.xy,0);
 	
 	c=mul(c*Color,tColor);
+	if(length(uv-0.5)>.5)c=0;
 	return c;
 }
 

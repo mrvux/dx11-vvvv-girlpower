@@ -17,10 +17,14 @@ float4x4 lookat4(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);flo
 [numthreads(64, 1, 1)]
 void CS( uint3 DTid : SV_DispatchThreadID){
 	if(DTid.x>=(uint)TotalCount)return;
+	int2 R;tex.GetDimensions(R.x,R.y);
 	float2 UV=uv[DTid.x];
 	if(!UVSpace)UV=UV*0.5*float2(1,-1)+0.5;
+	UV+=0.5/R;
+	if(!Filter)UV=(floor(UV*R)+0.5)/R;
+	
 	float d=tex.SampleLevel(s0,UV,0).x;
-	float2 R;tex.GetDimensions(R.x,R.y);
+	
 	float3 w0=UVZtoVIEW(UV,d).xyz;
 	float3 w1=UVZtoVIEW(UV-float2(1,0)/R,tex.SampleLevel(s0,UV-float2(1,0)/R,0).x).xyz;
 	float3 w2=UVZtoVIEW(UV-float2(0,1)/R,tex.SampleLevel(s0,UV-float2(0,1)/R,0).x).xyz;
@@ -30,12 +34,10 @@ void CS( uint3 DTid : SV_DispatchThreadID){
 	float3 c1=normalize(w1-w0);
 	float3 c2=normalize(w2-w0);
 	
-	//float3 Eye=UVtoEYE(UV);
-	
 	float3 NorW=normalize(mul(cross(c1,c2),(float3x3)tVI));
 	float4x4 wt={1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1};
-	if(!Filter)UV=(floor(UV*R)+0.5)/R;
-	float4 PosW=UVZtoWORLD(UV,d);
+	
+	float4 PosW=mul(float4(w0.xyz,1),tVI);
 	wt=lookat4(NorW);
 	wt[3].xyz=PosW.xyz;
 	wt[3][3]*=(d!=1);

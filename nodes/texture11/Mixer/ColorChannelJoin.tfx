@@ -1,0 +1,127 @@
+//@author: 
+//@help: 
+//@tags: mixer
+//@credits:
+
+#include "ColorSpace.fxh"
+
+interface iChannel{
+   float Channel(float4 c); 
+};
+class cRedChannel : iChannel{
+   float Channel(float4 c) { 
+		return c.r;
+	}
+};
+class cGreenChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.g;
+   }
+};
+class cBlueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.b;
+   }
+};
+class cAlphaChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.a;
+   }
+};
+class cHueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).x;
+   }
+};
+class cSaturationChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).y;
+   }
+};
+class cValueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).z;
+   }
+};
+class cLightnessChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSL(c.rgb).z;
+   }
+};
+class cOne : iChannel{
+   float Channel(float4 c) { 
+	   return 1;
+   }
+};
+class cZero : iChannel{
+   float Channel(float4 c) { 
+	   return 0;
+   }
+};
+
+
+cRedChannel Red;
+cGreenChannel Green;
+cBlueChannel Blue;
+cAlphaChannel Alpha;
+cHueChannel Hue;
+cSaturationChannel Saturation;
+cValueChannel Value;
+cLightnessChannel Lightness;
+cOne One;
+cZero Zero;
+
+iChannel InputRed <string uiname="Input 1";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Red;
+iChannel InputGreen <string uiname="Input 2";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Green;
+iChannel InputBlue <string uiname="Input 3";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Blue;
+iChannel InputAlpha <string uiname="Input 4";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,One,Zero";> =Alpha;
+
+Texture2D tex0: PREVIOUS;
+Texture2D tex1:INITIAL;
+Texture2D tex2 <string uiname="Texture In 2";>;
+Texture2D tex3 <string uiname="Texture In 3";>;
+Texture2D tex4 <string uiname="Texture In 4";>;
+float2 R:TARGETSIZE;
+
+SamplerState s0:IMMUTABLE <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float3 safenormalize(float3 x){
+		x=lerp(x,x+.00001,x==0);
+		return normalize(x);
+}
+float4 pCHANNELS(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
+	float4 c=tex0.SampleLevel(s0,x,0);
+  	c = float4(InputRed.Channel(c),InputGreen.Channel(c),InputBlue.Channel(c),InputAlpha.Channel(c));
+	
+	return c;
+}
+float4 pRGBA(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
+	float4 c,
+	c1=tex1.SampleLevel(s0,x,0),
+	c2=tex2.SampleLevel(s0,x,0),
+	c3=tex3.SampleLevel(s0,x,0),
+	c4=tex4.SampleLevel(s0,x,0);
+	c = float4(InputRed.Channel(c1),InputGreen.Channel(c2),InputBlue.Channel(c3),InputAlpha.Channel(c4));
+	return c;
+}
+float4 pHSVA(float4 PosWVP: SV_POSITION,float2 x: TEXCOORD0):SV_Target{
+	float4 c,
+	c1=tex1.SampleLevel(s0,x,0),
+	c2=tex2.SampleLevel(s0,x,0),
+	c3=tex3.SampleLevel(s0,x,0),
+	c4=tex4.SampleLevel(s0,x,0);
+	c = float4(InputRed.Channel(c1),InputGreen.Channel(c2),InputBlue.Channel(c3),InputAlpha.Channel(c4));
+	c.rgb=HSVtoRGB(c.rgb);
+	return c;
+}
+
+technique10 RGBA{
+	pass P1
+	{SetPixelShader(CompileShader(ps_5_0,pRGBA()));}
+}
+
+technique10 HSVA{
+	pass P1
+	{SetPixelShader(CompileShader(ps_5_0,pHSVA()));}
+}
+
