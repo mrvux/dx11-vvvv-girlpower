@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Axis (DX11) help.v4p" componentmode="InAWindow" systemname="Axis (DX11) help" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.dtd" >
+   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\nodes\modules\Axis (DX11) help.v4p" componentmode="InAWindow" systemname="Axis (DX11) help" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11) help.v4p">
    <BOUNDS height="5550" left="480" top="1800" type="Window" width="6030">
    </BOUNDS>
    <NODE componentmode="InABox" id="4" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -23,7 +23,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="6660" top="12870" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Axis - DX11|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Axis (DX11)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -73,9 +73,11 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <BOUNDS height="6870" left="1695" top="2955" type="Window" width="5610">
+   <BOUNDS height="6870" left="3285" top="8055" type="Window" width="5610">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="8">
@@ -104,6 +106,6 @@
    </LINK>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="34.0.0">
    </PACK>
    </PATCH>
