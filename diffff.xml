@@ -38,4 +38,7 @@ olddefault="3"
 <PATCH version="33.0">
 	<NODE old="Normals (DX11)" new="Normals (DX11 FromVertex)"> </NODE>
 </PATCH>
+<PATCH version="34.0">
+	<NODE old="Mesh (Geometry Split Assimp)" new="Mesh (DX11.Geometry Split Assimp)"> </NODE>
+</PATCH>
 </CONVVVVERTER>
