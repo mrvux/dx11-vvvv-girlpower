@@ -1,0 +1,137 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\Users\joreg\Documents\repos\vvvv\public\vvvv45\addonpack\lib\nodes\modules\EX9\DX9ToDX11Geometry (DX11.Geometry) help.v4p" systemname="EX9ToDX11Geometry (DX11.Geometry) help" filename="C:\Users\joreg\Documents\repos\vvvv\public\vvvv45\addonpack\lib\nodes\modules\EX9\EX9ToDX11Geometry (DX11.Geometry) help.v4p">
+   <BOUNDS type="Window" left="2670" top="6045" width="8640" height="6435">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5730" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|DX9ToDX11Geometry (DX11.Geometry)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="4155" height="345">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Takes a DX9 mesh and returns a DX11 IndexedGeometry|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="DX9ToDX11Geometry (DX11.Geometry)" filename="DX9ToDX11Geometry (DX11.Geometry).v4p" nodename="DX9ToDX11Geometry (DX11.Geometry).v4p" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="5145" top="2835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Update" slicecount="1" visible="1" values="0">
+   </PIN>
+   <BOUNDS type="Window" left="12330" top="1425" width="7230" height="6450">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="Renderer (DX11)" componentmode="InAWindow" id="8" systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="4665" top="4905" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4665" top="4905" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7095" top="720" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="DX11">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="7">
+   <BOUNDS type="Node" left="795" top="4905" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="795" top="4905" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="600" top="690" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Windowed Depthbuffer Format" slicecount="1" values="D24X8">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="DX9">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
+   <NODE systemname="PhongDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="4830" top="3840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="4830" top="3840">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="PhongDirectional (EX9.Effect)" filename="%VVVV%\lib\nodes\effects\PhongDirectional.fx" nodename="PhongDirectional (EX9.Effect)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="795" top="3840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="7" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Geometry Out" dstnodeid="10" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Layer" dstnodeid="8" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="3150" top="4305" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Projection" dstnodeid="7" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="View" dstnodeid="7" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="View" dstnodeid="8" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Projection" dstnodeid="8" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Teapot (EX9.Geometry)" nodename="Teapot (EX9.Geometry)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="960" top="1665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" visible="1" values="..\..\..\..\..\lib\assets\geometries\2-subset-cube.x">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Mesh" dstnodeid="11" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Mesh" dstnodeid="6" dstpinname="Mesh">
+   </LINK>
+   </PATCH>
