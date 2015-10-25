@@ -1,19 +1,19 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45debug31.1.dtd" >
-   <PATCH nodename="C:\Users\joreg\Desktop\DX9ToDX11 (DX11.Texture 2d).v4p" systemname="DX9ToDX11 (DX11.Texture 2d)" filename="C:\Users\joreg\Desktop\DX9ToDX11 (DX11.Texture 2d).v4p">
-   <BOUNDS type="Window" left="16740" top="5145" width="8010" height="5280">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug34.100.dtd" >
+   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\nodes\modules\DX9ToDX11 (DX11.Texture 2d).v4p" systemname="DX9ToDX11 (DX11.Texture 2d)" filename="C:\Users\joreg\Desktop\DX9ToDX11 (DX11.Texture 2d).v4p">
+   <BOUNDS type="Window" left="13530" top="4365" width="7320" height="5685">
    </BOUNDS>
    <NODE systemname="FromSharedTexture (DX11.Texture 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FromSharedTexture (DX11.Texture 2d)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="1710" top="2220" width="100" height="100">
+   <BOUNDS type="Node" left="1710" top="3420" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
    </PIN>
-   <PIN pinname="Pointer" visible="1">
+   <PIN pinname="Pointer" visible="1" slicecount="1" values="2147515138">
    </PIN>
-   <BOUNDS type="Box" left="1710" top="2220">
+   <BOUNDS type="Box" left="1710" top="3420">
    </BOUNDS>
    </NODE>
    <NODE systemname="Info (EX9.Texture)" nodename="Info (EX9.Texture)" componentmode="Hidden" id="2">
-   <BOUNDS type="Node" left="1710" top="1620" width="100" height="100">
+   <BOUNDS type="Node" left="1710" top="2370" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
@@ -28,12 +28,10 @@
    <PIN pinname="Usage" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Shared Handle" dstnodeid="3" dstpinname="Pointer">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1710" top="2655" width="795" height="240">
+   <BOUNDS type="Box" left="1710" top="3855" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1710" top="2655" width="0" height="0">
+   <BOUNDS type="Node" left="1710" top="3855" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|">
    </PIN>
@@ -41,9 +39,9 @@
    <LINK srcnodeid="3" srcpinname="Texture" dstnodeid="1" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1710" top="1080" width="795" height="240">
+   <BOUNDS type="Box" left="1710" top="765" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1710" top="1080" width="0" height="0">
+   <BOUNDS type="Node" left="1710" top="765" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -55,9 +53,9 @@
    <INFO author="" description="Takes a DX9 texture and returns a DX11 texture" tags="ex9, dx9, dx11">
    </INFO>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3045" top="2655" width="480" height="480">
+   <BOUNDS type="Box" left="3045" top="3855" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="3045" top="2655" width="0" height="0">
+   <BOUNDS type="Node" left="3045" top="3855" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -72,6 +70,66 @@
    </NODE>
    <LINK srcnodeid="3" srcpinname="Is Valid" dstnodeid="4" dstpinname="Y Input Value">
    </LINK>
+   <NODE systemname="Pipet (EX9.Texture)" nodename="Pipet (EX9.Texture)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="3645" top="1590" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="5" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4170" top="765" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4170" top="765" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4380" top="1665" width="4905" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4380" top="1665" width="1920" height="735">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; helper that sucks the texture even if no renderer present/visible.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="34.100.0">
+   </PACK>
    <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="2" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="1725" top="2910" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Shared Handle" dstnodeid="10" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Output" dstnodeid="3" dstpinname="Pointer">
    </LINK>
    </PATCH>
