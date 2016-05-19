@@ -1,0 +1,34 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D<float> ReferenceTexture : PREVIOUS;
+Texture2D<float> RenconstructedTexture;
+
+float ErrorMarginScale;
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float c = ReferenceTexture.Load(int3(input.p.xy,0));
+	float c2 = RenconstructedTexture.Load(int3(input.p.xy,0));
+	return abs(c-c2)*ErrorMarginScale;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+

@@ -1,0 +1,34 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D<float> DepthTexture : PREVIOUS;
+
+float4x4 tP;
+float farPlane;
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float PS(psInput input) : SV_Target
+{
+	float d = DepthTexture.Load(int3(input.p.xy,0));
+	
+	float ld = tP._43 / (d - tP._33);
+	return d == 1.0f ? 0.0f : ld;
+}
+
+technique10 Process
+{
+	pass P0 <string format="R32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
