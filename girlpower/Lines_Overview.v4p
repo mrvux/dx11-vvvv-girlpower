@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\girlpower\Lines_Overview.v4p" systemname="Lines_Overview" filename="C:\Work\anton-vvvv-sdk\vvvv45\girlpower\Graphics\Lines_Overview.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="5730" top="570" width="12780" height="14340">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\girlpower\Lines_Overview.v4p" systemname="Lines_Overview" filename="C:\Work\anton-vvvv-sdk\vvvv45\girlpower\Graphics\Lines_Overview.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="4380" top="675" width="12780" height="12990">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="1530" top="3975" width="0" height="0">
@@ -77,9 +77,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="10" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="6300" top="1410" width="195" height="9510">
+   <BOUNDS type="Node" left="6300" top="1350" width="195" height="9510">
    </BOUNDS>
-   <BOUNDS type="Box" left="6300" top="1410" width="285" height="11070">
+   <BOUNDS type="Box" left="6300" top="1350" width="285" height="11070">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;||&cr;&lf;|||">
    </PIN>
@@ -169,9 +169,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="80" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="780" top="8955" type="Node" width="315">
+   <BOUNDS height="270" left="780" top="7305" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="390" left="780" top="8955" type="Box" width="405">
+   <BOUNDS height="390" left="780" top="7305" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="1.">
    </PIN>
@@ -185,9 +185,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="79" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="780" top="9600" type="Node" width="315">
+   <BOUNDS height="270" left="780" top="7950" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="405" left="780" top="9600" type="Box" width="405">
+   <BOUNDS height="405" left="780" top="7950" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="2.">
    </PIN>
@@ -201,9 +201,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="74" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="780" top="11070" type="Node" width="315">
+   <BOUNDS height="270" left="780" top="9420" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="390" left="780" top="11070" type="Box" width="405">
+   <BOUNDS height="390" left="780" top="9420" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="3.">
    </PIN>
@@ -483,9 +483,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="111">
-   <BOUNDS type="Node" left="1215" top="13110" width="100" height="100">
+   <BOUNDS type="Node" left="1215" top="11460" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1215" top="13110" width="2565" height="240">
+   <BOUNDS type="Box" left="1215" top="11460" width="2565" height="240">
    </BOUNDS>
    <PIN pinname="String Type" slicecount="1" values="Filename">
    </PIN>
@@ -509,9 +509,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="115" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="6930" top="8955" type="Node" width="315">
+   <BOUNDS height="270" left="6930" top="7305" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="390" left="6930" top="8955" type="Box" width="405">
+   <BOUNDS height="390" left="6930" top="7305" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="1.">
    </PIN>
@@ -573,9 +573,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="122" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="6930" top="10005" type="Node" width="315">
+   <BOUNDS height="270" left="6930" top="8355" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="390" left="6930" top="10005" type="Box" width="405">
+   <BOUNDS height="390" left="6930" top="8355" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="2.">
    </PIN>
@@ -589,9 +589,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="123" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="6930" top="10860" type="Node" width="315">
+   <BOUNDS height="270" left="6930" top="9210" type="Node" width="315">
    </BOUNDS>
-   <BOUNDS height="390" left="6930" top="10860" type="Box" width="405">
+   <BOUNDS height="390" left="6930" top="9210" type="Box" width="405">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="3.">
    </PIN>
@@ -605,9 +605,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="124" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="1215" top="12780" width="2175" height="270">
+   <BOUNDS type="Node" left="1215" top="11130" width="2175" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="1215" top="12780" width="2175" height="270">
+   <BOUNDS type="Box" left="1215" top="11130" width="2175" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|For more examples, check:|">
    </PIN>
@@ -619,9 +619,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="126" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7485" top="8970" width="615" height="270">
+   <BOUNDS type="Node" left="7485" top="7320" width="615" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7485" top="8970" width="4170" height="2460">
+   <BOUNDS type="Box" left="7485" top="7320" width="4170" height="2460">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|The &apos;From&apos; point of every line is the position of the mouse. The Mouse (Devices Window) returns the &apos;XY&apos; coordinates of the position. A third &apos;Z&apos; coordinate (=0) is added.&cr;&lf;&cr;&lf;The RandomSpread (Spreads) generates 99 random values which are interpreted as XYZ coordinates of 99/3=33 points. These are the &apos;To&apos; points of the lines.&cr;&lf;&cr;&lf;A spread of two colors is defined for the &apos;Color&apos; pin, so all the lines are drawn using these alternating colors.|">
    </PIN>
@@ -633,9 +633,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="128" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="1215" top="8970" width="495" height="270">
+   <BOUNDS type="Node" left="1215" top="7320" width="495" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="1215" top="8970" width="4440" height="3405">
+   <BOUNDS type="Box" left="1215" top="7320" width="4440" height="3405">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" encoded="1" values="|VGhlIFJhbmRvbVNwcmVhZCAoU3ByZWFkcykgZ2VuZXJhdGVzIDQ1IHJhbmRvbSB2YWx1ZXMgd2hp&cr;&lf;Y2ggYXJlIHVzZWQgYXMgWFlaIGNvb3JkaW5hdGVzIG9mIDQ1Hy8zPTE1IHBvaW50cy4NCg0KVGhl&cr;&lf;ICdCaW5TaXplJyBwaW4gZGVmaW5lcyBob3cgbWFueSBvZiB0aGVzZSBjb25zZWN1dGl2ZSB2ZXJ0&cr;&lf;aWNlcyB3aWxsIGJlIGNvbm5lY3RlZCB3aXRoIG9uZSBsaW5lLiANCg0KQmluU2l6ZT0tMSBtZWFu&cr;&lf;cyB0aGF0IGFsbCBpbnB1dCBwb2ludHMgd2lsbCBiZSBjb25uZWN0ZWQgd2l0aCBvbmUgbGluZS4g&cr;&lf;QmluU2l6ZT0yIG1lYW5zIHRoYXQgYSBsaW5lIGlzIGRyYXduIGJldHdlZW4gZWFjaCB0d28gY29u&cr;&lf;c2VjdXRpdmUgcG9pbnRzLCBhbmQgc28gb24uDQoNCldoZW4gdGhlICdDbG9zZWQnIHBpbiBpcyB0&cr;&lf;dXJuZWQgb24sIGFkZGl0aW9uYWwgbGluZXMgYXJlIGRyYXduIGluIG9kZXIgdG8gY2xvc2UgdGhl&cr;&lf;IGxpbmVzIG9mIGV2ZXJ5IGJpbi4gDQoNClRyeSB0byBzZXQgdGhlIEJpblNpemU9MyBhbmQgdHVy&cr;&lf;biBvbiB0aGUgJ0Nsb3NlZCcgcGluOiBmaXJzdCB0aGVyZSB3aWxsIGJlIGZvcm1zIG9mIHR3byBs&cr;&lf;aW5lcyAoZHJhd24gdGhyb3VnaHQgMyBwb2ludHMpLCB0aGVuIHRoZXkgd2lsbCBiZSBjbG9zZWQg&cr;&lf;Zm9ybWluZyB0cmlhbmdsZXMu|">
    </PIN>
@@ -647,9 +647,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="130">
-   <BOUNDS type="Node" left="7545" top="11895" width="100" height="100">
+   <BOUNDS type="Node" left="7545" top="10245" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="7545" top="11895" width="2445" height="240">
+   <BOUNDS type="Box" left="7545" top="10245" width="2445" height="240">
    </BOUNDS>
    <PIN pinname="String Type" slicecount="1" values="Filename">
    </PIN>
@@ -657,9 +657,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="129" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7545" top="11565" width="2175" height="270">
+   <BOUNDS type="Node" left="7545" top="9915" width="2175" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7545" top="11565" width="4110" height="285">
+   <BOUNDS type="Box" left="7545" top="9915" width="4110" height="285">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|For more examples on the FromTo version, check:|">
    </PIN>
@@ -668,30 +668,6 @@
    <PIN pinname="Show Grid" slicecount="1" values="0">
    </PIN>
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
-   </PIN>
-   </NODE>
-   <NODE componentmode="InAWindow" id="34" nodename="Renderer (DX11)" systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS height="100" left="735" top="6420" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="2445" left="735" top="6420" type="Box" width="2565">
-   </BOUNDS>
-   <BOUNDS height="2805" left="330" top="690" type="Window" width="2805">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Fullscreen Depthbuffer Format">
-   </PIN>
-   <PIN pinname="Fullscreen Dimensions">
-   </PIN>
-   <PIN pinname="Fullscreen Antialiasing Quality Level">
-   </PIN>
-   <PIN pinname="Windowed Depthbuffer Format">
-   </PIN>
-   <PIN pinname="Windowed Antialiasing Quality Level">
-   </PIN>
-   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
    </PIN>
    </NODE>
    <NODE id="63" componentmode="Hidden" filename="%VVVV%\packs\dx11\nodes\modules\Line (DX11).v4p" nodename="Line (DX11)" systemname="Line (DX11)" hiddenwhenlocked="0" managers="">
@@ -719,8 +695,6 @@
    <LINK srcnodeid="106" srcpinname="Output" dstnodeid="63" dstpinname="VerticesXYZ">
    </LINK>
    <LINK srcnodeid="107" srcpinname="Color Output" dstnodeid="63" dstpinname="Color">
-   </LINK>
-   <LINK srcnodeid="63" srcpinname="Layer" dstnodeid="34" dstpinname="Layers">
    </LINK>
    <NODE systemname="Line (DX11 FromTo)" filename="%VVVV%\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" nodename="Line (DX11 FromTo)" componentmode="Hidden" id="84">
    <BOUNDS type="Node" left="8085" top="5190" width="100" height="100">
@@ -757,7 +731,7 @@
    </BOUNDS>
    <BOUNDS height="2445" left="7920" top="6465" type="Box" width="2565">
    </BOUNDS>
-   <BOUNDS height="2805" left="330" top="690" type="Window" width="2805">
+   <BOUNDS height="4350" left="315" top="4575" type="Window" width="4245">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -773,27 +747,45 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Line FromTo|">
+   </PIN>
    </NODE>
    <LINK srcnodeid="84" srcpinname="Layer" dstnodeid="94" dstpinname="Layers">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="0.7.2">
    </PACK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE systemname="Ortho (Transform)" nodename="Ortho (Transform)" componentmode="Hidden" id="134">
-   <BOUNDS type="Node" left="2160" top="6000" width="100" height="100">
+   <BOUNDS type="Node" left="2295" top="5805" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="134" srcpinname="Transform Out" dstnodeid="34" dstpinname="Projection">
-   </LINK>
    <NODE systemname="Ortho (Transform)" nodename="Ortho (Transform)" componentmode="Hidden" id="135">
-   <BOUNDS type="Node" left="9345" top="6045" width="100" height="100">
+   <BOUNDS type="Node" left="9480" top="6045" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="135" srcpinname="Transform Out" dstnodeid="94" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="136">
+   <BOUNDS type="Node" left="705" top="6225" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="6225" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="285" top="660" width="4275" height="3900">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Line">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Layer" dstnodeid="136" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="134" srcpinname="Transform Out" dstnodeid="136" dstpinname="Projection">
    </LINK>
    </PATCH>
