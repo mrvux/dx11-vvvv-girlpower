@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: mixer
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 Texture2D tex1 <string uiname="Texture In 2";>;
 Texture2D tex2 <string uiname="Control";>;
@@ -8,20 +13,85 @@ float2 R:TARGETSIZE;
 cbuffer controls:register(b0){
 	float Fader <float uimin=0.0;float uimax=1.0;> =0.5;
 	float Smooth <float uimin=0.0;float uimax=1.0;> =0.25;
+	bool SmoothStep=0;
 };
 
-#define bld(op,c0,c1) float4(lerp((c0*c0.a+c1*c1.a*(1-c0.a))/saturate(c0.a+c1.a*(1-c0.a)),(op),c0.a*c1.a).rgb,saturate(c0.a+c1.a*(1-c0.a)))
+float lfade(float g,float f,float s=1){return (g-1)*s+(f*(s+1));}
+
+#include "ColorSpace.fxh"
+
+interface iChannel{
+   float Channel(float4 c); 
+};
+class cRedChannel : iChannel{
+   float Channel(float4 c) { 
+		return c.r;
+	}
+};
+class cGreenChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.g;
+   }
+};
+class cBlueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.b;
+   }
+};
+class cAlphaChannel : iChannel{
+   float Channel(float4 c) { 
+	   return c.a;
+   }
+};
+class cHueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).x;
+   }
+};
+class cSaturationChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).y;
+   }
+};
+class cValueChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSV(c.rgb).z;
+   }
+};
+class cLightnessChannel : iChannel{
+   float Channel(float4 c) { 
+	   return RGBtoHSL(c.rgb).z;
+   }
+};
+class cAverageChannel : iChannel{
+   float Channel(float4 c) { 
+	   return dot(c.rgb,1./3.);
+   }
+};
+
+cRedChannel Red;
+cGreenChannel Green;
+cBlueChannel Blue;
+cAlphaChannel Alpha;
+cHueChannel Hue;
+cSaturationChannel Saturation;
+cValueChannel Value;
+cLightnessChannel Lightness;
+cAverageChannel Average;
+iChannel ControlChannel <string uiname="Control Channel";string linkclass="Red,Green,Blue,Alpha,Hue,Saturation,Value,Lightness,Average";> = Average;
+
 
 float4 pMIX(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
 	float4 c0=tex0.Sample(s0,x);
 	float4 c1=tex1.Sample(s0,x);
 	float4 c2=tex2.Sample(s0,x);
-	float fd=saturate(dot(c2.xyz,1./3.));
-	fd=fd-((Fader-.5)*(1+Smooth*2)*1.001+.5);
-	fd=smoothstep(Smooth+.0000001,-Smooth,fd);
+	float g=ControlChannel.Channel(c2);
+	float fd=lfade(1-g,Fader,.5/(.0000001+Smooth));
+	fd=saturate(fd);
+	if(SmoothStep)fd=smoothstep(0,1,fd);
 	float4 c=lerp(c0,c1,fd);
     return c;
 }
 
 
-technique10 Mix{pass P1{SetPixelShader(CompileShader(ps_4_0,pMIX()));}}
+technique10 Mix{pass P1{SetPixelShader(CompileShader(ps_5_0,pMIX()));}}

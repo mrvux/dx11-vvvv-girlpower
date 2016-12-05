@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
 
@@ -8,7 +13,7 @@ int Levels <bool visible=false;float uimin=1.0;> = 256;
 float Gamma <float uimin=0.0;> = 1;
 float Grain <float uimin=0.0;> = 1;
 #include "Noise.fxh"
-
+bool Uniform=0;
 float4 NoiseDither(float4 c,float2 x,float RandomSeed=0,float Grain=0,float Levels=256,float LevelNoise=1,float AddNoise=1){
 	
 	float4 nois=_dnoise4(x,RandomSeed);
@@ -19,10 +24,19 @@ float4 NoiseDither(float4 c,float2 x,float RandomSeed=0,float Grain=0,float Leve
 	c/=Levels;
 	return c;
 }
+float4 _dither(float4 c,float2 x,float RandomSeed=0,float Levels=255,float AddNoise=1){
+	float4 nois=_dnoise4(x,RandomSeed);
+	c*=Levels;
+	c+=(nois-.5)*AddNoise;
+	c/=Levels;
+	return c;
+}
+
 float4 pRGB(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
     float4 c=tex0.SampleLevel(s0,x,0);
 	c=pow(max(0,c),Gamma);
-    c=NoiseDither(c,x*R,RandomSeed,Grain,Levels);
+    if(!Uniform){c=NoiseDither(c,x*R,RandomSeed,Grain,Levels);}
+	else{c=_dither(c,x*R,RandomSeed,Levels,Grain);}
     return c;
 }
 

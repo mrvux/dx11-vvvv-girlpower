@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 float2 R:TARGETSIZE;
 

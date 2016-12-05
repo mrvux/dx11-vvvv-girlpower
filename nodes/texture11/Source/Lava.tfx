@@ -1,10 +1,15 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
 	float time <string uiname = "Time";>;
 	float phi <string uiname = "Phi";> = 0.0;
-	float4 ColorA <bool color=true; string uiname="Background Color";>;
-	float4 ColorB <bool color=true; string uiname="Lava Color";>;
+	float4 ColorA <bool color=true; string uiname="Background Color";> ={0,0,0,1};
+	float4 ColorB <bool color=true; string uiname="Lava Color";> ={1,1,1,1};
 };
 
 float3 mod289(float3 x)

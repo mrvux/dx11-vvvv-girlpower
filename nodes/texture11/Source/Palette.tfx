@@ -1,28 +1,36 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
-	float4x4 tTex <string uiname="Transform";>;
+	float4x4 tTex <string uiname="Texture Transform";>;
 	
 };
 
 #include "ColorSpace.fxh"
 //float2 r2d(float2 x,float a){return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
 float4 pHSL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-       float4 c=1;
-       c.rgb=HSVtoRGB(float3(x.x,1,saturate(2-2*x.y)));
-       c.rgb=lerp(c.rgb,max(c.r,max(c.g,c.b)),saturate(1-x.y*2));
-       return c;
+	x=mul(float4((x.xy*2-1)*float2(1,-1)*.5,0,1),tTex).xy*float2(1,-1)+0.5;
+	float4 c=1;
+	c.rgb=HSVtoRGB(float3(x.x,1,saturate(2-2*x.y)));
+	c.rgb=lerp(c.rgb,max(c.r,max(c.g,c.b)),saturate(1-x.y*2));
+	return c;
 }
 float4 pHSV(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-       float4 c=1;
-       c.rgb=HSVtoRGB(float3(x.x,1,1-x.y));
-       return c;
+	x=mul(float4((x.xy*2-1)*float2(1,-1)*.5,0,1),tTex).xy*float2(1,-1)+0.5;
+	float4 c=1;
+	c.rgb=HSVtoRGB(float3(x.x,1,1-x.y));
+	return c;
 }
 float4 pRADIAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-       float4 c=1;
-       c.rgb=float3(x.x,x.y,length(x));
-       c.rgb=HSLtoRGB(float3(atan2(x.y-.5,x.x-.5)/acos(-1)/2,1,length(x-.5)));
-       return c;
+	x=mul(float4((x.xy*2-1)*float2(1,-1)*.5,0,1),tTex).xy*float2(1,-1)+0.5;
+	float4 c=1;
+	c.rgb=float3(x.x,x.y,length(x));
+	c.rgb=HSLtoRGB(float3(atan2(x.y-.5,x.x-.5)/acos(-1)/2,1,length(x-.5)));
+	return c;
 }
 technique10 XY_HSV{pass P1{SetPixelShader(CompileShader(ps_4_0,pHSV()));}}
 technique10 XY_HSL{pass P1{SetPixelShader(CompileShader(ps_4_0,pHSL()));}}

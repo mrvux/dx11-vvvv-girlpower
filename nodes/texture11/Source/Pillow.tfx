@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
@@ -7,8 +12,19 @@ cbuffer controls:register(b0){
 	float4 Color2 <bool color=true;> = {1,1,1,1};
 	float2 Gamma=-4;
 	float2 ClampBody <float uimin=0.0; float uimax=1.0;> = {0.0,0.0};
-
+	float Dithering <bool visible=false;float uimin=0.0; float uimax=1.0;> = 1; 
+	float DitherSeed <bool visible=false;> =0;
 };
+
+#include "Noise.fxh"
+
+float4 _dither(float4 c,float2 x,float RandomSeed=0,float Levels=255,float AddNoise=1){
+	float4 nois=_dnoise4(x,RandomSeed);
+	c*=Levels;
+	c+=(nois-.5)*AddNoise;
+	c/=Levels;
+	return c;
+}
 
 float4 pLINEAR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
 	float4 c=0;
@@ -24,6 +40,7 @@ float4 pLINEAR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
 	//fade=sign(fade)*pow(abs(fade),Gamma);
 
 	c=lerp(Color1,Color2,fade);
+	if(Dithering>0)c=_dither(c,x*R,DitherSeed,256,Dithering);
     return c;
 }
 

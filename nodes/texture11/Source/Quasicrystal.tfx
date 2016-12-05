@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 // Textureless classic 3D noise "cnoise",
 // with an RSL-style periodic variant "pnoise".
 // Author:  Stefan Gustavson (stefan.gustavson@liu.se)
@@ -10,9 +15,9 @@ float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
 	float time <string uiname = "Time";>;
-	float N;
-	float2 scale;
-	float4 ColorA <bool color=true; string uiname="Color";>;
+	float N=5;
+	float2 scale=1;
+	float4 ColorA <bool color=true; string uiname="Color";> =1;
 };
 
 #define M_PI 3.1415926535897932384626433832795

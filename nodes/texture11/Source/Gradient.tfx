@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
@@ -6,29 +11,40 @@ cbuffer controls:register(b0){
 	float4 Color1 <bool color=true;> =float4(0,0,0,1);
 	float4 Color2 <bool color=true;> =1;
 	float Gamma=1;
-	bool ClipColor=0;
+	bool ClampColor <bool visible=false;> =0;
+	float Dithering <bool visible=false;float uimin=0.0; float uimax=1.0;> = 1; 
+	float DitherSeed <bool visible=false;> =0;
 };
 
-float4 pLINEAR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
+#include "Noise.fxh"
+
+float4 _dither(float4 c,float2 x,float RandomSeed=0,float Levels=255,float AddNoise=1){
+	float4 nois=_dnoise4(x,RandomSeed);
+	c*=Levels;
+	c+=(nois-.5)*AddNoise;
+	c/=Levels;
+	return c;
+}
+
+
+float4 pGRAD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0,uniform int interp,uniform bool radial):SV_TARGET{
 	float4 c=0;
 	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
 	float fade=x0.x;
+	if(radial)fade=length(x0.xy-.5)*2;
+	if(interp==2)fade=exp(-(1-fade));
 	fade=sign(fade)*pow(abs(fade),Gamma);
-	if(ClipColor)fade=saturate(fade);
+	if(ClampColor)fade=saturate(fade);
+	if(interp==1)fade=smoothstep(0,1,fade);
 	c=lerp(Color1,Color2,fade);
+	if(Dithering>0)c=_dither(c,x*R,DitherSeed,256,Dithering);
     return c;
 }
-float4 pRADIAL(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-	float4 c=0;
-	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex).xy*0.5*float2(1,-1)+0.5;
-	float fade=length(x0.xy-.5)*2;
-	fade=sign(fade)*pow(abs(fade),Gamma);
-	if(ClipColor)fade=saturate(fade);
-	c=lerp(Color1,Color2,fade);
-    return c;
-}
-technique10 Linear{pass P1{SetPixelShader(CompileShader(ps_4_0,pLINEAR()));}}
-technique10 Radial{pass P1{SetPixelShader(CompileShader(ps_4_0,pRADIAL()));}}
 
 
-
+technique10 Linear				{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(0,0)));}}
+technique10 Radial				{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(0,1)));}}
+technique10 Smoothstep			{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(1,0)));}}
+technique10 Smoothstep_Radial	{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(1,1)));}}
+technique10 Exponential			{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(2,0)));}}
+technique10 Exponential_Radial	{pass P1{SetPixelShader(CompileShader(ps_4_0,pGRAD(2,1)));}}

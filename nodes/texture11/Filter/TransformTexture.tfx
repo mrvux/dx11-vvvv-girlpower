@@ -1,14 +1,21 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 SamplerState s0 <string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
 float2 R:TARGETSIZE;
 
-cbuffer controls:register(b0){
-	float4x4 tTex;
-};
+float4x4 tTex <string uiname="Texture Transform";>;
+float4 Color <bool color=true;> = {1.0,1.0,1.0,1.0};
+float4x4 tColor <string uiname="Color Transform";>;
 
 float4 psTRANSFORM(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET{
-	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1),0,1),tTex)*0.5*float2(1,-1)+0.5;
+	float2 x0=mul(float4((x.xy*2-1)*float2(1,-1)*.5,0,1),tTex).xy*float2(1,-1)+0.5;
 	float4 c=tex0.SampleLevel(s0,x0,0);
+	c=c*Color;
+	c=mul(c,tColor);
     return c;
 }
 

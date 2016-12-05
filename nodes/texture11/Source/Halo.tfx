@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 float2 R:TARGETSIZE;
 //Texture2D tex0: PREVIOUS;
 Texture2D tex1 <string uiname="Control";>;

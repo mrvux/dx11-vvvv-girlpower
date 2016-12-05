@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: INITIAL;
 Texture2D texM: PASSRESULT0;
 Texture2D texP: PREVIOUS;

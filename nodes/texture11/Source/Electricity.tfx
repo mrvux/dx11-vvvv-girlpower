@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: source
+//@credits:
+
 Texture3D tex0 <string uiname="Noise Texture";>;
 
 SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=WRAP;AddressV=WRAP;};
@@ -6,8 +11,8 @@ float2 R:TARGETSIZE;
 
 cbuffer controls:register(b0){
 	float time <string uiname = "Time";>;
-	float4 ColorA <bool color=true; string uiname="Electricity Color";>;
-	float4 ColorB <bool color=true; string uiname="Background Color";>;
+	float4 ColorA <bool color=true; string uiname="Electricity Color";> ={1,1,1,1};;
+	float4 ColorB <bool color=true; string uiname="Background Color";> ={0,0,0,1};;
 	float glowStrength <string uiname = "Glow Strength";> = 40;
 	float ambientGlow <string uiname = "Ambient Glow";> = 0.5;
 	float ambientGlowHeightScale <string uiname = "Ambient Glow height Scale";> = 1.0;

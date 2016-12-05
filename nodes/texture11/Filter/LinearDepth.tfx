@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 SamplerState s0:IMMUTABLE {Filter=MIN_MAG_MIP_POINT;AddressU=CLAMP;AddressV=CLAMP;};
 float2 R:TARGETSIZE;
@@ -6,9 +11,13 @@ float4x4 tP <string uiname="Projection";>;
 float MinDepth=0;
 float MaxDepth=10;
 
+#define IS_ORTHO(P) (round(P._34)==0&&round(P._44)==1)
+
+
 float4 pLINEARDEPTH(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	float d=tex0.SampleLevel(s0,x,0).x;
 	float ld=tP._43/(d-tP._33);
+	if(IS_ORTHO(tP))ld=(d-tP._43)/tP._33;
 	float4 c=ld;
 	return c;
 }
@@ -16,6 +25,7 @@ float4 pLINEARDEPTH(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 float4 pDEPTHTHRESHOLD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	float d=tex0.SampleLevel(s0,x,0).x;
 	float ld=tP._43/(d-tP._33);
+	if(IS_ORTHO(tP))ld=(d-tP._43)/tP._33;
 	float4 c=linstep(MinDepth,MaxDepth,ld);
 	return c;
 }

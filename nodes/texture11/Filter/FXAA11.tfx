@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 // Copyright (c) 2011 NVIDIA Corporation. All rights reserved.
 //
 // TO  THE MAXIMUM  EXTENT PERMITTED  BY APPLICABLE  LAW, THIS SOFTWARE  IS PROVIDED
@@ -684,7 +689,7 @@ struct FxaaVS_Output {
 
 //SamplerState anisotropicSampler : register(s3);
 
-SamplerState anisotropicSampler
+SamplerState anisotropicSampler:IMMUTABLE
 {
     Filter = ANISOTROPIC;
     AddressU = Clamp;
@@ -697,10 +702,13 @@ SamplerState anisotropicSampler
 
 Texture2D	 inputTexture : INITIAL;
 
+bool KeepAlpha=0;
 float4 FxaaPS(FxaaVS_Output Input) : SV_TARGET {
 	FxaaTex tex = { anisotropicSampler, inputTexture };
+	float alpha=1.0f;
+	if(KeepAlpha)alpha=inputTexture.Sample(anisotropicSampler,Input.Tex.xy).a;
 	return float4(FxaaPixelShader(
-		Input.Tex.xy, tex, rcpFrame.xy), 1.0f); }
+		Input.Tex.xy, tex, rcpFrame.xy), alpha); }
 
 
 		
@@ -708,6 +716,6 @@ technique11 RenderTextured
 {
 	pass P0
 	{
-		SetPixelShader( CompileShader( ps_5_0, FxaaPS() ) );
+		SetPixelShader( CompileShader( ps_4_0, FxaaPS() ) );
 	}
 }

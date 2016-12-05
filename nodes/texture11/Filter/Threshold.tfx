@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: filter
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 float2 R:TARGETSIZE;
 SamplerState s0 <bool visible=false;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
@@ -16,9 +21,9 @@ float4 pTHRESHOLD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	float4 c=tex0.SampleLevel(s0,x,0);
 	float f=c.r;
 	float th=(Threshold-.5)*1.001+.5;
-	f=(f-th)/max(.0001+fwidth(f-th)*AntiAliasing,Smooth)+th;
+	f=(f-th)/max(.00000001+fwidth(f-th)*AntiAliasing,Smooth)+th;
 	if(Invert)f=1-f;
-	c=lerp(ColorA,ColorB,f);
+	c=lerp(ColorA,ColorB,saturate(f));
     return c;
 }
 

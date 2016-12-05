@@ -1,3 +1,8 @@
+//@author: 
+//@help: 
+//@tags: mixer
+//@credits:
+
 Texture2D tex0: PREVIOUS;
 Texture2D tex1 <string uiname="Texture In 2";>;
 Texture2D tex2 <string uiname="Control";>;

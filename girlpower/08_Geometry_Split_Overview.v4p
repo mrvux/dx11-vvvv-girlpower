@@ -1,0 +1,53 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\06_Geometry_Split_Overview.v4p" systemname="Creating_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Creating_Geometry_Overview.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="1515" top="3360" width="7995" height="3735">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="240" width="1185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="240" width="5820" height="465">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Splitting Geometry into its components|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="250" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="675" top="1605" width="5430" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="675" top="1605" width="2415" height="285">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="http://vvvv.org/forum/updating-mesh-based-patches-from-dx9-to-dx11#comment-191064">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="URL">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="251" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="675" top="1350" width="1665" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="675" top="1350" width="1665" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|find an example here:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="X:\CubeMap\SphereToCube\SphereToCube (DX11.Texture 2d).v4p" systemname="SphereToCube (DX11.Texture 2d)" filename="X:\StarBackground\SphereToCube\SphereToCube (DX11.Texture 2d).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
+   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\Cubemap\SphereToCube (DX11.Texture 2d).v4p" systemname="SphereToCube (DX11.Texture 2d)" filename="X:\StarBackground\SphereToCube\SphereToCube (DX11.Texture 2d).v4p">
    <BOUNDS type="Window" left="7440" top="8670" width="9000" height="6000">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="2" systemname="IOBox (Node)">
@@ -143,6 +143,8 @@
    <NODE systemname="SphereToCubeDX11 (DX11.Effect)" filename="SphereToCubeDX11.fx" nodename="SphereToCubeDX11 (DX11.Effect)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="1515" top="2580" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="SphereFactor" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Output Node" dstnodeid="18" dstpinname="Texture Transform">
    </LINK>
@@ -168,4 +170,24 @@
    </NODE>
    <LINK srcnodeid="19" srcpinname="Output Node" dstnodeid="18" dstpinname="SphereMap Texture">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5730" top="1395" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5730" top="1395" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="SphereFactor">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="18" dstpinname="SphereFactor">
+   </LINK>
+   <PACK Name="addonpack" Version="33.3.0">
+   </PACK>
    </PATCH>
