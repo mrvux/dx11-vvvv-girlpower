@@ -35,7 +35,7 @@ olddefault="3"
 * you may use <PATCH version="current">, which then refers to the version entered in the version.info file.
 -->
 <CONVVVVERTER>
-<PATCH version="33.0">
-	<NODE old="Normals (DX11)" new="Normals (DX11 FromVertex)"> </NODE>
+<PATCH version="0.7.2">
+	<NODE old="Line (DX11)" new="Line (DX11 Legacy)"> </NODE>
 </PATCH>
 </CONVVVVERTER>

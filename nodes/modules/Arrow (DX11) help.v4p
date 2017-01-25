@@ -93,7 +93,7 @@
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="XYZ" slicecount="1" values="0.82" visible="1">
+   <PIN pinname="XYZ" slicecount="1" visible="1" values="0.82">
    </PIN>
    </NODE>
    <LINK srcnodeid="34" srcpinname="Transform Out" dstnodeid="29" dstpinname="Transform">
