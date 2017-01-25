@@ -1,13 +1,13 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.dtd" >
-   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\nodes\modules\Axis (DX11).v4p" systemname="Axis (DX11)" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11).v4p" scrollx="45" scrolly="0">
-   <BOUNDS height="6870" left="3285" top="8055" type="Window" width="5610">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\modules\Axis (DX11).v4p" systemname="Axis (DX11)" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11).v4p" scrollx="45" scrolly="0">
+   <BOUNDS height="6870" left="10725" top="4560" type="Window" width="8625">
    </BOUNDS>
-   <INFO author="vvvv group" description="Draw three axis and three arrows in 3d space to visualize the origin of a coordinate system." tags="coordinate-system, NULL, anchor, 3d">
+   <INFO author="vvvv group" description="draw three axis and three arrows in 3d space to visualize the origin of a coordinate system" tags="coordinate-system, NULL, anchor, 3d">
    </INFO>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="4395" top="840" width="0" height="0">
+   <BOUNDS type="Node" left="6390" top="720" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="4395" top="840" width="480" height="480">
+   <BOUNDS type="Box" left="6390" top="720" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -34,7 +34,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="34.0.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE id="12" systemname="Group (DX11.Layer)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden">
    <BOUNDS type="Node" left="1740" top="5175" width="100" height="100">
@@ -85,7 +85,7 @@
    </PIN>
    <PIN pinname="Y" slicecount="3" values="0,0,0.75">
    </PIN>
-   <PIN pinname="Transform In" slicecount="3" visible="1" values=",,">
+   <PIN pinname="Transform In" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="26">
@@ -104,11 +104,7 @@
    </NODE>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="26" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="8" srcpinname="Transform Out" dstnodeid="26" dstpinname="Transform">
-   </LINK>
    <LINK srcnodeid="25" srcpinname="Transform Out" dstnodeid="8" dstpinname="Transform In">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Layer" dstnodeid="12" dstpinname="Layer 1">
    </LINK>
    <NODE nodename="IOBox (Color)" componentmode="InABox" id="33" systemname="IOBox (Color)">
    <BOUNDS type="Box" left="4230" top="3570" width="390" height="510">
@@ -151,8 +147,6 @@
    <LINK srcnodeid="15" srcpinname="Layer" dstnodeid="12" dstpinname="Layer 2">
    </LINK>
    <LINK srcnodeid="33" srcpinname="Color Output" dstnodeid="15" dstpinname="Color">
-   </LINK>
-   <LINK srcnodeid="25" srcpinname="Transform Out" dstnodeid="15" dstpinname="Transform">
    </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="52">
    <BOUNDS type="Node" left="3900" top="2685" width="100" height="100">
@@ -209,11 +203,59 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Transform In|">
    </PIN>
-   <PIN pinname="Bin Size" slicecount="1" values="3">
-   </PIN>
    </NODE>
    <LINK srcnodeid="55" srcpinname="Output Node" dstnodeid="25" dstpinname="Transform In">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="0.7.2">
    </PACK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="4065" top="2235" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" visible="1" values="1.25">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="56" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4995" top="825" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4995" top="825" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Size">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="57" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Transform Out" dstnodeid="57" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Transform Out" dstnodeid="15" dstpinname="Transform">
+   </LINK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="1215" top="3825" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" visible="1" values="1.25">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Transform Out" dstnodeid="58" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="58" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Transform Out" dstnodeid="26" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Layer" dstnodeid="12" dstpinname="Layer 1">
+   </LINK>
    </PATCH>
