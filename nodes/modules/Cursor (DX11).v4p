@@ -950,8 +950,7 @@
    <BOUNDS type="Node" left="15255" top="2130" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE id="87" nodename="Group (DX11.Layer)" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">

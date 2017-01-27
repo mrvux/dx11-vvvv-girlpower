@@ -214,6 +214,5 @@
    </NODE>
    <LINK srcnodeid="55" srcpinname="Output Node" dstnodeid="25" dstpinname="Transform In">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    </PATCH>

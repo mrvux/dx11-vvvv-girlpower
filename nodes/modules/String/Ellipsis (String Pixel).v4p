@@ -676,6 +676,5 @@
    </NODE>
    <LINK srcnodeid="72" srcpinname="Y Output Value" dstnodeid="58" dstpinname="To">
    </LINK>
-   <PACK Name="DX11" Version="33.0">
-   </PACK>
+   
    </PATCH>

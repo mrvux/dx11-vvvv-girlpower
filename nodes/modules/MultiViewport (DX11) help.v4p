@@ -146,8 +146,7 @@
    </LINK>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Screen Count Y">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    </PATCH>

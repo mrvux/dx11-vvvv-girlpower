@@ -524,8 +524,7 @@
    </LINK>
    <INFO author="" description="Draws the XZ-plane and the three axis to help your sense of orientation within the virtual world." tags="helper, space, coordinate system, virtual world">
    </INFO>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="219" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="14310" top="6420" width="480" height="480">
    </BOUNDS>

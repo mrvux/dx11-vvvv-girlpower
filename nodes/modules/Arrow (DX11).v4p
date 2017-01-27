@@ -346,6 +346,5 @@
    </LINK>
    <LINK srcnodeid="47" srcpinname="Render State" dstnodeid="36" dstpinname="Render State">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    </PATCH>

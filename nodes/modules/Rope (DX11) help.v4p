@@ -440,8 +440,7 @@
    </LINK>
    <LINK srcnodeid="189" srcpinname="Output" dstnodeid="201" dstpinname="Thickness">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <LINK srcnodeid="195" srcpinname="Layer" dstnodeid="194" dstpinname="Layer 3">

@@ -672,8 +672,7 @@
    </LINK>
    <LINK srcnodeid="88" srcpinname="Layer" dstnodeid="121" dstpinname="Layers">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE systemname="Line (DX11 FromTo)" filename="%VVVV%\packs\dx11\nodes\modules\Line (DX11 FromTo).v4p" nodename="Line (DX11 FromTo)" componentmode="Hidden" id="79">

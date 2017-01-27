@@ -450,6 +450,5 @@
    </NODE>
    <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Enabled">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    </PATCH>
