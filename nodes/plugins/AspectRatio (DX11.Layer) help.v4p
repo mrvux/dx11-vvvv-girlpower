@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv\Deploy\Debug\x86\packs\DX11\nodes\plugins\AspectRatio (DX11.Layer) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\AspectRatio (DX11.Layer) help.v4p">
    <BOUNDS type="Window" left="1215" top="1005" width="7830" height="7560">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -33,9 +33,9 @@
    </BOUNDS>
    <BOUNDS type="Window" left="9030" top="1020" width="6120" height="4860">
    </BOUNDS>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -46,18 +46,6 @@
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="1620" top="5250" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="View" dstnodeid="4" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="5" srcpinname="Projection" dstnodeid="4" dstpinname="Projection">
-   </LINK>
    <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="1395" top="2895" width="100" height="100">
    </BOUNDS>
@@ -135,9 +123,9 @@
    </BOUNDS>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="13" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2340" top="6030" width="3570" height="270">
+   <BOUNDS type="Node" left="2565" top="6030" width="3570" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="2340" top="6030" width="3570" height="270">
+   <BOUNDS type="Box" left="2565" top="6030" width="3570" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Change renderer size and it will auto update|">
    </PIN>
@@ -148,4 +136,22 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="1725" top="5520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="2.35">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="View" dstnodeid="4" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Projection" dstnodeid="4" dstpinname="Projection">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

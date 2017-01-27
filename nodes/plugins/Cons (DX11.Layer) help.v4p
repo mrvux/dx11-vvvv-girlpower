@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="D:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Cons (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\Cons (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2115" top="915" width="10155" height="12840">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -33,9 +33,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="None">
    </PIN>
@@ -70,22 +70,6 @@
    <PIN pinname="Layer Out" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="2325" top="9630" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Near Plane" slicecount="1" values="2.5">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="17" srcpinname="View" dstnodeid="20" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Projection" dstnodeid="20" dstpinname="Projection">
-   </LINK>
    <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="3930" top="5505" width="100" height="100">
    </BOUNDS>
@@ -326,4 +310,26 @@
    <LINKPOINT x="2430" y="8933">
    </LINKPOINT>
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="2325" top="9630" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="2.5">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="View" dstnodeid="20" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Projection" dstnodeid="20" dstpinname="Projection">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

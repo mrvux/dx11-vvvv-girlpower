@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="C:\Users\Gianluca\github.com\dx11-vvvv-girlpower\help\nodes\Sphere (DX11.Geometry) help.v4p" systemname="Rasterizer (DX11 RenderState) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Rasterizer (DX11 RenderState) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\Sphere (DX11.Geometry) help.v4p" systemname="Rasterizer (DX11 RenderState) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Rasterizer (DX11 RenderState) help.v4p">
    <BOUNDS height="8550" left="1320" top="1785" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -125,18 +125,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="35" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Resolution Y">
-   </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="36">
-   <BOUNDS type="Node" left="5499" top="6960" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Inital Distance" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.14">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="View" dstnodeid="18" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
    </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="38">
    <BOUNDS type="Node" left="5235" top="5415" width="100" height="100">
@@ -310,4 +298,20 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="5655" top="6975" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Initial Distance" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.14">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="View" dstnodeid="18" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

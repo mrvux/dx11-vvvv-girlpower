@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\GeometryFile (DX11.Geometry Assimp) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\GeometryFile (DX11.Geometry Assimp) help.v4p" systemname="Torus (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Torus (DX11.Geometry) help.v4p" scrollx="0" scrolly="-720">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -21,7 +21,7 @@
    <NODE componentmode="InABox" id="0" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="270" left="15" top="15" type="Node" width="915">
    </BOUNDS>
-   <BOUNDS height="360" left="15" top="15" type="Box" width="4410">
+   <BOUNDS height="390" left="15" top="15" type="Box" width="4860">
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
@@ -51,6 +51,8 @@
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
+   </PIN>
    </NODE>
    <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\directx11\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="19">
    <BOUNDS type="Node" left="4545" top="5550" width="100" height="100">
@@ -71,24 +73,6 @@
    </LINKPOINT>
    <LINKPOINT x="5175" y="6910">
    </LINKPOINT>
-   </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="6429" top="6945" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="50">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
    </LINK>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="46">
    <BOUNDS type="Node" left="3969" top="1215" width="100" height="100">
@@ -164,4 +148,28 @@
    </LINK>
    <LINK srcnodeid="48" srcpinname="Output" dstnodeid="45" dstpinname="Filename">
    </LINK>
+   <NODE id="27" systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden">
+   <BOUNDS type="Node" left="6435" top="6945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="35.01">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Latitude" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

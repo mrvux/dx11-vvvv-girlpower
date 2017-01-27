@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\Cylinder (DX11.Geometry) help.v4p" systemname="Cylinder (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Cylinder (DX11.Geometry) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\Cylinder (DX11.Geometry) help.v4p" systemname="Cylinder (DX11.Geometry) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\Cylinder (DX11.Geometry) help.v4p">
    <BOUNDS height="7440" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -21,11 +21,11 @@
    <NODE componentmode="InABox" id="0" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="270" left="15" top="15" type="Node" width="915">
    </BOUNDS>
-   <BOUNDS height="360" left="15" top="15" type="Box" width="4410">
+   <BOUNDS height="375" left="15" top="15" type="Box" width="3240">
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Cylinder DX11.Geometry|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Cylinder (DX11.Geometry)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -70,30 +70,14 @@
    <LINKPOINT x="4230" y="5035">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="5484" top="5070" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="28">
-   <BOUNDS type="Node" left="5700" top="4455" width="100" height="100">
+   <BOUNDS type="Node" left="5655" top="4500" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Period" slicecount="1" values="20">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
-   </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="29">
    <BOUNDS type="Node" left="6015" top="2265" width="100" height="100">
    </BOUNDS>
@@ -198,4 +182,30 @@
    <LINKPOINT x="3750" y="3338">
    </LINKPOINT>
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="5490" top="5070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="View" dstnodeid="18" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="18" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Longitude">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>
