@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" systemname="Loading_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" scrollx="15" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\06_Loading_Geometry_Overview.v4p" systemname="Loading_Geometry_Overview" filename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\girlpower\Loading_Geometry_Overview.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1455" top="0" width="18600" height="9660">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
@@ -18,7 +18,7 @@
    <PIN pinname="Size" slicecount="1" values="15">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="104">
    <BOUNDS type="Node" left="8505" top="8385" width="100" height="100">
@@ -49,7 +49,7 @@
    </PIN>
    <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Background Color" slicecount="1" values="|0.49861,0.49861,0.49861,1.00000|">
    </PIN>
@@ -234,24 +234,6 @@
    <PIN pinname="String Type" slicecount="1" values="URL">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="265">
-   <BOUNDS type="Node" left="3780" top="7500" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Interest" visible="1">
-   </PIN>
-   <PIN pinname="Inverse View" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="3780" top="7500">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="265" srcpinname="View" dstnodeid="105" dstpinname="View" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="105" dstpinname="Projection" hiddenwhenlocked="1">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="266" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3780" top="6345" width="795" height="720">
    </BOUNDS>
@@ -267,9 +249,9 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="266" srcpinname="Y Output Value" dstnodeid="265" dstpinname="Initial Interest">
-   </LINK>
    <NODE systemname="PhongDirectional (DX11.Effect)" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="35" filename="%VVVV%\packs\dx11\nodes\dx11\PhongDirectional.fx">
    <BOUNDS type="Node" left="1005" top="7500" width="100" height="100">
    </BOUNDS>
@@ -281,7 +263,7 @@
    </PIN>
    <BOUNDS type="Box" left="1005" top="7500">
    </BOUNDS>
-   <PIN pinname="Color" visible="1">
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    <PIN pinname="Geometry" visible="1">
    </PIN>
@@ -415,7 +397,7 @@
    </PIN>
    <BOUNDS type="Box" left="8670" top="7500">
    </BOUNDS>
-   <PIN pinname="Color" visible="1">
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
@@ -461,10 +443,6 @@
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="250" srcpinname="Output" dstnodeid="25" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="265" srcpinname="View" dstnodeid="104" dstpinname="View" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="104" dstpinname="Projection" hiddenwhenlocked="1">
    </LINK>
    <LINK srcnodeid="276" srcpinname="Texture Out" dstnodeid="25" dstpinname="Texture">
    </LINK>
@@ -586,4 +564,34 @@
    </LINK>
    <PACK Name="dx11" Version="33.0">
    </PACK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="265">
+   <BOUNDS type="Node" left="3780" top="7500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Interest" visible="1">
+   </PIN>
+   <PIN pinname="Inverse View" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="3780" top="7500">
+   </BOUNDS>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Initial InterestXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="265" srcpinname="View" dstnodeid="105" dstpinname="View" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="105" dstpinname="Projection" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="266" srcpinname="Y Output Value" dstnodeid="265" dstpinname="Initial Interest">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="View" dstnodeid="104" dstpinname="View" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="265" srcpinname="Projection" dstnodeid="104" dstpinname="Projection" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="266" srcpinname="Y Output Value" dstnodeid="265" dstpinname="Initial InterestXYZ">
+   </LINK>
    </PATCH>

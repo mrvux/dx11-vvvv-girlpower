@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="W:\BoundingBox (DX11.Geometry Transform) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\BoundingBox (DX11.Geometry Transform) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="5040" top="8250" width="7875" height="6225">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -33,9 +33,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
    </PIN>
@@ -75,24 +75,6 @@
    <LINK srcnodeid="7" srcpinname="Output" dstnodeid="5" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Filename">
-   </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="1650" top="4755" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.05">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.125">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="9" srcpinname="View" dstnodeid="4" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="Projection" dstnodeid="4" dstpinname="Projection">
    </LINK>
    <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="10">
    <BOUNDS type="Node" left="705" top="4425" width="4785" height="270">
@@ -160,7 +142,7 @@
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="BoundingBox (DX11.Geometry Transform)" componentmode="Hidden" id="0" systemname="BoundingBox (DX11.Geometry Transform)" filename="BoundingBox (DX11.Geometry Transform).v4p">
    <BOUNDS type="Node" left="1935" top="2985" width="0" height="0">
@@ -171,7 +153,7 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Bin Size" slicecount="1" values="-1" visible="1">
+   <PIN pinname="Bin Size" slicecount="1" visible="1" values="-1">
    </PIN>
    <BOUNDS type="Window" left="11760" top="3540" width="5685" height="8565">
    </BOUNDS>
@@ -241,5 +223,27 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Uniform Scale">
+   </LINK>
+   <NODE id="9" systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1650" top="4755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.05">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.125">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1" slicecount="1" values="0.125">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.05">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Projection" dstnodeid="4" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="View" dstnodeid="4" dstpinname="View">
    </LINK>
    </PATCH>

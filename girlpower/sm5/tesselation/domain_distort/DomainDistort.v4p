@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm5\tesselation\domain_distort\DomainDistort.v4p" filename="C:\Users\utente\Desktop\CubicBézierSpline\CubicBézierSpline_ROOT.v4p" systemname="CubicBézierSpline_ROOT" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm5\tesselation\domain_distort\DomainDistort.v4p" filename="C:\Users\utente\Desktop\CubicBézierSpline\CubicBézierSpline_ROOT.v4p" systemname="CubicBézierSpline_ROOT" locked="0">
    <BOUNDS height="11700" left="315" top="0" type="Window" width="13125">
    </BOUNDS>
    <NODE componentmode="Hidden" id="35" nodename="Timing (Debug)" systemname="Timing (Debug)">
@@ -211,7 +211,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Integrate (Differential)" nodename="Integrate (Differential)" componentmode="Hidden" id="193">
-   <BOUNDS type="Node" left="2760" top="8385" width="100" height="100">
+   <BOUNDS type="Node" left="2700" top="8475" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Position Out" visible="1">
    </PIN>
@@ -277,9 +277,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="252" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3165" top="7830" width="0" height="0">
+   <BOUNDS type="Node" left="3000" top="7890" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3165" top="7830" width="795" height="240">
+   <BOUNDS type="Box" left="3000" top="7890" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="40">
    </PIN>
@@ -424,38 +424,6 @@
    </LINK>
    <LINK srcnodeid="182" srcpinname="Transform Out" dstnodeid="126" dstpinname="Transform In">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="191">
-   <BOUNDS type="Node" left="2535" top="9045" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" visible="1">
-   </PIN>
-   <PIN pinname="Initial Pitch" visible="1" slicecount="1" values="6.49127765413787">
-   </PIN>
-   <PIN pinname="Initial Yaw" visible="1">
-   </PIN>
-   <PIN pinname="Near Plane" slicecount="1" values="0.1">
-   </PIN>
-   <PIN pinname="Initial FOV" slicecount="1" values="0.26">
-   </PIN>
-   <PIN pinname="Mouse" visible="1">
-   </PIN>
-   <PIN pinname="Keyboard" visible="1">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="100">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="252" srcpinname="Y Output Value" dstnodeid="191" dstpinname="Inital Distance">
-   </LINK>
-   <LINK srcnodeid="191" srcpinname="View" dstnodeid="258" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="191" srcpinname="Projection" dstnodeid="258" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="193" srcpinname="Position Out" dstnodeid="191" dstpinname="Initial Yaw">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="269" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="7875" top="4050" width="0" height="0">
    </BOUNDS>
@@ -502,4 +470,44 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="191">
+   <BOUNDS type="Node" left="2535" top="9045" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" visible="1" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Initial Pitch" visible="1" slicecount="1" values="6.49127765413787">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Initial FOV" slicecount="1" values="0.26">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="100">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="6.49127765413787">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="252" srcpinname="Y Output Value" dstnodeid="191" dstpinname="Initial Distance">
+   </LINK>
+   <LINK srcnodeid="191" srcpinname="View" dstnodeid="258" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="191" srcpinname="Projection" dstnodeid="258" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="193" srcpinname="Position Out" dstnodeid="191" dstpinname="Initial Yaw">
+   </LINK>
+   <LINK srcnodeid="193" srcpinname="Position Out" dstnodeid="191" dstpinname="Initial Longitude">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

@@ -1,21 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\ConstantInstanced (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\dx11\ConstantInstanced (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
-   <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="3900" top="7170" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="400">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="6.18">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="81" nodename="Translate (Transform)" systemname="Translate (Transform)">
    <BOUNDS height="100" left="2595" top="3150" type="Node" width="100">
    </BOUNDS>
@@ -89,9 +75,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
    </PIN>
@@ -108,10 +94,6 @@
    <PIN pinname="Mouse State" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="195" dstpinname="View" srcnodeid="56" srcpinname="View">
-   </LINK>
-   <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
-   </LINK>
    <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="234">
    <BOUNDS type="Node" left="822" top="4785" width="100" height="100">
    </BOUNDS>
@@ -340,4 +322,24 @@
    </LINK>
    <LINK srcnodeid="244" srcpinname="Output" dstnodeid="238" dstpinname="Data">
    </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="3900" top="7170" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="400">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="6.18">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="195" dstpinname="View" srcnodeid="56" srcpinname="View">
+   </LINK>
+   <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm4\depthprepass\DepthPrepass.v4p" systemname="MeshTest" filename="C:\Users\vux\Desktop\MeshTest.v4p" scrollx="15" scrolly="360">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm4\depthprepass\DepthPrepass.v4p" systemname="MeshTest" filename="C:\Users\vux\Desktop\MeshTest.v4p" scrollx="15" scrolly="3240">
    <BOUNDS type="Window" left="0" top="645" width="12690" height="10155">
    </BOUNDS>
    <NODE systemname="GouraudBatch (DX11.Effect)" filename="GouraudBatch.fx" nodename="GouraudBatch (DX11.Effect)" componentmode="Hidden" id="22">
@@ -218,18 +218,6 @@
    </LINK>
    <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="55" dstpinname="Geometry In">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="5100" top="9930" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Keyboard" visible="1">
-   </PIN>
-   <PIN pinname="Mouse" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="60" systemname="IOBox (String)">
    <BOUNDS type="Node" left="210" top="30" width="4275" height="270">
    </BOUNDS>
@@ -311,9 +299,9 @@
    </BOUNDS>
    <BOUNDS type="Window" left="13695" top="600" width="6240" height="5085">
    </BOUNDS>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -324,10 +312,6 @@
    <PIN pinname="Query" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="21" srcpinname="View" dstnodeid="115" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="115" dstpinname="Projection">
-   </LINK>
    <NODE systemname="DepthOnly (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DepthOnly (DX11.Layer)" componentmode="Hidden" id="116">
    <BOUNDS type="Node" left="5025" top="7650" width="100" height="100">
    </BOUNDS>
@@ -660,4 +644,24 @@
    <LINKPOINT x="7245" y="8670">
    </LINKPOINT>
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="5250" top="10110" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="View" dstnodeid="115" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="115" dstpinname="Projection">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\09_Layers_Overview.v4p" systemname="09_Layers_Overview" filename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\09_Layers_Overview.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\11_Layer_Overview.v4p" systemname="09_Layers_Overview" filename="C:\Users\vvvv_2\Desktop\NODE15\dx11-vvvv-girlpower-joregs\girlpower\09_Layers_Overview.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="840" top="0" width="15240" height="9510">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="90" systemname="IOBox (String)">
@@ -18,7 +18,7 @@
    <PIN pinname="Size" slicecount="1" values="15">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="210" systemname="IOBox (String)">
    <BOUNDS type="Node" left="630" top="855" width="7230" height="270">
@@ -142,22 +142,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="239">
-   <BOUNDS type="Node" left="3045" top="7515" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.21">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.08">
-   </PIN>
-   <BOUNDS type="Box" left="3045" top="7515">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="238">
    <BOUNDS type="Node" left="1770" top="8070" width="100" height="100">
    </BOUNDS>
@@ -173,13 +157,9 @@
    </PIN>
    <PIN pinname="Background Color" slicecount="1" values="|0.39657,0.39657,0.39657,1.00000|">
    </PIN>
-   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
    </PIN>
    </NODE>
-   <LINK srcnodeid="239" srcpinname="View" dstnodeid="238" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="239" srcpinname="Projection" dstnodeid="238" dstpinname="Projection">
-   </LINK>
    <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="240">
    <BOUNDS type="Node" left="1920" top="6675" width="100" height="100">
    </BOUNDS>
@@ -233,7 +213,7 @@
    <LINK srcnodeid="243" srcpinname="Geometry Out" dstnodeid="245" dstpinname="Geometry">
    </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="246">
-   <BOUNDS type="Node" left="3255" top="7050" width="100" height="100">
+   <BOUNDS type="Node" left="3225" top="7050" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -242,8 +222,6 @@
    <PIN pinname="Reverse" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="246" srcpinname="Output" dstnodeid="239" dstpinname="Initial Yaw">
-   </LINK>
    <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="247">
    <BOUNDS type="Node" left="4860" top="4515" width="100" height="100">
    </BOUNDS>
@@ -294,6 +272,10 @@
    <PIN pinname="Window Handle" pintype="Output">
    </PIN>
    <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="Preserve Aspect" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Preserve Crop" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="241" srcpinname="Layer Out" dstnodeid="240" dstpinname="Layer 3">
@@ -369,13 +351,15 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="259">
-   <BOUNDS type="Node" left="8040" top="8070" width="100" height="100">
+   <BOUNDS type="Node" left="7890" top="8070" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8040" top="8070" width="6000" height="4500">
+   <BOUNDS type="Box" left="7890" top="8070" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="7695" top="9540" width="6240" height="5085">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
    </PIN>
    </NODE>
    <LINK srcnodeid="257" srcpinname="Layer Out" dstnodeid="259" dstpinname="Layers">
@@ -537,5 +521,31 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="270" srcpinname="Y Output Value" dstnodeid="262" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="239">
+   <BOUNDS type="Node" left="3045" top="7515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.21">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.08">
+   </PIN>
+   <BOUNDS type="Box" left="3045" top="7515">
+   </BOUNDS>
+   <PIN pinname="Initial Longitude" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="239" srcpinname="View" dstnodeid="238" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="239" srcpinname="Projection" dstnodeid="238" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="246" srcpinname="Output" dstnodeid="239" dstpinname="Initial Yaw">
+   </LINK>
+   <LINK srcnodeid="246" srcpinname="Output" dstnodeid="239" dstpinname="Initial Longitude">
    </LINK>
    </PATCH>

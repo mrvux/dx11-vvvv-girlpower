@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\geometry_shaders\PerFaceNormals_TSize\GS_PerFaceNormals_TSize.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm4\geometry_shaders\PerFaceNormals_TSize\GS_PerFaceNormals_TSize.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
    <BOUNDS height="8835" left="1920" top="1350" type="Window" width="7935">
    </BOUNDS>
    <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
@@ -61,7 +61,7 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Scale XYZ" slicecount="20" values="0.3,0.3,0.3" visible="1">
+   <PIN pinname="Scale XYZ" slicecount="20" visible="1" values="0.3,0.3,0.3">
    </PIN>
    <PIN pinname="Rotate XYZ" slicecount="3" values="-0.7,-0.7,-0.7">
    </PIN>
@@ -123,30 +123,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="253" srcpinname="Geometry Out" dstnodeid="251" dstpinname="Input 3">
-   </LINK>
-   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="3345" top="7395" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="400">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="10">
-   </PIN>
-   <PIN pinname="Keyboard" visible="1">
-   </PIN>
-   <PIN pinname="Mouse" visible="1">
-   </PIN>
-   <PIN pinname="Near Plane" slicecount="1" values="0.1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="56" srcpinname="View" dstnodeid="195" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="254" systemname="IOBox (String)">
    <BOUNDS type="Node" left="90" top="120" width="3480" height="270">
@@ -250,4 +226,30 @@
    </LINK>
    <LINK srcnodeid="258" srcpinname="Output" dstnodeid="247" dstpinname="Scale XYZ">
    </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="3345" top="7395" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="400">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

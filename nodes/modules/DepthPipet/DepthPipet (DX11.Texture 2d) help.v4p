@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="W:\share\pack_updates2\modules\DepthPipet\DepthPipet (DX11.Texture 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\DepthPipet\DepthPipet (DX11.Texture 2d) help.v4p">
    <BOUNDS type="Window" left="11490" top="0" width="11385" height="12825">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -24,7 +24,7 @@
    <PIN pinname="Output String" visible="0">
    </PIN>
    </NODE>
-   <NODE systemname="Mouse (System Window)" filename="%VVVV%\lib\nodes\modules\System\Mouse (System Window).v4p" nodename="Mouse (System Window)" componentmode="Hidden" id="36">
+   <NODE systemname="Mouse (System Window Legacy2)" filename="%VVVV%\lib\nodes\modules\System\Mouse (System Window).v4p" nodename="Mouse (System Window)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="7470" top="1710" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
@@ -115,7 +115,7 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Input Node">
+   <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="61" systemname="IOBox (Node)">
@@ -131,27 +131,13 @@
    </PIN>
    </NODE>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="4440" top="1500" width="100" height="100">
+   <BOUNDS type="Node" left="4380" top="1455" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Period" slicecount="1" values="16">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="59">
-   <BOUNDS type="Node" left="4230" top="1875" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Inital Distance" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="1000">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="59" srcpinname="View" dstnodeid="62" dstpinname="Input Node" linkstyle="PolyLine">
-   </LINK>
    <NODE systemname="Translate (Transform Vector)" nodename="Translate (Transform Vector)" componentmode="Hidden" id="58">
    <BOUNDS type="Node" left="1890" top="1920" width="100" height="100">
    </BOUNDS>
@@ -211,7 +197,7 @@
    </PIN>
    <PIN pinname="Show Cursor" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
@@ -235,7 +221,7 @@
    </PIN>
    <PIN pinname="Depth Buffer" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
@@ -274,7 +260,7 @@
    </LINK>
    <LINK srcnodeid="61" srcpinname="Output Node" dstnodeid="52" dstpinname="Projection">
    </LINK>
-   <NODE systemname="FrameDelay (Animation)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="47">
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="47">
    <BOUNDS type="Node" left="1575" top="10530" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
@@ -385,7 +371,7 @@
    </BOUNDS>
    <PIN pinname="Depth Buffer" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
@@ -485,15 +471,13 @@
    <NODE systemname="Multiply (Transform)" nodename="Multiply (Transform)" componentmode="Hidden" id="78">
    <BOUNDS type="Node" left="5025" top="2760" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Transform In 1" visible="1">
+   <PIN pinname="Transform In 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform In 2" visible="1">
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Projection" dstnodeid="78" dstpinname="Transform In 1">
-   </LINK>
    <LINK srcnodeid="78" srcpinname="Transform Out" dstnodeid="61" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="39" srcpinname="X" dstnodeid="41" dstpinname="Aspect Height">
@@ -633,7 +617,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5520" top="6735" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" values="0,0.25,0">
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -655,7 +639,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6000" top="6750" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" values="0.25,0,0">
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -804,8 +788,6 @@
    </LINK>
    <LINK srcnodeid="109" srcpinname="Y Output Value" dstnodeid="124" dstpinname="XYZ">
    </LINK>
-   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="59" dstpinname="Initial Yaw">
-   </LINK>
    <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="37" dstpinname="XY">
    </LINK>
    <LINK srcnodeid="41" srcpinname="Transform Out" dstnodeid="78" dstpinname="Transform In 2">
@@ -829,7 +811,7 @@
    </PIN>
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="65" dstpinname="Depth Buffer">
@@ -854,4 +836,28 @@
    </LINK>
    <LINK srcnodeid="35" srcpinname="XY" dstnodeid="21" dstpinname="Y Input Value">
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="4230" top="1875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Initial Distance" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="1000">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="View" dstnodeid="62" dstpinname="Input Node" linkstyle="PolyLine">
+   </LINK>
+   <LINK srcnodeid="59" srcpinname="Projection" dstnodeid="78" dstpinname="Transform In 1">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="59" dstpinname="Initial Yaw">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="59" dstpinname="Initial Longitude">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

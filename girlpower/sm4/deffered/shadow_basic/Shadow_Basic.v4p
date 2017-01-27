@@ -1,21 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.5.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\girlpower\sm4\deffered\shadow_basic\Shadow_Basic.v4p" systemname="CookTest" filename="D:\vvvv\vvvv_dx11_dev\CookTest.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm4\deffered\shadow_basic\Shadow_Basic.v4p" systemname="CookTest" filename="D:\vvvv\vvvv_dx11_dev\CookTest.v4p" scrollx="0" scrolly="-1065">
    <BOUNDS type="Window" left="990" top="825" width="11775" height="9795">
    </BOUNDS>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="132">
-   <BOUNDS type="Node" left="4650" top="5265" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="3.54">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.34">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.01">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (DX11 MRT)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 MRT)" componentmode="Hidden" id="134">
    <BOUNDS type="Node" left="1875" top="6735" width="100" height="100">
    </BOUNDS>
@@ -25,9 +11,9 @@
    </PIN>
    <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Buffers" visible="1">
    </PIN>
@@ -67,18 +53,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="136" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Texture SizeXY">
-   </LINK>
-   <LINK srcnodeid="132" srcpinname="View" dstnodeid="134" dstpinname="View" linkstyle="Bezier">
-   <LINKPOINT x="4800" y="6128">
-   </LINKPOINT>
-   <LINKPOINT x="3810" y="6128">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="132" srcpinname="Projection" dstnodeid="134" dstpinname="Projection" linkstyle="Bezier">
-   <LINKPOINT x="4950" y="6128">
-   </LINKPOINT>
-   <LINKPOINT x="3960" y="6128">
-   </LINKPOINT>
    </LINK>
    <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="139">
    <BOUNDS type="Node" left="4545" top="2625" width="100" height="100">
@@ -255,17 +229,11 @@
    <NODE systemname="Inverse (Transform)" nodename="Inverse (Transform)" componentmode="Hidden" id="150">
    <BOUNDS type="Node" left="5370" top="7575" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Source" visible="1">
+   <PIN pinname="Source" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="132" srcpinname="View" dstnodeid="150" dstpinname="Source" linkstyle="Bezier">
-   <LINKPOINT x="4875" y="6555">
-   </LINKPOINT>
-   <LINKPOINT x="5910" y="6555">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="154">
    <BOUNDS type="Node" left="8190" top="1905" width="100" height="100">
    </BOUNDS>
@@ -315,12 +283,6 @@
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="145" srcpinname="Output" dstnodeid="131" dstpinname="Transform In">
-   </LINK>
-   <LINK srcnodeid="131" srcpinname="Layer" dstnodeid="148" dstpinname="Layer In" linkstyle="Bezier">
-   <LINKPOINT x="5340" y="5210">
-   </LINKPOINT>
-   <LINKPOINT x="6930" y="5230">
-   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="155" srcpinname="Output" dstnodeid="131" dstpinname="Color" linkstyle="Bezier">
    <LINKPOINT x="8175" y="3125">
@@ -390,12 +352,6 @@
    <LINKPOINT x="5375" y="9883">
    </LINKPOINT>
    <LINKPOINT x="4780" y="10443">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="132" srcpinname="Projection" dstnodeid="149" dstpinname="tP" linkstyle="Bezier">
-   <LINKPOINT x="4985" y="8728">
-   </LINKPOINT>
-   <LINKPOINT x="5050" y="9288">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="156" systemname="IOBox (Value Advanced)">
@@ -526,4 +482,98 @@
    </LINK>
    <LINK srcnodeid="164" srcpinname="Transform Out" dstnodeid="149" dstpinname="tLVP">
    </LINK>
+   <LINK srcnodeid="131" srcpinname="Layer" dstnodeid="148" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="5340" y="5210">
+   </LINKPOINT>
+   <LINKPOINT x="6930" y="5230">
+   </LINKPOINT>
+   </LINK>
+   <NODE id="132" systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <PIN pinname="Near Plane" slicecount="1" visible="1" pintype="Input" values="0.05">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" visible="1" pintype="Input" values="100">
+   </PIN>
+   <PIN pinname="Initial FOV" slicecount="1" visible="1" pintype="Input" values="0.2">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" visible="1" pintype="Input" values="3.08">
+   </PIN>
+   <PIN pinname="Initial Latitude" slicecount="1" visible="1" pintype="Input" values="0.34">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1" slicecount="1" pintype="Input" values="0.01">
+   </PIN>
+   <BOUNDS type="Node" left="4635" top="6165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Projection" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.34">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.01">
+   </PIN>
+   <BOUNDS type="Box" left="0" top="0" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4095" top="2070" width="14190" height="12405">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Initial InterestXYZ" pintype="Input" visible="1" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Camera Controls" pintype="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Reset" pintype="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enabled" pintype="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Evaluate" pintype="Input" visible="-1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Patch" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="Camera State" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Inverse View" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="PositionXYZ" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="InterestXYZ" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="FOV" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Distance" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Idle" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="132" srcpinname="Projection" dstnodeid="149" dstpinname="tP" linkstyle="Bezier">
+   <LINKPOINT x="4975" y="9328">
+   </LINKPOINT>
+   <LINKPOINT x="5045" y="9588">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="View" dstnodeid="150" dstpinname="Source" linkstyle="Bezier">
+   <LINKPOINT x="4865" y="7155">
+   </LINKPOINT>
+   <LINKPOINT x="5905" y="6855">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="Projection" dstnodeid="134" dstpinname="Projection" linkstyle="Bezier">
+   <LINKPOINT x="4940" y="6728">
+   </LINKPOINT>
+   <LINKPOINT x="3955" y="6428">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="View" dstnodeid="134" dstpinname="View" linkstyle="Bezier">
+   <LINKPOINT x="4790" y="6728">
+   </LINKPOINT>
+   <LINKPOINT x="3805" y="6428">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>
