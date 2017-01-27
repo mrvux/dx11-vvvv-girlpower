@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\ColorAndDepth\ColorAndDepth (DX11.Layer) help.v4p" scrollx="0" scrolly="-360">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\ColorAndDepth\ColorAndDepth (DX11.Layer) help.v4p">
    <BOUNDS type="Window" left="7065" top="6780" width="6240" height="7950">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -49,7 +49,7 @@
    </PIN>
    </NODE>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="25">
-   <BOUNDS type="Node" left="3960" top="1380" width="100" height="100">
+   <BOUNDS type="Node" left="3960" top="1395" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -362,7 +362,7 @@
    </NODE>
    <LINK srcnodeid="50" srcpinname="Color Output" dstnodeid="30" dstpinname="Color">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="24">
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\vvvv-private\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="24">
    <BOUNDS type="Node" left="3795" top="1785" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Initial Distance" slicecount="1" values="4">
@@ -380,6 +380,8 @@
    </LINK>
    <LINK srcnodeid="25" srcpinname="Output" dstnodeid="24" dstpinname="Initial Longitude">
    </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    </PATCH>

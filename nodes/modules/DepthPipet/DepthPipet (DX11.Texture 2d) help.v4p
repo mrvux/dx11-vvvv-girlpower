@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\DepthPipet\DepthPipet (DX11.Texture 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\DepthPipet\DepthPipet (DX11.Texture 2d) help.v4p">
    <BOUNDS type="Window" left="11490" top="0" width="11385" height="12825">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -24,28 +24,6 @@
    <PIN pinname="Output String" visible="0">
    </PIN>
    </NODE>
-   <NODE systemname="Mouse (System Window Legacy2)" filename="%VVVV%\lib\nodes\modules\System\Mouse (System Window).v4p" nodename="Mouse (System Window)" componentmode="Hidden" id="36">
-   <BOUNDS type="Node" left="7470" top="1710" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="35">
-   <BOUNDS type="Node" left="7605" top="2115" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="X" dstnodeid="35" dstpinname="X" linkstyle="PolyLine">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Y" dstnodeid="35" dstpinname="Y" linkstyle="PolyLine">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="10065" top="4215" width="480" height="480">
    </BOUNDS>
@@ -91,7 +69,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7620" top="3180" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" visible="1">
+   <PIN pinname="Y Input Value" visible="1" slicecount="2" values="0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -131,7 +109,7 @@
    </PIN>
    </NODE>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="4380" top="1455" width="100" height="100">
+   <BOUNDS type="Node" left="4395" top="1440" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -811,7 +789,7 @@
    </PIN>
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   <PIN pinname="Transform In" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="65" dstpinname="Depth Buffer">
@@ -834,9 +812,7 @@
    </NODE>
    <LINK srcnodeid="47" srcpinname="Output 1" dstnodeid="44" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="35" srcpinname="XY" dstnodeid="21" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="59">
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\vvvv-private\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="59">
    <BOUNDS type="Node" left="4230" top="1875" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Initial Distance" slicecount="1" values="4">
@@ -858,6 +834,20 @@
    </LINK>
    <LINK srcnodeid="60" srcpinname="Output" dstnodeid="59" dstpinname="Initial Longitude">
    </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
+   <NODE id="36" systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden">
+   <BOUNDS type="Node" left="7470" top="1710" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="PositionXY" dstnodeid="21" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>

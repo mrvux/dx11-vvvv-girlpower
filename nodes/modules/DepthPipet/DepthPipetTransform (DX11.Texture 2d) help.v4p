@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\DepthPipet\DepthPipetTransform (DX11.Texture 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\DepthPipet\DepthPipetTransform (DX11.Texture 2d) help.v4p">
    <BOUNDS type="Window" left="8880" top="375" width="11535" height="12525">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -24,28 +24,6 @@
    <PIN pinname="Output String" visible="0">
    </PIN>
    </NODE>
-   <NODE systemname="Mouse (System Window Legacy2)" filename="%VVVV%\lib\nodes\modules\System\Mouse (System Window).v4p" nodename="Mouse (System Window)" componentmode="Hidden" id="59">
-   <BOUNDS type="Node" left="7095" top="2250" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="58">
-   <BOUNDS type="Node" left="7230" top="2655" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="59" srcpinname="X" dstnodeid="58" dstpinname="X" linkstyle="PolyLine">
-   </LINK>
-   <LINK srcnodeid="59" srcpinname="Y" dstnodeid="58" dstpinname="Y" linkstyle="PolyLine">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="10095" top="3975" width="480" height="480">
    </BOUNDS>
@@ -131,7 +109,7 @@
    </PIN>
    </NODE>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="48">
-   <BOUNDS type="Node" left="4410" top="1215" width="100" height="100">
+   <BOUNDS type="Node" left="4425" top="1230" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -477,7 +455,7 @@
    </PIN>
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   <PIN pinname="Transform In" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="33" srcpinname="Output Node" dstnodeid="5" dstpinname="Depth Buffer">
@@ -682,11 +660,21 @@
    </LINK>
    <LINK srcnodeid="76" srcpinname="Output" dstnodeid="75" dstpinname="Input Node">
    </LINK>
-   <LINK srcnodeid="58" srcpinname="XY" dstnodeid="51" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="32" dstpinname="XY">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="47">
+   <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="7095" top="2250" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="PositionXY" dstnodeid="51" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\vvvv-private\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="47">
    <BOUNDS type="Node" left="4260" top="1635" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Initial Distance" slicecount="1" values="4">
@@ -708,6 +696,8 @@
    </LINK>
    <LINK srcnodeid="48" srcpinname="Output" dstnodeid="47" dstpinname="Initial Longitude">
    </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    </PATCH>
