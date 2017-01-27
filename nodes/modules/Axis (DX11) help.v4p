@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.dtd" >
-   <PATCH nodename="C:\Users\joreg\Documents\repos\dx11-vvvv-girlpower\nodes\modules\Axis (DX11) help.v4p" componentmode="InAWindow" systemname="Axis (DX11) help" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11) help.v4p">
-   <BOUNDS height="5550" left="480" top="1800" type="Window" width="6030">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Axis (DX11) help.v4p" componentmode="InAWindow" systemname="Axis (DX11) help" filename="C:\Users\colors1\Desktop\Axis (DX11)\Axis (DX11) help.v4p">
+   <BOUNDS height="5550" left="705" top="1845" type="Window" width="6030">
    </BOUNDS>
    <NODE componentmode="InABox" id="4" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="255" left="255" top="525" type="Node" width="570">
@@ -32,52 +32,18 @@
    <PIN pinname="Size" slicecount="1" values="12">
    </PIN>
    </NODE>
-   <NODE id="1" nodename="Perspective (Transform)" systemname="Perspective (Transform)">
-   <BOUNDS height="0" left="2115" top="3135" type="Node" width="0">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="FOV" slicecount="1" values="0.08">
-   </PIN>
-   </NODE>
-   <NODE id="5" nodename="Rotate (Transform)" systemname="Rotate (Transform)">
-   <BOUNDS height="0" left="1965" top="2475" type="Node" width="0">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="X" slicecount="1" values="0.08">
-   </PIN>
-   <PIN pinname="Y" slicecount="1" values="0.32">
-   </PIN>
-   <PIN pinname="Transform In" visible="1">
-   </PIN>
-   <PIN pinname="Z" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE id="6" nodename="Translate (Transform)" systemname="Translate (Transform)">
-   <BOUNDS height="0" left="1965" top="1995" type="Node" width="0">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="Z" slicecount="1" values="5.16999999999999">
-   </PIN>
-   <PIN pinname="X" slicecount="1" values="-0.08">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="5" dstpinname="Transform In" srcnodeid="6" srcpinname="Transform Out">
-   </LINK>
    <NODE componentmode="Hidden" id="7" nodename="Axis (DX11)" systemname="Axis (DX11)" filename="Axis (DX11).v4p">
-   <BOUNDS height="100" left="870" top="2460" type="Node" width="100">
+   <BOUNDS height="100" left="1500" top="2010" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="3600" left="870" top="2460" type="Box" width="4800">
+   <BOUNDS height="3600" left="1500" top="2010" type="Box" width="4800">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <BOUNDS height="6870" left="3285" top="8055" type="Window" width="5610">
+   <BOUNDS height="6870" left="1695" top="2955" type="Window" width="5610">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   <PIN pinname="Size" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="8">
@@ -97,15 +63,53 @@
    </PIN>
    <PIN pinname="Layers" visible="1">
    </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="5" srcpinname="Transform Out" dstnodeid="8" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Transform Out" dstnodeid="8" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="Layer Out" dstnodeid="8" dstpinname="Layers">
-   </LINK>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="0.7.2">
    </PACK>
-   <PACK Name="addonpack" Version="34.0.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\vvvv-private\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="1935" top="3075" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Longitude" slicecount="1" values="0.07">
+   </PIN>
+   <PIN pinname="Initial Latitude" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="View" dstnodeid="8" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Projection" dstnodeid="8" dstpinname="Projection">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10">
+   <BOUNDS type="Box" left="1875" top="1530" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1875" top="1530" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.6">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Size">
+   </LINK>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="840" top="2610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Layer Out" dstnodeid="11" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Layer Out" dstnodeid="8" dstpinname="Layers">
+   </LINK>
    </PATCH>
