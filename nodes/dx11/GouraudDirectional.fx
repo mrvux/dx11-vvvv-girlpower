@@ -48,9 +48,8 @@ cbuffer cbPerDraw : register(b0)
 
 cbuffer cbPerObj : register( b1 )
 {
-	float4x4 tW : WORLD;
-	float4x4 tWV: WORLDVIEW;
-	float4x4 tWIT: WORLDINVERSETRANSPOSE;
+	float4x4 tWV: WORLDLAYERVIEW;
+	float4x4 tWIT: WORLDLAYERINVERSETRANSPOSE;
 	
 	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
 	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
