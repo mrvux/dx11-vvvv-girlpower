@@ -1,0 +1,185 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\SceneExplorer (Assimp) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="3075" top="2085" width="15030" height="10425">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|SceneExplorer (Assimp)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Small ui node to browse scene content, also whows invalid meshes, and shows warning if mesh has no uvs|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="SceneExplorer (Assimp)" componentmode="InAWindow" id="0" systemname="SceneExplorer (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll">
+   <BOUNDS type="Node" left="6555" top="4275" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6555" top="4275" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="17925" top="6705" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="World Transform" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Id" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="SceneFile (DX11.Geometry Assimp)" componentmode="Hidden" id="11" systemname="SceneFile (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll">
+   <BOUNDS type="Node" left="1590" top="3480" width="765" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1590" top="3480" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="1" values="..\..\..\..\lib\assets\geometries\astroBoy_walk.dae">
+   </PIN>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="Reload" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Preload Data" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Mesh Count" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="10">
+   <BOUNDS type="Node" left="2055" top="7305" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2055" top="7305" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17640" top="1650" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="WriteOnly">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="1620" top="2310" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="1605" top="2865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="lib\assets\geometries\astroBoy_walk.dae">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Output" dstnodeid="8" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2235" top="6090" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Technique" slicecount="1" values="GouraudDirectionalNotexture">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Layer" dstnodeid="10" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="3330" top="6690" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="26.83">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="-0.2">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="View" dstnodeid="10" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Projection" dstnodeid="10" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Output" dstnodeid="11" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1605" top="4590" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1605" top="4590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Scene">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Scene" dstnodeid="4" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Scene" dstnodeid="0" dstpinname="Scene">
+   </LINK>
+   <NODE id="6" systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="1590" top="5175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Scene" visible="1" slicecount="1" pintype="Input" values="||">
+   </PIN>
+   <BOUNDS type="Box" left="825" top="0" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output">
+   </PIN>
+   <PIN pinname="Bone Matrices" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Bone Names" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Bone Names Bin Size" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Bone Matrices Bin Size" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Bounding MinXYZ" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Bounding MaxXYZ" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Material Index" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="6" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="7" dstpinname="Geometry">
+   </LINK>
+   </PATCH>
