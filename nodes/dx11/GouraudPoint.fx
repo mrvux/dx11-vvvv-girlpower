@@ -49,9 +49,9 @@ cbuffer cbPerDraw : register(b0)
 
 cbuffer cbPerObj : register( b1 )
 {
-	float4x4 tW : WORLD;
-	float4x4 tWV: WORLDVIEW;
-	float4x4 tWIT: WORLDINVERSETRANSPOSE;
+	float4x4 tW : WORLDLAYER;
+	float4x4 tWLV: WORLDLAYERVIEW;
+	float4x4 tWIT: WORLDLAYERINVERSETRANSPOSE;
 	
 	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
 	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
@@ -101,7 +101,7 @@ psInputTextured VS_Textured(vsInputTextured input)
     float3 NormV = normalize(mul(mul(input.normalObject.xyz, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //view direction = inverse vertexposition in viewspace
-    float4 PosV = mul(input.posObject, tWV);
+    float4 PosV = mul(input.posObject, tWLV);
     float3 ViewDirV = normalize(-PosV.xyz);
     //halfvector
     float3 H = normalize(ViewDirV + LightDirV);
@@ -155,7 +155,7 @@ psInput VS(vsInput input)
     float3 NormV = normalize(mul(mul(input.normalObject.xyz, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //view direction = inverse vertexposition in viewspace
-    float4 PosV = mul(input.posObject, tWV);
+    float4 PosV = mul(input.posObject, tWLV);
     float3 ViewDirV = normalize(-PosV.xyz);
     //halfvector
     float3 H = normalize(ViewDirV + LightDirV);

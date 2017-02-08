@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="E:\vvvv\vvvv_45beta31_x86\packs\DX11\nodes\plugins\Dispatcher (DX11.Drawer) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\Dispatcher (DX11.Drawer) help.v4p">
    <BOUNDS type="Window" left="1575" top="1410" width="10305" height="6975">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -19,7 +19,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="150" top="555" width="5090" height="555">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Dispatcher is used in order to send data to a compute shader only.|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Dispatcher is used in order to set compute shader group parameters for execution (dispatch)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>

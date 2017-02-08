@@ -1,0 +1,527 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\girlpower\misc\custom_semantics\CustomSemantics_Example.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
+   <BOUNDS height="9780" left="1170" top="2265" type="Window" width="17475">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="RENDERER (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <BOUNDS height="270" left="2424" top="7644" type="Node" width="1800">
+   </BOUNDS>
+   <BOUNDS height="4500" left="2424" top="7644" type="Box" width="6000">
+   </BOUNDS>
+   <BOUNDS height="4665" left="18510" top="2265" type="Window" width="6360">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="AA Quality" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="239" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="90" top="120" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="825" left="90" top="120" type="Box" width="5535">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Show how to use various semantics, to specify variables for all shaders|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="240">
+   <BOUNDS type="Node" left="1995" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="240" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers" linkstyle="VHV">
+   <LINKPOINT x="2055" y="7425">
+   </LINKPOINT>
+   <LINKPOINT x="2565" y="7425">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Constant_Semantic_Float (DX11.Effect)" filename="Constant_Semantic_Float.fx" nodename="Constant_Semantic_Float (DX11.Effect)" componentmode="Hidden" id="235">
+   <BOUNDS type="Node" left="600" top="2490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="5" values="|0.34500,0.65500,0.51463,1.00000|,|0.34500,0.40604,0.65500,1.00000|,|0.34500,0.63237,0.65500,1.00000|,|0.34500,0.65500,0.37728,1.00000|,|0.34500,0.65500,0.59870,1.00000|">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Render">
+   </PIN>
+   </NODE>
+   <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="243">
+   <BOUNDS type="Node" left="1245" top="1185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Inner Radius" slicecount="1" values="0.47">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="Geometry Out" dstnodeid="235" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="244">
+   <BOUNDS type="Node" left="1890" top="1770" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Lightness" slicecount="1" values="0.5">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="244" srcpinname="Output" dstnodeid="235" dstpinname="Color">
+   </LINK>
+   <NODE systemname="RenderSemantic (DX11.Layer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="RenderSemantic (DX11.Layer Value)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="4545" top="4830" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Semantic" slicecount="1" values="BRIGHTNESS">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" visible="1" values="0.27">
+   </PIN>
+   <PIN pinname="Mandatory" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Semantics (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Semantics (DX11.Layer)" componentmode="Hidden" id="246">
+   <BOUNDS type="Node" left="2325" top="5460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Custom Semantics" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="245" srcpinname="Output" dstnodeid="246" dstpinname="Custom Semantics" linkstyle="Bezier">
+   <LINKPOINT x="4400" y="5260">
+   </LINKPOINT>
+   <LINKPOINT x="2785" y="5270">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="248">
+   <BOUNDS type="Node" left="4455" top="4260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="248" srcpinname="Output" dstnodeid="245" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Constant_Semantic_Float2 (DX11.Effect)" filename="dx11\Constant_Semantic_Float2.fx" nodename="Constant_Semantic_Float2 (DX11.Effect)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="3525" top="2535" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="4185" top="1305" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Inner Radius" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="4860" top="1920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Lightness" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Hue" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Geometry Out" dstnodeid="249" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="250" srcpinname="Output" dstnodeid="249" dstpinname="Color">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="252">
+   <BOUNDS type="Node" left="1830" top="4635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="235" srcpinname="Layer" dstnodeid="252" dstpinname="Layer 1" linkstyle="Bezier">
+   <LINKPOINT x="660" y="3690">
+   </LINKPOINT>
+   <LINKPOINT x="1995" y="3690">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Layer" dstnodeid="252" dstpinname="Layer 2" linkstyle="Bezier">
+   <LINKPOINT x="3875" y="3575">
+   </LINKPOINT>
+   <LINKPOINT x="1900" y="3835">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="252" srcpinname="Layer Out" dstnodeid="246" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="1890" y="5175">
+   </LINKPOINT>
+   <LINKPOINT x="2325" y="5175">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="253" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3120" top="1020" width="2985" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3120" top="1020" width="2985" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Sinewave, also uses brightness semantic|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="254" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5595" top="4140" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5595" top="4140" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Mandatory">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="254" srcpinname="Y Output Value" dstnodeid="245" dstpinname="Mandatory">
+   </LINK>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="256">
+   <BOUNDS type="Node" left="6390" top="2625" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="256" srcpinname="Layer" dstnodeid="252" dstpinname="Layer 3" linkstyle="Bezier">
+   <LINKPOINT x="6390" y="3750">
+   </LINKPOINT>
+   <LINKPOINT x="2415" y="3750">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="257">
+   <BOUNDS type="Node" left="6720" top="1965" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="0.31,0.31">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="257" srcpinname="Geometry Out" dstnodeid="256" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="260">
+   <BOUNDS type="Node" left="12300" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" visible="1" values="0.37">
+   </PIN>
+   </NODE>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="261">
+   <BOUNDS type="Node" left="12300" top="5025" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Hue" visible="1">
+   </PIN>
+   <PIN pinname="Lightness" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="260" srcpinname="Output" dstnodeid="261" dstpinname="Hue">
+   </LINK>
+   <NODE systemname="Semantics (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Semantics (DX11.Layer)" componentmode="Hidden" id="263">
+   <BOUNDS type="Node" left="11070" top="6945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Custom Semantics" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Resource Semantics" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicTexture (DX11.Texture 2d Color)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicTexture (DX11.Texture 2d Color)" componentmode="Hidden" id="259">
+   <BOUNDS type="Node" left="11565" top="5490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Width" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Data" visible="1" slicecount="1" values="|0.00000,1.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="261" srcpinname="Output" dstnodeid="259" dstpinname="Data">
+   </LINK>
+   <NODE systemname="RenderSemantic (DX11.Layer Texture2D)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="RenderSemantic (DX11.Layer Texture2D)" componentmode="Hidden" id="264">
+   <BOUNDS type="Node" left="11565" top="6105" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Semantic" slicecount="1" values="MYTEXTURE">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="259" srcpinname="Texture Out" dstnodeid="264" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="264" srcpinname="Output" dstnodeid="263" dstpinname="Resource Semantics">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="266" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6465" top="3960" width="8205" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6465" top="3960" width="3690" height="1245">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;--If this is set on, the upstream shader will not run if semantic is not present, see constant that does not have it, if mandatory is on, it will not be drawn.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="270" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="12840" top="6135" width="5130" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12840" top="6135" width="3195" height="630">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Resources are also allowed as semantics (any shader supported type is)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant_Semantic_Texture (DX11.Effect)" filename="dx11\Constant_Semantic_Texture.fx" nodename="Constant_Semantic_Texture (DX11.Effect)" componentmode="Hidden" id="271">
+   <BOUNDS type="Node" left="12015" top="2535" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="samp" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="272">
+   <BOUNDS type="Node" left="12570" top="1755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="0.53,0.53">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="272" srcpinname="Geometry Out" dstnodeid="271" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="273">
+   <BOUNDS type="Node" left="10260" top="8400" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10260" top="8400" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="18480" top="6930" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="274">
+   <BOUNDS type="Node" left="10425" top="7575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="263" srcpinname="Layer Out" dstnodeid="274" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="274" srcpinname="Layer Out" dstnodeid="273" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="246" srcpinname="Layer Out" dstnodeid="240" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="2355" y="6345">
+   </LINKPOINT>
+   <LINKPOINT x="2670" y="6345">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Sampler (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11)" componentmode="Hidden" id="275">
+   <BOUNDS type="Node" left="13485" top="1740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Sampler" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="275" srcpinname="Sampler" dstnodeid="271" dstpinname="samp">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="276">
+   <BOUNDS type="Node" left="12300" top="4065" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="276" srcpinname="Output" dstnodeid="260" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Constant_Semantic_Texture_Bright (DX11.Effect)" filename="dx11\Constant_Semantic_Texture_Bright.fx" nodename="Constant_Semantic_Texture_Bright (DX11.Effect)" componentmode="Hidden" id="277">
+   <BOUNDS type="Node" left="9315" top="2520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="samp" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Semantics (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Semantics (DX11.Layer)" componentmode="Hidden" id="278">
+   <BOUNDS type="Node" left="9330" top="5820" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Custom Semantics" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="245" srcpinname="Output" dstnodeid="278" dstpinname="Custom Semantics" linkstyle="Bezier">
+   <LINKPOINT x="4605" y="5445">
+   </LINKPOINT>
+   <LINKPOINT x="9585" y="5445">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="277" srcpinname="Layer" dstnodeid="278" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="279">
+   <BOUNDS type="Node" left="9150" top="6270" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="278" srcpinname="Layer Out" dstnodeid="279" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="271" srcpinname="Layer" dstnodeid="279" dstpinname="Layer 2" linkstyle="Bezier">
+   <LINKPOINT x="12000" y="4530">
+   </LINKPOINT>
+   <LINKPOINT x="9570" y="4530">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="279" srcpinname="Layer Out" dstnodeid="263" dstpinname="Layer In" linkstyle="Bezier">
+   <LINKPOINT x="9210" y="6728">
+   </LINKPOINT>
+   <LINKPOINT x="11070" y="6728">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="280">
+   <BOUNDS type="Node" left="10140" top="1425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="1.09,1.09">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="280" srcpinname="Geometry Out" dstnodeid="277" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Sampler (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11)" componentmode="Hidden" id="281">
+   <BOUNDS type="Node" left="11025" top="1635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Sampler" visible="1">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="PointClamp">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="281" srcpinname="Sampler" dstnodeid="277" dstpinname="samp">
+   </LINK>
+   <NODE systemname="Translate (Transform)" filename="" nodename="Translate (Transform)" componentmode="Hidden" id="282">
+   <BOUNDS type="Node" left="10575" top="225" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="-0.43">
+   </PIN>
+   </NODE>
+   <NODE systemname="Translate (Transform)" filename="" nodename="Translate (Transform)" componentmode="Hidden" id="283">
+   <BOUNDS type="Node" left="12885" top="930" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.59">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="282" srcpinname="Transform Out" dstnodeid="277" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="283" srcpinname="Transform Out" dstnodeid="271" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="284" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5760" top="5895" width="3525" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5760" top="5895" width="3525" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Several semantics can be added together as well|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
