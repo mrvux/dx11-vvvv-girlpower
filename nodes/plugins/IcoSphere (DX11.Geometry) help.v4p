@@ -1,0 +1,165 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\IcoSphere (DX11.Geometry) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="2370" top="2760" width="9555" height="8490">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="150" top="120" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="150" top="120" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|IcoSphere (DX11.Geometry)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="150" top="495" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="150" top="495" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Geodesic sphere geometry (please note it has no Texture Coordinates)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="9">
+   <BOUNDS type="Node" left="2625" top="6030" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2625" top="6030" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11805" top="2775" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="2160" top="4485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="9" dstpinname="Layers" linkstyle="Bezier">
+   <LINKPOINT x="2205" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="2805" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="855" top="3465" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="BackCullWireframe">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Render State" dstnodeid="6" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="915" y="4095">
+   </LINKPOINT>
+   <LINKPOINT x="2325" y="4095">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IcoSphere (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="IcoSphere (DX11.Geometry)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="2625" top="3015" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SubDivisions" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Radius" slicecount="1" visible="1" values="0.65">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Geometry Out" dstnodeid="6" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="2640" y="3878">
+   </LINKPOINT>
+   <LINKPOINT x="2505" y="3878">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="4170" top="4485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="1.51">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="View" dstnodeid="9" dstpinname="View" linkstyle="Bezier">
+   <LINKPOINT x="4350" y="5385">
+   </LINKPOINT>
+   <LINKPOINT x="4080" y="5385">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Projection" dstnodeid="9" dstpinname="Projection" linkstyle="Bezier">
+   <LINKPOINT x="4500" y="5385">
+   </LINKPOINT>
+   <LINKPOINT x="4230" y="5385">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2205" top="2145" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2205" top="2145" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.65">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Radius">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Radius" linkstyle="VHV">
+   <LINKPOINT x="2265" y="2700">
+   </LINKPOINT>
+   <LINKPOINT x="2625" y="2700">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="16" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3735" top="2355" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3735" top="2355" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="SubDivisions">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="13" dstpinname="SubDivisions" linkstyle="VHV">
+   <LINKPOINT x="3720" y="2790">
+   </LINKPOINT>
+   <LINKPOINT x="3405" y="2790">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="17" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4725" top="2265" width="2010" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4725" top="2265" width="2010" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Subdivide iterations count|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
