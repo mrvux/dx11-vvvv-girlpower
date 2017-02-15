@@ -376,8 +376,7 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <LINK srcnodeid="5" srcpinname="Layer" dstnodeid="17" dstpinname="Layer In">

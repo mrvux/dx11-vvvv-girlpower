@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv-girlpower\girlpower\sm5\directcompute\pixel_coverage\PixelCoverage.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm5\directcompute\pixel_coverage\PixelCoverage.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-1299">
    <BOUNDS height="11250" left="1740" top="0" type="Window" width="11685">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" id="204" nodename="Box (DX11.Geometry)" systemname="Box (DX11.Geometry)">
@@ -66,24 +66,6 @@
    </LINK>
    <LINK srcnodeid="242" srcpinname="Transform Out" dstnodeid="240" dstpinname="Transform In">
    </LINK>
-   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="4035" top="5400" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="400">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="10">
-   </PIN>
-   <PIN pinname="Keyboard" visible="1">
-   </PIN>
-   <PIN pinname="Mouse" visible="1">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" filename="dx11\RenderObjectId.fx" id="196" nodename="RenderObjectId (DX11.Effect)" systemname="RenderObjectId (DX11.Effect)">
    <BOUNDS height="100" left="2490" top="4350" type="Node" width="100">
    </BOUNDS>
@@ -121,11 +103,11 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Target Format" slicecount="1" values="R16G16B16A16_Float">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Texture SizeXY">
    </PIN>
@@ -146,18 +128,6 @@
    <LINKPOINT x="6720" y="4643">
    </LINKPOINT>
    <LINKPOINT x="3495" y="4643">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="56" srcpinname="View" dstnodeid="221" dstpinname="View" linkstyle="VHV">
-   <LINKPOINT x="5820" y="6343">
-   </LINKPOINT>
-   <LINKPOINT x="2655" y="5553">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="221" dstpinname="Projection" linkstyle="VHV">
-   <LINKPOINT x="5970" y="6343">
-   </LINKPOINT>
-   <LINKPOINT x="2805" y="5553">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="196" srcpinname="Layer" dstnodeid="221" dstpinname="Layer">
@@ -612,4 +582,36 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="4035" top="5400" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="400">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="View" dstnodeid="221" dstpinname="View" linkstyle="VHV">
+   <LINKPOINT x="5820" y="6343">
+   </LINKPOINT>
+   <LINKPOINT x="2655" y="5553">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Projection" dstnodeid="221" dstpinname="Projection" linkstyle="VHV">
+   <LINKPOINT x="5970" y="6343">
+   </LINKPOINT>
+   <LINKPOINT x="2805" y="5553">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

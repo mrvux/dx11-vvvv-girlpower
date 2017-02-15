@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
-   <PATCH nodename="E:\repositories\vvvv\dx11-vvvv\girlpower\girlpower\sm5\misc\readonlydepth\ReadonlyDepth.v4p" systemname="MeshTest" filename="C:\Users\vux\Desktop\MeshTest.v4p" scrollx="0" scrolly="-720">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm5\misc\readonlydepth\ReadonlyDepth.v4p" systemname="MeshTest" filename="C:\Users\vux\Desktop\MeshTest.v4p" scrollx="0" scrolly="3240">
    <BOUNDS type="Window" left="0" top="645" width="12060" height="10155">
    </BOUNDS>
    <NODE systemname="GouraudBatch (DX11.Effect)" filename="GouraudBatch.fx" nodename="GouraudBatch (DX11.Effect)" componentmode="Hidden" id="22">
@@ -216,18 +216,6 @@
    </LINK>
    <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="55" dstpinname="Geometry In">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="9165" top="4680" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Keyboard" visible="1">
-   </PIN>
-   <PIN pinname="Mouse" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="60" systemname="IOBox (String)">
    <BOUNDS type="Node" left="210" top="30" width="4275" height="270">
    </BOUNDS>
@@ -297,9 +285,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
    </PIN>
@@ -318,18 +306,6 @@
    <PIN pinname="Target Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
    </NODE>
-   <LINK srcnodeid="21" srcpinname="View" dstnodeid="1" dstpinname="View" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="9315" y="6668">
-   </LINKPOINT>
-   <LINKPOINT x="6150" y="6668">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="1" dstpinname="Projection" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="9465" y="6668">
-   </LINKPOINT>
-   <LINKPOINT x="6300" y="6668">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="68" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7995" top="1230" width="795" height="480">
    </BOUNDS>
@@ -465,9 +441,9 @@
    </PIN>
    <PIN pinname="Buffers" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Texture SizeXY" visible="1">
    </PIN>
@@ -493,18 +469,6 @@
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="107" srcpinname="Buffers" dstnodeid="69" dstpinname="Texture In">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="View" dstnodeid="107" dstpinname="View" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="9330" y="8063">
-   </LINKPOINT>
-   <LINKPOINT x="7005" y="8063">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="107" dstpinname="Projection" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="9480" y="8063">
-   </LINKPOINT>
-   <LINKPOINT x="7155" y="8063">
-   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="68" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Texture SizeXY">
    </LINK>
@@ -596,4 +560,44 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="9165" top="4680" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="View" dstnodeid="1" dstpinname="View" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="9315" y="6668">
+   </LINKPOINT>
+   <LINKPOINT x="6150" y="6668">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="1" dstpinname="Projection" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="9465" y="6668">
+   </LINKPOINT>
+   <LINKPOINT x="6300" y="6668">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="View" dstnodeid="107" dstpinname="View" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="9330" y="8063">
+   </LINKPOINT>
+   <LINKPOINT x="7005" y="8063">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="107" dstpinname="Projection" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="9480" y="8063">
+   </LINKPOINT>
+   <LINKPOINT x="7155" y="8063">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

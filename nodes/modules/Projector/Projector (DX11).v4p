@@ -1314,8 +1314,7 @@
    </PACK>
    <INFO author="vux" description="visualizing a projector and its projection cone, constructing a virtual camera" tags="helper, tool, setup, beamer, 3d, transform, camera">
    </INFO>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <LINK srcnodeid="93" srcpinname="Layer Out" dstnodeid="70" dstpinname="Layer 1" linkstyle="VHV">
    <LINKPOINT x="9045" y="12165">
    </LINKPOINT>

@@ -1,35 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\girlpower\girlpower\sm4\reversedDepth\ReverseDepth.v4p" filename="C:\Users\vux\Dropbox\DRE - Deferred Render Engine\wip-vux\DRE_SimpleMaterial.v4p" systemname="DRE_SimpleMaterial" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\girlpower\sm4\reversedDepth\ReverseDepth.v4p" filename="C:\Users\vux\Dropbox\DRE - Deferred Render Engine\wip-vux\DRE_SimpleMaterial.v4p" systemname="DRE_SimpleMaterial" scrollx="0" scrolly="0">
    <BOUNDS height="12540" left="1395" top="570" type="Window" width="15135">
    </BOUNDS>
-   <NODE componentmode="Hidden" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" id="7" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="8250" top="4950" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Position" visible="1">
-   </PIN>
-   <PIN pinname="Near Plane" visible="1">
-   </PIN>
-   <PIN pinname="Far Plane" visible="1">
-   </PIN>
-   <PIN pinname="FOV" visible="1">
-   </PIN>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="22.08">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.05">
-   </PIN>
-   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0.126524033473106">
-   </PIN>
-   <PIN pinname="Initial FOV" slicecount="1" values="0.2">
-   </PIN>
-   <PIN pinname="Interest" visible="1">
-   </PIN>
-   </NODE>
    <LINK dstnodeid="73" dstpinname="depthTexture" srcnodeid="5" srcpinname="Depth Buffer">
    </LINK>
    <NODE componentmode="InABox" id="76" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
@@ -44,12 +16,6 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Near Plane|">
    </PIN>
    </NODE>
-   <LINK dstnodeid="7" dstpinname="Near Plane" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="76" srcpinname="Y Output Value">
-   <LINKPOINT x="10860" y="4418">
-   </LINKPOINT>
-   <LINKPOINT x="9540" y="4418">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="InABox" id="77" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="11955" top="3630" type="Node" width="100">
    </BOUNDS>
@@ -62,12 +28,6 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Far Plane|">
    </PIN>
    </NODE>
-   <LINK dstnodeid="7" dstpinname="Far Plane" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="77" srcpinname="Y Output Value">
-   <LINKPOINT x="11955" y="4388">
-   </LINKPOINT>
-   <LINKPOINT x="9750" y="4388">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="92" dstpinname="tDepth" srcnodeid="5" srcpinname="Depth Buffer">
    </LINK>
    <LINK dstnodeid="92" dstpinname="g_LinB" srcnodeid="75" srcpinname="Output">
@@ -192,10 +152,6 @@
    <PIN pinname="TranslateZ" slicecount="1" values="0.41">
    </PIN>
    </NODE>
-   <LINK dstnodeid="242" dstpinname="View" srcnodeid="7" srcpinname="View">
-   </LINK>
-   <LINK dstnodeid="242" dstpinname="Proj" srcnodeid="7" srcpinname="Projection">
-   </LINK>
    <NODE componentmode="Hidden" id="243" nodename="Add (Value)" systemname="Add (Value)">
    <BOUNDS height="100" left="6780" top="1905" type="Node" width="100">
    </BOUNDS>
@@ -339,7 +295,7 @@
    </PIN>
    <PIN pinname="Far Plane" slicecount="1" visible="1" values="0.05">
    </PIN>
-   <PIN pinname="FOV" visible="1">
+   <PIN pinname="FOV" visible="1" slicecount="1" values="0.2">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="Hidden" id="493">
@@ -369,8 +325,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="492" srcpinname="Transform Out" dstnodeid="493" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="View" dstnodeid="493" dstpinname="View">
    </LINK>
    <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="494">
    <BOUNDS type="Node" left="6645" top="8865" width="100" height="100">
@@ -431,8 +385,6 @@
    </LINKPOINT>
    <LINKPOINT x="10110" y="5115">
    </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="FOV" dstnodeid="492" dstpinname="FOV">
    </LINK>
    <LINK srcnodeid="493" srcpinname="Depth Buffer" dstnodeid="494" dstpinname="Texture In">
    </LINK>
@@ -536,4 +488,58 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" id="7" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
+   <BOUNDS height="100" left="8250" top="4950" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Position" visible="1">
+   </PIN>
+   <PIN pinname="Near Plane" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" visible="1">
+   </PIN>
+   <PIN pinname="FOV" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" visible="1" values="22.08">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.05">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0.126524033473106">
+   </PIN>
+   <PIN pinname="Initial FOV" slicecount="1" values="0.2">
+   </PIN>
+   <PIN pinname="Interest" visible="1">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1" slicecount="1" values="0.126524033473106">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.05">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="7" dstpinname="Near Plane" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="76" srcpinname="Y Output Value">
+   <LINKPOINT x="10860" y="4418">
+   </LINKPOINT>
+   <LINKPOINT x="9540" y="4418">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="7" dstpinname="Far Plane" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="77" srcpinname="Y Output Value">
+   <LINKPOINT x="11955" y="4388">
+   </LINKPOINT>
+   <LINKPOINT x="9750" y="4388">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="242" dstpinname="View" srcnodeid="7" srcpinname="View">
+   </LINK>
+   <LINK dstnodeid="242" dstpinname="Proj" srcnodeid="7" srcpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="View" dstnodeid="493" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="FOV" dstnodeid="492" dstpinname="FOV">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

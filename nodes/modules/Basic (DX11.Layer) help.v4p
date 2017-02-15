@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha29.3.dtd" >
-   <PATCH nodename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Basic (DX11.Layer) help.v4p" systemname="Basic (DX11) help" filename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Basic (DX11) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\modules\Basic (DX11.Layer) help.v4p" systemname="Basic (DX11) help" filename="C:\Users\gregsn\Dropbox\vvvv-dx11-pre\userfolder\gregsn\modules\Basic (DX11) help.v4p">
    <BOUNDS type="Window" left="900" top="1620" width="11100" height="7755">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
@@ -11,9 +11,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
    </PIN>
@@ -48,10 +48,12 @@
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
+   <NODE systemname="MAINLOOP (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
    <BOUNDS type="Node" left="9180" top="3750" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Maximum forground fps" slicecount="1" values="999999">
+   <PIN pinname="Maximum Foreground FPS" slicecount="1" values="999999">
+   </PIN>
+   <PIN pinname="Increase Timing Precision" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE systemname="Damper (Animation)" nodename="Damper (Animation)" componentmode="Hidden" id="11">
@@ -144,18 +146,6 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="Instanced Drawing" dstnodeid="16" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="3780" top="5850" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="17" srcpinname="View" dstnodeid="1" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Projection" dstnodeid="1" dstpinname="Projection">
-   </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="3075" top="1980" width="100" height="100">
    </BOUNDS>
@@ -218,4 +208,20 @@
    </LINK>
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="18" dstpinname="Spread Count">
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="3780" top="5850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="View" dstnodeid="1" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Projection" dstnodeid="1" dstpinname="Projection">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

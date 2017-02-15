@@ -472,6 +472,5 @@
    </LINK>
    <LINK srcnodeid="27" srcpinname="Output" dstnodeid="22" dstpinname="Input String">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    </PATCH>

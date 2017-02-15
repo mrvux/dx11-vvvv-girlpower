@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\Echo\Echo (DX11.Texture 2d) help.v4p">
-   <BOUNDS type="Window" left="7740" top="7380" width="6270" height="6225">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Echo\Echo (DX11.Texture 2d) help.v4p">
+   <BOUNDS type="Window" left="7740" top="7380" width="6270" height="6390">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -35,9 +35,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="18">
-   <BOUNDS type="Node" left="795" top="5055" width="100" height="100">
+   <BOUNDS type="Node" left="780" top="5295" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="795" top="5055" width="6000" height="4500">
+   <BOUNDS type="Box" left="780" top="5295" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="7755" top="900" width="6240" height="6510">
    </BOUNDS>
@@ -47,7 +47,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\myplugins\lib\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="1110" top="4695" width="100" height="100">
+   <BOUNDS type="Node" left="945" top="4710" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
    </PIN>
@@ -59,7 +59,7 @@
    </PIN>
    </NODE>
    <NODE systemname="QUAD (DX11.GEOMETRY)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="1275" top="4350" width="100" height="100">
+   <BOUNDS type="Node" left="1110" top="4365" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -69,11 +69,11 @@
    <LINK srcnodeid="16" srcpinname="Geometry Out" dstnodeid="17" dstpinname="Geometry">
    </LINK>
    <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="1560" top="2220" width="100" height="100">
+   <BOUNDS type="Node" left="780" top="2010" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
    </PIN>
-   <BOUNDS type="Box" left="1560" top="2220">
+   <BOUNDS type="Box" left="780" top="2010">
    </BOUNDS>
    <PIN pinname="Path" visible="1" encoded="0">
    </PIN>
@@ -83,13 +83,13 @@
    </PIN>
    </NODE>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="1560" top="1545" width="100" height="100">
+   <BOUNDS type="Node" left="780" top="1335" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="1560" top="1875" width="2070" height="270">
+   <BOUNDS type="Node" left="780" top="1665" width="2070" height="270">
    </BOUNDS>
    <PIN pinname="Input 2" visible="-1" slicecount="1" pintype="Input" encoded="0" values="lib\assets\images\earth_512x512.jpg">
    </PIN>
@@ -109,7 +109,7 @@
    <LINK srcnodeid="17" srcpinname="Layer" dstnodeid="18" dstpinname="Layers">
    </LINK>
    <NODE systemname="TransformTexture (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\TransformTexture.tfx" nodename="TransformTexture (DX11.TextureFX)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="2175" top="3060" width="100" height="100">
+   <BOUNDS type="Node" left="2235" top="2940" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
@@ -127,7 +127,7 @@
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="17" dstpinname="Texture">
    </LINK>
    <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="2505" top="2715" width="100" height="100">
+   <BOUNDS type="Node" left="2475" top="2460" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -137,7 +137,7 @@
    <LINK srcnodeid="20" srcpinname="Transform Out" dstnodeid="19" dstpinname="tTex">
    </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="2580" top="2385" width="100" height="100">
+   <BOUNDS type="Node" left="3045" top="2070" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -149,7 +149,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2595" top="3585" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.9">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.85">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -182,8 +182,10 @@
    </NODE>
    <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Reset">
    </LINK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <LINK srcnodeid="20" srcpinname="Transform Out" dstnodeid="19" dstpinname="Texture Transform">
    </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
    </PATCH>

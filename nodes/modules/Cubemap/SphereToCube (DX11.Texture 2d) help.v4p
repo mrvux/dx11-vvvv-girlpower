@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="X:\Cubemap\SphereToCube (DX11.Texture 2d) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Cubemap\SphereToCube (DX11.Texture 2d) help.v4p">
    <BOUNDS type="Window" left="11670" top="510" width="5475" height="10170">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -39,9 +39,9 @@
    </BOUNDS>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="34">
-   <BOUNDS type="Node" left="765" top="7825" width="100" height="100">
+   <BOUNDS type="Node" left="525" top="8365" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="765" top="7825" width="6000" height="4500">
+   <BOUNDS type="Box" left="525" top="8365" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="6735" top="5715" width="4740" height="5085">
    </BOUNDS>
@@ -49,9 +49,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="CUBEMAP">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Projection" visible="1">
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
    </PIN>
@@ -68,22 +68,6 @@
    <PIN pinname="Geometry" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="32">
-   <BOUNDS type="Node" left="1965" top="7410" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.1">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="32" srcpinname="View" dstnodeid="34" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Projection" dstnodeid="34" dstpinname="Projection">
-   </LINK>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="31">
    <BOUNDS type="Node" left="705" top="7320" width="100" height="100">
    </BOUNDS>
@@ -105,9 +89,9 @@
    <LINK srcnodeid="30" srcpinname="Geometry Out" dstnodeid="33" dstpinname="Geometry">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2715" top="6945" width="795" height="240">
+   <BOUNDS type="Box" left="2220" top="7560" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2715" top="6945" width="0" height="0">
+   <BOUNDS type="Node" left="2220" top="7560" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="2">
    </PIN>
@@ -116,8 +100,6 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    </NODE>
-   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Inital Distance">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="40" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="930" top="4980" width="810" height="240">
    </BOUNDS>
@@ -204,4 +186,32 @@
    </LINK>
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="33" dstpinname="Texture Cube">
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="1725" top="7950" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Initial Longitude" slicecount="1" values="-0.42">
+   </PIN>
+   <PIN pinname="Initial Latitude" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="View" dstnodeid="34" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Projection" dstnodeid="34" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Initial Distance">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
    </PATCH>

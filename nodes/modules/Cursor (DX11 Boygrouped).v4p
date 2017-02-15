@@ -2,8 +2,7 @@
    <PATCH nodename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Cursor (DX11 Boygrouped).v4p" systemname="Cursor (DX11 Boygrouped)" filename="C:\vvvv\beta\vvvv_45beta33.3_x86\packs\dx11\nodes\modules\Cursor (DX11 Boygrouped).v4p" scrollx="0" scrolly="-1299">
    <BOUNDS type="Window" left="7230" top="1140" width="19425" height="16095">
    </BOUNDS>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
+   
    <PACK Name="addonpack" Version="33.3.0">
    </PACK>
    <NODE id="63" nodename="Translate (Transform Vector)" systemname="Translate (Transform Vector)" managers="boygroup">

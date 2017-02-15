@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="E:\vvvv\vvvv_45beta31_x86\packs\DX11\nodes\plugins\Renderer (DX11 TextureArray) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.1.dtd" >
+   <PATCH nodename="C:\Work\vvvv-private\public\vvvv45\packs\dx11\nodes\plugins\Renderer (DX11 TextureArray) help.v4p" scrollx="1965" scrolly="0">
    <BOUNDS type="Window" left="2700" top="690" width="12090" height="9870">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -31,7 +31,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="3630" top="8760" width="3525" height="3405">
    </BOUNDS>
-   <BOUNDS type="Window" left="14085" top="840" width="6240" height="5010">
+   <BOUNDS type="Window" left="14595" top="675" width="6240" height="5010">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -70,24 +70,6 @@
    </NODE>
    <LINK srcnodeid="20" srcpinname="Layer" dstnodeid="22" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="6960" top="3120" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="4.01">
-   </PIN>
-   </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="18">
-   <BOUNDS type="Node" left="7125" top="3690" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.22">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="5.14">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (DX11 TextureArray)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TextureArray)" componentmode="Hidden" id="17">
    <BOUNDS type="Node" left="5370" top="5985" width="100" height="100">
    </BOUNDS>
@@ -222,26 +204,6 @@
    <LINKPOINT x="4085" y="7245">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="7305" top="4080" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-0.15">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="6.12">
-   </PIN>
-   </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="7500" top="4515" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-0.12">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="7.48">
-   </PIN>
-   </NODE>
    <NODE systemname="PhongDirectional (DX11.Effect)" filename="%VVVV%\packs\DX11\nodes\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="4515" top="3210" width="100" height="100">
    </BOUNDS>
@@ -261,30 +223,22 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Cons (Transform)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Transform)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="6960" top="5130" width="100" height="100">
+   <BOUNDS type="Node" left="7860" top="5205" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Count" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 4" visible="1">
+   <PIN pinname="Input 4" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="19" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="7" srcpinname="Output" dstnodeid="17" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="10" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 3">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 4">
    </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="5505" top="1770" width="100" height="100">
@@ -391,9 +345,9 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="25" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7770" top="5070" width="4350" height="270">
+   <BOUNDS type="Node" left="8670" top="5145" width="4350" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="7770" top="5070" width="2430" height="660">
+   <BOUNDS type="Box" left="8670" top="5145" width="2430" height="660">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Each of those cameras render to a slice of the texture array|">
    </PIN>
@@ -418,4 +372,62 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="7335" top="3210" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="4.01">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="12615" top="3195" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="-0.12">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" visible="1" values="7.48">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1" slicecount="1" values="0.12">
+   </PIN>
+   <PIN pinname="Near Plane" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 4">
+   </LINK>
+   <NODE id="10" systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden">
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Node" left="10815" top="3210" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="6.12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 3">
+   </LINK>
+   <NODE id="18" systemname="Camera (Transform Softimage)" filename="..\..\..\..\..\..\public-vl\VL.EditingFramework\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden">
+   <BOUNDS type="Node" left="9060" top="3210" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.22">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="5.14">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Latitude" slicecount="1" values="0.22">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 2">
+   </LINK>
+   <PACK Name="dx11" Version="0.7.2">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>

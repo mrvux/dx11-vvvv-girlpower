@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="E:\vvvv\vvvv_45beta31_x86\packs\DX11\nodes\dx11\ConstantArray (DX11.Effect) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35_x64\packs\dx11\nodes\dx11\ConstantArray (DX11.Effect) help.v4p">
    <BOUNDS type="Window" left="1920" top="825" width="12210" height="9765">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -68,24 +68,6 @@
    </NODE>
    <LINK srcnodeid="20" srcpinname="Layer" dstnodeid="22" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="6510" top="3015" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="4.01">
-   </PIN>
-   </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="18">
-   <BOUNDS type="Node" left="6675" top="3585" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.22">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="5.14">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (DX11 TextureArray)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TextureArray)" componentmode="Hidden" id="17">
    <BOUNDS type="Node" left="4920" top="5880" width="100" height="100">
    </BOUNDS>
@@ -226,26 +208,6 @@
    <LINKPOINT x="3615" y="6780">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="6855" top="3975" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-0.15">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="6.12">
-   </PIN>
-   </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="7050" top="4410" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View Projection" visible="1">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-0.12">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="7.48">
-   </PIN>
-   </NODE>
    <NODE systemname="PhongDirectional (DX11.Effect)" filename="%VVVV%\packs\DX11\nodes\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="4065" top="3105" width="100" height="100">
    </BOUNDS>
@@ -265,30 +227,22 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Cons (Transform)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Transform)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="6510" top="5025" width="100" height="100">
+   <BOUNDS type="Node" left="7815" top="4830" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Count" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 4" visible="1">
+   <PIN pinname="Input 4" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="19" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="7" srcpinname="Output" dstnodeid="17" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="10" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 3">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 4">
    </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="5055" top="1665" width="100" height="100">
@@ -340,4 +294,66 @@
    </NODE>
    <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="17" dstpinname="SizeXY">
    </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="7290" top="3315" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" visible="1" values="4.01">
+   </PIN>
+   <PIN pinname="Initial Pitch" visible="1">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.05">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 1">
+   </LINK>
+   <NODE id="18" systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden">
+   <PIN pinname="Initial Pitch" visible="1" slicecount="1" values="0.22">
+   </PIN>
+   <BOUNDS type="Node" left="8010" top="3660" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="5.14">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.22">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="8655" top="4020" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="-0.15">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="6.12">
+   </PIN>
+   <PIN pinname="Initial Pitch" visible="1">
+   </PIN>
+   <PIN pinname="Initial Longitude" visible="1" slicecount="1" values="-0.15">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.05">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 3">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.47.149-g29575610a3\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="9240" top="4380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="-0.12">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" visible="1" values="7.48">
+   </PIN>
+   <PIN pinname="Initial Latitude" visible="1" slicecount="1" values="0.05">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="View Projection" dstnodeid="7" dstpinname="Input 4">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
    </PATCH>
