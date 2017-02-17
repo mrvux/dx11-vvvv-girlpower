@@ -17,7 +17,7 @@ StructuredBuffer<float4> sbColor;
 
 cbuffer cbPerDraw : register( b0 )
 {
-	float4x4 tVP : VIEWPROJECTION;
+	float4x4 tVP : LAYERVIEWPROJECTION;
 	float4x4 tW : WORLD;
 	
 	int colorcount = 1;

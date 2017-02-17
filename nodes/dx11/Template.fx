@@ -14,7 +14,7 @@ SamplerState linearSampler : IMMUTABLE
  
 cbuffer cbPerDraw : register( b0 )
 {
-	float4x4 tVP : VIEWPROJECTION;	
+	float4x4 tVP : LAYERVIEWPROJECTION;	
 };
 
 cbuffer cbPerObj : register( b1 )
@@ -32,7 +32,7 @@ struct VS_IN
 
 struct vs2ps
 {
-    float4 PosWVP: SV_POSITION;
+    float4 PosWVP: SV_Position;
     float4 TexCd: TEXCOORD0;
 };
 

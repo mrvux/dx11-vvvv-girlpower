@@ -1,9 +1,9 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\Constant (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\dx11\Constant (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="3474" top="6195" type="Node" width="100">
+   <BOUNDS height="100" left="3489" top="6210" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -17,7 +17,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="81" nodename="Translate (Transform)" systemname="Translate (Transform)">
-   <BOUNDS height="100" left="2835" top="4230" type="Node" width="100">
+   <BOUNDS height="100" left="2940" top="3120" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -29,7 +29,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="145" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="3315" top="2820" type="Node" width="100">
+   <BOUNDS height="100" left="3420" top="1710" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="146" nodename="Cross (3d)" systemname="Cross (3d)">
-   <BOUNDS height="100" left="3060" top="3495" type="Node" width="100">
+   <BOUNDS height="100" left="3165" top="2385" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="X In" visible="1">
    </PIN>
@@ -55,21 +55,21 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="146" dstpinname="X In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="3315" y="3293">
+   <LINKPOINT x="3420" y="2183">
    </LINKPOINT>
-   <LINKPOINT x="3105" y="3293">
+   <LINKPOINT x="3210" y="2183">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Y In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="3345" y="3293">
+   <LINKPOINT x="3450" y="2183">
    </LINKPOINT>
-   <LINKPOINT x="3345" y="3293">
+   <LINKPOINT x="3450" y="2183">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Z In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="3375" y="3293">
+   <LINKPOINT x="3480" y="2183">
    </LINKPOINT>
-   <LINKPOINT x="3600" y="3293">
+   <LINKPOINT x="3705" y="2183">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="81" dstpinname="X" srcnodeid="146" srcpinname="X Out">
@@ -81,11 +81,11 @@
    <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="RENDERER (DX11)" stayontop="1">
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
-   <BOUNDS height="270" left="2364" top="6834" type="Node" width="1800">
+   <BOUNDS height="270" left="2229" top="6864" type="Node" width="1800">
    </BOUNDS>
-   <BOUNDS height="4500" left="2364" top="6834" type="Box" width="6000">
+   <BOUNDS height="4500" left="2229" top="6864" type="Box" width="6000">
    </BOUNDS>
-   <BOUNDS height="4665" left="11340" top="870" type="Window" width="6360">
+   <BOUNDS height="9150" left="11340" top="870" type="Window" width="12690">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -113,7 +113,7 @@
    <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
    </LINK>
    <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.BasicPrimitives.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="234">
-   <BOUNDS type="Node" left="1677" top="4230" width="100" height="100">
+   <BOUNDS type="Node" left="1587" top="3630" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -125,7 +125,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Constant (DX11.Effect)" filename="Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="235">
-   <BOUNDS type="Node" left="2505" top="5475" width="100" height="100">
+   <BOUNDS type="Node" left="2415" top="4875" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
    </PIN>
@@ -137,15 +137,15 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="235" dstpinname="Geometry" linkstyle="VHV">
-   <LINKPOINT x="1740" y="4980">
+   <LINKPOINT x="1650" y="4380">
    </LINKPOINT>
-   <LINKPOINT x="2670" y="4980">
+   <LINKPOINT x="2580" y="4380">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="235" dstpinname="Transform In">
    </LINK>
    <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="236">
-   <BOUNDS type="Node" left="4260" top="4860" width="100" height="100">
+   <BOUNDS type="Node" left="4170" top="4260" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -157,13 +157,13 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="236" srcpinname="Output" dstnodeid="235" dstpinname="Color" linkstyle="VHV">
-   <LINKPOINT x="4260" y="5288">
+   <LINKPOINT x="4170" y="4688">
    </LINKPOINT>
-   <LINKPOINT x="3210" y="5288">
+   <LINKPOINT x="3120" y="4688">
    </LINKPOINT>
    </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="237">
-   <BOUNDS type="Node" left="4260" top="4305" width="100" height="100">
+   <BOUNDS type="Node" left="4170" top="3705" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -203,7 +203,7 @@
    </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="240">
-   <BOUNDS type="Node" left="1935" top="6150" width="100" height="100">
+   <BOUNDS type="Node" left="1800" top="6180" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -211,9 +211,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="240" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers" linkstyle="VHV">
-   <LINKPOINT x="1995" y="6615">
+   <LINKPOINT x="1860" y="6645">
    </LINKPOINT>
-   <LINKPOINT x="2505" y="6615">
+   <LINKPOINT x="2370" y="6645">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="235" srcpinname="Layer" dstnodeid="240" dstpinname="Layer In">
