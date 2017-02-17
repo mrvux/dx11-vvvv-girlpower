@@ -52,8 +52,6 @@
    <PIN pinname="AA Samples per Pixel" slicecount="1" values="8">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="0.7.2">
-   </PACK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="11">
