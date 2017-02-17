@@ -16,7 +16,7 @@ SamplerState Samp : IMMUTABLE
 cbuffer cbControls : register( b1 )
 {
 	float4x4 tW : WORLD;
-	float4x4 tVP : VIEWPROJECTION;
+	float4x4 tVP : LAYERVIEWPROJECTION;
 	float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
 };
 

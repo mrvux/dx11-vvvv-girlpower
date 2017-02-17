@@ -1,0 +1,303 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\TextFormat (DirectWrite Advanced) help.v4p">
+   <BOUNDS type="Window" left="2430" top="1530" width="10950" height="12285">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="18" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="15" top="15" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15" top="15" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|TextFormat (DirectWrite Advanced)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="17" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="15" top="390" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15" top="390" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Same as TexfFormat, with alignment options|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="16" stayontop="1">
+   <BOUNDS type="Node" left="936" top="7350" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="936" top="7350" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13305" top="1455" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="15" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="900" top="4140" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="900" top="4140" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="Hello">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="DX11">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="3000" top="5460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="PixelBillBoard (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PixelBillBoard (DX11.Layer)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="1095" top="6810" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Layer Out" dstnodeid="16" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="TextLayout (DirectWrite)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.DirectWrite.dll" nodename="TextLayout (DirectWrite)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="1740" top="4575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Format" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Text" visible="1">
+   </PIN>
+   <PIN pinname="Maximum Width" slicecount="1" values="500">
+   </PIN>
+   <PIN pinname="Text Alignment" visible="1" slicecount="1" values="Leading">
+   </PIN>
+   <PIN pinname="Paragraph Alignment" visible="1" slicecount="1" values="Near">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Output String" dstnodeid="12" dstpinname="Text" linkstyle="VHV">
+   <LINKPOINT x="960" y="4463">
+   </LINKPOINT>
+   <LINKPOINT x="1740" y="4463">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Text (DX11.Layer Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer Advanced)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="1095" top="6075" width="2625" height="270">
+   </BOUNDS>
+   <PIN pinname="String">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bold">
+   </PIN>
+   <PIN pinname="Size">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Text Layout" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Output" dstnodeid="10" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Layer" dstnodeid="13" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Output" dstnodeid="10" dstpinname="Text Layout">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="9" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1905" top="1875" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1905" top="1875" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Arial">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Font">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2625" top="2700" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2625" top="2700" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Font Size|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="7" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3345" top="1440" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3345" top="1440" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Normal">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Font Weight|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="6" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4080" top="2760" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4080" top="2760" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Normal">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Font Style|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="5" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4785" top="2010" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4785" top="2010" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Normal">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Font Stretch|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="4" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5460" top="1320" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5460" top="1320" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Wrap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Word Wrapping|">
+   </PIN>
+   </NODE>
+   <NODE systemname="TextFormat (DirectWrite Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.DirectWrite.dll" nodename="TextFormat (DirectWrite Advanced)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="1905" top="3495" width="7245" height="270">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Font Size" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Font Weight" slicecount="1" visible="1" values="Normal">
+   </PIN>
+   <PIN pinname="Font" visible="1">
+   </PIN>
+   <PIN pinname="Font Style" visible="1">
+   </PIN>
+   <PIN pinname="Font Stretch" visible="1">
+   </PIN>
+   <PIN pinname="Word Wrapping" visible="1">
+   </PIN>
+   <PIN pinname="Line Spacing Method" visible="1">
+   </PIN>
+   <PIN pinname="Line Spacing" visible="1">
+   </PIN>
+   <PIN pinname="Baseline" visible="1">
+   </PIN>
+   <PIN pinname="Text Alignment" visible="1">
+   </PIN>
+   <PIN pinname="Paragraph Alignment" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Output" dstnodeid="12" dstpinname="Format">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Output Enum" dstnodeid="11" dstpinname="Font">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Font Size">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output Enum" dstnodeid="11" dstpinname="Font Weight">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output Enum" dstnodeid="11" dstpinname="Font Style">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Output Enum" dstnodeid="11" dstpinname="Font Stretch">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output Enum" dstnodeid="11" dstpinname="Word Wrapping">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="19" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6225" top="2685" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6225" top="2685" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Default">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Line Spacing Method|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Output Enum" dstnodeid="11" dstpinname="Line Spacing Method">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6900" top="2055" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6900" top="2055" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="12">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Line Spacing|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Line Spacing">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7605" top="1335" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7605" top="1335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="12">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Baseline">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Baseline">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="22" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="8370" top="2250" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8370" top="2250" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Leading">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Text Alignment|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output Enum" dstnodeid="11" dstpinname="Text Alignment">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="23" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="9075" top="1530" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9075" top="1530" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Near">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Paragraph Alignment|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output Enum" dstnodeid="11" dstpinname="Paragraph Alignment">
+   </LINK>
+   </PATCH>

@@ -1,9 +1,9 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\PhongDirectional (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\dx11\PhongDirectional (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
-   <BOUNDS height="100" left="3789" top="6345" type="Node" width="100">
+   <BOUNDS height="100" left="3609" top="6180" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -17,7 +17,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="81" nodename="Translate (Transform)" systemname="Translate (Transform)">
-   <BOUNDS height="100" left="1005" top="2475" type="Node" width="100">
+   <BOUNDS height="100" left="2055" top="3465" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -29,7 +29,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="145" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="1485" top="1065" type="Node" width="100">
+   <BOUNDS height="100" left="2535" top="2055" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="146" nodename="Cross (3d)" systemname="Cross (3d)">
-   <BOUNDS height="100" left="1230" top="1740" type="Node" width="100">
+   <BOUNDS height="100" left="2280" top="2730" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="X In" visible="1">
    </PIN>
@@ -55,21 +55,21 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="146" dstpinname="X In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1485" y="1538">
+   <LINKPOINT x="2535" y="2528">
    </LINKPOINT>
-   <LINKPOINT x="1275" y="1538">
+   <LINKPOINT x="2325" y="2528">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Y In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2565" y="2528">
    </LINKPOINT>
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2565" y="2528">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Z In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1545" y="1538">
+   <LINKPOINT x="2595" y="2528">
    </LINKPOINT>
-   <LINKPOINT x="1770" y="1538">
+   <LINKPOINT x="2820" y="2528">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="81" dstpinname="X" srcnodeid="146" srcpinname="X Out">
@@ -81,9 +81,9 @@
    <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="RENDERER (DX11)" stayontop="1">
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
-   <BOUNDS height="270" left="2529" top="6834" type="Node" width="1800">
+   <BOUNDS height="270" left="2349" top="6669" type="Node" width="1800">
    </BOUNDS>
-   <BOUNDS height="4500" left="2529" top="6834" type="Box" width="6000">
+   <BOUNDS height="4500" left="2349" top="6669" type="Box" width="6000">
    </BOUNDS>
    <BOUNDS height="4665" left="11340" top="870" type="Window" width="6360">
    </BOUNDS>
@@ -113,9 +113,9 @@
    <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3288" top="2145" width="0" height="0">
+   <BOUNDS type="Node" left="4308" top="3135" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3288" top="2145" width="795" height="720">
+   <BOUNDS type="Box" left="4308" top="3135" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" values="1,-5,0">
    </PIN>
@@ -141,7 +141,7 @@
    </PIN>
    <PIN pinname="Alpha" slicecount="1" values="1">
    </PIN>
-   <BOUNDS type="Node" left="3555" top="4005" width="0" height="0">
+   <BOUNDS type="Node" left="4500" top="4320" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -155,7 +155,7 @@
    </PIN>
    <PIN pinname="Alpha" slicecount="1" values="1">
    </PIN>
-   <BOUNDS type="Node" left="3810" top="4665" width="0" height="0">
+   <BOUNDS type="Node" left="4725" top="4890" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -172,8 +172,38 @@
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="%VVVV%\directx11\dx11\PhongDirectional.fx" id="196" nodename="PhongDirectional (DX11.Effect)" systemname="PhongDirectional (DX11.Effect)">
-   <BOUNDS height="270" left="2520" top="5475" type="Node" width="3615">
+   <NODE componentmode="InABox" id="236" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="30" top="390" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="915" left="30" top="390" type="Box" width="4650">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Applies phong shading to geometry (directional light)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="235" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="30" top="15" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="390" left="30" top="15" type="Box" width="4095">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|PhongDirectional (DX11.Effect)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE id="196" componentmode="Hidden" filename="%VVVV%\directx11\dx11\PhongDirectional.fx" nodename="PhongDirectional (DX11.Effect)" systemname="PhongDirectional (DX11.Effect)">
+   <BOUNDS type="Node" height="270" left="2520" top="5475" width="3615">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -222,24 +252,24 @@
    <PIN pinname="Light Attenuation 2">
    </PIN>
    </NODE>
-   <LINK dstnodeid="195" dstpinname="Layers" srcnodeid="196" srcpinname="Layer">
-   </LINK>
-   <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
-   <LINKPOINT x="1035" y="3870">
-   </LINKPOINT>
-   <LINKPOINT x="2865" y="3870">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light DirectionXYZ">
-   </LINK>
-   <LINK srcnodeid="231" srcpinname="Output" dstnodeid="196" dstpinname="Ambient Color">
-   </LINK>
-   <LINK srcnodeid="232" srcpinname="Output" dstnodeid="196" dstpinname="Diffuse Color">
-   </LINK>
    <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
    <LINKPOINT x="930" y="4935">
    </LINKPOINT>
    <LINKPOINT x="2775" y="4935">
    </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="232" srcpinname="Output" dstnodeid="196" dstpinname="Diffuse Color">
+   </LINK>
+   <LINK srcnodeid="231" srcpinname="Output" dstnodeid="196" dstpinname="Ambient Color">
+   </LINK>
+   <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light DirectionXYZ">
+   </LINK>
+   <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
+   <LINKPOINT x="1735" y="4530">
+   </LINKPOINT>
+   <LINKPOINT x="3215" y="4200">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="196" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
    </LINK>
    </PATCH>

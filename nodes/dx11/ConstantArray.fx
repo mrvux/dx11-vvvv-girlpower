@@ -15,7 +15,7 @@ SamplerState linearSampler : IMMUTABLE
  
 cbuffer cbPerDraw : register( b0 )
 {
-	float4x4 tVP : VIEWPROJECTION;
+	float4x4 tVP : LAYERVIEWPROJECTION;
 };
 
 

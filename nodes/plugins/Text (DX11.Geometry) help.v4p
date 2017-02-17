@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="D:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Text (DX11.Geometry) help.v4p" systemname="Text (DX11.Geometry) help" filename="D:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Text (DX11.Geometry) help.v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\Text (DX11.Geometry) help.v4p" systemname="Text (DX11.Geometry) help" filename="D:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Text (DX11.Geometry) help.v4p" scrollx="0" scrolly="-360">
    <BOUNDS height="10470" left="1515" top="2835" type="Window" width="9960">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -50,6 +50,8 @@
    <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="4">
    </PIN>
    </NODE>
    <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="19">
