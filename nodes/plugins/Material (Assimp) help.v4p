@@ -1,0 +1,171 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Material (Assimp) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="1335" top="2595" width="13890" height="9690">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Material (Assimp)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Returns Material Info from an Assimp Scene|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="Material (Assimp)" componentmode="Hidden" id="0" systemname="Material (Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll">
+   <BOUNDS type="Node" left="1395" top="2670" width="8565" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1395" top="2670" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Ambient Color" visible="1">
+   </PIN>
+   <PIN pinname="Diffuse Color" visible="1">
+   </PIN>
+   <PIN pinname="Specular Color" visible="1">
+   </PIN>
+   <PIN pinname="Specular Power" visible="1">
+   </PIN>
+   <PIN pinname="Texture Type" visible="1">
+   </PIN>
+   <PIN pinname="Texture Path" visible="1">
+   </PIN>
+   <PIN pinname="Texture Operation" visible="1">
+   </PIN>
+   <PIN pinname="Texture Map Mode" visible="1">
+   </PIN>
+   <PIN pinname="Texture Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1395" top="1980" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1395" top="1980" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Scene">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="0" dstpinname="Scene">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="5" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="1410" top="3630" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1410" top="3630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Color|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Ambient Color" dstnodeid="5" dstpinname="Color Input">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="6" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="2430" top="4815" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2430" top="4815" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Color|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Diffuse Color" dstnodeid="6" dstpinname="Color Input">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="7" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="3510" top="5955" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3510" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular Color|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Specular Color" dstnodeid="7" dstpinname="Color Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4590" top="3855" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4590" top="3855" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular Power|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Specular Power" dstnodeid="8" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="9" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5655" top="3345" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5655" top="3345" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Type|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Type" dstnodeid="9" dstpinname="Input Enum">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="10" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="6705" top="4305" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6705" top="4305" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Path|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Path" dstnodeid="10" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="11" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7755" top="3600" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7755" top="3600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Operation|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Operation" dstnodeid="11" dstpinname="Input Enum">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="12" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="8850" top="4635" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8850" top="4635" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Map Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Map Mode" dstnodeid="12" dstpinname="Input Enum">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9900" top="3615" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9900" top="3615" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Count" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>

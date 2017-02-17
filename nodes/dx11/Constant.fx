@@ -36,7 +36,7 @@ SamplerState linearSampler <string uiname="Sampler State";>
 
 cbuffer cbPerDraw : register(b0)
 {
-	float4x4 tVP : VIEWPROJECTION;
+	float4x4 tVP : LAYERVIEWPROJECTION;
 };
 
 cbuffer cbPerObj : register( b1 )

@@ -48,14 +48,15 @@ cbuffer cbPerDraw : register(b0)
 {
 	float4x4 tV: VIEW;
 	float4x4 tP: PROJECTION;
-	float4x4 tVP: VIEWPROJECTION;
+	float4x4 tLVP: LAYERVIEWPROJECTION;
 };
 
 cbuffer cbPerObj : register( b1 )
 {
 	float4x4 tW : WORLD;
+	float4x4 tWL : WORLDLAYER;
 	float4x4 tWV: WORLDVIEW;
-	float4x4 tWIT: WORLDINVERSETRANSPOSE;
+	float4x4 tWIT: WORLDLAYERINVERSETRANSPOSE;
 	
 	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
 	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
@@ -77,7 +78,7 @@ psInputTextured VS_Textured
 {
     psInputTextured output;
 
-    output.PosW = mul(PosO, tW).xyz;
+    output.PosW = mul(PosO, tWL).xyz;
 
     //inverse light direction in view space
     float3 LightDirW = normalize(lPos - output.PosW);
@@ -87,7 +88,7 @@ psInputTextured VS_Textured
     output.NormV = normalize(mul(mul(NormO, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //position (projected)
-    output.posScreen  = mul(PosO, mul(tW,tVP));
+    output.posScreen  = mul(PosO, mul(tW,tLVP));
     output.uv = mul(TexCd, tTex);
     output.ViewDirV = -normalize(mul(PosO, tWV).xyz);
     return output;
@@ -100,7 +101,7 @@ psInput VS
 {
     psInput output;
 
-    output.PosW = mul(PosO, tW).xyz;
+    output.PosW = mul(PosO, tWL).xyz;
 
     //inverse light direction in view space
     float3 LightDirW = normalize(lPos - output.PosW);
@@ -110,7 +111,7 @@ psInput VS
     output.NormV = normalize(mul(mul(NormO, (float3x3)tWIT),(float3x3)tV).xyz);
 
     //position (projected)
-    output.posScreen  = mul(PosO, mul(tW,tVP));
+    output.posScreen  = mul(PosO, mul(tW,tLVP));
     output.ViewDirV = -normalize(mul(PosO, tWV).xyz);
     return output;
 }
