@@ -297,7 +297,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="825" top="5895" width="2370" height="285">
    </BOUNDS>
-   <PIN pinname="Input String" visible="1" slicecount="1" pintype="Input" values="Instancing_Overview.v4p">
+   <PIN pinname="Input String" visible="1" slicecount="1" pintype="Input" values="09_Geometry_Instancing_Overview.v4p">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>

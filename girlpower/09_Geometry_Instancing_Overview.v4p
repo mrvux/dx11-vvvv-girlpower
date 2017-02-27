@@ -25,7 +25,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6360" top="510" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="143">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="400">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -481,7 +481,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="6405" top="4815" width="2370" height="285">
    </BOUNDS>
-   <PIN pinname="Input String" visible="1" slicecount="1" pintype="Input" values="08_DynamicBuffer_Overview.v4p">
+   <PIN pinname="Input String" visible="1" slicecount="1" pintype="Input" values="10_DynamicBuffer_Overview.v4p">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
