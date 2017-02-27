@@ -994,6 +994,4 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    </PATCH>

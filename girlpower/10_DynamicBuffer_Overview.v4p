@@ -370,6 +370,4 @@
    <PIN pinname="Size" slicecount="1" values="9">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    </PATCH>

@@ -1080,8 +1080,6 @@
    </LINK>
    <LINK srcnodeid="207" srcpinname="Transform Out" dstnodeid="172" dstpinname="Transform In" hiddenwhenlocked="1">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="212" systemname="IOBox (String)">
    <BOUNDS type="Node" left="9570" top="720" width="1725" height="270">
    </BOUNDS>

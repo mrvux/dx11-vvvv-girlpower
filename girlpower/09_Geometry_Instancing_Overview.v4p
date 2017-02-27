@@ -504,8 +504,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="7" dstpinname="Layers">
    </LINK>
    <NODE systemname="TimeStamp (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="TimeStamp (DX11.Query)" componentmode="Hidden" id="52">
