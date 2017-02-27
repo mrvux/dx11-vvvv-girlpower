@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\GouraudPoint (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\dx11\GouraudPoint (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
@@ -17,7 +17,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="81" nodename="Translate (Transform)" systemname="Translate (Transform)">
-   <BOUNDS height="100" left="1005" top="2475" type="Node" width="100">
+   <BOUNDS height="100" left="1725" top="3300" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -29,7 +29,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="145" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="1485" top="1065" type="Node" width="100">
+   <BOUNDS height="100" left="2205" top="1890" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="146" nodename="Cross (3d)" systemname="Cross (3d)">
-   <BOUNDS height="100" left="1230" top="1740" type="Node" width="100">
+   <BOUNDS height="100" left="1950" top="2565" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="X In" visible="1">
    </PIN>
@@ -55,21 +55,21 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="146" dstpinname="X In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1485" y="1538">
+   <LINKPOINT x="2205" y="2363">
    </LINKPOINT>
-   <LINKPOINT x="1275" y="1538">
+   <LINKPOINT x="1995" y="2363">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Y In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2235" y="2363">
    </LINKPOINT>
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2235" y="2363">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Z In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1545" y="1538">
+   <LINKPOINT x="2265" y="2363">
    </LINKPOINT>
-   <LINKPOINT x="1770" y="1538">
+   <LINKPOINT x="2490" y="2363">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="81" dstpinname="X" srcnodeid="146" srcpinname="X Out">
@@ -85,7 +85,7 @@
    </BOUNDS>
    <BOUNDS height="4500" left="2529" top="6834" type="Box" width="6000">
    </BOUNDS>
-   <BOUNDS height="4665" left="11340" top="870" type="Window" width="6360">
+   <BOUNDS height="4665" left="18210" top="705" type="Window" width="6360">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -113,9 +113,9 @@
    <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2994" top="2490" width="0" height="0">
+   <BOUNDS type="Node" left="3744" top="3015" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2994" top="2490" width="795" height="720">
+   <BOUNDS type="Box" left="3744" top="3015" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
    </PIN>
@@ -197,17 +197,17 @@
    <LINK dstnodeid="195" dstpinname="Layers" srcnodeid="196" srcpinname="Layer">
    </LINK>
    <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
-   <LINKPOINT x="1035" y="3870">
+   <LINKPOINT x="1515" y="4420">
    </LINKPOINT>
-   <LINKPOINT x="2865" y="3870">
+   <LINKPOINT x="3105" y="4145">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light PositionXYZ">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="236" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3159" top="3570" width="0" height="0">
+   <BOUNDS type="Node" left="3909" top="4170" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3159" top="3570" width="795" height="240">
+   <BOUNDS type="Box" left="3909" top="4170" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.24">
    </PIN>
@@ -221,9 +221,9 @@
    <LINK srcnodeid="236" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light Attenuation 0">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="237" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3309" top="4086" width="0" height="0">
+   <BOUNDS type="Node" left="4044" top="4746" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3309" top="4086" width="795" height="240">
+   <BOUNDS type="Box" left="4044" top="4746" width="705" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.51">
    </PIN>
@@ -242,4 +242,38 @@
    <LINKPOINT x="2670" y="4935">
    </LINKPOINT>
    </LINK>
+   <NODE componentmode="InABox" id="239" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="15" top="390" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="915" left="15" top="390" type="Box" width="4650">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Applies gouraud shading to geometry (point light)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="238" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="15" top="15" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="390" left="15" top="15" type="Box" width="4095">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|GouraudPoint (DX11.Effect)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="240">
+   <BOUNDS type="Node" left="6435" top="1755" width="100" height="100">
+   </BOUNDS>
+   </NODE>
    </PATCH>

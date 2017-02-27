@@ -1,0 +1,299 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\girlpower\misc\large_text\Render_Large_Text.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="0">
+   <BOUNDS height="9780" left="1170" top="2265" type="Window" width="11595">
+   </BOUNDS>
+   <NODE componentmode="InAWindow" filename="%VVVV%\myplugins\lib\nodes\plugins\DX11\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="RENDERER (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <BOUNDS height="270" left="2274" top="7134" type="Node" width="1800">
+   </BOUNDS>
+   <BOUNDS height="4500" left="2274" top="7134" type="Box" width="6000">
+   </BOUNDS>
+   <BOUNDS height="4665" left="12585" top="2265" type="Window" width="6360">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="AA Quality" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="239" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="90" top="120" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="1755" left="90" top="120" type="Box" width="5520">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Default text engine limits sprite sheet to 512*512 resolution, which is an issue if we need to render larger.&cr;&lf;&cr;&lf;In this scenario, use TextSettings and connect to text node, to override default.&cr;&lf;&cr;&lf;Please note that abusing large glyph sheets can largely increase memory usage, so handle with care|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="2445" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Size" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="5220" top="5205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Size" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Text Renderer" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="251">
+   <BOUNDS type="Node" left="5040" top="7170" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5040" top="7170" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12555" top="6915" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="250" srcpinname="Layer" dstnodeid="251" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="249" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="252" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5610" top="2205" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5610" top="2205" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1024">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Size">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="252" srcpinname="Y Output Value" dstnodeid="249" dstpinname="Size" linkstyle="Bezier">
+   <LINKPOINT x="5595" y="3773">
+   </LINKPOINT>
+   <LINKPOINT x="3450" y="3773">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="252" srcpinname="Y Output Value" dstnodeid="250" dstpinname="Size" linkstyle="Bezier">
+   <LINKPOINT x="5640" y="3818">
+   </LINKPOINT>
+   <LINKPOINT x="6180" y="3818">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="253">
+   <BOUNDS type="Node" left="3510" top="2130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="0.15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="253" srcpinname="Transform Out" dstnodeid="249" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="3525" y="3765">
+   </LINKPOINT>
+   <LINKPOINT x="2790" y="3765">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="253" srcpinname="Transform Out" dstnodeid="250" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="3570" y="3788">
+   </LINKPOINT>
+   <LINKPOINT x="5535" y="3788">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="TextSettings (DX11 Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="TextSettings (DX11 Advanced)" componentmode="Hidden" id="254">
+   <BOUNDS type="Node" left="6960" top="3000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Glyph Sheet Height" visible="1">
+   </PIN>
+   <PIN pinname="Glyph Sheet Width" visible="1">
+   </PIN>
+   <PIN pinname="Max Glyph Width" visible="1">
+   </PIN>
+   <PIN pinname="Max Glyph Height" visible="1">
+   </PIN>
+   <PIN pinname="Sheet Mip Levels" visible="1">
+   </PIN>
+   <PIN pinname="Anisotropic Filtering" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="254" srcpinname="Output" dstnodeid="250" dstpinname="Text Renderer" linkstyle="Bezier">
+   <LINKPOINT x="6945" y="4230">
+   </LINKPOINT>
+   <LINKPOINT x="5280" y="4230">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="255" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7065" top="1740" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7065" top="1740" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2048">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Glyph Sheet Height|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="255" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Glyph Sheet Height" linkstyle="Bezier">
+   <LINKPOINT x="7095" y="2483">
+   </LINKPOINT>
+   <LINKPOINT x="7155" y="2483">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="255" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Glyph Sheet Width" linkstyle="Bezier">
+   <LINKPOINT x="7080" y="2475">
+   </LINKPOINT>
+   <LINKPOINT x="6990" y="2475">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="257" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7440" top="2325" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7440" top="2325" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1536">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Glyph Width|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="257" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Max Glyph Width" linkstyle="Bezier">
+   <LINKPOINT x="7455" y="2775">
+   </LINKPOINT>
+   <LINKPOINT x="7335" y="2775">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="257" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Max Glyph Height" linkstyle="Bezier">
+   <LINKPOINT x="7470" y="2783">
+   </LINKPOINT>
+   <LINKPOINT x="7500" y="2783">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="258" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8730" top="1005" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8730" top="1005" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Sheet Mip Levels|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="258" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Sheet Mip Levels" linkstyle="Bezier">
+   <LINKPOINT x="8790" y="1905">
+   </LINKPOINT>
+   <LINKPOINT x="7650" y="2310">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="259" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9990" top="855" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9990" top="855" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Anisotropic Filtering|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="259" srcpinname="Y Output Value" dstnodeid="254" dstpinname="Anisotropic Filtering" linkstyle="Bezier">
+   <LINKPOINT x="10050" y="1950">
+   </LINKPOINT>
+   <LINKPOINT x="7830" y="2355">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="260" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7110" top="3420" width="5940" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7110" top="3420" width="3375" height="765">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Max glyph width should be smaller than texture size, in order to avoid mip issues|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="262">
+   <BOUNDS type="Node" left="7185" top="4155" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7185" top="4155" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.750018750468762">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="263" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8070" top="4125" width="1455" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8070" top="4125" width="1455" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Is the default ratio|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>

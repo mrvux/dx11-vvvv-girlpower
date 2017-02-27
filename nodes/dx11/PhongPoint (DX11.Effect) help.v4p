@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
-   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\dx11\PhongPoint (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\dx11\PhongPoint (DX11.Effect) help.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest" scrollx="0" scrolly="-360">
    <BOUNDS height="8640" left="1890" top="870" type="Window" width="9450">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" id="56" nodename="Camera (Transform Softimage)" systemname="Camera (Transform Softimage)">
@@ -17,7 +17,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="81" nodename="Translate (Transform)" systemname="Translate (Transform)">
-   <BOUNDS height="100" left="1005" top="2475" type="Node" width="100">
+   <BOUNDS height="100" left="2055" top="3885" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -29,7 +29,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="145" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="1485" top="1065" type="Node" width="100">
+   <BOUNDS height="100" left="2535" top="2475" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="146" nodename="Cross (3d)" systemname="Cross (3d)">
-   <BOUNDS height="100" left="1230" top="1740" type="Node" width="100">
+   <BOUNDS height="100" left="2280" top="3150" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="X In" visible="1">
    </PIN>
@@ -55,21 +55,21 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="146" dstpinname="X In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1485" y="1538">
+   <LINKPOINT x="2535" y="2948">
    </LINKPOINT>
-   <LINKPOINT x="1275" y="1538">
+   <LINKPOINT x="2325" y="2948">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Y In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2565" y="2948">
    </LINKPOINT>
-   <LINKPOINT x="1515" y="1538">
+   <LINKPOINT x="2565" y="2948">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="146" dstpinname="Z In" linkstyle="Bezier" srcnodeid="145" srcpinname="Output">
-   <LINKPOINT x="1545" y="1538">
+   <LINKPOINT x="2595" y="2948">
    </LINKPOINT>
-   <LINKPOINT x="1770" y="1538">
+   <LINKPOINT x="2820" y="2948">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="81" dstpinname="X" srcnodeid="146" srcpinname="X Out">
@@ -113,9 +113,9 @@
    <LINK dstnodeid="195" dstpinname="Projection" srcnodeid="56" srcpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="222" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3054" top="2490" width="0" height="0">
+   <BOUNDS type="Node" left="3744" top="2700" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3054" top="2490" width="795" height="720">
+   <BOUNDS type="Box" left="3744" top="2700" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" values="1.23,-0.92,0">
    </PIN>
@@ -145,9 +145,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="236" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3264" top="3570" width="0" height="0">
+   <BOUNDS type="Node" left="3894" top="4005" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3264" top="3570" width="795" height="240">
+   <BOUNDS type="Box" left="3894" top="4005" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.24">
    </PIN>
@@ -161,9 +161,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="237" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3459" top="4146" width="0" height="0">
+   <BOUNDS type="Node" left="4074" top="4746" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3459" top="4146" width="795" height="240">
+   <BOUNDS type="Box" left="4074" top="4746" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.31">
    </PIN>
@@ -201,15 +201,15 @@
    </PIN>
    <PIN pinname="rough">
    </PIN>
-   <PIN pinname="Ambient Color">
+   <PIN pinname="Ambient Color" slicecount="1" values="|0.15000,0.15000,0.15000,1.00000|">
    </PIN>
    <PIN pinname="Light DirectionXYZ" visible="1">
    </PIN>
    <PIN pinname="bb">
    </PIN>
-   <PIN pinname="Specular Color">
+   <PIN pinname="Specular Color" slicecount="1" values="|0.35000,0.35000,0.35000,1.00000|">
    </PIN>
-   <PIN pinname="Diffuse Color">
+   <PIN pinname="Diffuse Color" slicecount="1" values="|0.85000,0.85000,0.85000,1.00000|">
    </PIN>
    <PIN pinname="Power" slicecount="1" values="25">
    </PIN>
@@ -217,21 +217,19 @@
    </PIN>
    <PIN pinname="Light PositionXYZ" slicecount="3" visible="1" values="0,5,-2">
    </PIN>
-   <PIN pinname="Light Attenuation 0" slicecount="1" values="0" visible="1">
+   <PIN pinname="Light Attenuation 0" slicecount="1" visible="1" values="0">
    </PIN>
-   <PIN pinname="Light Attenuation 1" slicecount="1" values="0.300000011920929" visible="1">
+   <PIN pinname="Light Attenuation 1" slicecount="1" visible="1" values="0.300000011920929">
    </PIN>
    <PIN pinname="Light Range" slicecount="1" values="10">
    </PIN>
    <PIN pinname="Light Attenuation 2" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK dstnodeid="195" dstpinname="Layers" srcnodeid="196" srcpinname="Layer">
-   </LINK>
    <LINK srcnodeid="81" srcpinname="Transform Out" dstnodeid="196" dstpinname="Transform In" linkstyle="VHV">
-   <LINKPOINT x="1035" y="3870">
+   <LINKPOINT x="1735" y="4810">
    </LINKPOINT>
-   <LINKPOINT x="2865" y="3870">
+   <LINKPOINT x="3215" y="4340">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="234" srcpinname="Geometry Out" dstnodeid="196" dstpinname="Geometry" linkstyle="VHV">
@@ -246,4 +244,102 @@
    </LINK>
    <LINK srcnodeid="222" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Light PositionXYZ">
    </LINK>
+   <LINK srcnodeid="196" srcpinname="Layer" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <NODE componentmode="InABox" id="239" nodename="IOBox (String)" systemname="IOBox (String)" hiddenwhenlocked="0" managers="">
+   <BOUNDS height="255" left="30" top="405" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="915" left="30" top="405" type="Box" width="4650">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" pintype="Input" values="|Applies phong shading to geometry (point light)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0" pintype="Output">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" pintype="Configuration" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Pin Visibility" pintype="Configuration" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="String Type" pintype="Configuration" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Default" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" pintype="Configuration" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="238" nodename="IOBox (String)" systemname="IOBox (String)" hiddenwhenlocked="0" managers="">
+   <BOUNDS height="270" left="30" top="30" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="390" left="30" top="30" type="Box" width="4095">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" pintype="Input" values="|PhongPoint (DX11.Effect)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0" pintype="Output">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" pintype="Configuration" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" pintype="Configuration" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Pin Visibility" pintype="Configuration" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="String Type" pintype="Configuration" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Default" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" pintype="Configuration" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
    </PATCH>
