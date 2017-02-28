@@ -1,0 +1,241 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\GetMultiSlice (DX11.Validator) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="4395" top="2205" width="10530" height="9585">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|GetMultiSlice (DX11.Validator)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Spreadable getslice validator, please note that it&apos;s not extremely fast, but is provided for convenience|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="17">
+   <BOUNDS type="Node" left="1740" top="7395" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1740" top="7395" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15120" top="2265" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Control" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="3600" top="4155" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Validator (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Validator (DX11.Layer)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="2565" top="6240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Validators" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Layer" dstnodeid="15" dstpinname="Layer In" linkstyle="VHV">
+   <LINKPOINT x="3755" y="4955">
+   </LINKPOINT>
+   <LINKPOINT x="2470" y="4810">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="3135" top="2730" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="16" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="3195" y="3578">
+   </LINKPOINT>
+   <LINKPOINT x="3915" y="3578">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="1905" top="6750" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Layer Out" dstnodeid="12" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Layer Out" dstnodeid="17" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="CircularSpread (Spreads)" nodename="CircularSpread (Spreads)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="4980" top="2535" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output X" visible="1">
+   </PIN>
+   <PIN pinname="Output Y" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" visible="1" values="32">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" visible="1" values="1.51">
+   </PIN>
+   <PIN pinname="Height" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="5355" top="3540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="TranslateX" visible="1">
+   </PIN>
+   <PIN pinname="TranslateY" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="ScaleX" visible="1">
+   </PIN>
+   <PIN pinname="ScaleY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Output X" dstnodeid="10" dstpinname="TranslateX" linkstyle="Bezier">
+   <LINKPOINT x="5040" y="3158">
+   </LINKPOINT>
+   <LINKPOINT x="5520" y="3158">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output Y" dstnodeid="10" dstpinname="TranslateY" linkstyle="Bezier">
+   <LINKPOINT x="5985" y="3165">
+   </LINKPOINT>
+   <LINKPOINT x="5715" y="3165">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Transform Out" dstnodeid="16" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="5355" y="3968">
+   </LINKPOINT>
+   <LINKPOINT x="4140" y="3968">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6210" top="2505" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6210" top="2505" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.05">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="10" dstpinname="ScaleX" linkstyle="Bezier">
+   <LINKPOINT x="6210" y="3128">
+   </LINKPOINT>
+   <LINKPOINT x="5880" y="3128">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="10" dstpinname="ScaleY" linkstyle="Bezier">
+   <LINKPOINT x="6225" y="3143">
+   </LINKPOINT>
+   <LINKPOINT x="6030" y="3143">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5400" top="1920" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5400" top="1920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1.25">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Width">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Height">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="5" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7095" top="1410" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7095" top="1410" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="32">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Spread Count" linkstyle="VHV">
+   </LINK>
+   <NODE nodename="GetMultiSlice (DX11.Validator)" componentmode="Hidden" id="18" systemname="GetMultiSlice (DX11.Validator)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="5295" top="5700" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5295" top="5700" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Output" dstnodeid="15" dstpinname="Validators" linkstyle="VHV">
+   <LINKPOINT x="5295" y="6090">
+   </LINKPOINT>
+   <LINKPOINT x="2940" y="6090">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6240" top="4575" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6240" top="4575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,6,12">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Index">
+   </LINK>
+   <NODE nodename="GetMultiSlice (DX11.Validator)" componentmode="Hidden" id="20" systemname="GetMultiSlice (DX11.Validator)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="2550" top="3600" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2550" top="3600" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   </PATCH>

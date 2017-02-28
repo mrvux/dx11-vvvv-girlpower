@@ -1,0 +1,207 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Interaction (Kinect Microsoft) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="11160" top="2355" width="12405" height="8520">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Interaction (Kinect Microsoft)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Get user interaction data with Kinect 1 (hand closed/open...)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="Interaction (Kinect Microsoft)" componentmode="Hidden" id="0" systemname="Interaction (Kinect Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.MSKinect.dll">
+   <BOUNDS type="Node" left="2550" top="3600" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2550" top="3600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="User Info" visible="1">
+   </PIN>
+   <PIN pinname="Skeleton Id" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2505" top="2175" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2505" top="2175" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Kinect Runtime|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="0" dstpinname="Kinect Runtime">
+   </LINK>
+   <NODE systemname="UserInfo (Kinect Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.MSKinect.dll" nodename="UserInfo (Kinect Microsoft)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="2550" top="5055" width="6390" height="270">
+   </BOUNDS>
+   <PIN pinname="User Info" visible="1">
+   </PIN>
+   <PIN pinname="Hand Count" visible="1">
+   </PIN>
+   <PIN pinname="Is Tracked" visible="1">
+   </PIN>
+   <PIN pinname="Is Pressed" visible="1">
+   </PIN>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   <PIN pinname="Press Extent" visible="1">
+   </PIN>
+   <PIN pinname="Hand Type" visible="1">
+   </PIN>
+   <PIN pinname="Hand Interaction Type" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="User Info" dstnodeid="6" dstpinname="User Info">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3285" top="4215" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3285" top="4215" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Skeleton Id|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Skeleton Id" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2565" top="5760" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2565" top="5760" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Hand Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Hand Count" dstnodeid="8" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3615" top="5610" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3615" top="5610" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Is Tracked|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Is Tracked" dstnodeid="9" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4650" top="5715" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4650" top="5715" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Is Pressed|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Is Pressed" dstnodeid="10" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5730" top="5760" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5730" top="5760" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values=",">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXY">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="PositionXY" dstnodeid="11" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6765" top="5745" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6765" top="5745" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Press Extent|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Press Extent" dstnodeid="12" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="13" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="7830" top="6210" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7830" top="6210" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Hand Type|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Hand Type" dstnodeid="13" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="14" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="8865" top="5955" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8865" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Hand Interaction Type|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Hand Interaction Type" dstnodeid="14" dstpinname="Input String">
+   </LINK>
+   </PATCH>
