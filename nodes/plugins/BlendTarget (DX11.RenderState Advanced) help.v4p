@@ -1,0 +1,223 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\BlendTarget (DX11.RenderState Advanced) help.v4p">
+   <BOUNDS type="Window" left="5670" top="2970" width="12315" height="7740">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="135" top="45" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="135" top="45" width="7275" height="465">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|BlendTarget (DX11.RenderState Advanced)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5160" height="1065">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Most advanced version of Blend Render State, allows to configure blend settings per individual target in case of MRT rendering, otherwise it&apos;s othogonal to Advanced blend state|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="BlendTarget (DX11.RenderState Advanced)" componentmode="Hidden" id="0" systemname="BlendTarget (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="1920" top="4575" width="4470" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1920" top="4575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Alpha To Coverage" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Operation" visible="1">
+   </PIN>
+   <PIN pinname="Alpha Operation" visible="1">
+   </PIN>
+   <PIN pinname="Source Blend" visible="1">
+   </PIN>
+   <PIN pinname="Source Alpha Blend" visible="1">
+   </PIN>
+   <PIN pinname="Destination Blend" visible="1">
+   </PIN>
+   <PIN pinname="Destination Alpha Blend" visible="1">
+   </PIN>
+   <PIN pinname="Write Mask" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2415" top="2580" width="570" height="495">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2415" top="2580" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Alpha To Coverage|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Alpha To Coverage">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState Advanced)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="6000" top="810" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7575" top="810" width="2085" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7575" top="810" width="2085" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|See for detailed description|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="7" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1935" top="5295" width="870" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1935" top="5295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Render State" dstnodeid="7" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2910" top="3315" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2910" top="3315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="9" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3390" top="2760" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3390" top="2760" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Maximum">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Operation">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Output Enum" dstnodeid="0" dstpinname="Operation">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="10" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3885" top="3375" width="1620" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3885" top="3375" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Maximum">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Alpha Operation|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="0" dstpinname="Alpha Operation">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="11" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4350" top="2250" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4350" top="2250" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="One">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Source Blend|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Output Enum" dstnodeid="0" dstpinname="Source Blend">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="12" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4875" top="3900" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4875" top="3900" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="One">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Source Alpha Blend|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Output Enum" dstnodeid="0" dstpinname="Source Alpha Blend">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="13" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5370" top="2895" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5370" top="2895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Zero">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Destination Blend|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output Enum" dstnodeid="0" dstpinname="Destination Blend">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="14" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5835" top="3330" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5835" top="3330" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Zero">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Destination Alpha Blend|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Output Enum" dstnodeid="0" dstpinname="Destination Alpha Blend">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="15" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7515" top="3870" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7515" top="3870" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="All">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Write Mask|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Output Enum" dstnodeid="0" dstpinname="Write Mask" linkstyle="VHV">
+   <LINKPOINT x="7515" y="4343">
+   </LINKPOINT>
+   <LINKPOINT x="6390" y="4343">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="16" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1665" top="1740" width="5595" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1665" top="1740" width="5595" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|You can spread the inputs to up to 8, as it&apos;s the maximum allowed mrt count|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
