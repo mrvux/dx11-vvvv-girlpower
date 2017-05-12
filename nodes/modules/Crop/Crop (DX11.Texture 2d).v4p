@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
-   <PATCH nodename="W:\Resize\Crop (DX11.Texture 2d).v4p" systemname="Crop (DX11.Texture 2d)" filename="X:\Crop (DX11.Texture 2d).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Crop\Crop (DX11.Texture 2d).v4p" systemname="Crop (DX11.Texture 2d)" filename="X:\Crop (DX11.Texture 2d).v4p">
    <BOUNDS type="Window" left="11265" top="5295" width="7170" height="7695">
    </BOUNDS>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="8" systemname="IOBox (Enumerations)">
@@ -105,6 +105,8 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
+   </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Output Enum" dstnodeid="10" dstpinname="Target Format">
    </LINK>
@@ -158,7 +160,7 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="31.9.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="Crop (DX11.Effect)" filename="Crop.fx" nodename="Crop (DX11.Effect)" componentmode="Hidden" id="27">
    <BOUNDS type="Node" left="3150" top="4035" width="100" height="100">
@@ -167,7 +169,7 @@
    </PIN>
    <PIN pinname="Geometry" visible="1">
    </PIN>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
