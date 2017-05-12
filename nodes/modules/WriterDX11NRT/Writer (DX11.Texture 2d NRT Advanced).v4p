@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" systemname="Writer (DX11.Texture 2d NRT Advanced)" filename="X:\WriterDX11NRT\Writer (DX11.Texture 2d NRT Advanced).v4p" scrollx="0" scrolly="1800">
-   <BOUNDS type="Window" left="5040" top="1860" width="18885" height="10980">
+   <BOUNDS type="Window" left="5040" top="1755" width="18885" height="11085">
    </BOUNDS>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="1" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="285" top="4860" width="2070" height="240">
@@ -1639,7 +1639,7 @@
    </PIN>
    <PIN pinname="Clear Depth" visible="1">
    </PIN>
-   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Manual">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="180" systemname="IOBox (Enumerations)">
@@ -2577,7 +2577,7 @@
    </BOUNDS>
    <PIN pinname="Buffers" visible="1">
    </PIN>
-   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Manual">
    </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Output Enum" dstnodeid="258" dstpinname="Target Format">

@@ -145,7 +145,7 @@
    </PIN>
    <PIN pinname="Query" visible="1">
    </PIN>
-   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Manual">
    </PIN>
    </NODE>
    <LINK srcnodeid="221" srcpinname="Output Enum" dstnodeid="222" dstpinname="Target Format">

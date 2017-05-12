@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="W:\DistanceFieldPS\DistanceField (DX11.Texture 2d).v4p" systemname="DistanceField (DX11.Texture 2d)" filename="W:\DistanceField\DistanceField (DX11.Texture 2d).v4p" scrollx="0" scrolly="-360" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\DistanceField\DistanceField (DX11.Texture 2d).v4p" systemname="DistanceField (DX11.Texture 2d)" filename="W:\DistanceField\DistanceField (DX11.Texture 2d).v4p" scrollx="0" scrolly="-360" locked="0">
    <BOUNDS type="Window" left="8385" top="2505" width="21375" height="13185">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="810" top="810" width="795" height="240">
@@ -247,7 +247,7 @@
    <NODE systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" id="140">
    <BOUNDS type="Node" left="735" top="1260" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Texture In" visible="1">
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Height" visible="1">
    </PIN>
@@ -277,7 +277,7 @@
    </PIN>
    <PIN pinname="Depth Buffer Mode" pintype="Configuration" slicecount="1" values="None">
    </PIN>
-   <PIN pinname="Texture Input Mode" pintype="Configuration" slicecount="1" values="Manual">
+   <PIN pinname="Texture Input Mode" pintype="Configuration" slicecount="1" values="Inherit">
    </PIN>
    <PIN pinname="Target Format" pintype="Input" visible="1" slicecount="1" values="R32_Float">
    </PIN>
@@ -473,7 +473,7 @@
    <NODE id="125" systemname="DistanceField (DX11.Effect)" filename="DistanceField.fx" nodename="DistanceField (DX11.Effect)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="3810" top="5505" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Initial Texture" visible="1">
+   <PIN pinname="Initial Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Width" visible="1">
    </PIN>
@@ -1055,7 +1055,7 @@
    <NODE id="181" systemname="DistanceField (DX11.Effect)" filename="DistanceField.fx" nodename="DistanceField (DX11.Effect)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="3810" top="6855" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Initial Texture" visible="1">
+   <PIN pinname="Initial Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Width" visible="1" slicecount="1" values="4000">
    </PIN>
@@ -1753,7 +1753,7 @@
    <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="255">
    <BOUNDS type="Node" left="9045" top="9750" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
