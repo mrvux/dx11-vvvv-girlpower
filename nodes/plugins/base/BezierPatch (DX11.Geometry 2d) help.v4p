@@ -1,0 +1,263 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\work\repositories\directx11\dx11-vvvv-girlpower\help\nodes\BezierPatch (DX11.Geometry 2d) help.v4p" systemname="BezierPatch (DX11.Geometry 2d) help" filename="D:\vvvv\vvvv_dx11_dropbox\directx11\plugins\BezierPatch (DX11.Geometry 2d) help.v4p">
+   <BOUNDS height="9645" left="1470" top="540" type="Window" width="9960">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="15" top="390" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="960" left="15" top="390" type="Box" width="4485">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Generates a bezier patch from a set of control points. Has texture coordinates built in and is spreadable|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="0" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="15" top="15" type="Node" width="915">
+   </BOUNDS>
+   <BOUNDS height="360" left="15" top="15" type="Box" width="4410">
+   </BOUNDS>
+   <BOUNDS height="160" left="300" top="300" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|BezierPatch DX11.Geometry 2d|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\directx11\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="18" stayontop="1">
+   <BOUNDS type="Node" left="4203" top="8295" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4203" top="8295" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11460" top="2865" width="6120" height="4860">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\directx11\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="4380" top="6750" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Alpha" visible="1" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="BezierPatch (DX11.Geometry 2d)" filename="%VVVV%\directx11\plugins\VVVV.DX11.BasicPrimitives.dll" nodename="BezierPatch (DX11.Geometry 2d)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="3240" top="4890" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="ResXY" slicecount="2" values="16,16">
+   </PIN>
+   <PIN pinname="Mesh Count" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Control Point ResXY" slicecount="2" values="3,3">
+   </PIN>
+   <PIN pinname="Control PointsXY" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="HelpersXY" visible="1">
+   </PIN>
+   <PIN pinname="Patch Id" visible="1">
+   </PIN>
+   <PIN pinname="Grid ResolutionXY" slicecount="2" values="4,4" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Control Point ResolutionXY" slicecount="2" values="3,3">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="60" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3894" top="3915" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3894" top="3915" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" values="16,16">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="ResXY">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="57" dstpinname="ResXY">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="61">
+   <BOUNDS type="Node" left="3450" top="1740" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3450" top="1740" width="2070" height="1965">
+   </BOUNDS>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="9">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="18" values="0.1,0.17,0,0,0,0,0,0,0,0,0,0,0,0,0.06,-0.1,0.27,0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Control PointsXY|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\directx11\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="66">
+   <BOUNDS type="Node" left="6645" top="6780" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="18" values="|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|,|1.00000,0.66000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="69">
+   <BOUNDS type="Node" left="6936" top="5835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="TranslateXY" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="ScaleXY" slicecount="2" values="0.06,0.06">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="HelpersXY" dstnodeid="69" dstpinname="TranslateXY" linkstyle="Bezier">
+   <LINKPOINT x="3300" y="5483">
+   </LINKPOINT>
+   <LINKPOINT x="7125" y="5483">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="69" srcpinname="Transform Out" dstnodeid="66" dstpinname="Transform In">
+   </LINK>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="70">
+   <BOUNDS type="Node" left="7281" top="5295" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Lightness" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Hue" slicecount="2" visible="1" values="0.58,0.01">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="70" srcpinname="Output" dstnodeid="66" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Control PointsXY">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="73">
+   <BOUNDS type="Node" left="7266" top="4680" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7266" top="4680" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Hue">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="74" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="5400" top="4230" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5400" top="4230" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Mesh Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="74" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Mesh Count" linkstyle="VHV">
+   <LINKPOINT x="5400" y="4665">
+   </LINKPOINT>
+   <LINKPOINT x="4155" y="4665">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="65" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="4200" top="7425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="65" srcpinname="Layer Out" dstnodeid="18" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="66" srcpinname="Layer" dstnodeid="65" dstpinname="Layer 2" linkstyle="VHV">
+   <LINKPOINT x="6645" y="7223">
+   </LINKPOINT>
+   <LINKPOINT x="4620" y="7223">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Geometry Out" dstnodeid="19" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="3255" top="5790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="BackCullWireframe">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="76" srcpinname="Render State" dstnodeid="19" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="77">
+   <BOUNDS type="Node" left="6000" top="5850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="77" srcpinname="Geometry Out" dstnodeid="66" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="6060" y="6435">
+   </LINKPOINT>
+   <LINKPOINT x="6795" y="6435">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Grid ResolutionXY">
+   </LINK>
+   </PATCH>
