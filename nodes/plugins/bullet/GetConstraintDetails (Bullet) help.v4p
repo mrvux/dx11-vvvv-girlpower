@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\Hinge (Bullet Constraint.Single) help.v4p" scrollx="0" scrolly="645">
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\GetConstraintDetails (Bullet) help.v4p" scrollx="30" scrolly="0">
    <BOUNDS type="Window" left="4155" top="870" width="11745" height="13185">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="225" top="75" width="6180" height="435">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Hinge (Bullet Constraint.Single)|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|GetConstraintDetails (Bullet)|">
    </PIN>
    <PIN pinname="Output String" slicecount="1" visible="0" values="||">
    </PIN>
@@ -19,7 +19,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Add a hinge constraint between  a body and a pivot point.&cr;&lf;|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Get Common information about a bullet contraint|">
    </PIN>
    <PIN pinname="Output String" slicecount="1" visible="0" values="||">
    </PIN>
@@ -464,9 +464,17 @@
    </NODE>
    <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="16" dstpinname="Do Create">
+   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="16" dstpinname="Do Create" linkstyle="Bezier">
+   <LINKPOINT x="7530" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="2565" y="4350">
+   </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="33" dstpinname="Do Create">
+   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="33" dstpinname="Do Create" linkstyle="Bezier">
+   <LINKPOINT x="7545" y="5738">
+   </LINKPOINT>
+   <LINKPOINT x="6615" y="5738">
+   </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="57" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6135" top="6780" width="795" height="240">
@@ -514,12 +522,20 @@
    </NODE>
    <LINK srcnodeid="59" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Limit Low">
    </LINK>
-   <LINK srcnodeid="43" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 1">
+   <LINK srcnodeid="43" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 1" linkstyle="Bezier">
+   <LINKPOINT x="570" y="9293">
+   </LINKPOINT>
+   <LINKPOINT x="1485" y="9293">
+   </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="22" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 2">
+   <LINK srcnodeid="22" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 2" linkstyle="Bezier">
+   <LINKPOINT x="3210" y="9293">
+   </LINKPOINT>
+   <LINKPOINT x="1740" y="9293">
+   </LINKPOINT>
    </LINK>
    <NODE systemname="DebugDraw (DX11.Layer Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="DebugDraw (DX11.Layer Bullet)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="5295" top="8730" width="100" height="100">
+   <BOUNDS type="Node" left="4500" top="8670" width="100" height="100">
    </BOUNDS>
    <PIN pinname="World" visible="1">
    </PIN>
@@ -528,8 +544,108 @@
    <PIN pinname="Mode" slicecount="1" values="DrawConstraints">
    </PIN>
    </NODE>
-   <LINK srcnodeid="29" srcpinname="World" dstnodeid="60" dstpinname="World">
+   <LINK srcnodeid="29" srcpinname="World" dstnodeid="60" dstpinname="World" linkstyle="Bezier">
+   <LINKPOINT x="4530" y="6210">
+   </LINKPOINT>
+   <LINKPOINT x="4530" y="6210">
+   </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="60" srcpinname="Layer Out" dstnodeid="25" dstpinname="Layer 3">
+   <LINK srcnodeid="60" srcpinname="Layer Out" dstnodeid="25" dstpinname="Layer 3" linkstyle="Bezier">
+   <LINKPOINT x="4500" y="9285">
+   </LINKPOINT>
+   <LINKPOINT x="1920" y="9285">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="GetConstraintDetails (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="GetConstraintDetails (Bullet)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="7200" top="9045" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Contraint" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Id" visible="1">
+   </PIN>
+   <PIN pinname="LifeTime" visible="1">
+   </PIN>
+   <PIN pinname="Custom" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Constraints" dstnodeid="61" dstpinname="Contraint" linkstyle="Bezier">
+   <LINKPOINT x="3945" y="8505">
+   </LINKPOINT>
+   <LINKPOINT x="7200" y="8505">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Enum2String (Enumerations)" nodename="Enum2String (Enumerations)" componentmode="Hidden" id="63">
+   <BOUNDS type="Node" left="7185" top="9555" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   <PIN pinname="String Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Type" dstnodeid="63" dstpinname="Enum">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="64" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="7185" top="10260" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7185" top="10260" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="String Value" dstnodeid="64" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7665" top="10755" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7665" top="10755" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Id">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Id" dstnodeid="65" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="66" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8130" top="11295" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8130" top="11295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="LifeTime">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="LifeTime" dstnodeid="66" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="67" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="8595" top="9795" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8595" top="9795" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Custom">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Custom" dstnodeid="67" dstpinname="Input String">
    </LINK>
    </PATCH>
