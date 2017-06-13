@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\CreateVehicle (Bullet) help.v4p" scrollx="30" scrolly="885">
-   <BOUNDS type="Window" left="3855" top="405" width="18465" height="12900">
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\CreateVehicle (Bullet) help.v4p" scrollx="30" scrolly="6840">
+   <BOUNDS type="Window" left="945" top="315" width="18465" height="12900">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="15" top="15" width="5100" height="450">
@@ -62,12 +62,12 @@
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="FullScreen" id="34" stayontop="1">
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="34" stayontop="1">
    <BOUNDS type="Node" left="2460" top="14505" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="2460" top="14505" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="-16980" top="3390" width="8835" height="7515">
+   <BOUNDS type="Window" left="19200" top="225" width="8835" height="7515">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -135,7 +135,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8655" top="3555" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,-0.85,0">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,-9,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -287,7 +287,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11580" top="9225" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="100">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -303,7 +303,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="13050" top="10920" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -313,7 +313,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Apply">
    </PIN>
@@ -1052,4 +1052,118 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="Info (Bullet Vehicle)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Info (Bullet Vehicle)" componentmode="Hidden" id="97">
+   <BOUNDS type="Node" left="6645" top="12885" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Speed" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Vehicle" dstnodeid="97" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="98" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6630" top="13950" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6630" top="13950" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Speed">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Speed" dstnodeid="98" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="WheelInfo (Bullet Vehicle)" componentmode="Hidden" id="99" systemname="WheelInfo (Bullet Vehicle)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll">
+   <BOUNDS type="Node" left="7980" top="13590" width="3420" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7980" top="13590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Vehicle" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Transform Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Skid Info" visible="1">
+   </PIN>
+   <PIN pinname="Suspension Relative Velocity" visible="1">
+   </PIN>
+   <PIN pinname="Suspension Force" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Vehicle" dstnodeid="99" dstpinname="Vehicle">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="100" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7995" top="14475" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7995" top="14475" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0,,,">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Skid Info|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Skid Info" dstnodeid="100" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="101" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9315" top="14475" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9315" top="14475" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Suspension Relative Velocity|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Suspension Relative Velocity" dstnodeid="101" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="102" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11655" top="14490" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11655" top="14490" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0,,,">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Suspension Force|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Suspension Force" dstnodeid="102" dstpinname="Y Input Value" linkstyle="Bezier">
+   <LINKPOINT x="10725" y="14160">
+   </LINKPOINT>
+   <LINKPOINT x="11640" y="14160">
+   </LINKPOINT>
+   </LINK>
    </PATCH>
