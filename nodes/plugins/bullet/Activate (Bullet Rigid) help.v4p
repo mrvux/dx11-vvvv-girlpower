@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\CreateDynamicBody (Bullet Rigid) help.v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\nodes\plugins\bullet\Activate (Bullet Rigid) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2115" top="405" width="14445" height="14295">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|CreateDynamicBody (Bullet)|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Activate (Bullet Rigid)|">
    </PIN>
    <PIN pinname="Output String" slicecount="1" visible="0" values="||">
    </PIN>
@@ -19,13 +19,13 @@
    </BOUNDS>
    <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Creates a rigid body to be used in bullet physics.&cr;&lf;Body output is set to node only one frame when it got created|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Activates a sleeping rigid body (or does nothing if body is already activate|">
    </PIN>
    <PIN pinname="Output String" slicecount="1" visible="0" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Plane (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.Bullet.dll" nodename="Plane (Bullet)" componentmode="Hidden" id="28">
-   <BOUNDS type="Node" left="7605" top="5040" width="100" height="100">
+   <BOUNDS type="Node" left="9870" top="4920" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Shape" visible="1">
    </PIN>
@@ -57,9 +57,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="26">
-   <BOUNDS type="Node" left="1395" top="10005" width="100" height="100">
+   <BOUNDS type="Node" left="1215" top="11595" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1395" top="10005" width="6000" height="4500">
+   <BOUNDS type="Box" left="1215" top="11595" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="16335" top="960" width="6240" height="5085">
    </BOUNDS>
@@ -77,7 +77,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="25">
-   <BOUNDS type="Node" left="1590" top="8280" width="100" height="100">
+   <BOUNDS type="Node" left="1410" top="9870" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
@@ -87,7 +87,7 @@
    </PIN>
    </NODE>
    <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="22">
-   <BOUNDS type="Node" left="1950" top="7605" width="100" height="100">
+   <BOUNDS type="Node" left="1770" top="9195" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -95,7 +95,7 @@
    <LINK srcnodeid="22" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 2">
    </LINK>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="2655" top="9270" width="100" height="100">
+   <BOUNDS type="Node" left="2475" top="10860" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -107,7 +107,7 @@
    <LINK srcnodeid="21" srcpinname="Projection" dstnodeid="26" dstpinname="Projection">
    </LINK>
    <NODE systemname="Box (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.Bullet.dll" nodename="Box (Bullet)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="2490" top="4695" width="100" height="100">
+   <BOUNDS type="Node" left="480" top="5490" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Shape" visible="1">
    </PIN>
@@ -132,32 +132,12 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="GravityXYZ">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4560" top="4515" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4560" top="4515" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Do Create|">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2805" top="3030" width="795" height="720">
+   <BOUNDS type="Box" left="780" top="3000" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="2805" top="3030" width="0" height="0">
+   <BOUNDS type="Node" left="780" top="3000" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,5,0">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,2,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -173,7 +153,7 @@
    </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="945" top="8985" width="100" height="100">
+   <BOUNDS type="Node" left="765" top="10575" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer In" visible="1">
    </PIN>
@@ -183,15 +163,15 @@
    <LINK srcnodeid="25" srcpinname="Layer Out" dstnodeid="13" dstpinname="Layer In">
    </LINK>
    <LINK srcnodeid="13" srcpinname="Layer Out" dstnodeid="26" dstpinname="Layers" linkstyle="VHV">
-   <LINKPOINT x="1005" y="9623">
+   <LINKPOINT x="825" y="11213">
    </LINKPOINT>
-   <LINKPOINT x="1560" y="9623">
+   <LINKPOINT x="1380" y="11213">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="8865" top="5925" width="1410" height="270">
+   <BOUNDS type="Node" left="11130" top="5805" width="1410" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="8865" top="5925" width="1410" height="270">
+   <BOUNDS type="Box" left="11130" top="5805" width="1410" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Ground plane|">
    </PIN>
@@ -259,9 +239,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="32" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="5775" top="11685" width="3015" height="270">
+   <BOUNDS type="Node" left="9570" top="11280" width="3015" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="5775" top="11685" width="3015" height="270">
+   <BOUNDS type="Box" left="9570" top="11280" width="3015" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Body (will appear only for a single frame)|">
    </PIN>
@@ -273,9 +253,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4860" top="12225" width="795" height="240">
+   <BOUNDS type="Box" left="10710" top="11970" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4860" top="12225" width="0" height="0">
+   <BOUNDS type="Node" left="10710" top="11970" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -322,28 +302,8 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="CreateDynamicBody (Bullet Rigid)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateDynamicBody (Bullet Rigid)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="2205" top="5190" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Shapes" visible="1">
-   </PIN>
-   <PIN pinname="World" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Bodies" visible="1">
-   </PIN>
-   <PIN pinname="Do Create" visible="1">
-   </PIN>
-   <PIN pinname="PositionXYZ" visible="1">
-   </PIN>
-   <PIN pinname="Initial Pose" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="20" srcpinname="Shape" dstnodeid="16" dstpinname="Shapes">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Do Create">
-   </LINK>
    <NODE systemname="CreateStaticBody (Bullet Rigid)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateStaticBody (Bullet Rigid)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="7425" top="5940" width="100" height="100">
+   <BOUNDS type="Node" left="9690" top="5820" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Shapes" visible="1">
    </PIN>
@@ -357,7 +317,7 @@
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="DebugDraw (DX11.Layer Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="DebugDraw (DX11.Layer Bullet)" componentmode="Hidden" id="54">
-   <BOUNDS type="Node" left="1785" top="7005" width="100" height="100">
+   <BOUNDS type="Node" left="1605" top="8595" width="100" height="100">
    </BOUNDS>
    <PIN pinname="World" visible="1" slicecount="1" values="||">
    </PIN>
@@ -409,9 +369,9 @@
    <LINK srcnodeid="30" srcpinname="Bodies" dstnodeid="31" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="30" srcpinname="Id" dstnodeid="33" dstpinname="Y Input Value" linkstyle="VHV">
-   <LINKPOINT x="11370" y="11625">
+   <LINKPOINT x="13320" y="11540">
    </LINKPOINT>
-   <LINKPOINT x="4920" y="11625">
+   <LINKPOINT x="8820" y="11455">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="34" srcpinname="Output Node" dstnodeid="30" dstpinname="World" linkstyle="Bezier">
@@ -489,15 +449,13 @@
    <LINK srcnodeid="59" srcpinname="Output" dstnodeid="60" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Pose (Bullet Join)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Pose (Bullet Join)" componentmode="Hidden" id="61">
-   <BOUNDS type="Node" left="2805" top="4035" width="100" height="100">
+   <BOUNDS type="Node" left="780" top="4005" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="PositionXYZ" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="16" dstpinname="Initial Pose">
-   </LINK>
    <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="61" dstpinname="PositionXYZ">
    </LINK>
    <NODE nodename="RigidWorld (Bullet)" componentmode="Hidden" id="29" systemname="RigidWorld (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll">
@@ -542,28 +500,228 @@
    </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="29" srcpinname="World" dstnodeid="16" dstpinname="World" linkstyle="Bezier">
-   <LINKPOINT x="4740" y="4403">
-   </LINKPOINT>
-   <LINKPOINT x="2265" y="4403">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="17" dstpinname="Do Create" linkstyle="Bezier">
-   <LINKPOINT x="7815" y="4793">
+   <LINKPOINT x="8570" y="4753">
    </LINKPOINT>
-   <LINKPOINT x="8640" y="4793">
+   <LINKPOINT x="10150" y="4713">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="29" srcpinname="World" dstnodeid="17" dstpinname="World" linkstyle="Bezier">
-   <LINKPOINT x="4800" y="4778">
+   <LINKPOINT x="5555" y="4738">
    </LINKPOINT>
-   <LINKPOINT x="7410" y="4778">
+   <LINKPOINT x="8920" y="4698">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="29" srcpinname="World" dstnodeid="54" dstpinname="World" linkstyle="Bezier">
-   <LINKPOINT x="4725" y="5310">
+   <LINKPOINT x="4740" y="6120">
    </LINKPOINT>
-   <LINKPOINT x="1845" y="5310">
+   <LINKPOINT x="1650" y="6120">
    </LINKPOINT>
    </LINK>
+   <NODE systemname="CreateDynamicBody (Bullet Rigid.Persist)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateDynamicBody (Bullet Rigid.Persist)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="1350" top="6735" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shapes" visible="1">
+   </PIN>
+   <PIN pinname="World" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bodies" visible="1">
+   </PIN>
+   <PIN pinname="Do Create" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pose" visible="1">
+   </PIN>
+   <PIN pinname="Initial Motion Properties" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Shape" dstnodeid="16" dstpinname="Shapes" linkstyle="Bezier">
+   <LINKPOINT x="540" y="6233">
+   </LINKPOINT>
+   <LINKPOINT x="1560" y="6233">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="16" dstpinname="Initial Pose" linkstyle="Bezier">
+   <LINKPOINT x="825" y="5505">
+   </LINKPOINT>
+   <LINKPOINT x="1830" y="5505">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="World" dstnodeid="16" dstpinname="World" linkstyle="Bezier">
+   <LINKPOINT x="4455" y="4918">
+   </LINKPOINT>
+   <LINKPOINT x="1695" y="5433">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="MotionProperties (Bullet Join)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="MotionProperties (Bullet Join)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="2055" top="5985" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Is Active" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="63" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3270" top="5115" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3270" top="5115" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Is Active|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Is Active">
+   </LINK>
+   <LINK srcnodeid="62" srcpinname="Output" dstnodeid="16" dstpinname="Initial Motion Properties">
+   </LINK>
+   <NODE systemname="Activate (Bullet Rigid)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Activate (Bullet Rigid)" componentmode="Hidden" id="64">
+   <BOUNDS type="Node" left="1350" top="7560" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bodies" visible="1">
+   </PIN>
+   <PIN pinname="Activate" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Bodies" dstnodeid="64" dstpinname="Bodies">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4005" top="5850" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4005" top="5850" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Activate">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="65" srcpinname="Y Output Value" dstnodeid="64" dstpinname="Activate" linkstyle="Bezier">
+   <LINKPOINT x="4005" y="6930">
+   </LINKPOINT>
+   <LINKPOINT x="2025" y="6930">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="66" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2655" top="4080" width="825" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2655" top="4080" width="2445" height="780">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Note : Set is active to false makes body disabled by default .&cr;&lf;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Box (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.Nodes.Bullet.dll" nodename="Box (Bullet)" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="6075" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shape" visible="1">
+   </PIN>
+   <PIN pinname="SizeXYZ" slicecount="3" values="1,1,1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="73" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7980" top="6075" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7980" top="6075" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,7,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXYZ">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Pose (Bullet Join)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Pose (Bullet Join)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="7980" top="7080" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Y Output Value" dstnodeid="72" dstpinname="PositionXYZ">
+   </LINK>
+   <NODE systemname="CreateDynamicBody (Bullet Rigid.Persist)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateDynamicBody (Bullet Rigid.Persist)" componentmode="Hidden" id="71">
+   <BOUNDS type="Node" left="6975" top="8100" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shapes" visible="1">
+   </PIN>
+   <PIN pinname="World" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bodies" visible="1">
+   </PIN>
+   <PIN pinname="Do Create" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pose" visible="1">
+   </PIN>
+   <PIN pinname="Initial Motion Properties" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="75" srcpinname="Shape" dstnodeid="71" dstpinname="Shapes" linkstyle="Bezier">
+   <LINKPOINT x="6135" y="7650">
+   </LINKPOINT>
+   <LINKPOINT x="7185" y="7650">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="71" dstpinname="Initial Pose" linkstyle="Bezier">
+   <LINKPOINT x="7980" y="7718">
+   </LINKPOINT>
+   <LINKPOINT x="7500" y="7718">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="16" dstpinname="Do Create">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Has Reset" dstnodeid="71" dstpinname="Do Create">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="World" dstnodeid="71" dstpinname="World">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="76" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4590" top="5805" width="4770" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4590" top="5805" width="2850" height="675">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|You can activate befor collision (collision with auto activate body)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>
