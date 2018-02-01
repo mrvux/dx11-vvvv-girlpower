@@ -1,0 +1,165 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\kinect2\DepthRGB (Kinect2 Microsoft) help.v4p">
+   <BOUNDS type="Window" left="2610" top="420" width="9000" height="11370">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|DepthRGB (Kinect2 Microsoft)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Returns a G32R32F formatted texture whose pixels represent a UV map mapping pixels from depth to color space.|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Kinect2 (Devices Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Kinect2 (Devices Microsoft)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2565" top="2490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="8">
+   <BOUNDS type="Node" left="1620" top="7215" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1620" top="7215" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11520" top="5415" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Player (Kinect2 Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Player (Kinect2 Microsoft)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="1620" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Player Color" visible="1">
+   </PIN>
+   <PIN pinname="Kinect Runtime" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="2115" top="4500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Output" dstnodeid="18" dstpinname="Player Color">
+   </LINK>
+   <NODE systemname="DepthRGB (Kinect2 Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="DepthRGB (Kinect2 Microsoft)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="3465" top="5115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Raw Data" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Relative Lookup" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="14" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3135" top="6255" width="7380" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3135" top="6255" width="4680" height="720">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Use lookup table to filter player texture, in order to do that properly we need to remap color to depth|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Kinect Runtime" dstnodeid="18" dstpinname="Kinect Runtime" linkstyle="Bezier">
+   <LINKPOINT x="2565" y="3938">
+   </LINKPOINT>
+   <LINKPOINT x="1650" y="3938">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Kinect Runtime" dstnodeid="15" dstpinname="Kinect Runtime" linkstyle="Bezier">
+   <LINKPOINT x="2610" y="3930">
+   </LINKPOINT>
+   <LINKPOINT x="3480" y="3930">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="FilterRGBView (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\texture11\FilterRGBView.tfx" nodename="FilterRGBView (DX11.TextureFX)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="1620" top="6225" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="PlayerTexture" visible="1">
+   </PIN>
+   <PIN pinname="DepthRGBMapTexture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Texture" dstnodeid="16" dstpinname="PlayerTexture" linkstyle="Bezier">
+   <LINKPOINT x="1680" y="5805">
+   </LINKPOINT>
+   <LINKPOINT x="2220" y="5805">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Texture" dstnodeid="16" dstpinname="DepthRGBMapTexture" linkstyle="Bezier">
+   <LINKPOINT x="3465" y="5790">
+   </LINKPOINT>
+   <LINKPOINT x="2475" y="5790">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Texture Out" dstnodeid="8" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="RGB (Kinect2 Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="RGB (Kinect2 Microsoft)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="525" top="5085" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Kinect Runtime" dstnodeid="19" dstpinname="Kinect Runtime" linkstyle="Bezier">
+   <LINKPOINT x="2550" y="3915">
+   </LINKPOINT>
+   <LINKPOINT x="585" y="3915">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Texture" dstnodeid="16" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="585" y="5775">
+   </LINKPOINT>
+   <LINKPOINT x="1605" y="5775">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="20">
+   <BOUNDS type="Node" left="300" top="6270" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="300" top="6270" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11475" top="435" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Texture" dstnodeid="20" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="540" y="5813">
+   </LINKPOINT>
+   <LINKPOINT x="330" y="5813">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>

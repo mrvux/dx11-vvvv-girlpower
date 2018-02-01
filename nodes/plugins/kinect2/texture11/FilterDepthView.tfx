@@ -1,0 +1,44 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D PlayerTexture : PREVIOUS;
+Texture2D ColorTexture ;
+Texture2D<float2> DepthRGBMapTexture;
+
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+float4 ProcessPixel(float2 map, float body)
+{
+	//Map in depth size space, convert back into uv space
+	map.x /= 1920.0f;
+	map.y /= 1080.0f;
+	float4 rgb = ColorTexture.Sample(linearSampler,map);	
+	return rgb*body;
+}
+
+float4 PS(float4 p : SV_Position, float2 uv : TEXCOORD0): SV_Target
+{
+    float body = PlayerTexture.Sample(linearSampler, uv).r;
+	float2 map = DepthRGBMapTexture.Sample(linearSampler, uv);
+	return ProcessPixel(map, body);
+}
+
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
