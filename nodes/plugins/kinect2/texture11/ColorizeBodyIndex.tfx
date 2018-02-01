@@ -1,0 +1,41 @@
+//@author: vux
+//@help: Colorize kiect body index texture
+//@tags: texture
+//@credits: 
+
+Texture2D<uint> inputTexture : PREVIOUS;
+
+StructuredBuffer<float4> colorBuffer;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	uint index = inputTexture.Load(int3(input.p.xy,0));
+	//Background returns 255, 0 -> 6 = player
+	return index == 255 ? 0 : colorBuffer[index];
+}
+
+technique10 Process
+{
+	//Set texture as standard color
+	pass P0 <string format="R8G8B8A8_UNorm";> 
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
