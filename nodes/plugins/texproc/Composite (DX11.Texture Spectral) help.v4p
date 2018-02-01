@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\texproc\Composite (DX11.Texture Spectral) help.v4p">
-   <BOUNDS type="Window" left="4770" top="375" width="11745" height="12150">
+   <BOUNDS type="Window" left="4770" top="375" width="14145" height="12150">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -25,7 +25,7 @@
    </PIN>
    </NODE>
    <NODE nodename="Composite (DX11.Texture Spectral)" componentmode="Hidden" id="0" systemname="Composite (DX11.Texture Spectral)" filename="%VVVV%\packs\dx11\nodes\plugins\texproc\VVVV.DX11.Nodes.TexProc.dll">
-   <BOUNDS type="Node" left="2550" top="4680" width="3480" height="270">
+   <BOUNDS type="Node" left="2550" top="4680" width="6030" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="2550" top="4680" width="0" height="0">
    </BOUNDS>
@@ -40,6 +40,8 @@
    <PIN pinname="SizeXY" visible="1">
    </PIN>
    <PIN pinname="Auto Texture Size" visible="1">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InABox" id="4">
@@ -58,6 +60,8 @@
    <BOUNDS type="Node" left="840" top="2055" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="16">
    </PIN>
    </NODE>
    <NODE systemname="Cons (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Texture 2d)" componentmode="Hidden" id="6">
@@ -83,11 +87,11 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="7" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="4230" top="1755" width="1815" height="645">
+   <BOUNDS type="Box" left="6150" top="1350" width="1815" height="645">
    </BOUNDS>
-   <BOUNDS type="Node" left="4230" top="1755" width="0" height="0">
+   <BOUNDS type="Node" left="6150" top="1350" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="2" visible="1" values="Screen,Multiply">
+   <PIN pinname="Input Enum" slicecount="2" visible="1" values="Normal,Multiply">
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
@@ -99,11 +103,11 @@
    <LINK srcnodeid="7" srcpinname="Output Enum" dstnodeid="0" dstpinname="Mode">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3390" top="2175" width="795" height="480">
+   <BOUNDS type="Box" left="4950" top="3270" width="795" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="3390" top="2175" width="0" height="0">
+   <BOUNDS type="Node" left="4950" top="3270" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.79,1">
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.39,1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -121,9 +125,9 @@
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Alpha">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5130" top="2910" width="795" height="480">
+   <BOUNDS type="Box" left="7320" top="2280" width="795" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="5130" top="2910" width="0" height="0">
+   <BOUNDS type="Node" left="7320" top="2280" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="2" visible="1" values="640,480">
    </PIN>
@@ -143,9 +147,9 @@
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="0" dstpinname="SizeXY">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="10" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="6030" top="2940" width="1830" height="270">
+   <BOUNDS type="Node" left="8220" top="2310" width="1830" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="6030" top="2940" width="1830" height="270">
+   <BOUNDS type="Box" left="8220" top="2310" width="1830" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Custom output size|">
    </PIN>
@@ -157,9 +161,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5970" top="3825" width="480" height="480">
+   <BOUNDS type="Box" left="8520" top="3195" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="5970" top="3825" width="0" height="0">
+   <BOUNDS type="Node" left="8520" top="3195" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -177,9 +181,9 @@
    <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Auto Texture Size">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="6675" top="3915" width="3135" height="270">
+   <BOUNDS type="Node" left="9225" top="3285" width="3135" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="6675" top="3915" width="3135" height="270">
+   <BOUNDS type="Box" left="9225" top="3285" width="3135" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Gets first input texture as output size|">
    </PIN>
@@ -211,5 +215,67 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="Output" dstnodeid="6" dstpinname="Input 3">
+   </LINK>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="3180" top="3195" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" visible="1">
+   </PIN>
+   <PIN pinname="ScaleX" visible="1">
+   </PIN>
+   <PIN pinname="ScaleY" visible="1">
+   </PIN>
+   <PIN pinname="TranslateY" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Rotate" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Transform Out" dstnodeid="0" dstpinname="Texture Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="16" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2595" top="1395" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2595" top="1395" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0.27">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="15" dstpinname="TranslateX">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3630" top="1680" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3630" top="1680" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1.39,0.41">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="15" dstpinname="ScaleX">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="15" dstpinname="ScaleY">
    </LINK>
    </PATCH>
