@@ -1,0 +1,99 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\kinect2\RGB (Kinect2 Microsoft) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="3330" top="1845" width="7515" height="9600">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|RGB (Kinect2 Microsoft)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Gets kinect 2 color stream as a dx11 texture|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Kinect2 (Devices Microsoft)" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Kinect2 (Devices Microsoft)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2265" top="2940" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RGB (Kinect2 Microsoft)" nodename="RGB (Kinect2 Microsoft)" componentmode="Hidden" id="5" filename="%VVVV%\packs\dx11\nodes\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll">
+   <BOUNDS type="Node" left="2265" top="4050" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Frame Index" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="6">
+   <BOUNDS type="Node" left="2250" top="5490" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2250" top="5490" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10710" top="1830" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Texture" dstnodeid="6" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Kinect Runtime" dstnodeid="5" dstpinname="Kinect Runtime">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3375" top="2115" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3375" top="2115" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2655" top="4620" width="1875" height="420">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2655" top="4620" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frame Index|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Frame Index" dstnodeid="9" dstpinname="Y Input Value">
+   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   </PATCH>
