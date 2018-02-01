@@ -1,0 +1,26 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D NormalizedDepthTexture : PREVIOUS;
+Texture2D RayTexture;
+
+float4 PS(float4 p : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+{
+	float d = NormalizedDepthTexture.Load(int3(p.xy,0)).r;
+	d *= 65.535f; //Multiply by MAX_USHORT-1
+	float2 ray = RayTexture.Load(int3(p.xy, 0)).rg;
+	return float4(ray.xy*d, d,1.0f);
+}
+
+technique10 Process
+{
+	pass P0 <string format="R32G32B32A32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
