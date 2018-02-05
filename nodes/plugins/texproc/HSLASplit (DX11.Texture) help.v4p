@@ -1,0 +1,271 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\texproc\HSLASplit (DX11.Texture) help.v4p">
+   <BOUNDS type="Window" left="1830" top="870" width="12705" height="10530">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|HSLASplit (DX11.Texture)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Converts a texture in HSL or HSV space, and outputs each channel in an individual texture|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Assets (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\modules\Assets (DX11.Texture 2d).v4p" nodename="Assets (DX11.Texture 2d)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="1845" top="3330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" visible="1" values="16">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="12">
+   <BOUNDS type="Node" left="1410" top="6825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1410" top="6825" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="14370" top="825" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="12" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="1860" y="5205">
+   </LINKPOINT>
+   <LINKPOINT x="1440" y="5205">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="11">
+   <BOUNDS type="Node" left="2460" top="6825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2460" top="6825" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="14325" top="5790" width="3375" height="2955">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="10">
+   <BOUNDS type="Node" left="3600" top="6825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3600" top="6825" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17670" top="5805" width="3750" height="2985">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3795" top="2865" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3795" top="2865" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Single Channel Output|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5460" top="2655" width="7665" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5460" top="2655" width="5820" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Try to find an equivalent output format as single channel (saves memory, but sampling with be as red)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="7">
+   <BOUNDS type="Node" left="4635" top="6825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4635" top="6825" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="14280" top="8655" width="4005" height="3570">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5880" top="3750" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5880" top="3750" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|White If Invalid|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="5" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6570" top="3795" width="4185" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6570" top="3795" width="4185" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Tells is we prefer black or white texture if input is invalid|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="4" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="5235" top="5655" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5235" top="5655" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Message">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" values="ok">
+   </PIN>
+   </NODE>
+   <NODE nodename="HSLASplit (DX11.Texture)" componentmode="Hidden" id="14" systemname="HSLASplit (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\texproc\VVVV.DX11.Nodes.TexProc.dll">
+   <BOUNDS type="Node" left="2745" top="4695" width="3195" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2745" top="4695" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Red" visible="1">
+   </PIN>
+   <PIN pinname="Texture Green" visible="1">
+   </PIN>
+   <PIN pinname="Single Channel Output" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Texture Blue" visible="1">
+   </PIN>
+   <PIN pinname="Texture Alpha" visible="1">
+   </PIN>
+   <PIN pinname="White If Invalid" visible="1">
+   </PIN>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Texture Hue" visible="1">
+   </PIN>
+   <PIN pinname="Texture Saturation" visible="1">
+   </PIN>
+   <PIN pinname="Texture Brightness" visible="1">
+   </PIN>
+   <PIN pinname="Color Space" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="14" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="1905" y="4140">
+   </LINKPOINT>
+   <LINKPOINT x="2745" y="4140">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Single Channel Output">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="14" dstpinname="White If Invalid">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Message" dstnodeid="4" dstpinname="Input String">
+   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <LINK srcnodeid="14" srcpinname="Texture Hue" dstnodeid="11" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="2760" y="5895">
+   </LINKPOINT>
+   <LINKPOINT x="2490" y="5895">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Texture Saturation" dstnodeid="10" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="3405" y="5895">
+   </LINKPOINT>
+   <LINKPOINT x="3615" y="5895">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Texture Brightness" dstnodeid="7" dstpinname="Texture In" linkstyle="Bezier">
+   <LINKPOINT x="4035" y="5895">
+   </LINKPOINT>
+   <LINKPOINT x="4650" y="5895">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="15" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="4605" top="5100" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4605" top="5100" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Alpha|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Texture Alpha" dstnodeid="15" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="16" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4875" top="1575" width="1740" height="660">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4875" top="1575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="HSL">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Color Space|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output Enum" dstnodeid="14" dstpinname="Color Space">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1845" top="2295" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1845" top="2295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="49">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Index">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Index">
+   </LINK>
+   </PATCH>
