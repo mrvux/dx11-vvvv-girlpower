@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\BlendFactor (DX11.RenderState) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\BlendFactor (DX11.RenderState) help.v4p">
    <BOUNDS type="Window" left="6915" top="1800" width="10950" height="9420">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -93,7 +93,7 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="3570" top="1860" width="100" height="100">
+   <BOUNDS type="Node" left="3375" top="3435" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -101,9 +101,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="5" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="3615" y="3500">
+   <LINKPOINT x="3485" y="4550">
    </LINKPOINT>
-   <LINKPOINT x="2595" y="3805">
+   <LINKPOINT x="2530" y="4330">
    </LINKPOINT>
    </LINK>
    <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="9">
@@ -151,9 +151,9 @@
    <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="6" dstpinname="Transform In">
    </LINK>
    <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="6" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="3660" y="3493">
+   <LINKPOINT x="3530" y="4543">
    </LINKPOINT>
-   <LINKPOINT x="4755" y="3798">
+   <LINKPOINT x="4690" y="4323">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="9" srcpinname="Output" dstnodeid="5" dstpinname="Color">
@@ -184,36 +184,18 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="Render State" dstnodeid="6" dstpinname="Render State">
    </LINK>
-   <NODE systemname="Blend (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState Advanced)" componentmode="Hidden" id="15">
-   <BOUNDS type="Node" left="4635" top="3060" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Operation" slicecount="1" values="Add">
-   </PIN>
-   <PIN pinname="Alpha Operation" slicecount="1" values="Add">
-   </PIN>
-   <PIN pinname="Source Blend" slicecount="1" values="InverseBlendFactor">
-   </PIN>
-   <PIN pinname="Destination Blend" slicecount="1" values="BlendFactor">
-   </PIN>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="15" srcpinname="Render State" dstnodeid="0" dstpinname="Render State">
-   </LINK>
    <NODE systemname="RGB (Color Join)" nodename="RGB (Color Join)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="8130" top="2340" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Alpha" slicecount="1" values="0" visible="1">
+   <PIN pinname="Alpha" slicecount="1" visible="1" values="0">
    </PIN>
-   <PIN pinname="Blue" slicecount="1" values="0" visible="1">
+   <PIN pinname="Blue" slicecount="1" visible="1" values="0">
    </PIN>
-   <PIN pinname="Red" slicecount="1" values="0" visible="1">
+   <PIN pinname="Red" slicecount="1" visible="1" values="0">
    </PIN>
-   <PIN pinname="Green" slicecount="1" values="0.63" visible="1">
+   <PIN pinname="Green" slicecount="1" visible="1" values="0.63">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="18">
@@ -348,4 +330,46 @@
    </LINK>
    <LINK srcnodeid="24" srcpinname="W" dstnodeid="16" dstpinname="Alpha">
    </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="2685" top="2175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" visible="1" values="ConstantFactor">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Render State" dstnodeid="0" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="2745" y="3135">
+   </LINKPOINT>
+   <LINKPOINT x="4620" y="3135">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="26" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3120" top="1470" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3120" top="1470" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="ConstantFactor">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Mode">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="25" dstpinname="Mode">
+   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="27" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1590" top="2595" width="3480" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1590" top="2595" width="3480" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Use constant factor to allow blend factor as pin|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>
