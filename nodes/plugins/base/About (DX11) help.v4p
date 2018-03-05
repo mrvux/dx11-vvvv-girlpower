@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\About (DX11) help.v4p">
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\About (DX11) help.v4p" scrollx="0" scrolly="1440">
    <BOUNDS type="Window" left="5745" top="1665" width="10755" height="11955">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -71,7 +71,7 @@
    <LINK srcnodeid="0" srcpinname="Author" dstnodeid="5" dstpinname="Input String">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1650" top="3810" width="2430" height="7005">
+   <BOUNDS type="Box" left="1650" top="3810" width="2445" height="8025">
    </BOUNDS>
    <BOUNDS type="Node" left="1650" top="3810" width="0" height="0">
    </BOUNDS>
@@ -81,7 +81,7 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="Rows" slicecount="1" values="14">
+   <PIN pinname="Rows" slicecount="1" values="17">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Contributors">
    </PIN>
