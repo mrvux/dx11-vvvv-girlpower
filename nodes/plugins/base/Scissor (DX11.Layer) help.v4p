@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="D:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\Scissor (DX11.Layer) help.v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\Scissor (DX11.Layer) help.v4p" scrollx="0" scrolly="-360">
    <BOUNDS type="Window" left="1545" top="585" width="9960" height="13695">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -25,9 +25,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="20" stayontop="1">
-   <BOUNDS type="Node" left="1800" top="9525" width="100" height="100">
+   <BOUNDS type="Node" left="1800" top="10770" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1800" top="9525" width="6000" height="4500">
+   <BOUNDS type="Box" left="1800" top="10770" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="11565" top="615" width="7635" height="6600">
    </BOUNDS>
@@ -89,7 +89,7 @@
    </PIN>
    <PIN pinname="Texture" visible="1">
    </PIN>
-   <PIN pinname="Render State" visible="1">
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="11" srcpinname="Geometry Out" dstnodeid="24" dstpinname="Geometry">
@@ -97,49 +97,25 @@
    <LINK srcnodeid="23" srcpinname="Texture Out" dstnodeid="24" dstpinname="Texture">
    </LINK>
    <NODE systemname="Scissor (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Scissor (DX11.Layer)" componentmode="Hidden" id="25">
-   <BOUNDS type="Node" left="1980" top="8910" width="100" height="100">
+   <BOUNDS type="Node" left="1980" top="10155" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer In" visible="1">
    </PIN>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
-   <PIN pinname="PositionXY" visible="1" slicecount="4" values="103,87,0,0">
+   <PIN pinname="PositionXY" visible="1" slicecount="4" values="64,87,130,87">
    </PIN>
-   <PIN pinname="SizeXY" visible="1" slicecount="4" values="200,200,100,100">
+   <PIN pinname="SizeXY" visible="1" slicecount="4" values="200,200,247,200">
    </PIN>
    </NODE>
    <LINK srcnodeid="24" srcpinname="Layer" dstnodeid="25" dstpinname="Layer In" linkstyle="VHV">
-   <LINKPOINT x="3690" y="8580">
+   <LINKPOINT x="3690" y="8995">
    </LINKPOINT>
-   <LINKPOINT x="2385" y="8580">
+   <LINKPOINT x="2385" y="9410">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="25" srcpinname="Layer Out" dstnodeid="20" dstpinname="Layers">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1230" top="7785" width="795" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1230" top="7785" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="103,87">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0|">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXY">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2190" top="7800" width="795" height="480">
    </BOUNDS>
@@ -165,23 +141,17 @@
    </PIN>
    </NODE>
    <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="32">
-   <BOUNDS type="Node" left="1665" top="5475" width="100" height="100">
+   <BOUNDS type="Node" left="585" top="3975" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enable Scissor" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="32" srcpinname="Render State" dstnodeid="24" dstpinname="Render State" linkstyle="VHV">
-   <LINKPOINT x="1725" y="6255">
-   </LINKPOINT>
-   <LINKPOINT x="3825" y="6255">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2925" top="4020" width="480" height="480">
+   <BOUNDS type="Box" left="1515" top="2925" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="2925" top="4020" width="0" height="0">
+   <BOUNDS type="Node" left="1515" top="2925" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -198,15 +168,11 @@
    <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Enable Scissor">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="25" dstpinname="PositionXY" linkstyle="VHV">
-   <LINKPOINT x="1290" y="8573">
+   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Enable Scissor" linkstyle="VHV">
+   <LINKPOINT x="1575" y="3690">
    </LINKPOINT>
-   <LINKPOINT x="1965" y="8573">
+   <LINKPOINT x="1860" y="3690">
    </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="25" dstpinname="SizeXY">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="34" systemname="IOBox (String)">
    <BOUNDS type="Node" left="3165" top="7935" width="5265" height="270">
@@ -223,9 +189,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="35" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="4005" top="3780" width="4245" height="270">
+   <BOUNDS type="Node" left="2595" top="2685" width="4245" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="4005" top="3780" width="4455" height="870">
+   <BOUNDS type="Box" left="2595" top="2685" width="4455" height="870">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Scissor needs to be enabled in rasterizer to enable culling,&cr;&lf;Pixels outside the scissor rectangle area will be discaded before the pixel shader|">
    </PIN>
@@ -236,4 +202,78 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="EnableScissor (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="EnableScissor (DX11.RenderState)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="3195" top="4515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="39" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1035" top="7845" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1035" top="7845" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="71,87">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXY">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="1.2">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="41" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2610" top="4035" width="5235" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2610" top="4035" width="5235" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|you can use a predefined state and use setscissor to individually set flag|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="3195" top="3645" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Render State" dstnodeid="36" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="24" dstpinname="Render State" linkstyle="VHV">
+   <LINKPOINT x="3225" y="5775">
+   </LINKPOINT>
+   <LINKPOINT x="3840" y="5775">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="25" dstpinname="PositionXY" linkstyle="VHV">
+   <LINKPOINT x="1095" y="9240">
+   </LINKPOINT>
+   <LINKPOINT x="1980" y="9240">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="25" dstpinname="SizeXY">
+   </LINK>
    </PATCH>
