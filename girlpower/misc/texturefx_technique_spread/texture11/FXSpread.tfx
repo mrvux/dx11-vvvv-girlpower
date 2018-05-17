@@ -1,0 +1,66 @@
+//@author: vux
+//@help: Spreading texture FX with effect amount and blend amount
+//@tags: texture
+//@credits: 
+
+static const float3 luma_coeff = float3(0.2125, 0.7154, 0.0721);
+
+Texture2D InputTexture : PREVIOUS;
+float2 targetSize:TARGETSIZE;
+
+float blendAmount <float uimin = 0.0f; float uimax = 1.0f;> = 1.0f;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+
+SamplerState pointSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS_Invert(psInput input) : SV_Target
+{
+	float4 c = InputTexture.Sample(linearSampler,input.uv);
+	float3 c2 = 1.0f - c.rgb;
+	
+	return float4(lerp(c.rgb, c2, blendAmount), c.a);
+}
+
+float4 PS_Gray(psInput input) : SV_Target
+{
+	float4 c = InputTexture.Sample(linearSampler,input.uv);
+	float3 c2 = dot(c.rgb, luma_coeff).rrr;
+	return float4(lerp(c.rgb, c2, blendAmount), c.a);
+}
+
+technique10 Invert
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_Invert()));
+	}
+}
+
+
+technique10 GrayScale
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_Gray()));
+	}
+}
+
