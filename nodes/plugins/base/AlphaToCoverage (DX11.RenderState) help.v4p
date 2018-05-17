@@ -1,0 +1,257 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\AlphaToCoverage (DX11.RenderState) help.v4p">
+   <BOUNDS type="Window" left="6270" top="1170" width="11370" height="10500">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|AlphaToCoverage (DX11.RenderState)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Modifies current blend state to enable/disable alpha to coverage|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="7" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|AlphaToCoverage (DX11.RenderState)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Modifies current blend state to enable/disable alpha to coverage|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="19">
+   <BOUNDS type="Node" left="2565" top="7995" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2565" top="7995" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17820" top="1425" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" visible="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="2700" top="5430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3750" top="4305" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3750" top="4305" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.72">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Alpha">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 MRT)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 MRT)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="5805" top="3870" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Target Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
+   </PIN>
+   <PIN pinname="Texture SizeXY" slicecount="2" values="512,512">
+   </PIN>
+   </NODE>
+   <NODE systemname="Segment (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Segment (DX11.Geometry)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="6435" top="2205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="6135" top="3075" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Geometry Out" dstnodeid="14" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Layer" dstnodeid="16" dstpinname="Layer">
+   </LINK>
+   <NODE systemname="Assets (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\modules\Assets (DX11.Texture 2d).v4p" nodename="Assets (DX11.Texture 2d)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="1635" top="3450" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="1215" top="4140" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="2760" top="6825" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Layer" dstnodeid="11" dstpinname="Layer 1" linkstyle="VHV">
+   <LINKPOINT x="1320" y="5435">
+   </LINKPOINT>
+   <LINKPOINT x="2880" y="5770">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="12" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Blur (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\Blur.tfx" nodename="Blur (DX11.TextureFX)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="7035" top="4620" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="0.3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Buffers" dstnodeid="10" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Layer Out" dstnodeid="19" dstpinname="Layers">
+   </LINK>
+   <NODE nodename="Constant (DX11.Effect)" componentmode="Hidden" id="20" systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx">
+   <BOUNDS type="Node" left="3120" top="6120" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3120" top="6120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Alpha Reference Value" visible="1">
+   </PIN>
+   <PIN pinname="Alpha" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Geometry Out" dstnodeid="20" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="2760" y="5895">
+   </LINKPOINT>
+   <LINKPOINT x="3435" y="5895">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Layer" dstnodeid="11" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Alpha">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="3300" top="2775" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Blend">
+   </PIN>
+   </NODE>
+   <NODE systemname="AlphaToCoverage (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="AlphaToCoverage (DX11.RenderState)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="3285" top="3300" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="23" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="555" top="7035" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="555" top="7035" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|AA Samples per Pixel|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output Enum" dstnodeid="19" dstpinname="AA Samples per Pixel" linkstyle="VHV">
+   <LINKPOINT x="615" y="7635">
+   </LINKPOINT>
+   <LINKPOINT x="2565" y="7635">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Render State" dstnodeid="22" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Render State" dstnodeid="20" dstpinname="Render State">
+   </LINK>
+   <PACK Name="dx11" Version="1.3">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="26" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4530" top="2310" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4530" top="2310" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Texture Out" dstnodeid="20" dstpinname="Texture" linkstyle="VHV">
+   <LINKPOINT x="7035" y="5490">
+   </LINKPOINT>
+   <LINKPOINT x="4440" y="5490">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
