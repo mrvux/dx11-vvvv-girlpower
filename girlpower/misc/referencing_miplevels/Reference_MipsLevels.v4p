@@ -1,0 +1,127 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\girlpower\girlpower\misc\referencing_miplevels\Reference_MipsLevels.v4p" filename="C:\Users\vux\Desktop\RendererTest.v4p" systemname="RendererTest">
+   <BOUNDS height="9780" left="12480" top="1560" type="Window" width="11595">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="239" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="255" left="90" top="120" type="Node" width="570">
+   </BOUNDS>
+   <BOUNDS height="2775" left="90" top="120" type="Box" width="8370">
+   </BOUNDS>
+   <BOUNDS height="160" left="600" top="600" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|To get resource mips in shader, the only way is to create a pin (can&apos;t use sm5 dimensions functions)&cr;&lf;-Create a pin&cr;&lf;&cr;&lf;First option requires more linking and making sure that resource info is correctly know/attached.&cr;&lf;&cr;&lf;Instead, shader can now have semanticto mark a variable as MIPLEVELSOF, and use a reference annotation to mark which variable we need.&cr;&lf;As usual, a small example is easier than thousand words:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="249">
+   <BOUNDS type="Node" left="2220" top="4740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="251">
+   <BOUNDS type="Node" left="1635" top="6360" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Element Count" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Stride" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="253" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1620" top="7515" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1620" top="7515" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Compute_DebugMips_CBuffer (DX11.Effect)" filename="dx11\Compute_DebugMips_CBuffer.fx" nodename="Compute_DebugMips_CBuffer (DX11.Effect)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="1965" top="5835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="InputTexture" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Geometry Out" dstnodeid="250" dstpinname="Geometry" linkstyle="VHV">
+   <LINKPOINT x="2365" y="5503">
+   </LINKPOINT>
+   <LINKPOINT x="2585" y="5343">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="250" srcpinname="Layer" dstnodeid="251" dstpinname="Layer">
+   </LINK>
+   <PACK Name="dx11" Version="1.3">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="ReadBack (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Value)" componentmode="Hidden" id="252">
+   <BOUNDS type="Node" left="1620" top="6870" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Buffers" dstnodeid="252" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="252" srcpinname="Output" dstnodeid="253" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Renderer (DX11 TempTarget)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TempTarget)" componentmode="Hidden" id="255">
+   <BOUNDS type="Node" left="3750" top="4800" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Generate Mip Maps" visible="1">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="256" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4065" top="3795" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4065" top="3795" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Generate Mip Maps|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="256" srcpinname="Y Output Value" dstnodeid="255" dstpinname="Generate Mip Maps">
+   </LINK>
+   <LINK srcnodeid="255" srcpinname="Buffers" dstnodeid="250" dstpinname="InputTexture" linkstyle="VHV">
+   <LINKPOINT x="5070" y="5445">
+   </LINKPOINT>
+   <LINKPOINT x="3510" y="5445">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
