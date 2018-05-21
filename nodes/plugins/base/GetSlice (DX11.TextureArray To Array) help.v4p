@@ -251,7 +251,7 @@
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="´0-0">
+   <PIN pinname="Descriptive Name" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="78" srcpinname="Textures Out" dstnodeid="79" dstpinname="Texture In">
