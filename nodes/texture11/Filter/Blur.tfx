@@ -6,15 +6,22 @@
 Texture2D tex0: PREVIOUS;
 Texture2D tex1 <string uiname="Control";>;
 
-float2 R:TARGETSIZE;
-
-cbuffer controls:register(b0){
+cbuffer controls:register(b0)
+{
 	float Width <float uimin=0.0;float uimax=1.0;> =0.5;
+	float2 R: TARGETSIZE;
+
 };
 
-SamplerState s0 <bool visible=true;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+SamplerState s0 <bool visible=true;string uiname="Sampler";> 
+{
+	Filter=MIN_MAG_MIP_LINEAR;
+	AddressU=CLAMP;
+	AddressV=CLAMP;
+};
 
-float4 pBLUR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+float4 pBLUR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
 	float lod=log2(max(R.x,R.y));
 	float4 map=tex1.SampleLevel(s0,x,0);map=max(map.x,max(map.y,map.z))*map.a;
 	lod=map.x*(Width)*log2(max(R.x,R.y));
@@ -34,7 +41,8 @@ float4 pBLUR(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	return c;
 }
 
-float4 pBLUR_P1(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+float4 pBLUR_P1(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
 	float lod=log2(max(R.x,R.y));
 	float4 map=tex1.SampleLevel(s0,x,0);map=max(map.x,max(map.y,map.z))*map.a;
 	lod=map.x*(Width)*(log2(max(R.x,R.y)));
@@ -56,7 +64,9 @@ float4 pBLUR_P1(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	c/=9;
 	return c;
 }
-float4 pBLUR_P2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+
+float4 pBLUR_P2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
 	float lod=log2(max(R.x,R.y));
 	float4 map=tex1.SampleLevel(s0,x,0);map=max(map.x,max(map.y,map.z))*map.a;
 	lod=map.x*(Width)*log2(max(R.x,R.y));
@@ -76,7 +86,9 @@ float4 pBLUR_P2(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	c/=9;
 	return c;
 }
-float4 pBLUR_P3(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+
+float4 pBLUR_P3(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
 	float lod=log2(max(R.x,R.y));
 	float4 map=tex1.SampleLevel(s0,x,0);map=max(map.x,max(map.y,map.z))*map.a;
 	lod=map.x*(Width)*log2(max(R.x,R.y));
@@ -97,33 +109,40 @@ float4 pBLUR_P3(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	c/=9;
 	return c;
 }
-float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
-	return tex0.SampleLevel(s0,x,0);
+
+technique10 FastBlur <bool wantmips=true;>
+{
+	pass P1
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR()));
+	}
 }
-technique10 FastBlur{
-	pass P0 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
-	pass P1{SetPixelShader(CompileShader(ps_4_0,pBLUR()));}
+
+technique10 TwoPass <bool wantmips=true;>
+{
+	pass P1 <bool mips=true;>
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));
+	}
+	pass P2 
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));
+	}
 }
-technique10 FastBlur_NoMips{
-	pass P1{SetPixelShader(CompileShader(ps_4_0,pBLUR()));}
+
+technique10 ThreePass <bool wantmips=true;>
+{
+	pass P1 <bool mips=true;>
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));
+	}
+	pass P2 <bool mips=true;>
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));
+	}
+	pass P3
+	{
+		SetPixelShader(CompileShader(ps_4_0,pBLUR_P3()));
+	}
 }
-technique10 TwoPass{
-	pass P0 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
-	pass P1 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));}
-	pass P2 {SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));}
-}
-technique10 TwoPass_NoMips{
-	pass P1 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));}
-	pass P2 {SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));}
-}
-technique10 ThreePass{
-	pass P0 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
-	pass P1 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));}
-	pass P2 <bool mips=true;> {SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));}
-	pass P3 {SetPixelShader(CompileShader(ps_4_0,pBLUR_P3()));}
-}
-technique10 ThreePass_NoMips{
-	pass P1 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pBLUR_P1()));}
-	pass P2 <bool mips=true;> {SetPixelShader(CompileShader(ps_4_0,pBLUR_P2()));}
-	pass P3 {SetPixelShader(CompileShader(ps_4_0,pBLUR_P3()));}
-}
+

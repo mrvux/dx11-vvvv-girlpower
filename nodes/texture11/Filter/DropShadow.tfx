@@ -7,7 +7,8 @@ Texture2D tex0: PREVIOUS;
 
 float2 R:TARGETSIZE;
 
-cbuffer controls:register(b0){
+cbuffer controls:register(b0)
+{
 	float Blur <float uimin=0.0;float uimax=1.0;> =0.5;
 	float Offset=0.05;
 	float Angle=0.9;
@@ -16,13 +17,18 @@ cbuffer controls:register(b0){
 	float Extension=0;
 };
 
-SamplerState s0 <bool visible=true;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+SamplerState s0 <bool visible=true;string uiname="Sampler";> 
+{
+	Filter=MIN_MAG_MIP_LINEAR;
+	AddressU=CLAMP;
+	AddressV=CLAMP;
+};
 
-float4 pD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
+float4 pD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target
+{
 	float4 c0=tex0.SampleLevel(s0,x,0);
 	float4 c=c0;
 	
-	//float2 off=sin((0+float2(.25,0))*acos(-1)*2);
 	c.rgb=c.a;
 	float lod=log2(max(R.x,R.y));
 	lod=(Blur)*log2(max(R.x,R.y));
@@ -43,17 +49,13 @@ float4 pD(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
 	c=Color*float4(1,1,1,saturate(pow(2,Extension)*c.a)*Alpha);
 	c.rgb=lerp(c.rgb,c0.rgb,c0.a);
 	c.a=max(c.a,c0.a);
-	//c.a=1;
 	return c;
 }
 
-
-float4 pMIPS(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_Target{
-	return tex0.SampleLevel(s0,x,0);
-}
-technique10 DropShadow{
-	pass P0 <bool mips=true;>{SetPixelShader(CompileShader(ps_4_0,pMIPS()));}
-	pass P1{SetPixelShader(CompileShader(ps_4_0,pD()));}
-
-
+technique10 DropShadow <bool wantmips=true;>
+{
+	pass P1
+	{
+		SetPixelShader(CompileShader(ps_4_0,pD()));
+	}
 }
