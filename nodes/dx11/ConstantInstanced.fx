@@ -18,9 +18,10 @@ StructuredBuffer<float4> sbColor;
 cbuffer cbPerDraw : register( b0 )
 {
 	float4x4 tVP : LAYERVIEWPROJECTION;
-	float4x4 tW : WORLD;
-	
+	float4x4 tW : WORLD;	
+	float layerOpacity : LAYEROPACITY = 1.0f;
 	int colorcount = 1;
+	
 };
 
 
@@ -59,6 +60,7 @@ vs2ps VS(VS_IN input)
 float4 PS_Tex(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample( g_samLinear, In.TexCd) * In.Color;
+	col.a *= layerOpacity;
     return col;
 }
 

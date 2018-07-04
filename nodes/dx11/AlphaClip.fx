@@ -27,6 +27,7 @@ SamplerState linearSampler <string uiname="Sampler State";>
 cbuffer cbPerDraw : register(b0)
 {
 	float4x4 tVP : LAYERVIEWPROJECTION;
+	float layerOpacity : LAYEROPACITY = 1.0f;
 };
 
 cbuffer cbPerObj : register( b1 )
@@ -57,7 +58,7 @@ float4 PS_Textured(psInputTextured input): SV_Target
 {
     float4 col = inputTexture.Sample(linearSampler,input.uv.xy) * cAmb;
 	col = mul(col, tColor);
-	col.a *= Alpha;
+	col.a *= Alpha * layerOpacity;
 	clip(col.a - AlphaRef);
     return col;
 }
