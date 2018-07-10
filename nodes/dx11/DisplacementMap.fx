@@ -18,6 +18,7 @@ cbuffer cbControls : register( b1 )
 	float4x4 tW : WORLD;
 	float4x4 tVP : LAYERVIEWPROJECTION;
 	float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
+	float layerOpacity : LAYEROPACITY = 1.0f;
 };
 
 struct VS_IN
@@ -38,6 +39,7 @@ vs2ps VS(VS_IN input)
     vs2ps output;
     output.PosWVP  = mul(input.PosO,mul(tW,tVP));
     output.TexCd = mul(input.TexCd, tTex).xy;
+	col.a *= layerOpacity;
     return output;
 }
 
@@ -45,6 +47,7 @@ float4 PS(vs2ps In): SV_Target
 {
 	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;	
 	float4 col = texture2d.Sample(Samp, In.TexCd + dir );
+	col.a *= layerOpacity;
     return col;
 }
 
@@ -52,6 +55,7 @@ float4 PS_Absolute(vs2ps In): SV_Target
 {
 	float2 dir = texture2dctrl.Sample(Samp, In.TexCd).rg  ;	
 	float4 col = texture2d.Sample(Samp, dir );
+	col.a *= layerOpacity;
     return col;
 }
 

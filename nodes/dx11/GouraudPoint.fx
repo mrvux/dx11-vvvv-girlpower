@@ -45,6 +45,7 @@ cbuffer cbPerDraw : register(b0)
 	float4x4 tV: VIEW;
 	float4x4 tP: PROJECTION;
 	float4x4 tVP: VIEWPROJECTION;
+	float layerOpacity : LAYEROPACITY = 1.0f;
 };
 
 cbuffer cbPerObj : register( b1 )
@@ -54,7 +55,6 @@ cbuffer cbPerObj : register( b1 )
 	float4x4 tWIT: WORLDLAYERINVERSETRANSPOSE;
 	
 	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
-	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
 	float4x4 tColor <string uiname="Color Transform";>;
 };
 
@@ -127,7 +127,7 @@ float4 PS_Textured(psInputTextured input): SV_Target
     col.rgb *= input.Diffuse.xyz + input.Specular.xyz;
 
     col = mul(col, tColor);
-    col.a *= Alpha;  
+    col.a *= Alpha*layerOpacity;  
     return col;
 }
 
@@ -180,7 +180,7 @@ float4 PS(psInput input): SV_Target
     col.rgb *= input.Diffuse.xyz + input.Specular.xyz;
 
     col = mul(col, tColor);
-    col.a *= Alpha;  
+    col.a *= Alpha*layerOpacity;  
     return col;
 }
 
