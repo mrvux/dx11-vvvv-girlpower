@@ -1,0 +1,99 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="E:\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\base\StencilArrayView (DX11.Texture 2d) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="6195" top="3555" width="11865" height="7755">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|StencilArrayView (DX11.Texture 2d)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="195" top="720" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="195" top="720" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Allows access to read stencil view, usable as Texture2DArray&lt;uint4&gt; (green component is stencil), in a shader|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="5" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4575" top="3780" width="2505" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4575" top="3780" width="2505" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;-- Make sure value is S8 version|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3705" top="5055" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3705" top="5055" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|">
+   </PIN>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 TextureArray)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TextureArray)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="2475" top="3795" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D24_UNorm_S8_UInt">
+   </PIN>
+   <PIN pinname="Depth Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Depth Out" visible="1">
+   </PIN>
+   <PIN pinname="Element Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="StencilArrayView (DX11.Texture 2d)" componentmode="Hidden" id="7" systemname="StencilArrayView (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="3720" top="4320" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3720" top="4320" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Depth Stencil In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Texture Out" dstnodeid="4" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Depth Out" dstnodeid="7" dstpinname="Depth Stencil In">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2985" top="3015" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2985" top="3015" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Element Count">
+   </LINK>
+   </PATCH>
