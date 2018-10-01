@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="W:\projects\dx11-vvvv-girlpower\nodes\modules\DX11ToDX9 (DX11.Texture 2d).v4p" systemname="DX11ToDX9 (DX11.Texture 2d)" filename="W:\projects\dx11-vvvv-girlpower\nodes\modules\DX11ToDX9 (DX11.Texture 2d).v4p" locked="0" scrollx="0" scrolly="1440">
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\DX11ToDX9 (DX11.Texture 2d).v4p" systemname="DX11ToDX9 (DX11.Texture 2d)" filename="W:\projects\dx11-vvvv-girlpower\nodes\modules\DX11ToDX9 (DX11.Texture 2d).v4p" locked="0" scrollx="0" scrolly="1440">
    <BOUNDS type="Window" left="5835" top="6225" width="8760" height="6780">
    </BOUNDS>
    <NODE systemname="AsSharedTexture (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AsSharedTexture (DX11.Texture 2d)" componentmode="Hidden" id="175">
@@ -103,7 +103,7 @@
    </BOUNDS>
    <PIN pinname="Transform" visible="1">
    </PIN>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -144,6 +144,8 @@
    <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Manual">
    </PIN>
    </NODE>
    <LINK srcnodeid="221" srcpinname="Output Enum" dstnodeid="222" dstpinname="Target Format">

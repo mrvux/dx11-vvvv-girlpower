@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.dtd" >
-   <PATCH nodename="X:\CubeMap\CubeToPano\CubeToPano (DX11.Texture 2d).v4p" systemname="CubeToPano (DX11.Texture 2d)" filename="X:\StarBackground\CubeToPano\CubeToPano (DX11.Texture 2d).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Cubemap\CubeToPano (DX11.Texture 2d).v4p" systemname="CubeToPano (DX11.Texture 2d)" filename="X:\StarBackground\CubeToPano\CubeToPano (DX11.Texture 2d).v4p">
    <BOUNDS type="Window" left="6765" top="8490" width="9000" height="6000">
    </BOUNDS>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="0">
@@ -28,6 +28,8 @@
    <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
    </PIN>
    </NODE>
    <NODE systemname="CubeToPanoDX11 (DX11.Effect)" filename="CubeToPanoDX11.fx" nodename="CubeToPanoDX11 (DX11.Effect)" componentmode="Hidden" id="4">
@@ -162,4 +164,6 @@
    </NODE>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Texture SizeXY">
    </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>

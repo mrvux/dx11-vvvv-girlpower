@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="X:\Cubemap\CubeToSphere (DX11.Texture 2d).v4p" systemname="CubeToSphere (DX11.Texture 2d)" filename="X:\StarBackground\CubeToSphere\CubeToSphere (DX11.Texture 2d).v4p">
-   <BOUNDS type="Window" left="20220" top="7950" width="9000" height="5040">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Work\dx11-vvvv-girlpower\nodes\modules\Cubemap\CubeToSphere (DX11.Texture 2d).v4p" systemname="CubeToSphere (DX11.Texture 2d)" filename="X:\StarBackground\CubeToSphere\CubeToSphere (DX11.Texture 2d).v4p">
+   <BOUNDS type="Window" left="12435" top="8925" width="9000" height="5040">
    </BOUNDS>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="0">
    <BOUNDS type="Node" left="240" top="15" width="100" height="100">
@@ -28,6 +28,8 @@
    <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Texture Input Mode" slicecount="1" values="Inherit">
    </PIN>
    </NODE>
    <NODE systemname="CubeToSphereDX11 (DX11.Effect)" filename="CubeToSphereDX11.fx" nodename="CubeToSphereDX11 (DX11.Effect)" componentmode="Hidden" id="4">
@@ -167,7 +169,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5940" top="1545" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1.0">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -210,4 +212,6 @@
    </NODE>
    <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="4" dstpinname="ClipBorder">
    </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>
