@@ -1,0 +1,475 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\vux\Documents\repositories\dx11-vvvv\Deploy\Debug\x64\packs\dx11\nodes\plugins\bullet\SoftShape (Bullet Advanced) help.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="2760" top="1020" width="13815" height="12645">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|SoftShape (Bullet Advanced)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Creates a soft body shape, manually specifying positions and link|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="SoftWorld (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="SoftWorld (Bullet)" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="10125" top="3030" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="World" visible="1">
+   </PIN>
+   <PIN pinname="Reset" visible="1">
+   </PIN>
+   <PIN pinname="Has Reset" visible="1">
+   </PIN>
+   <PIN pinname="GravityXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="39">
+   <BOUNDS type="Node" left="1275" top="11850" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1275" top="11850" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="16665" top="945" width="10110" height="7875">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="1425" top="11100" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 4" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Layer Out" dstnodeid="39" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="2550" top="11115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="View" dstnodeid="39" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Projection" dstnodeid="39" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="CreateSoftBody (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateSoftBody (Bullet)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="1965" top="6975" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shapes" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Body" visible="1">
+   </PIN>
+   <PIN pinname="World" visible="1">
+   </PIN>
+   <PIN pinname="Do Create" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Pose" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SoftBodies (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="SoftBodies (Bullet)" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="3930" top="6975" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="World" visible="1">
+   </PIN>
+   <PIN pinname="Soft Bodies" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="World" dstnodeid="35" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="10125" y="5123">
+   </LINKPOINT>
+   <LINKPOINT x="3990" y="5123">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="World" dstnodeid="36" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="10125" y="5123">
+   </LINKPOINT>
+   <LINKPOINT x="2025" y="5123">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11505" top="2070" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11505" top="2070" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Reset">
+   </LINK>
+   <NODE systemname="SoftBody (Bullet DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="SoftBody (Bullet DX11.Geometry)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="4155" top="7740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bodies" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Links As Line List" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Soft Bodies" dstnodeid="31" dstpinname="Bodies">
+   </LINK>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="3840" top="8460" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="ConstantNoTexture">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Output" dstnodeid="30" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="DebugDraw (DX11.Layer Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="DebugDraw (DX11.Layer Bullet)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="615" top="8760" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="World" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Layer Out" dstnodeid="38" dstpinname="Layer 2" linkstyle="VHV">
+   <LINKPOINT x="720" y="9853">
+   </LINKPOINT>
+   <LINKPOINT x="1695" y="10248">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Plane (Bullet)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Plane (Bullet)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="7185" top="7560" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shape" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CreateStaticBody (Bullet Rigid)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="CreateStaticBody (Bullet Rigid)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="6945" top="8115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shapes" visible="1">
+   </PIN>
+   <PIN pinname="Do Create" visible="1">
+   </PIN>
+   <PIN pinname="World" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Shape" dstnodeid="27" dstpinname="Shapes">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Has Reset" dstnodeid="27" dstpinname="Do Create" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="10965" y="5708">
+   </LINKPOINT>
+   <LINKPOINT x="8190" y="5708">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="World" dstnodeid="27" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="10125" y="5708">
+   </LINKPOINT>
+   <LINKPOINT x="6990" y="5708">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Layer" dstnodeid="38" dstpinname="Layer 4" linkstyle="VHV">
+   <LINKPOINT x="3870" y="9663">
+   </LINKPOINT>
+   <LINKPOINT x="2130" y="10138">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="1950" top="9345" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.11214,0.11214,0.11214,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Layer" dstnodeid="38" dstpinname="Layer 3">
+   </LINK>
+   <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="2130" top="8865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Rotate XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Scale XYZ" slicecount="3" values="20,20,20">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Transform Out" dstnodeid="26" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2700" top="7650" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2700" top="7650" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.25,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Rotate XYZ">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4845" top="6975" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4845" top="6975" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Links As Line List|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="31" dstpinname="Links As Line List">
+   </LINK>
+   <NODE systemname="Pose (Bullet Join)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="Pose (Bullet Join)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="2295" top="5805" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="36" dstpinname="Initial Pose">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2295" top="4710" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2295" top="4710" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,3,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="21" dstpinname="PositionXYZ">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="World" dstnodeid="29" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="10125" y="6015">
+   </LINKPOINT>
+   <LINKPOINT x="675" y="6015">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9930" top="1995" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9930" top="1995" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,-9.8,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="40" dstpinname="GravityXYZ">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
+   <NODE systemname="SoftShape (Bullet Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="SoftShape (Bullet Advanced)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="2130" top="4110" width="4035" height="270">
+   </BOUNDS>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Mass" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Shape" visible="1">
+   </PIN>
+   <PIN pinname="Soft Body Properties" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="43">
+   <BOUNDS type="Node" left="300" top="1350" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="300" top="1350" width="3960" height="1755">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="15" values="-2,0,-2,-2,0,2,2,0,2,2,0,-2,0,2,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXYZ">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="42" dstpinname="PositionXYZ">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="44">
+   <BOUNDS type="Node" left="4605" top="1350" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4605" top="1350" width="705" height="1785">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="5" values="1,1,1,1,1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Mass">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Mass">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="45">
+   <BOUNDS type="Node" left="5790" top="645" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5790" top="645" width="1620" height="2430">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="16" values="0,4,1,4,2,4,3,4,0,1,1,2,2,3,3,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Indices">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Indices">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Shape" dstnodeid="36" dstpinname="Shapes">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4080" top="4725" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4080" top="4725" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Do Create|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Do Create">
+   </LINK>
+   <NODE systemname="SoftBodyProperties (Bullet Join)" filename="%VVVV%\packs\dx11\nodes\plugins\bullet\VVVV.Nodes.Bullet.dll" nodename="SoftBodyProperties (Bullet Join)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="7455" top="3285" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Damping Coefficient" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Dynamic Friction Coefficient" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="42" dstpinname="Soft Body Properties">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="49" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7995" top="2085" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7995" top="2085" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Damping Coefficient">
+   </LINK>
+   </PATCH>
