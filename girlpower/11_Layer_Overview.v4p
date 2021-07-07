@@ -54,8 +54,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="231" systemname="IOBox (String)">
    <BOUNDS type="Node" left="8130" top="2625" width="7230" height="270">
    </BOUNDS>

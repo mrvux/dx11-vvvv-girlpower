@@ -584,6 +584,4 @@
    </NODE>
    <LINK srcnodeid="251" srcpinname="Is Valid" dstnodeid="282" dstpinname="Y Input Value">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
-   </PACK>
    </PATCH>
